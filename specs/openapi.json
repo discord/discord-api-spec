@@ -45,25 +45,6 @@
         ]
       }
     },
-    "/oauth2/token/revoke": {
-      "post": {
-        "operationId": "revoke_access_token",
-        "responses": {
-          "200": {
-            "description": "200 response for revoke_access_token"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {},
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/users/@me/connections": {
       "get": {
         "operationId": "list_my_connections",
@@ -300,31 +281,19 @@
         ]
       }
     },
-    "/oauth2/token": {
-      "post": {
-        "operationId": "create_access_token",
-        "responses": {
-          "200": {
-            "description": "200 response for create_access_token"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {},
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/oauth2/@me": {
       "get": {
         "operationId": "get_my_oauth2_authorization",
         "responses": {
           "200": {
-            "description": "200 response for get_my_oauth2_authorization"
+            "description": "200 response for get_my_oauth2_authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OAuth2GetAuthorizationResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -952,8 +921,8 @@
       "put": {
         "operationId": "add_my_message_reaction",
         "responses": {
-          "200": {
-            "description": "200 response for add_my_message_reaction"
+          "204": {
+            "description": "204 response for add_my_message_reaction"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -968,8 +937,8 @@
       "delete": {
         "operationId": "delete_my_message_reaction",
         "responses": {
-          "200": {
-            "description": "200 response for delete_my_message_reaction"
+          "204": {
+            "description": "204 response for delete_my_message_reaction"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -2005,8 +1974,8 @@
           "required": true
         },
         "responses": {
-          "200": {
-            "description": "200 response for bulk_delete_messages"
+          "204": {
+            "description": "204 response for bulk_delete_messages"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -2061,8 +2030,8 @@
       "delete": {
         "operationId": "delete_user_message_reaction",
         "responses": {
-          "200": {
-            "description": "200 response for delete_user_message_reaction"
+          "204": {
+            "description": "204 response for delete_user_message_reaction"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -2134,7 +2103,17 @@
         ],
         "responses": {
           "200": {
-            "description": "200 response for list_message_reactions_by_emoji"
+            "description": "200 response for list_message_reactions_by_emoji",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserResponse"
+                  }
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -2149,8 +2128,8 @@
       "delete": {
         "operationId": "delete_all_message_reactions_by_emoji",
         "responses": {
-          "200": {
-            "description": "200 response for delete_all_message_reactions_by_emoji"
+          "204": {
+            "description": "204 response for delete_all_message_reactions_by_emoji"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -2187,8 +2166,8 @@
       "delete": {
         "operationId": "delete_all_message_reactions",
         "responses": {
-          "200": {
-            "description": "200 response for delete_all_message_reactions"
+          "204": {
+            "description": "204 response for delete_all_message_reactions"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -2595,7 +2574,20 @@
         ],
         "responses": {
           "200": {
-            "description": "200 response for list_guild_scheduled_event_users"
+            "description": "200 response for list_guild_scheduled_event_users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "$ref": "#/components/schemas/ScheduledEventUserResponse"
+                  }
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -4289,8 +4281,8 @@
       "delete": {
         "operationId": "delete_message",
         "responses": {
-          "200": {
-            "description": "200 response for delete_message"
+          "204": {
+            "description": "204 response for delete_message"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -4304,6 +4296,75 @@
       },
       "patch": {
         "operationId": "update_message",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageEditRequestPartial"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/MessageEditRequestPartial"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MessageEditRequestPartial"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "files[0]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[1]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[2]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[3]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[4]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[5]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[6]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[7]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[8]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      },
+                      "files[9]": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "200 response for update_message",
@@ -4629,9 +4690,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
-                    "$ref": "#/components/schemas/InviteResponse"
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/FriendInviteResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/GroupDMInviteResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/GuildInviteResponse"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   }
                 }
               }
@@ -4672,7 +4749,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InviteResponse"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/FriendInviteResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GroupDMInviteResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GuildInviteResponse"
+                    }
+                  ]
                 }
               }
             }
@@ -6085,7 +6172,14 @@
         ],
         "responses": {
           "200": {
-            "description": "200 response for list_guild_audit_log_entries"
+            "description": "200 response for list_guild_audit_log_entries",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuildAuditLogResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -7122,9 +7216,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
                   "items": {
-                    "$ref": "#/components/schemas/InviteResponse"
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/FriendInviteResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/GroupDMInviteResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/GuildInviteResponse"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
                   }
                 }
               }
@@ -8679,7 +8789,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InviteResponse"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/FriendInviteResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GroupDMInviteResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GuildInviteResponse"
+                    }
+                  ]
                 }
               }
             }
@@ -8703,7 +8823,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InviteResponse"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/FriendInviteResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GroupDMInviteResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GuildInviteResponse"
+                    }
+                  ]
                 }
               }
             }
@@ -11377,6 +11507,163 @@
           "permissions"
         ]
       },
+      "ApplicationResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationTypes"
+              }
+            ]
+          },
+          "cover_image": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "primary_sku_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          },
+          "bot": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "slug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "guild_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          },
+          "rpc_origins": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "bot_public": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "bot_require_code_grant": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "terms_of_service_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "privacy_policy_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "custom_install_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "install_params": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationOAuth2ParamsResponse"
+              }
+            ]
+          },
+          "verify_key": {
+            "type": "string"
+          },
+          "flags": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "max_participants": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "tags": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "verify_key",
+          "flags"
+        ]
+      },
       "ApplicationRoleConnectionsMetadataItemRequest": {
         "type": "object",
         "properties": {
@@ -11511,6 +11798,359 @@
               "type": "string"
             }
           }
+        }
+      },
+      "AuditLogActionTypes": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "GUILD_UPDATE",
+            "const": 1
+          },
+          {
+            "title": "CHANNEL_CREATE",
+            "const": 10
+          },
+          {
+            "title": "CHANNEL_UPDATE",
+            "const": 11
+          },
+          {
+            "title": "CHANNEL_DELETE",
+            "const": 12
+          },
+          {
+            "title": "CHANNEL_OVERWRITE_CREATE",
+            "const": 13
+          },
+          {
+            "title": "CHANNEL_OVERWRITE_UPDATE",
+            "const": 14
+          },
+          {
+            "title": "CHANNEL_OVERWRITE_DELETE",
+            "const": 15
+          },
+          {
+            "title": "MEMBER_KICK",
+            "const": 20
+          },
+          {
+            "title": "MEMBER_PRUNE",
+            "const": 21
+          },
+          {
+            "title": "MEMBER_BAN_ADD",
+            "const": 22
+          },
+          {
+            "title": "MEMBER_BAN_REMOVE",
+            "const": 23
+          },
+          {
+            "title": "MEMBER_UPDATE",
+            "const": 24
+          },
+          {
+            "title": "MEMBER_ROLE_UPDATE",
+            "const": 25
+          },
+          {
+            "title": "MEMBER_MOVE",
+            "const": 26
+          },
+          {
+            "title": "MEMBER_DISCONNECT",
+            "const": 27
+          },
+          {
+            "title": "BOT_ADD",
+            "const": 28
+          },
+          {
+            "title": "ROLE_CREATE",
+            "const": 30
+          },
+          {
+            "title": "ROLE_UPDATE",
+            "const": 31
+          },
+          {
+            "title": "ROLE_DELETE",
+            "const": 32
+          },
+          {
+            "title": "INVITE_CREATE",
+            "const": 40
+          },
+          {
+            "title": "INVITE_UPDATE",
+            "const": 41
+          },
+          {
+            "title": "INVITE_DELETE",
+            "const": 42
+          },
+          {
+            "title": "WEBHOOK_CREATE",
+            "const": 50
+          },
+          {
+            "title": "WEBHOOK_UPDATE",
+            "const": 51
+          },
+          {
+            "title": "WEBHOOK_DELETE",
+            "const": 52
+          },
+          {
+            "title": "EMOJI_CREATE",
+            "const": 60
+          },
+          {
+            "title": "EMOJI_UPDATE",
+            "const": 61
+          },
+          {
+            "title": "EMOJI_DELETE",
+            "const": 62
+          },
+          {
+            "title": "MESSAGE_DELETE",
+            "const": 72
+          },
+          {
+            "title": "MESSAGE_BULK_DELETE",
+            "const": 73
+          },
+          {
+            "title": "MESSAGE_PIN",
+            "const": 74
+          },
+          {
+            "title": "MESSAGE_UNPIN",
+            "const": 75
+          },
+          {
+            "title": "INTEGRATION_CREATE",
+            "const": 80
+          },
+          {
+            "title": "INTEGRATION_UPDATE",
+            "const": 81
+          },
+          {
+            "title": "INTEGRATION_DELETE",
+            "const": 82
+          },
+          {
+            "title": "STAGE_INSTANCE_CREATE",
+            "const": 83
+          },
+          {
+            "title": "STAGE_INSTANCE_UPDATE",
+            "const": 84
+          },
+          {
+            "title": "STAGE_INSTANCE_DELETE",
+            "const": 85
+          },
+          {
+            "title": "STICKER_CREATE",
+            "const": 90
+          },
+          {
+            "title": "STICKER_UPDATE",
+            "const": 91
+          },
+          {
+            "title": "STICKER_DELETE",
+            "const": 92
+          },
+          {
+            "title": "GUILD_SCHEDULED_EVENT_CREATE",
+            "const": 100
+          },
+          {
+            "title": "GUILD_SCHEDULED_EVENT_UPDATE",
+            "const": 101
+          },
+          {
+            "title": "GUILD_SCHEDULED_EVENT_DELETE",
+            "const": 102
+          },
+          {
+            "title": "THREAD_CREATE",
+            "const": 110
+          },
+          {
+            "title": "THREAD_UPDATE",
+            "const": 111
+          },
+          {
+            "title": "THREAD_DELETE",
+            "const": 112
+          },
+          {
+            "title": "APPLICATION_COMMAND_PERMISSION_UPDATE",
+            "const": 121
+          },
+          {
+            "title": "SOUNDBOARD_SOUND_CREATE",
+            "const": 130
+          },
+          {
+            "title": "SOUNDBOARD_SOUND_UPDATE",
+            "const": 131
+          },
+          {
+            "title": "SOUNDBOARD_SOUND_DELETE",
+            "const": 132
+          },
+          {
+            "title": "AUTO_MODERATION_RULE_CREATE",
+            "const": 140
+          },
+          {
+            "title": "AUTO_MODERATION_RULE_UPDATE",
+            "const": 141
+          },
+          {
+            "title": "AUTO_MODERATION_RULE_DELETE",
+            "const": 142
+          },
+          {
+            "title": "AUTO_MODERATION_BLOCK_MESSAGE",
+            "const": 143
+          },
+          {
+            "title": "AUTO_MODERATION_FLAG_TO_CHANNEL",
+            "const": 144
+          },
+          {
+            "title": "AUTO_MODERATION_USER_COMM_DISABLED",
+            "const": 145
+          },
+          {
+            "title": "AUTO_MODERATION_QUARANTINE_USER",
+            "const": 146
+          },
+          {
+            "title": "CREATOR_MONETIZATION_REQUEST_CREATED",
+            "const": 150
+          },
+          {
+            "title": "CREATOR_MONETIZATION_TERMS_ACCEPTED",
+            "const": 151
+          },
+          {
+            "title": "ONBOARDING_PROMPT_CREATE",
+            "const": 163
+          },
+          {
+            "title": "ONBOARDING_PROMPT_UPDATE",
+            "const": 164
+          },
+          {
+            "title": "ONBOARDING_PROMPT_DELETE",
+            "const": 165
+          },
+          {
+            "title": "ONBOARDING_CREATE",
+            "const": 166
+          },
+          {
+            "title": "ONBOARDING_UPDATE",
+            "const": 167
+          },
+          {
+            "title": "GUILD_HOME_FEATURE_ITEM",
+            "const": 171
+          },
+          {
+            "title": "GUILD_HOME_REMOVE_ITEM",
+            "const": 172
+          },
+          {
+            "title": "HARMFUL_LINKS_BLOCKED_MESSAGE",
+            "const": 180
+          },
+          {
+            "title": "HOME_SETTINGS_CREATE",
+            "const": 190
+          },
+          {
+            "title": "HOME_SETTINGS_UPDATE",
+            "const": 191
+          }
+        ],
+        "format": "int32"
+      },
+      "AuditLogEntryResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "action_type": {
+            "$ref": "#/components/schemas/AuditLogActionTypes"
+          },
+          "user_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          },
+          "target_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          },
+          "changes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/AuditLogObjectChangeResponse"
+            }
+          },
+          "options": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "action_type"
+        ]
+      },
+      "AuditLogObjectChangeResponse": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "new_value": {},
+          "old_value": {}
         }
       },
       "AutomodActionType": {
@@ -14478,6 +15118,112 @@
           "moderated"
         ]
       },
+      "FriendInviteResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  2
+                ],
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InviteTypes"
+                  }
+                ],
+                "format": "int32"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "inviter": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "max_age": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "created_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "expires_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "channel": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/InviteChannelResponse"
+              }
+            ]
+          },
+          "is_contact": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "friends_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "uses": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "max_uses": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
       "GatewayBotResponse": {
         "type": "object",
         "properties": {
@@ -15312,6 +16058,200 @@
           "sender"
         ]
       },
+      "GroupDMInviteResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  1
+                ],
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InviteTypes"
+                  }
+                ],
+                "format": "int32"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "inviter": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "max_age": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "created_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "expires_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "channel": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/InviteChannelResponse"
+              }
+            ]
+          },
+          "approximate_member_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "GuildAuditLogResponse": {
+        "type": "object",
+        "properties": {
+          "audit_log_entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuditLogEntryResponse"
+            }
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          },
+          "integrations": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/PartialDiscordIntegrationResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/PartialExternalConnectionIntegrationResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/PartialGuildSubscriptionIntegrationResponse"
+                }
+              ]
+            }
+          },
+          "webhooks": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ApplicationIncomingWebhookResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/ChannelFollowerWebhookResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/GuildIncomingWebhookResponse"
+                }
+              ]
+            }
+          },
+          "guild_scheduled_events": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ExternalScheduledEventResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/StageScheduledEventResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/VoiceScheduledEventResponse"
+                }
+              ]
+            }
+          },
+          "threads": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ThreadResponse"
+            }
+          },
+          "application_commands": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicationCommandResponse"
+            }
+          },
+          "auto_moderation_rules": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/DefaultKeywordRuleResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/KeywordRuleResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MLSpamRuleResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MentionSpamRuleResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/SpamLinkRuleResponse"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "audit_log_entries",
+          "users",
+          "integrations",
+          "webhooks",
+          "guild_scheduled_events",
+          "threads",
+          "application_commands",
+          "auto_moderation_rules"
+        ]
+      },
       "GuildBanResponse": {
         "type": "object",
         "properties": {
@@ -15960,6 +16900,203 @@
           "id",
           "name",
           "type"
+        ]
+      },
+      "GuildInviteResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  0
+                ],
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InviteTypes"
+                  }
+                ],
+                "format": "int32"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "inviter": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "max_age": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "created_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "expires_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "is_contact": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "guild": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/InviteGuildResponse"
+              }
+            ]
+          },
+          "guild_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          },
+          "channel": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/InviteChannelResponse"
+              }
+            ]
+          },
+          "stage_instance": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/InviteStageInstanceResponse"
+              }
+            ]
+          },
+          "target_type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/InviteTargetTypes"
+              }
+            ]
+          },
+          "target_user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "target_application": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/InviteApplicationResponse"
+              }
+            ]
+          },
+          "guild_scheduled_event": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ScheduledEventResponse"
+              }
+            ]
+          },
+          "uses": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "max_uses": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "temporary": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "approximate_member_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "approximate_presence_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          }
+        },
+        "required": [
+          "code"
         ]
       },
       "GuildMFALevel": {
@@ -18335,6 +19472,12 @@
               "null"
             ]
           },
+          "icon": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "recipients": {
             "type": [
               "array",
@@ -18439,80 +19582,13 @@
           "features"
         ]
       },
-      "InviteResponse": {
+      "InviteStageInstanceResponse": {
         "type": "object",
         "properties": {
-          "code": {
+          "topic": {
             "type": "string"
           },
-          "expires_at": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "date-time"
-          },
-          "guild": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteGuildResponse"
-              }
-            ]
-          },
-          "channel": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteChannelResponse"
-              }
-            ]
-          },
-          "inviter": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
-          },
-          "target_type": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteTargetTypes"
-              }
-            ]
-          },
-          "target_user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
-          },
-          "target_application": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteApplicationResponse"
-              }
-            ]
-          },
-          "uses": {
+          "participant_count": {
             "type": [
               "integer",
               "null"
@@ -18521,7 +19597,7 @@
             "maximum": 2147483647,
             "format": "int32"
           },
-          "max_uses": {
+          "speaker_count": {
             "type": [
               "integer",
               "null"
@@ -18530,41 +19606,16 @@
             "maximum": 2147483647,
             "format": "int32"
           },
-          "max_age": {
+          "members": {
             "type": [
-              "integer",
+              "array",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
-          },
-          "temporary": {
-            "type": [
-              "boolean",
-              "null"
-            ]
-          },
-          "created_at": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "date-time"
-          },
-          "guild_scheduled_event": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ScheduledEventResponse"
-              }
-            ]
+            "items": {}
           }
         },
         "required": [
-          "code"
+          "topic"
         ]
       },
       "InviteTargetTypes": {
@@ -18581,6 +19632,24 @@
           {
             "title": "ROLE_SUBSCRIPTIONS_PURCHASE",
             "const": 3
+          }
+        ],
+        "format": "int32"
+      },
+      "InviteTypes": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "GUILD",
+            "const": 0
+          },
+          {
+            "title": "GROUP_DM",
+            "const": 1
+          },
+          {
+            "title": "FRIEND",
+            "const": 2
           }
         ],
         "format": "int32"
@@ -20420,6 +21489,99 @@
           }
         }
       },
+      "MessageEditRequestPartial": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "embeds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RichEmbed"
+            },
+            "maxItems": 10
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "allowed_mentions": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageAllowedMentionsRequest"
+              }
+            ]
+          },
+          "sticker_ids": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "maxItems": 1521
+          },
+          "components": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ActionRow"
+                },
+                {
+                  "$ref": "#/components/schemas/Button"
+                },
+                {
+                  "$ref": "#/components/schemas/ChannelSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/MentionableSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/RoleSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/StringSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/UserSelect"
+                }
+              ]
+            },
+            "maxItems": 5
+          },
+          "attachments": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageAttachmentRequest"
+            },
+            "maxItems": 10
+          }
+        }
+      },
       "MessageEmbedAuthorResponse": {
         "type": "object",
         "properties": {
@@ -21575,6 +22737,40 @@
         ],
         "format": "int32"
       },
+      "OAuth2GetAuthorizationResponse": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "$ref": "#/components/schemas/ApplicationResponse"
+          },
+          "expires": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuth2Scopes"
+            },
+            "uniqueItems": true
+          },
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "application",
+          "expires",
+          "scopes"
+        ]
+      },
       "OAuth2Scopes": {
         "type": "string",
         "oneOf": [
@@ -21907,6 +23103,132 @@
           }
         ],
         "format": "int32"
+      },
+      "PartialDiscordIntegrationResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "discord"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IntegrationTypes"
+              }
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "account": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/AccountResponse"
+              }
+            ]
+          },
+          "application_id": {
+            "type": "string",
+            "format": "snowflake"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "application_id"
+        ]
+      },
+      "PartialExternalConnectionIntegrationResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "twitch",
+              "youtube"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IntegrationTypes"
+              }
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "account": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/AccountResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
+      },
+      "PartialGuildSubscriptionIntegrationResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "guild_subscription"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IntegrationTypes"
+              }
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "account": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/AccountResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ]
       },
       "PongInteractionCallbackRequest": {
         "type": "object",
