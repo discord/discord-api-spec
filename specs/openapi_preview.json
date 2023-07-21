@@ -409,7 +409,14 @@
         "operationId": "get_my_user",
         "responses": {
           "200": {
-            "description": "200 response for get_my_user"
+            "description": "200 response for get_my_user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPIIResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -23122,6 +23129,32 @@
         ],
         "format": "int32"
       },
+      "PremiumTypes": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "NONE",
+            "description": "None",
+            "const": 0
+          },
+          {
+            "title": "TIER_1",
+            "description": "Nitro Classic",
+            "const": 1
+          },
+          {
+            "title": "TIER_2",
+            "description": "Nitro Standard",
+            "const": 2
+          },
+          {
+            "title": "TIER_0",
+            "description": "Nitro Basic",
+            "const": 3
+          }
+        ],
+        "format": "int32"
+      },
       "PrivateApplicationResponse": {
         "type": "object",
         "properties": {
@@ -25969,6 +26002,101 @@
           }
         ],
         "format": "int32"
+      },
+      "UserPIIResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "username": {
+            "type": "string"
+          },
+          "avatar": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "discriminator": {
+            "type": "string"
+          },
+          "public_flags": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "flags": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "bot": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "system": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "banner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "accent_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "mfa_enabled": {
+            "type": "boolean"
+          },
+          "locale": {
+            "$ref": "#/components/schemas/AvailableLocalesEnum"
+          },
+          "premium_type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PremiumTypes"
+              }
+            ]
+          },
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "discriminator",
+          "public_flags",
+          "flags",
+          "mfa_enabled",
+          "locale",
+          "verified"
+        ]
       },
       "UserResponse": {
         "type": "object",
