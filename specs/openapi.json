@@ -45,25 +45,6 @@
         ]
       }
     },
-    "/oauth2/token/revoke": {
-      "post": {
-        "operationId": "revoke_access_token",
-        "responses": {
-          "200": {
-            "description": "200 response for revoke_access_token"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {},
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/users/@me/connections": {
       "get": {
         "operationId": "list_my_connections",
@@ -300,31 +281,19 @@
         ]
       }
     },
-    "/oauth2/token": {
-      "post": {
-        "operationId": "create_access_token",
-        "responses": {
-          "200": {
-            "description": "200 response for create_access_token"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {},
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/oauth2/@me": {
       "get": {
         "operationId": "get_my_oauth2_authorization",
         "responses": {
           "200": {
-            "description": "200 response for get_my_oauth2_authorization"
+            "description": "200 response for get_my_oauth2_authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OAuth2GetAuthorizationResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -11545,6 +11514,163 @@
           "permissions"
         ]
       },
+      "ApplicationResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationTypes"
+              }
+            ]
+          },
+          "cover_image": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "primary_sku_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          },
+          "bot": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "slug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "guild_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          },
+          "rpc_origins": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "bot_public": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "bot_require_code_grant": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "terms_of_service_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "privacy_policy_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "custom_install_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "install_params": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationOAuth2ParamsResponse"
+              }
+            ]
+          },
+          "verify_key": {
+            "type": "string"
+          },
+          "flags": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "max_participants": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          },
+          "tags": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "description",
+          "verify_key",
+          "flags"
+        ]
+      },
       "ApplicationRoleConnectionsMetadataItemRequest": {
         "type": "object",
         "properties": {
@@ -22617,6 +22743,40 @@
           }
         ],
         "format": "int32"
+      },
+      "OAuth2GetAuthorizationResponse": {
+        "type": "object",
+        "properties": {
+          "application": {
+            "$ref": "#/components/schemas/ApplicationResponse"
+          },
+          "expires": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuth2Scopes"
+            },
+            "uniqueItems": true
+          },
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "application",
+          "expires",
+          "scopes"
+        ]
       },
       "OAuth2Scopes": {
         "type": "string",
