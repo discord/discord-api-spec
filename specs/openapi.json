@@ -5987,7 +5987,14 @@
         "operationId": "get_guild_widget",
         "responses": {
           "200": {
-            "description": "200 response for get_guild_widget"
+            "description": "200 response for get_guild_widget",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WidgetResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -6231,7 +6238,15 @@
         ],
         "responses": {
           "200": {
-            "description": "200 response for get_guild_widget_png"
+            "description": "200 response for get_guild_widget_png",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "contentEncoding": "binary"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -7537,7 +7552,14 @@
         "operationId": "get_guild_widget_settings",
         "responses": {
           "200": {
-            "description": "200 response for get_guild_widget_settings"
+            "description": "200 response for get_guild_widget_settings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WidgetSettingsResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -7578,7 +7600,14 @@
         },
         "responses": {
           "200": {
-            "description": "200 response for update_guild_widget_settings"
+            "description": "200 response for update_guild_widget_settings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WidgetSettingsResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -27019,6 +27048,40 @@
           }
         }
       },
+      "WidgetActivity": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "WidgetChannel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "name": {
+            "type": "string"
+          },
+          "position": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "position"
+        ]
+      },
       "WidgetImageStyles": {
         "type": "string",
         "oneOf": [
@@ -27046,6 +27109,154 @@
             "title": "BANNER4",
             "description": "large Discord logo at the top of the widget. Guild icon, name and online count in the middle portion of the widget and a \"JOIN MY SERVER\" button at the bottom",
             "const": "banner4"
+          }
+        ]
+      },
+      "WidgetMember": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "discriminator": {
+            "$ref": "#/components/schemas/WidgetUserDiscriminator"
+          },
+          "avatar": {
+            "type": "null"
+          },
+          "status": {
+            "type": "string"
+          },
+          "avatar_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "activity": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/WidgetActivity"
+              }
+            ]
+          },
+          "deaf": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "mute": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "self_deaf": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "self_mute": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "suppress": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "channel_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "discriminator",
+          "status",
+          "avatar_url"
+        ]
+      },
+      "WidgetResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "name": {
+            "type": "string"
+          },
+          "instant_invite": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "channels": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WidgetChannel"
+            }
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WidgetMember"
+            }
+          },
+          "presence_count": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "channels",
+          "members",
+          "presence_count"
+        ]
+      },
+      "WidgetSettingsResponse": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "channel_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "snowflake"
+          }
+        },
+        "required": [
+          "enabled"
+        ]
+      },
+      "WidgetUserDiscriminator": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "ZEROES",
+            "const": "0000"
           }
         ]
       },
