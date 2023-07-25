@@ -19647,7 +19647,9 @@
               "array",
               "null"
             ],
-            "items": {}
+            "items": {
+              "$ref": "#/components/schemas/GuildMemberResponse"
+            }
           }
         },
         "required": [
