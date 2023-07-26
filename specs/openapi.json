@@ -50,7 +50,20 @@
         "operationId": "list_my_connections",
         "responses": {
           "200": {
-            "description": "200 response for list_my_connections"
+            "description": "200 response for list_my_connections",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "$ref": "#/components/schemas/ConnectedAccountResponse"
+                  }
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -13380,6 +13393,202 @@
           "guild_id",
           "permissions"
         ]
+      },
+      "ConnectedAccountGuildResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "snowflake"
+          },
+          "name": {
+            "type": "string"
+          },
+          "icon": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      },
+      "ConnectedAccountIntegrationResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/IntegrationTypes"
+          },
+          "account": {
+            "$ref": "#/components/schemas/AccountResponse"
+          },
+          "guild": {
+            "$ref": "#/components/schemas/ConnectedAccountGuildResponse"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "account",
+          "guild"
+        ]
+      },
+      "ConnectedAccountProviders": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "BATTLENET",
+            "const": "battlenet"
+          },
+          {
+            "title": "EBAY",
+            "const": "ebay"
+          },
+          {
+            "title": "EPIC_GAMES",
+            "const": "epicgames"
+          },
+          {
+            "title": "FACEBOOK",
+            "const": "facebook"
+          },
+          {
+            "title": "GITHUB",
+            "const": "github"
+          },
+          {
+            "title": "INSTAGRAM",
+            "const": "instagram"
+          },
+          {
+            "title": "LEAGUE_OF_LEGENDS",
+            "const": "leagueoflegends"
+          },
+          {
+            "title": "PAYPAL",
+            "const": "paypal"
+          },
+          {
+            "title": "PLAYSTATION",
+            "const": "playstation"
+          },
+          {
+            "title": "REDDIT",
+            "const": "reddit"
+          },
+          {
+            "title": "RIOT_GAMES",
+            "const": "riotgames"
+          },
+          {
+            "title": "SKYPE",
+            "const": "skype"
+          },
+          {
+            "title": "SPOTIFY",
+            "const": "spotify"
+          },
+          {
+            "title": "STEAM",
+            "const": "steam"
+          },
+          {
+            "title": "TIKTOK",
+            "const": "tiktok"
+          },
+          {
+            "title": "TWITCH",
+            "const": "twitch"
+          },
+          {
+            "title": "TWITTER",
+            "const": "twitter"
+          },
+          {
+            "title": "XBOX",
+            "const": "xbox"
+          },
+          {
+            "title": "YOUTUBE",
+            "const": "youtube"
+          }
+        ]
+      },
+      "ConnectedAccountResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "$ref": "#/components/schemas/ConnectedAccountProviders"
+          },
+          "friend_sync": {
+            "type": "boolean"
+          },
+          "integrations": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ConnectedAccountIntegrationResponse"
+            }
+          },
+          "show_activity": {
+            "type": "boolean"
+          },
+          "two_way_link": {
+            "type": "boolean"
+          },
+          "verified": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/ConnectedAccountVisibility"
+          },
+          "revoked": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "friend_sync",
+          "show_activity",
+          "two_way_link",
+          "verified",
+          "visibility"
+        ]
+      },
+      "ConnectedAccountVisibility": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "NONE",
+            "const": 0
+          },
+          {
+            "title": "EVERYONE",
+            "const": 1
+          }
+        ],
+        "format": "int32"
       },
       "CreateGroupDMInviteRequest": {
         "type": "object",
