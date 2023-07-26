@@ -15254,6 +15254,15 @@
             "minimum": -2147483648,
             "maximum": 2147483647,
             "format": "int32"
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": -2147483648,
+            "maximum": 2147483647,
+            "format": "int32"
           }
         },
         "required": [
