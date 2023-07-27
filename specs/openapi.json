@@ -2702,7 +2702,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/DefaultKeywordListUpsertRequestPartial"
                   },
@@ -2715,7 +2715,8 @@
                   {
                     "$ref": "#/components/schemas/MentionSpamUpsertRequestPartial"
                   }
-                ]
+                ],
+                "x-discord-union": "oneOf"
               }
             }
           },
@@ -3797,7 +3798,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/ApplicationCommandAutocompleteCallbackRequest"
                   },
@@ -3813,12 +3814,13 @@
                   {
                     "$ref": "#/components/schemas/UpdateMessageInteractionCallbackRequest"
                   }
-                ]
+                ],
+                "x-discord-union": "oneOf"
               }
             },
             "application/x-www-form-urlencoded": {
               "schema": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/ApplicationCommandAutocompleteCallbackRequest"
                   },
@@ -3834,12 +3836,13 @@
                   {
                     "$ref": "#/components/schemas/UpdateMessageInteractionCallbackRequest"
                   }
-                ]
+                ],
+                "x-discord-union": "oneOf"
               }
             },
             "multipart/form-data": {
               "schema": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/ApplicationCommandAutocompleteCallbackRequest"
                   },
@@ -3855,7 +3858,8 @@
                   {
                     "$ref": "#/components/schemas/UpdateMessageInteractionCallbackRequest"
                   }
-                ]
+                ],
+                "x-discord-union": "oneOf"
               }
             }
           },
@@ -4715,7 +4719,7 @@
                     "null"
                   ],
                   "items": {
-                    "oneOf": [
+                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/FriendInviteResponse"
                       },
@@ -4724,11 +4728,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/GuildInviteResponse"
-                      },
-                      {
-                        "type": "null"
                       }
-                    ]
+                    ],
+                    "x-discord-union": "oneOf"
                   }
                 }
               }
@@ -4750,14 +4752,15 @@
           "content": {
             "application/json": {
               "schema": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/CreateGroupDMInviteRequest"
                   },
                   {
                     "$ref": "#/components/schemas/CreateGuildInviteRequest"
                   }
-                ]
+                ],
+                "x-discord-union": "oneOf"
               }
             }
           },
@@ -4769,7 +4772,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
+                  "anyOf": [
                     {
                       "$ref": "#/components/schemas/FriendInviteResponse"
                     },
@@ -4779,7 +4782,8 @@
                     {
                       "$ref": "#/components/schemas/GuildInviteResponse"
                     }
-                  ]
+                  ],
+                  "x-discord-union": "oneOf"
                 }
               }
             }
@@ -5551,7 +5555,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/ExternalScheduledEventPatchRequestPartial"
                   },
@@ -5561,7 +5565,8 @@
                   {
                     "$ref": "#/components/schemas/VoiceScheduledEventPatchRequestPartial"
                   }
-                ]
+                ],
+                "x-discord-union": "oneOf"
               }
             }
           },
@@ -7256,7 +7261,7 @@
                     "null"
                   ],
                   "items": {
-                    "oneOf": [
+                    "anyOf": [
                       {
                         "$ref": "#/components/schemas/FriendInviteResponse"
                       },
@@ -7265,11 +7270,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/GuildInviteResponse"
-                      },
-                      {
-                        "type": "null"
                       }
-                    ]
+                    ],
+                    "x-discord-union": "oneOf"
                   }
                 }
               }
@@ -8576,7 +8579,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "oneOf": [
+                "anyOf": [
                   {
                     "$ref": "#/components/schemas/PrivateChannelRequestPartial"
                   },
@@ -8586,7 +8589,8 @@
                   {
                     "$ref": "#/components/schemas/UpdateThreadRequestPartial"
                   }
-                ]
+                ],
+                "x-discord-union": "oneOf"
               }
             }
           },
@@ -8838,7 +8842,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
+                  "anyOf": [
                     {
                       "$ref": "#/components/schemas/FriendInviteResponse"
                     },
@@ -8848,7 +8852,8 @@
                     {
                       "$ref": "#/components/schemas/GuildInviteResponse"
                     }
-                  ]
+                  ],
+                  "x-discord-union": "oneOf"
                 }
               }
             }
@@ -8872,7 +8877,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
+                  "anyOf": [
                     {
                       "$ref": "#/components/schemas/FriendInviteResponse"
                     },
@@ -8882,7 +8887,8 @@
                     {
                       "$ref": "#/components/schemas/GuildInviteResponse"
                     }
-                  ]
+                  ],
+                  "x-discord-union": "oneOf"
                 }
               }
             }
@@ -9290,7 +9296,7 @@
             "format": "int32"
           },
           "data": {
-            "oneOf": [
+            "anyOf": [
               {
                 "$ref": "#/components/schemas/InteractionApplicationCommandAutocompleteCallbackIntegerData"
               },
@@ -9300,7 +9306,8 @@
               {
                 "$ref": "#/components/schemas/InteractionApplicationCommandAutocompleteCallbackStringData"
               }
-            ]
+            ],
+            "x-discord-union": "oneOf"
           }
         },
         "required": [
