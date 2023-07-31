@@ -8398,9 +8398,63 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/IncomingWebhookRequestPartial"
+                  },
+                  {
+                    "$ref": "#/components/schemas/IncomingWebhookUpdateRequestPartial"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/IncomingWebhookRequestPartial"
+                  },
+                  {
+                    "$ref": "#/components/schemas/IncomingWebhookUpdateRequestPartial"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/IncomingWebhookRequestPartial"
+                  },
+                  {
+                    "$ref": "#/components/schemas/IncomingWebhookUpdateRequestPartial"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "200 response for execute_webhook"
+            "description": "200 response for execute_webhook",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "204 response for execute_webhook"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -12473,92 +12527,6 @@
           }
         ]
       },
-      "BaseIncomingWebhookRequest": {
-        "type": "object",
-        "properties": {
-          "content": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "maxLength": 2000
-          },
-          "tts": {
-            "type": [
-              "boolean",
-              "null"
-            ]
-          },
-          "embeds": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/RichEmbed"
-            },
-            "maxItems": 10
-          },
-          "allowed_mentions": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageAllowedMentionsRequest"
-              }
-            ]
-          },
-          "flags": {
-            "type": [
-              "integer",
-              "null"
-            ]
-          },
-          "components": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/Button"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelect"
-                }
-              ]
-            },
-            "maxItems": 5
-          },
-          "attachments": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/MessageAttachmentRequest"
-            },
-            "maxItems": 10
-          }
-        }
-      },
       "BasicApplicationResponse": {
         "type": "object",
         "properties": {
@@ -14100,7 +14068,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/BaseIncomingWebhookRequest"
+                "$ref": "#/components/schemas/IncomingWebhookInteractionRequest"
               }
             ]
           }
@@ -19060,6 +19028,213 @@
       "IconEmojiResponse": {
         "type": "object",
         "properties": {}
+      },
+      "IncomingWebhookInteractionRequest": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "embeds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RichEmbed"
+            },
+            "maxItems": 10
+          },
+          "allowed_mentions": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageAllowedMentionsRequest"
+              }
+            ]
+          },
+          "components": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ActionRow"
+                },
+                {
+                  "$ref": "#/components/schemas/Button"
+                },
+                {
+                  "$ref": "#/components/schemas/ChannelSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/MentionableSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/RoleSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/StringSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/UserSelect"
+                }
+              ]
+            },
+            "maxItems": 5
+          },
+          "attachments": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageAttachmentRequest"
+            },
+            "maxItems": 10
+          },
+          "tts": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        }
+      },
+      "IncomingWebhookRequestPartial": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2000
+          },
+          "embeds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RichEmbed"
+            },
+            "maxItems": 10
+          },
+          "allowed_mentions": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageAllowedMentionsRequest"
+              }
+            ]
+          },
+          "components": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ActionRow"
+                },
+                {
+                  "$ref": "#/components/schemas/Button"
+                },
+                {
+                  "$ref": "#/components/schemas/ChannelSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/MentionableSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/RoleSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/StringSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/UserSelect"
+                }
+              ]
+            },
+            "maxItems": 5
+          },
+          "attachments": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageAttachmentRequest"
+            },
+            "maxItems": 10
+          },
+          "tts": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "username": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "avatar_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048,
+            "format": "uri"
+          },
+          "thread_name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 0,
+            "maxLength": 100
+          },
+          "applied_tags": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "format": "snowflake"
+            },
+            "maxItems": 5
+          }
+        }
       },
       "IncomingWebhookUpdateForInteractionCallbackRequestPartial": {
         "type": "object",
