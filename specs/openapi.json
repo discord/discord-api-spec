@@ -5737,52 +5737,6 @@
         ]
       }
     },
-    "/guilds/{guild_id}/incident-actions": {
-      "parameters": [
-        {
-          "name": "guild_id",
-          "in": "path",
-          "schema": {
-            "type": "string",
-            "format": "snowflake"
-          },
-          "required": true
-        }
-      ],
-      "put": {
-        "operationId": "update_guild_incident_actions",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GuildIncidentActionsRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "200 response for update_guild_incident_actions",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GuildIncidentsDataResponse"
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/guilds/{guild_id}/welcome-screen": {
       "parameters": [
         {
@@ -17183,7 +17137,7 @@
           },
           {
             "title": "RAID_ALERTS_DISABLED",
-            "description": "guild has disabled alerts for join raids in the configured safety alerts channel",
+            "description": "guild has disabled activity alerts in the configured safety alerts channel",
             "const": "RAID_ALERTS_DISABLED"
           },
           {
@@ -17285,14 +17239,6 @@
           "guild_id",
           "enabled"
         ]
-      },
-      "GuildIncidentActionsRequest": {
-        "type": "object",
-        "properties": {}
-      },
-      "GuildIncidentsDataResponse": {
-        "type": "object",
-        "properties": {}
       },
       "GuildIncomingWebhookResponse": {
         "type": "object",
@@ -26911,7 +26857,10 @@
             ]
           },
           "verified": {
-            "type": "boolean"
+            "type": [
+              "boolean",
+              "null"
+            ]
           }
         },
         "required": [
@@ -26921,8 +26870,7 @@
           "public_flags",
           "flags",
           "mfa_enabled",
-          "locale",
-          "verified"
+          "locale"
         ]
       },
       "UserResponse": {
