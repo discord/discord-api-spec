@@ -2272,35 +2272,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 100
-                  },
-                  "auto_archive_duration": {
-                    "oneOf": [
-                      {
-                        "type": "null"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ThreadAutoArchiveDuration"
-                      }
-                    ]
-                  },
-                  "rate_limit_per_user": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 21600
-                  }
-                },
-                "required": [
-                  "name"
-                ]
+                "$ref": "#/components/schemas/CreateTextThreadWithMessageRequest"
               }
             }
           },
@@ -4816,6 +4788,50 @@
       ],
       "post": {
         "operationId": "create_thread",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateForumThreadRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateTextThreadWithoutMessageRequest"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateForumThreadRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateTextThreadWithoutMessageRequest"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateForumThreadRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateTextThreadWithoutMessageRequest"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "201": {
             "description": "201 response for create_thread",
@@ -12527,6 +12543,97 @@
           }
         ]
       },
+      "BaseCreateMessageCreateRequest": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "embeds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RichEmbed"
+            },
+            "maxItems": 10
+          },
+          "allowed_mentions": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageAllowedMentionsRequest"
+              }
+            ]
+          },
+          "sticker_ids": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "format": "snowflake"
+            },
+            "maxItems": 3
+          },
+          "components": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ActionRow"
+                },
+                {
+                  "$ref": "#/components/schemas/Button"
+                },
+                {
+                  "$ref": "#/components/schemas/ChannelSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/MentionableSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/RoleSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/StringSelect"
+                },
+                {
+                  "$ref": "#/components/schemas/UserSelect"
+                }
+              ]
+            },
+            "maxItems": 5
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "attachments": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageAttachmentRequest"
+            },
+            "maxItems": 10
+          }
+        }
+      },
       "BasicApplicationResponse": {
         "type": "object",
         "properties": {
@@ -13565,6 +13672,52 @@
         ],
         "format": "int32"
       },
+      "CreateForumThreadRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "auto_archive_duration": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadAutoArchiveDuration"
+              }
+            ]
+          },
+          "rate_limit_per_user": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 21600
+          },
+          "applied_tags": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "format": "snowflake"
+            },
+            "maxItems": 5
+          },
+          "message": {
+            "$ref": "#/components/schemas/BaseCreateMessageCreateRequest"
+          }
+        },
+        "required": [
+          "name",
+          "message"
+        ]
+      },
       "CreateGroupDMInviteRequest": {
         "type": "object",
         "properties": {
@@ -14147,6 +14300,95 @@
             "maxProperties": 1521
           }
         }
+      },
+      "CreateTextThreadWithMessageRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "auto_archive_duration": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadAutoArchiveDuration"
+              }
+            ]
+          },
+          "rate_limit_per_user": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 21600
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "CreateTextThreadWithoutMessageRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "auto_archive_duration": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadAutoArchiveDuration"
+              }
+            ]
+          },
+          "rate_limit_per_user": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 21600
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  10,
+                  11,
+                  12
+                ],
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ChannelTypes"
+                  }
+                ],
+                "format": "int32"
+              }
+            ]
+          },
+          "invitable": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "name"
+        ]
       },
       "CreatedThreadResponse": {
         "type": "object",
