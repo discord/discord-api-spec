@@ -2350,7 +2350,7 @@
         }
       ],
       "get": {
-        "operationId": "get_webhooks_messages_original",
+        "operationId": "get_original_webhook_message",
         "parameters": [
           {
             "name": "thread_id",
@@ -2366,7 +2366,7 @@
         ],
         "responses": {
           "200": {
-            "description": "200 response for get_webhooks_messages_original",
+            "description": "200 response for get_original_webhook_message",
             "content": {
               "application/json": {
                 "schema": {
@@ -2387,7 +2387,7 @@
         ]
       },
       "delete": {
-        "operationId": "delete_webhooks_messages_original",
+        "operationId": "delete_original_webhook_message",
         "parameters": [
           {
             "name": "thread_id",
@@ -2403,7 +2403,7 @@
         ],
         "responses": {
           "204": {
-            "description": "204 response for delete_webhooks_messages_original"
+            "description": "204 response for delete_original_webhook_message"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -2417,7 +2417,7 @@
         ]
       },
       "patch": {
-        "operationId": "patch_webhooks_messages_original",
+        "operationId": "update_original_webhook_message",
         "parameters": [
           {
             "name": "thread_id",
@@ -2502,7 +2502,7 @@
         },
         "responses": {
           "200": {
-            "description": "200 response for patch_webhooks_messages_original",
+            "description": "200 response for update_original_webhook_message",
             "content": {
               "application/json": {
                 "schema": {
