@@ -1,8 +1,8 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Discord REST API (alpha)",
-    "description": "This document is an early draft of Discord REST API v10 specification. While the API v10 itself is released and stable, this specification is not complete and should not be taken as authoritative. Please see https://discord.com/developers/docs/intro for up-to-date API documentation.",
+    "title": "Discord HTTP API (Preview)",
+    "description": "Preview of the Discord v10 HTTP API specification. See https://discord.com/developers/docs for more details.",
     "termsOfService": "https://discord.com/developers/docs/policies-and-agreements/developer-terms-of-service",
     "license": {
       "name": "MIT",
@@ -11,8 +11,8 @@
     "version": "10"
   },
   "externalDocs": {
-    "url": "https://discord.com/developers/docs/intro",
-    "description": "Official Discord Developer Documentation."
+    "url": "https://discord.com/developers/docs",
+    "description": "Discord Developer Documentation"
   },
   "servers": [
     {
