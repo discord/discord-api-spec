@@ -8830,7 +8830,8 @@
           "name": "code",
           "in": "path",
           "schema": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 152133
           },
           "required": true
         }
