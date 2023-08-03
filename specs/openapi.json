@@ -417,9 +417,31 @@
       },
       "patch": {
         "operationId": "update_my_user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/BotAccountPatchRequestPartial"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
-            "description": "200 response for update_my_user"
+            "description": "200 response for update_my_user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPIIResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -9125,7 +9147,7 @@
               ]
             },
             "minItems": 1,
-            "maxItems": 1521
+            "maxItems": 5
           }
         },
         "required": [
@@ -12989,6 +13011,23 @@
           "metadata"
         ]
       },
+      "BotAccountPatchRequestPartial": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 32
+          },
+          "avatar": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "contentEncoding": "base64"
+          }
+        }
+      },
       "Button": {
         "type": "object",
         "properties": {
@@ -14934,7 +14973,7 @@
           },
           "name": {
             "type": "string",
-            "maxLength": 152133
+            "maxLength": 32
           },
           "animated": {
             "type": [
