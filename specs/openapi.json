@@ -1515,7 +1515,7 @@
                       "null"
                     ],
                     "minimum": 0,
-                    "maximum": 140737488355327
+                    "maximum": 281474976710655
                   },
                   "dm_permission": {
                     "type": [
@@ -1726,7 +1726,7 @@
                         "null"
                       ],
                       "minimum": 0,
-                      "maximum": 140737488355327
+                      "maximum": 281474976710655
                     },
                     "dm_permission": {
                       "type": [
@@ -1874,7 +1874,7 @@
                       "null"
                     ],
                     "minimum": 0,
-                    "maximum": 140737488355327
+                    "maximum": 281474976710655
                   },
                   "dm_permission": {
                     "type": [
@@ -3357,7 +3357,7 @@
                       "null"
                     ],
                     "minimum": 0,
-                    "maximum": 140737488355327
+                    "maximum": 281474976710655
                   },
                   "dm_permission": {
                     "type": [
@@ -3559,7 +3559,7 @@
                         "null"
                       ],
                       "minimum": 0,
-                      "maximum": 140737488355327
+                      "maximum": 281474976710655
                     },
                     "dm_permission": {
                       "type": [
@@ -3707,7 +3707,7 @@
                       "null"
                     ],
                     "minimum": 0,
-                    "maximum": 140737488355327
+                    "maximum": 281474976710655
                   },
                   "dm_permission": {
                     "type": [
@@ -11578,7 +11578,7 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 140737488355327
+            "maximum": 281474976710655
           }
         }
       },
