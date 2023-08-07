@@ -26843,9 +26843,8 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
           },
           "bot": {
             "type": [
@@ -26940,9 +26939,8 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991
           },
           "bot": {
             "type": [
