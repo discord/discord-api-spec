@@ -29,7 +29,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetMyOAuth2ApplicationResponse"
+                  "$ref": "#/components/schemas/PrivateApplicationResponse"
                 }
               }
             }
@@ -15759,177 +15759,6 @@
           "url"
         ]
       },
-      "GetMyOAuth2ApplicationResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "snowflake"
-          },
-          "name": {
-            "type": "string"
-          },
-          "icon": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "description": {
-            "type": "string"
-          },
-          "type": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationTypes"
-              }
-            ]
-          },
-          "cover_image": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "primary_sku_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
-          },
-          "bot": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
-          },
-          "slug": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
-          },
-          "rpc_origins": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "type": [
-                "string",
-                "null"
-              ]
-            }
-          },
-          "bot_public": {
-            "type": [
-              "boolean",
-              "null"
-            ]
-          },
-          "bot_require_code_grant": {
-            "type": [
-              "boolean",
-              "null"
-            ]
-          },
-          "terms_of_service_url": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "uri"
-          },
-          "privacy_policy_url": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "uri"
-          },
-          "custom_install_url": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "uri"
-          },
-          "install_params": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationOAuth2ParamsResponse"
-              }
-            ]
-          },
-          "verify_key": {
-            "type": "string"
-          },
-          "flags": {
-            "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
-          },
-          "max_participants": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
-          },
-          "tags": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "type": "string"
-            },
-            "uniqueItems": true
-          },
-          "owner": {
-            "$ref": "#/components/schemas/UserResponse"
-          },
-          "team": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/TeamResponse"
-              }
-            ]
-          }
-        },
-        "required": [
-          "id",
-          "name",
-          "description",
-          "verify_key",
-          "flags",
-          "owner"
-        ]
-      },
       "GithubAuthor": {
         "type": "object",
         "properties": {
@@ -24151,6 +23980,16 @@
             "minimum": -2147483648,
             "maximum": 2147483647,
             "format": "int32"
+          },
+          "team": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/TeamResponse"
+              }
+            ]
           }
         },
         "required": [
