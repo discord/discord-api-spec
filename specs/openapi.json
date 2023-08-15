@@ -21224,6 +21224,12 @@
               "null"
             ],
             "maxLength": 1024
+          },
+          "is_remix": {
+            "type": [
+              "boolean",
+              "null"
+            ]
           }
         },
         "required": [
