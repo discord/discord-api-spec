@@ -722,38 +722,7 @@
           },
           {
             "OAuth2": [
-              "activities.read",
-              "activities.write",
-              "applications.builds.read",
-              "applications.builds.upload",
-              "applications.commands",
-              "applications.commands.permissions.update",
-              "applications.commands.update",
-              "applications.entitlements",
-              "applications.store.update",
-              "bot",
-              "connections",
-              "dm_channels.read",
-              "email",
-              "gdm.join",
-              "guilds",
-              "guilds.join",
-              "guilds.members.read",
-              "identify",
-              "messages.read",
-              "relationships.read",
-              "role_connections.write",
-              "rpc",
-              "rpc.activities.write",
-              "rpc.notifications.read",
-              "rpc.screenshare.read",
-              "rpc.screenshare.write",
-              "rpc.video.read",
-              "rpc.video.write",
-              "rpc.voice.read",
-              "rpc.voice.write",
-              "voice",
-              "webhook.incoming"
+              "applications.commands.permissions.update"
             ]
           }
         ]
@@ -812,38 +781,7 @@
           },
           {
             "OAuth2": [
-              "activities.read",
-              "activities.write",
-              "applications.builds.read",
-              "applications.builds.upload",
-              "applications.commands",
-              "applications.commands.permissions.update",
-              "applications.commands.update",
-              "applications.entitlements",
-              "applications.store.update",
-              "bot",
-              "connections",
-              "dm_channels.read",
-              "email",
-              "gdm.join",
-              "guilds",
-              "guilds.join",
-              "guilds.members.read",
-              "identify",
-              "messages.read",
-              "relationships.read",
-              "role_connections.write",
-              "rpc",
-              "rpc.activities.write",
-              "rpc.notifications.read",
-              "rpc.screenshare.read",
-              "rpc.screenshare.write",
-              "rpc.video.read",
-              "rpc.video.write",
-              "rpc.voice.read",
-              "rpc.voice.write",
-              "voice",
-              "webhook.incoming"
+              "applications.commands.permissions.update"
             ]
           }
         ]
@@ -893,38 +831,7 @@
           },
           {
             "OAuth2": [
-              "activities.read",
-              "activities.write",
-              "applications.builds.read",
-              "applications.builds.upload",
-              "applications.commands",
-              "applications.commands.permissions.update",
-              "applications.commands.update",
-              "applications.entitlements",
-              "applications.store.update",
-              "bot",
-              "connections",
-              "dm_channels.read",
-              "email",
-              "gdm.join",
-              "guilds",
-              "guilds.join",
-              "guilds.members.read",
-              "identify",
-              "messages.read",
-              "relationships.read",
-              "role_connections.write",
-              "rpc",
-              "rpc.activities.write",
-              "rpc.notifications.read",
-              "rpc.screenshare.read",
-              "rpc.screenshare.write",
-              "rpc.video.read",
-              "rpc.video.write",
-              "rpc.voice.read",
-              "rpc.voice.write",
-              "voice",
-              "webhook.incoming"
+              "applications.commands.permissions.update"
             ]
           }
         ]
