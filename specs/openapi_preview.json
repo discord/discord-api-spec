@@ -25579,19 +25579,12 @@
           },
           "membership_state": {
             "$ref": "#/components/schemas/TeamMembershipStates"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         },
         "required": [
           "user",
           "team_id",
-          "membership_state",
-          "permissions"
+          "membership_state"
         ]
       },
       "TeamMembershipStates": {
