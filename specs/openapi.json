@@ -12092,6 +12092,14 @@
           {
             "title": "HOME_SETTINGS_UPDATE",
             "const": 191
+          },
+          {
+            "title": "VOICE_CHANNEL_STATUS_CREATE",
+            "const": 192
+          },
+          {
+            "title": "VOICE_CHANNEL_STATUS_DELETE",
+            "const": 193
           }
         ],
         "format": "int32"
