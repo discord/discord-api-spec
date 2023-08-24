@@ -13324,6 +13324,11 @@
             "title": "GUILD_FORUM",
             "description": "Channel that can only contain threads",
             "const": 15
+          },
+          {
+            "title": "GUILD_MEDIA",
+            "description": "Channel that can only contain media threads",
+            "const": 16
           }
         ],
         "format": "int32"
@@ -13653,7 +13658,8 @@
                   5,
                   13,
                   14,
-                  15
+                  15,
+                  16
                 ],
                 "allOf": [
                   {
@@ -16490,7 +16496,8 @@
               5,
               13,
               14,
-              15
+              15,
+              16
             ],
             "allOf": [
               {
@@ -24771,10 +24778,12 @@
         "properties": {
           "label": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 100
           },
           "value": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 100
           },
           "description": {
@@ -26009,7 +26018,8 @@
                   5,
                   13,
                   14,
-                  15
+                  15,
+                  16
                 ],
                 "allOf": [
                   {
