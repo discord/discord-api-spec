@@ -3074,17 +3074,6 @@
       ],
       "delete": {
         "operationId": "leave_guild",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "204": {
             "description": "204 response for leave_guild"
@@ -8076,17 +8065,6 @@
       },
       "delete": {
         "operationId": "delete_stage_instance",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {}
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "204": {
             "description": "204 response for delete_stage_instance"
