@@ -6523,6 +6523,9 @@
                       },
                       {
                         "$ref": "#/components/schemas/ThreadResponse"
+                      },
+                      {
+                        "type": "null"
                       }
                     ]
                   }
