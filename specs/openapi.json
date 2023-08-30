@@ -102,16 +102,10 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/GuildChannelResponse"
-                    },
-                    {
                       "$ref": "#/components/schemas/PrivateChannelResponse"
                     },
                     {
                       "$ref": "#/components/schemas/PrivateGroupChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ThreadResponse"
                     }
                   ]
                 }
