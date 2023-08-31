@@ -21986,8 +21986,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "format": "uri"
+            ]
           },
           "proxy_icon_url": {
             "type": [
@@ -22030,8 +22029,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "format": "uri"
+            ]
           },
           "proxy_icon_url": {
             "type": [
@@ -22052,8 +22050,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "format": "uri"
+            ]
           },
           "proxy_url": {
             "type": [
@@ -22222,8 +22219,7 @@
             "type": [
               "string",
               "null"
-            ],
-            "format": "uri"
+            ]
           },
           "proxy_url": {
             "type": [
