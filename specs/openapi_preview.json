@@ -1899,18 +1899,19 @@
                 "type": "object",
                 "properties": {
                   "messages": {
-                    "type": [
-                      "array",
-                      "null"
-                    ],
+                    "type": "array",
                     "items": {
                       "type": "string",
                       "format": "snowflake"
                     },
-                    "maxItems": 1521,
+                    "minItems": 2,
+                    "maxItems": 100,
                     "uniqueItems": true
                   }
-                }
+                },
+                "required": [
+                  "messages"
+                ]
               }
             }
           },
