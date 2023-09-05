@@ -4040,6 +4040,32 @@
       ],
       "put": {
         "operationId": "add_group_dm_user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "access_token": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 152133
+                  },
+                  "nick": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 152133
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "201": {
             "description": "201 response for add_group_dm_user",
@@ -7679,6 +7705,65 @@
       },
       "post": {
         "operationId": "create_guild_role",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 100
+                  },
+                  "permissions": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "color": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 16777215
+                  },
+                  "hoist": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "mentionable": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "icon": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "contentEncoding": "base64"
+                  },
+                  "unicode_emoji": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 100
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "200 response for create_guild_role",
@@ -7772,6 +7857,54 @@
       ],
       "get": {
         "operationId": "preview_prune_guild",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "days": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 30
+                  },
+                  "compute_prune_count": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "include_roles": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "snowflake"
+                        },
+                        "maxItems": 100,
+                        "uniqueItems": true
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "200 response for preview_prune_guild",
@@ -7795,6 +7928,54 @@
       },
       "post": {
         "operationId": "prune_guild",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "days": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 1,
+                    "maximum": 30
+                  },
+                  "compute_prune_count": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "include_roles": {
+                    "oneOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "snowflake"
+                        },
+                        "maxItems": 100,
+                        "uniqueItems": true
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "description": "200 response for prune_guild",
@@ -7863,6 +8044,34 @@
       },
       "put": {
         "operationId": "ban_user_from_guild",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "delete_message_seconds": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 604800
+                  },
+                  "delete_message_days": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 7
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "204": {
             "description": "204 response for ban_user_from_guild"
