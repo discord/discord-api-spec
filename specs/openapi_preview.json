@@ -131,16 +131,14 @@
             "name": "before",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
             "name": "after",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
@@ -446,8 +444,7 @@
                     "maxLength": 120
                   },
                   "channel_id": {
-                    "type": "string",
-                    "format": "snowflake"
+                    "$ref": "#/components/schemas/SnowflakeType"
                   },
                   "privacy_level": {
                     "oneOf": [
@@ -460,11 +457,14 @@
                     ]
                   },
                   "guild_scheduled_event_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "snowflake"
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
                   },
                   "send_start_notification": {
                     "type": [
@@ -597,8 +597,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -610,8 +609,7 @@
             "name": "before",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
@@ -652,8 +650,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -661,8 +658,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -705,8 +701,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -714,8 +709,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -723,8 +717,7 @@
           "name": "command_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -814,8 +807,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -823,8 +815,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -877,8 +868,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -932,8 +922,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -987,8 +976,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -1088,8 +1076,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -1126,8 +1113,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -1214,8 +1200,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -1223,8 +1208,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -1232,8 +1216,7 @@
           "name": "command_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -1428,8 +1411,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -1437,8 +1419,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -1497,11 +1478,14 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "snowflake"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "name": {
                       "type": "string",
@@ -1801,8 +1785,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -1846,8 +1829,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -1863,8 +1845,7 @@
                   "messages": {
                     "type": "array",
                     "items": {
-                      "type": "string",
-                      "format": "snowflake"
+                      "$ref": "#/components/schemas/SnowflakeType"
                     },
                     "minItems": 2,
                     "maxItems": 100,
@@ -1900,8 +1881,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -1909,8 +1889,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -1927,8 +1906,7 @@
           "name": "user_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -1956,8 +1934,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -1965,8 +1942,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -1987,8 +1963,7 @@
             "name": "after",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
@@ -2048,8 +2023,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -2057,8 +2031,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2086,8 +2059,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -2095,8 +2067,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2131,8 +2102,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -2140,8 +2110,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2186,8 +2155,7 @@
           "name": "webhook_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -2208,8 +2176,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -2242,8 +2209,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -2269,8 +2235,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -2372,8 +2337,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -2381,8 +2345,7 @@
           "name": "guild_scheduled_event_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2410,16 +2373,14 @@
             "name": "before",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
             "name": "after",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -2457,8 +2418,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -2466,8 +2426,7 @@
           "name": "rule_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2597,8 +2556,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2720,8 +2678,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2748,11 +2705,14 @@
                     ]
                   },
                   "channel_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "snowflake"
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
                   }
                 }
               }
@@ -2781,8 +2741,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2842,8 +2801,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2878,8 +2836,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2933,8 +2890,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -2942,8 +2898,7 @@
           "name": "user_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -2951,8 +2906,7 @@
           "name": "role_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -2996,8 +2950,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -3025,8 +2978,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -3034,8 +2986,7 @@
           "name": "command_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -3230,8 +3181,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -3290,11 +3240,14 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "snowflake"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "name": {
                       "type": "string",
@@ -3594,8 +3547,7 @@
           "name": "interaction_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -3704,8 +3656,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -3713,8 +3664,7 @@
           "name": "user_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -3790,8 +3740,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -3819,8 +3768,7 @@
             "name": "after",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -3855,8 +3803,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -3864,8 +3811,7 @@
           "name": "overwrite_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -3943,8 +3889,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -3952,8 +3897,7 @@
           "name": "user_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4040,8 +3984,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4055,8 +3998,7 @@
                 "type": "object",
                 "properties": {
                   "webhook_channel_id": {
-                    "type": "string",
-                    "format": "snowflake"
+                    "$ref": "#/components/schemas/SnowflakeType"
                   }
                 },
                 "required": [
@@ -4095,8 +4037,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -4104,8 +4045,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4248,8 +4188,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4261,24 +4200,21 @@
             "name": "around",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
             "name": "before",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
             "name": "after",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
@@ -4417,8 +4353,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4519,8 +4454,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4627,8 +4561,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4707,8 +4640,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4746,8 +4678,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -4755,8 +4686,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4800,8 +4730,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4842,8 +4771,7 @@
           "name": "webhook_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -4860,8 +4788,7 @@
           "name": "message_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -4873,8 +4800,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -4907,8 +4833,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -4934,8 +4859,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -5037,8 +4961,7 @@
           "name": "webhook_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -5066,8 +4989,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -5103,8 +5025,7 @@
           "name": "webhook_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -5132,8 +5053,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -5276,8 +5196,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5315,8 +5234,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -5324,8 +5242,7 @@
           "name": "guild_scheduled_event_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5449,8 +5366,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5563,8 +5479,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5632,8 +5547,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -5641,8 +5555,7 @@
           "name": "user_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5662,11 +5575,14 @@
                     ]
                   },
                   "channel_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "snowflake"
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
                   }
                 }
               }
@@ -5695,8 +5611,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -5704,8 +5619,7 @@
           "name": "integration_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5733,8 +5647,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5785,8 +5698,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5822,8 +5734,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5891,8 +5802,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5927,8 +5837,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -5940,8 +5849,7 @@
             "name": "user_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
@@ -5955,16 +5863,14 @@
             "name": "before",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
             "name": "after",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
@@ -6005,8 +5911,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -6052,8 +5957,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -6167,8 +6071,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -6259,8 +6162,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -6268,8 +6170,7 @@
           "name": "sticker_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -6372,8 +6273,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -6464,8 +6364,7 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "format": "snowflake"
+                      "$ref": "#/components/schemas/SnowflakeType"
                     },
                     "position": {
                       "type": [
@@ -6477,11 +6376,14 @@
                       "format": "int32"
                     },
                     "parent_id": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "snowflake"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "lock_permissions": {
                       "type": [
@@ -6517,8 +6419,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -6617,8 +6518,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -6669,8 +6569,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -6678,8 +6577,7 @@
           "name": "user_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -6728,11 +6626,14 @@
                       "null"
                     ],
                     "items": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "snowflake"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "maxItems": 1521,
                     "uniqueItems": true
@@ -6829,11 +6730,14 @@
                       "null"
                     ],
                     "items": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "snowflake"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "maxItems": 1521,
                     "uniqueItems": true
@@ -6851,11 +6755,14 @@
                     ]
                   },
                   "channel_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "snowflake"
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
                   },
                   "communication_disabled_until": {
                     "type": [
@@ -6907,8 +6814,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -6965,8 +6871,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7001,8 +6906,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7054,8 +6958,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7096,8 +6999,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -7105,8 +7007,7 @@
           "name": "emoji_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7169,11 +7070,14 @@
                       "null"
                     ],
                     "items": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "snowflake"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "maxItems": 1521,
                     "uniqueItems": true
@@ -7212,8 +7116,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7270,11 +7173,14 @@
                       "null"
                     ],
                     "items": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "snowflake"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "maxItems": 1521,
                     "uniqueItems": true
@@ -7317,8 +7223,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7355,11 +7260,14 @@
                 "type": "object",
                 "properties": {
                   "channel_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "snowflake"
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
                   },
                   "enabled": {
                     "type": [
@@ -7401,8 +7309,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -7410,8 +7317,7 @@
           "name": "role_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7521,8 +7427,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7646,11 +7551,14 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "format": "snowflake"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "position": {
                       "type": [
@@ -7699,8 +7607,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7735,11 +7642,14 @@
                       {
                         "type": "array",
                         "items": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "format": "snowflake"
+                          "oneOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "$ref": "#/components/schemas/SnowflakeType"
+                            }
+                          ]
                         },
                         "maxItems": 100,
                         "uniqueItems": true
@@ -7806,11 +7716,14 @@
                       {
                         "type": "array",
                         "items": {
-                          "type": [
-                            "string",
-                            "null"
-                          ],
-                          "format": "snowflake"
+                          "oneOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "$ref": "#/components/schemas/SnowflakeType"
+                            }
+                          ]
                         },
                         "maxItems": 100,
                         "uniqueItems": true
@@ -7854,8 +7767,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -7863,8 +7775,7 @@
           "name": "user_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7959,8 +7870,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -7981,16 +7891,14 @@
             "name": "before",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           {
             "name": "after",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -8028,8 +7936,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -8082,8 +7989,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -8177,8 +8083,7 @@
           "name": "application_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -8246,8 +8151,7 @@
           "name": "webhook_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         },
@@ -8309,8 +8213,7 @@
             "name": "thread_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -8465,8 +8368,7 @@
           "name": "channel_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -8607,8 +8509,7 @@
           "name": "sticker_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -8650,8 +8551,7 @@
           "name": "webhook_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -8726,11 +8626,14 @@
                     "contentEncoding": "base64"
                   },
                   "channel_id": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "snowflake"
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
                   }
                 }
               }
@@ -8796,8 +8699,7 @@
             "name": "guild_scheduled_event_id",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           }
         ],
@@ -8875,8 +8777,7 @@
           "name": "guild_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -8969,8 +8870,7 @@
           "name": "user_id",
           "in": "path",
           "schema": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "required": true
         }
@@ -10298,8 +10198,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "$ref": "#/components/schemas/ApplicationCommandPermissionTypes"
@@ -10336,16 +10235,13 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "application_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "version": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "default_member_permissions": {
             "type": [
@@ -10393,11 +10289,14 @@
             }
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "dm_permission": {
             "type": [
@@ -11317,11 +11216,14 @@
             "contentEncoding": "base64"
           },
           "team_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "flags": {
             "type": [
@@ -11398,11 +11300,14 @@
         "type": "object",
         "properties": {
           "application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "avatar": {
             "type": [
@@ -11411,22 +11316,27 @@
             ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -11525,8 +11435,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -11557,11 +11466,14 @@
             ]
           },
           "primary_sku_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "bot": {
             "oneOf": [
@@ -11580,11 +11492,14 @@
             ]
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "rpc_origins": {
             "type": [
@@ -12112,25 +12027,30 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "action_type": {
             "$ref": "#/components/schemas/AuditLogActionTypes"
           },
           "user_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "target_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "changes": {
             "type": [
@@ -12475,8 +12395,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 3
           },
@@ -12534,8 +12453,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -12566,11 +12484,14 @@
             ]
           },
           "primary_sku_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "bot": {
             "oneOf": [
@@ -12593,8 +12514,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "$ref": "#/components/schemas/MessageType"
@@ -12603,8 +12523,7 @@
             "type": "string"
           },
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "author": {
             "$ref": "#/components/schemas/UserResponse"
@@ -12630,8 +12549,7 @@
           "mention_roles": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -12713,11 +12631,14 @@
             ]
           },
           "application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "interaction": {
             "oneOf": [
@@ -12748,11 +12669,14 @@
             ]
           },
           "webhook_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "message_reference": {
             "oneOf": [
@@ -13042,12 +12966,10 @@
         "type": "object",
         "properties": {
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "webhook_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -13059,11 +12981,14 @@
         "type": "object",
         "properties": {
           "application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "avatar": {
             "type": [
@@ -13072,22 +12997,27 @@
             ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -13145,8 +13075,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "oneOf": [
@@ -13179,8 +13108,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "$ref": "#/components/schemas/ChannelPermissionOverwrites"
@@ -13352,8 +13280,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "$ref": "#/components/schemas/ApplicationCommandPermissionTypes"
@@ -13372,16 +13299,13 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "application_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "permissions": {
             "type": "array",
@@ -13401,8 +13325,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -13629,8 +13552,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 5
           },
@@ -13736,11 +13658,14 @@
             "maximum": 21600
           },
           "parent_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "permission_overwrites": {
             "type": [
@@ -13862,18 +13787,24 @@
             ]
           },
           "target_user_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "target_application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "target_type": {
             "oneOf": [
@@ -13972,11 +13903,14 @@
             "maximum": 21600
           },
           "parent_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "permission_overwrites": {
             "type": [
@@ -14053,11 +13987,14 @@
             ]
           },
           "id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "available_tags": {
             "type": [
@@ -14165,11 +14102,14 @@
             "maxLength": 20
           },
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -14193,11 +14133,14 @@
         "type": "object",
         "properties": {
           "recipient_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "access_tokens": {
             "type": [
@@ -14320,8 +14263,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "type": "integer",
@@ -14338,11 +14280,14 @@
             "format": "int32"
           },
           "last_message_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "flags": {
             "type": "integer",
@@ -14358,18 +14303,20 @@
             "format": "date-time"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
           },
           "parent_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "rate_limit_per_user": {
             "type": [
@@ -14421,8 +14368,7 @@
             ]
           },
           "owner_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "thread_metadata": {
             "oneOf": [
@@ -14458,8 +14404,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           "member": {
@@ -14580,8 +14525,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 20,
             "uniqueItems": true
@@ -14592,8 +14536,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -14667,8 +14610,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 20,
             "uniqueItems": true
@@ -14679,8 +14621,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -14706,16 +14647,13 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "creator_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -14766,8 +14704,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -14777,8 +14714,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -14801,11 +14737,14 @@
         "type": "object",
         "properties": {
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -14852,8 +14791,7 @@
             ]
           },
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "application": {
             "$ref": "#/components/schemas/IntegrationApplicationResponse"
@@ -14897,11 +14835,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "name": {
             "type": "string",
@@ -14922,8 +14863,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -14941,8 +14881,7 @@
           "roles": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           "require_colons": {
@@ -15093,11 +15032,14 @@
             "format": "date-time"
           },
           "role_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "syncing": {
             "type": [
@@ -15166,11 +15108,14 @@
             "format": "int32"
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "entity_metadata": {
             "$ref": "#/components/schemas/EntityMetadataExternal"
@@ -15249,11 +15194,14 @@
             "$ref": "#/components/schemas/GuildScheduledEventPrivacyLevels"
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "entity_metadata": {
             "$ref": "#/components/schemas/EntityMetadataExternal"
@@ -15264,12 +15212,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -15281,18 +15227,24 @@
             ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "creator_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "creator": {
             "oneOf": [
@@ -15337,11 +15289,14 @@
             "format": "int32"
           },
           "entity_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "user_count": {
             "type": [
@@ -15408,8 +15363,7 @@
         "type": "object",
         "properties": {
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -15420,8 +15374,7 @@
         "type": "object",
         "properties": {
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -15477,8 +15430,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -15487,11 +15439,14 @@
             "type": "boolean"
           },
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -16499,8 +16454,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "type": "integer",
@@ -16522,11 +16476,14 @@
             "format": "int32"
           },
           "last_message_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "flags": {
             "type": "integer",
@@ -16542,18 +16499,20 @@
             "format": "date-time"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
           },
           "parent_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "rate_limit_per_user": {
             "type": [
@@ -16799,18 +16758,24 @@
             "maxItems": 1521
           },
           "afk_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "system_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "system_channel_flags": {
             "type": [
@@ -16988,8 +16953,7 @@
         "type": "object",
         "properties": {
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "enabled": {
             "type": "boolean"
@@ -17046,11 +17010,14 @@
         "type": "object",
         "properties": {
           "application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "avatar": {
             "type": [
@@ -17059,22 +17026,27 @@
             ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -17205,11 +17177,14 @@
             ]
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "channel": {
             "oneOf": [
@@ -17390,8 +17365,7 @@
           "roles": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -17457,8 +17431,7 @@
         "type": "object",
         "properties": {
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "prompts": {
             "type": "array",
@@ -17469,8 +17442,7 @@
           "default_channel_ids": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -17565,22 +17537,27 @@
             ]
           },
           "afk_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "system_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "owner_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "splash": {
             "type": [
@@ -17632,25 +17609,34 @@
             "contentEncoding": "base64"
           },
           "rules_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "safety_alerts_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "public_updates_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "premium_progress_bar_enabled": {
             "type": [
@@ -17664,8 +17650,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -17760,8 +17745,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -17810,35 +17794,43 @@
             ]
           },
           "owner_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "region": {
             "type": "string"
           },
           "afk_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "afk_timeout": {
             "$ref": "#/components/schemas/AfkTimeouts"
           },
           "system_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "system_channel_flags": {
             "type": "integer",
@@ -17850,11 +17842,14 @@
             "type": "boolean"
           },
           "widget_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "verification_level": {
             "$ref": "#/components/schemas/VerificationLevels"
@@ -17929,25 +17924,34 @@
             "$ref": "#/components/schemas/AvailableLocalesEnum"
           },
           "rules_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "safety_alerts_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "public_updates_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "premium_progress_bar_enabled": {
             "type": "boolean"
@@ -17999,8 +18003,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -18076,25 +18079,34 @@
             "type": "null"
           },
           "bot_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "integration_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "subscription_listing_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "available_for_purchase": {
             "type": "null"
@@ -18163,8 +18175,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -18204,8 +18215,7 @@
             "type": "boolean"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "user": {
             "oneOf": [
@@ -18264,8 +18274,7 @@
             ]
           },
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -18342,11 +18351,14 @@
             "format": "int32"
           },
           "parent_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "default_auto_archive_duration": {
             "oneOf": [
@@ -18459,11 +18471,14 @@
             "type": "string"
           },
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -18504,8 +18519,7 @@
             "format": "int32"
           },
           "creator_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "creator": {
             "oneOf": [
@@ -18526,8 +18540,7 @@
             "format": "date-time"
           },
           "source_guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "serialized_source_guild": {
             "$ref": "#/components/schemas/GuildTemplateSnapshotResponse"
@@ -18630,21 +18643,27 @@
             "$ref": "#/components/schemas/AvailableLocalesEnum"
           },
           "afk_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "afk_timeout": {
             "$ref": "#/components/schemas/AfkTimeouts"
           },
           "system_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "system_channel_flags": {
             "type": "integer",
@@ -18681,8 +18700,7 @@
         "type": "object",
         "properties": {
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "description": {
             "type": "string",
@@ -18690,11 +18708,14 @@
             "maxLength": 50
           },
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -18713,18 +18734,20 @@
         "type": "object",
         "properties": {
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "description": {
             "type": "string"
           },
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -18762,8 +18785,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -18812,35 +18834,43 @@
             ]
           },
           "owner_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "region": {
             "type": "string"
           },
           "afk_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "afk_timeout": {
             "$ref": "#/components/schemas/AfkTimeouts"
           },
           "system_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "system_channel_flags": {
             "type": "integer",
@@ -18852,11 +18882,14 @@
             "type": "boolean"
           },
           "widget_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "verification_level": {
             "$ref": "#/components/schemas/VerificationLevels"
@@ -18931,25 +18964,34 @@
             "$ref": "#/components/schemas/AvailableLocalesEnum"
           },
           "rules_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "safety_alerts_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "public_updates_channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "premium_progress_bar_enabled": {
             "type": "boolean"
@@ -19219,8 +19261,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 5
           }
@@ -19460,8 +19501,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -19492,11 +19532,14 @@
             ]
           },
           "primary_sku_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "bot": {
             "oneOf": [
@@ -19718,8 +19761,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -19750,11 +19792,14 @@
             ]
           },
           "primary_sku_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "bot": {
             "oneOf": [
@@ -19773,11 +19818,14 @@
             ]
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "rpc_origins": {
             "type": [
@@ -19886,8 +19934,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "$ref": "#/components/schemas/ChannelTypes"
@@ -19923,8 +19970,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -20086,16 +20132,13 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "creator_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -20146,8 +20189,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -20157,8 +20199,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -20292,8 +20333,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 20,
             "uniqueItems": true
@@ -20304,8 +20344,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -20385,8 +20424,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 20,
             "uniqueItems": true
@@ -20397,8 +20435,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -20431,16 +20468,13 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "creator_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -20491,8 +20525,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -20502,8 +20535,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -20576,8 +20608,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 20,
             "uniqueItems": true
@@ -20588,8 +20619,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -20669,8 +20699,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 20,
             "uniqueItems": true
@@ -20681,8 +20710,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -20715,16 +20743,13 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "creator_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -20775,8 +20800,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -20786,8 +20810,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -20885,8 +20908,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 20,
             "uniqueItems": true
@@ -20897,8 +20919,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -20978,8 +20999,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 20,
             "uniqueItems": true
@@ -20990,8 +21010,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -21105,11 +21124,14 @@
               "null"
             ],
             "items": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "format": "snowflake"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/components/schemas/SnowflakeType"
+                }
+              ]
             },
             "maxItems": 100,
             "uniqueItems": true
@@ -21120,11 +21142,14 @@
               "null"
             ],
             "items": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "format": "snowflake"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/components/schemas/SnowflakeType"
+                }
+              ]
             },
             "maxItems": 100,
             "uniqueItems": true
@@ -21141,8 +21166,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "filename": {
             "type": [
@@ -21173,8 +21197,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "filename": {
             "type": "string"
@@ -21430,11 +21453,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "name": {
             "type": "string"
@@ -21834,8 +21860,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 3
           },
@@ -22298,8 +22323,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "$ref": "#/components/schemas/InteractionTypes"
@@ -22334,8 +22358,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -22344,8 +22367,7 @@
             "$ref": "#/components/schemas/ChannelTypes"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -22380,11 +22402,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "name": {
             "type": [
@@ -22441,22 +22466,27 @@
         "type": "object",
         "properties": {
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "message_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
@@ -22467,8 +22497,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "$ref": "#/components/schemas/MessageType"
@@ -22477,8 +22506,7 @@
             "type": "string"
           },
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "author": {
             "$ref": "#/components/schemas/UserResponse"
@@ -22504,8 +22532,7 @@
           "mention_roles": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -22587,11 +22614,14 @@
             ]
           },
           "application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "interaction": {
             "oneOf": [
@@ -22622,11 +22652,14 @@
             ]
           },
           "webhook_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "message_reference": {
             "oneOf": [
@@ -22750,8 +22783,7 @@
         "type": "object",
         "properties": {
           "role_subscription_listing_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "tier_name": {
             "type": "string"
@@ -22777,8 +22809,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -23061,8 +23092,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -23117,8 +23147,7 @@
         "type": "object",
         "properties": {
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "action_type": {
             "$ref": "#/components/schemas/NewMemberActionType"
@@ -23370,11 +23399,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "title": {
             "type": "string",
@@ -23389,11 +23421,14 @@
             "maxLength": 100
           },
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -23414,8 +23449,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -23426,8 +23460,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 50,
             "uniqueItems": true
@@ -23441,8 +23474,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "title": {
             "type": "string"
@@ -23456,16 +23488,14 @@
           "role_ids": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
           "channel_ids": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           }
@@ -23483,8 +23513,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "title": {
             "type": "string"
@@ -23538,8 +23567,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "type": "string",
@@ -23569,8 +23597,7 @@
             ]
           },
           "application_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -23583,8 +23610,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "type": "string",
@@ -23624,8 +23650,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "type": "string",
@@ -23736,8 +23761,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -23768,11 +23792,14 @@
             ]
           },
           "primary_sku_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "bot": {
             "oneOf": [
@@ -23791,11 +23818,14 @@
             ]
           },
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "rpc_origins": {
             "type": [
@@ -23961,8 +23991,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "type": "integer",
@@ -23977,11 +24006,14 @@
             "format": "int32"
           },
           "last_message_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "flags": {
             "type": "integer",
@@ -24014,8 +24046,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "type": "integer",
@@ -24030,11 +24061,14 @@
             "format": "int32"
           },
           "last_message_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "flags": {
             "type": "integer",
@@ -24068,11 +24102,14 @@
             ]
           },
           "owner_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "managed": {
             "type": [
@@ -24081,11 +24118,14 @@
             ]
           },
           "application_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
@@ -24140,8 +24180,7 @@
           "roles": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -24237,22 +24276,27 @@
         "type": "object",
         "properties": {
           "guild_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "message_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "fail_if_not_exists": {
             "type": [
@@ -24269,8 +24313,7 @@
         "type": "object",
         "properties": {
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "title": {
             "type": "string"
@@ -24644,12 +24687,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -24661,18 +24702,24 @@
             ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "creator_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "creator": {
             "oneOf": [
@@ -24708,11 +24755,14 @@
             "$ref": "#/components/schemas/GuildScheduledEventEntityTypes"
           },
           "entity_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "user_count": {
             "type": [
@@ -24751,12 +24801,10 @@
         "type": "object",
         "properties": {
           "guild_scheduled_event_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "user_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "user": {
             "oneOf": [
@@ -24867,11 +24915,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "name": {
             "type": [
@@ -24924,20 +24975,22 @@
           }
         }
       },
+      "SnowflakeType": {
+        "type": "string",
+        "pattern": "^(0|[1-9][0-9]*)$",
+        "format": "snowflake"
+      },
       "SpamLinkRuleResponse": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "creator_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -24988,8 +25041,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -24999,8 +25051,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -25027,12 +25078,10 @@
         "type": "object",
         "properties": {
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "channel_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "topic": {
             "type": "string"
@@ -25041,8 +25090,7 @@
             "$ref": "#/components/schemas/StageInstancesPrivacyLevels"
           },
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "discoverable_disabled": {
             "type": [
@@ -25051,11 +25099,14 @@
             ]
           },
           "guild_scheduled_event_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
@@ -25130,11 +25181,14 @@
             "format": "int32"
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "entity_metadata": {
             "oneOf": [
@@ -25219,11 +25273,14 @@
             "$ref": "#/components/schemas/GuildScheduledEventPrivacyLevels"
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "entity_metadata": {
             "oneOf": [
@@ -25241,12 +25298,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -25258,18 +25313,24 @@
             ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "creator_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "creator": {
             "oneOf": [
@@ -25314,11 +25375,14 @@
             "format": "int32"
           },
           "entity_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "user_count": {
             "type": [
@@ -25367,8 +25431,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -25405,8 +25468,7 @@
             ]
           },
           "pack_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "sort_value": {
             "type": "integer",
@@ -25464,12 +25526,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "sku_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -25487,18 +25547,24 @@
             }
           },
           "cover_sticker_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "banner_asset_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
@@ -25594,8 +25660,7 @@
             "$ref": "#/components/schemas/UserResponse"
           },
           "team_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "membership_state": {
             "$ref": "#/components/schemas/TeamMembershipStates"
@@ -25627,8 +25692,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "icon": {
             "type": [
@@ -25640,8 +25704,7 @@
             "type": "string"
           },
           "owner_user_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "members": {
             "type": "array",
@@ -25703,12 +25766,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "user_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "join_timestamp": {
             "type": "string",
@@ -25781,8 +25842,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "type": {
             "type": "integer",
@@ -25799,11 +25859,14 @@
             "format": "int32"
           },
           "last_message_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "flags": {
             "type": "integer",
@@ -25819,18 +25882,20 @@
             "format": "date-time"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
           },
           "parent_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "rate_limit_per_user": {
             "type": [
@@ -25882,8 +25947,7 @@
             ]
           },
           "owner_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "thread_metadata": {
             "oneOf": [
@@ -25919,8 +25983,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           "member": {
@@ -25997,11 +26060,14 @@
         "type": "object",
         "properties": {
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -26092,11 +26158,14 @@
             "maximum": 21600
           },
           "parent_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "permission_overwrites": {
             "type": [
@@ -26222,8 +26291,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 500,
             "uniqueItems": true
@@ -26316,8 +26384,7 @@
             ]
           },
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -26385,8 +26452,7 @@
               "null"
             ],
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 5
           },
@@ -26432,11 +26498,14 @@
             "maxLength": 20
           },
           "emoji_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "emoji_name": {
             "type": [
@@ -26452,11 +26521,14 @@
             ]
           },
           "id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
@@ -26542,8 +26614,7 @@
         "type": "object",
         "properties": {
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "prompts": {
             "type": "array",
@@ -26554,8 +26625,7 @@
           "default_channel_ids": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
@@ -26590,8 +26660,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "username": {
             "type": "string"
@@ -26686,8 +26755,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "username": {
             "type": "string"
@@ -26972,11 +27040,14 @@
             "format": "int32"
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "entity_metadata": {
             "oneOf": [
@@ -27061,11 +27132,14 @@
             "$ref": "#/components/schemas/GuildScheduledEventPrivacyLevels"
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "entity_metadata": {
             "oneOf": [
@@ -27083,12 +27157,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -27100,18 +27172,24 @@
             ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "creator_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "creator": {
             "oneOf": [
@@ -27156,11 +27234,14 @@
             "format": "int32"
           },
           "entity_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           },
           "user_count": {
             "type": [
@@ -27346,8 +27427,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -27362,8 +27442,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "icon": {
             "type": [
@@ -27407,8 +27486,7 @@
           "author_ids": {
             "type": "array",
             "items": {
-              "type": "string",
-              "format": "snowflake"
+              "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           "message": {
@@ -27463,8 +27541,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -27575,11 +27652,14 @@
             ]
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
@@ -27594,8 +27674,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "format": "snowflake"
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
@@ -27640,11 +27719,14 @@
             "type": "boolean"
           },
           "channel_id": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "format": "snowflake"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
