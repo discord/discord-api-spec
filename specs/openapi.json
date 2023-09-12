@@ -6372,7 +6372,6 @@
                         "null"
                       ],
                       "minimum": 0,
-                      "maximum": 2147483647,
                       "format": "int32"
                     },
                     "parent_id": {
@@ -7565,8 +7564,6 @@
                         "integer",
                         "null"
                       ],
-                      "minimum": -2147483648,
-                      "maximum": 2147483647,
                       "format": "int32"
                     }
                   }
@@ -7614,57 +7611,43 @@
       ],
       "get": {
         "operationId": "preview_prune_guild",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "days": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 1,
-                    "maximum": 30
-                  },
-                  "compute_prune_count": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "include_roles": {
-                    "oneOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "array",
-                        "items": {
-                          "oneOf": [
-                            {
-                              "type": "null"
-                            },
-                            {
-                              "$ref": "#/components/schemas/SnowflakeType"
-                            }
-                          ]
-                        },
-                        "maxItems": 100,
-                        "uniqueItems": true
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  }
-                }
-              }
+        "parameters": [
+          {
+            "name": "days",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 30
             }
           },
-          "required": true
-        },
+          {
+            "name": "include_roles",
+            "in": "query",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
+                  },
+                  "maxItems": 100,
+                  "uniqueItems": true
+                }
+              ]
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "200 response for preview_prune_guild",
@@ -9521,20 +9504,24 @@
             "maxItems": 25
           },
           "min_value": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -9007199254740991,
-            "maximum": 9007199254740991
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Int53Type"
+              }
+            ]
           },
           "max_value": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -9007199254740991,
-            "maximum": 9007199254740991
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Int53Type"
+              }
+            ]
           }
         },
         "required": [
@@ -9616,20 +9603,24 @@
             }
           },
           "min_value": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -9007199254740991,
-            "maximum": 9007199254740991
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Int53Type"
+              }
+            ]
           },
           "max_value": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -9007199254740991,
-            "maximum": 9007199254740991
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/Int53Type"
+              }
+            ]
           }
         },
         "required": [
@@ -9970,9 +9961,7 @@
             "maxProperties": 33
           },
           "value": {
-            "type": "integer",
-            "minimum": -9007199254740991,
-            "maximum": 9007199254740991
+            "$ref": "#/components/schemas/Int53Type"
           }
         },
         "required": [
@@ -10002,9 +9991,7 @@
             }
           },
           "value": {
-            "type": "integer",
-            "minimum": -9007199254740991,
-            "maximum": 9007199254740991
+            "$ref": "#/components/schemas/Int53Type"
           }
         },
         "required": [
@@ -10660,8 +10647,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_length": {
@@ -10669,8 +10654,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -11244,7 +11227,8 @@
               "integer",
               "null"
             ],
-            "minimum": -1
+            "minimum": -1,
+            "format": "int32"
           },
           "type": {
             "oneOf": [
@@ -11561,8 +11545,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_participants": {
@@ -11570,8 +11552,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "tags": {
@@ -12575,8 +12555,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "components": {
@@ -12754,8 +12732,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -13608,7 +13584,6 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "topic": {
@@ -13624,14 +13599,16 @@
               "integer",
               "null"
             ],
-            "minimum": 8000
+            "minimum": 8000,
+            "format": "int32"
           },
           "user_limit": {
             "type": [
               "integer",
               "null"
             ],
-            "minimum": 0
+            "minimum": 0,
+            "format": "int32"
           },
           "nsfw": {
             "type": [
@@ -13853,7 +13830,6 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "topic": {
@@ -13869,14 +13845,16 @@
               "integer",
               "null"
             ],
-            "minimum": 8000
+            "minimum": 8000,
+            "format": "int32"
           },
           "user_limit": {
             "type": [
               "integer",
               "null"
             ],
-            "minimum": 0
+            "minimum": 0,
+            "format": "int32"
           },
           "nsfw": {
             "type": [
@@ -14281,8 +14259,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "last_pin_timestamp": {
@@ -14313,8 +14289,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "bitrate": {
@@ -14322,8 +14296,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "user_limit": {
@@ -14331,8 +14303,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "rtc_region": {
@@ -14372,20 +14342,14 @@
           },
           "message_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "member_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "total_message_sent": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "applied_tags": {
@@ -15010,8 +14974,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "synced_at": {
@@ -15293,8 +15255,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "privacy_level": {
@@ -15491,8 +15451,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "created_at": {
@@ -15530,8 +15488,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "uses": {
@@ -15539,8 +15495,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_uses": {
@@ -15548,8 +15502,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "flags": {
@@ -15557,8 +15509,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -15578,8 +15528,6 @@
           },
           "shards": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -15594,26 +15542,18 @@
         "properties": {
           "max_concurrency": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "remaining": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "reset_after": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "total": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -16269,8 +16209,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "created_at": {
@@ -16302,8 +16240,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -16476,8 +16412,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "last_pin_timestamp": {
@@ -16508,8 +16442,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "bitrate": {
@@ -16517,8 +16449,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "user_limit": {
@@ -16526,8 +16456,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "rtc_region": {
@@ -16573,14 +16501,10 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "position": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "permission_overwrites": {
@@ -17122,8 +17046,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "created_at": {
@@ -17151,8 +17073,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "guild": {
@@ -17240,8 +17160,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_uses": {
@@ -17249,8 +17167,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "temporary": {
@@ -17264,8 +17180,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "approximate_presence_count": {
@@ -17273,8 +17187,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -17327,8 +17239,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "joined_at": {
@@ -17683,14 +17593,10 @@
           },
           "approximate_member_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "approximate_presence_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "emojis": {
@@ -17724,8 +17630,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         }
@@ -17823,8 +17727,6 @@
           },
           "system_channel_flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "widget_enabled": {
@@ -17863,8 +17765,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_members": {
@@ -17872,8 +17772,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_stage_video_channel_users": {
@@ -17881,8 +17779,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_video_channel_users": {
@@ -17890,8 +17786,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "vanity_url_code": {
@@ -17905,8 +17799,6 @@
           },
           "premium_subscription_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "preferred_locale": {
@@ -18008,14 +17900,10 @@
           },
           "position": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "color": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "hoist": {
@@ -18279,8 +18167,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "type": {
@@ -18308,8 +18194,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "topic": {
@@ -18320,14 +18204,10 @@
           },
           "bitrate": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "user_limit": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "nsfw": {
@@ -18335,8 +18215,6 @@
           },
           "rate_limit_per_user": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "parent_id": {
@@ -18399,8 +18277,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "default_sort_order": {
@@ -18438,8 +18314,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -18503,8 +18377,6 @@
           },
           "usage_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "creator_id": {
@@ -18557,8 +18429,6 @@
         "properties": {
           "id": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "name": {
@@ -18569,8 +18439,6 @@
           },
           "color": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "hoist": {
@@ -18656,8 +18524,6 @@
           },
           "system_channel_flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "roles": {
@@ -18863,8 +18729,6 @@
           },
           "system_channel_flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "widget_enabled": {
@@ -18903,8 +18767,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_members": {
@@ -18912,8 +18774,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_stage_video_channel_users": {
@@ -18921,8 +18781,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_video_channel_users": {
@@ -18930,8 +18788,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "vanity_url_code": {
@@ -18945,8 +18801,6 @@
           },
           "premium_subscription_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "preferred_locale": {
@@ -19008,8 +18862,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "approximate_presence_count": {
@@ -19017,8 +18869,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -19486,6 +19336,12 @@
           "label"
         ]
       },
+      "Int53Type": {
+        "type": "integer",
+        "minimum": -9007199254740991,
+        "maximum": 9007199254740991,
+        "format": "int64"
+      },
       "IntegrationApplicationResponse": {
         "type": "object",
         "properties": {
@@ -19876,8 +19732,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_participants": {
@@ -19885,8 +19739,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "tags": {
@@ -20032,8 +19884,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -20054,8 +19904,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "speaker_count": {
@@ -20063,8 +19911,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "members": {
@@ -20842,8 +20688,6 @@
         "properties": {
           "mention_total_limit": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -21193,8 +21037,6 @@
           },
           "size": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "url": {
@@ -21210,8 +21052,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "height": {
@@ -21219,8 +21059,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "duration_secs": {
@@ -21403,8 +21241,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_values": {
@@ -21412,8 +21248,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "disabled": {
@@ -21515,8 +21349,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_length": {
@@ -21524,8 +21356,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -21564,8 +21394,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_values": {
@@ -21573,8 +21401,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "disabled": {
@@ -21618,8 +21444,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_values": {
@@ -21627,8 +21451,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "disabled": {
@@ -21672,8 +21494,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_values": {
@@ -21681,8 +21501,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "disabled": {
@@ -21788,8 +21606,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_values": {
@@ -21797,8 +21613,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "disabled": {
@@ -21979,9 +21793,13 @@
               "null"
             ],
             "items": {
-              "type": [
-                "integer",
-                "null"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/components/schemas/SnowflakeType"
+                }
               ]
             },
             "maxItems": 1521
@@ -22120,22 +21938,24 @@
             "format": "uri"
           },
           "width": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UInt32Type"
+              }
+            ]
           },
           "height": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UInt32Type"
+              }
+            ]
           }
         }
       },
@@ -22187,8 +22007,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "timestamp": {
@@ -22289,22 +22107,24 @@
             "format": "uri"
           },
           "width": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UInt32Type"
+              }
+            ]
           },
           "height": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
-            "format": "int32"
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UInt32Type"
+              }
+            ]
           }
         }
       },
@@ -22371,14 +22191,10 @@
         "properties": {
           "burst": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "normal": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -22422,8 +22238,6 @@
           },
           "count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "count_details": {
@@ -22547,8 +22361,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "components": {
@@ -22726,8 +22538,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "reactions": {
@@ -22779,8 +22589,6 @@
           },
           "total_months_subscribed": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "is_renewal": {
@@ -23110,8 +22918,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "approximate_presence_count": {
@@ -23119,8 +22925,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -23876,8 +23680,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "max_participants": {
@@ -23885,8 +23687,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "tags": {
@@ -23931,8 +23731,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "team": {
@@ -24006,8 +23804,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "last_pin_timestamp": {
@@ -24061,8 +23857,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "last_pin_timestamp": {
@@ -24142,8 +23936,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "joined_at": {
@@ -24758,8 +24550,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "privacy_level": {
@@ -25378,8 +25168,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "privacy_level": {
@@ -25461,8 +25249,6 @@
           },
           "sort_value": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -25766,8 +25552,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "member": {
@@ -25859,8 +25643,6 @@
           },
           "flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "last_pin_timestamp": {
@@ -25891,8 +25673,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "bitrate": {
@@ -25900,8 +25680,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "user_limit": {
@@ -25909,8 +25687,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "rtc_region": {
@@ -25950,20 +25726,14 @@
           },
           "message_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "member_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "total_message_sent": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "applied_tags": {
@@ -26045,6 +25815,12 @@
         "type": "object",
         "properties": {}
       },
+      "UInt32Type": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295,
+        "format": "int64"
+      },
       "UpdateDefaultReactionEmojiRequest": {
         "type": "object",
         "properties": {
@@ -26106,7 +25882,6 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "topic": {
@@ -26122,14 +25897,16 @@
               "integer",
               "null"
             ],
-            "minimum": 8000
+            "minimum": 8000,
+            "format": "int32"
           },
           "user_limit": {
             "type": [
               "integer",
               "null"
             ],
-            "minimum": 0
+            "minimum": 0,
+            "format": "int32"
           },
           "nsfw": {
             "type": [
@@ -26449,7 +26226,8 @@
               "integer",
               "null"
             ],
-            "minimum": 8000
+            "minimum": 8000,
+            "format": "int32"
           },
           "user_limit": {
             "type": [
@@ -26565,8 +26343,6 @@
         "properties": {
           "duration_seconds": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -26664,14 +26440,10 @@
           },
           "public_flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "flags": {
-            "type": "integer",
-            "minimum": -9007199254740991,
-            "maximum": 9007199254740991
+            "$ref": "#/components/schemas/Int53Type"
           },
           "bot": {
             "type": [
@@ -26696,8 +26468,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "mfa_enabled": {
@@ -26759,14 +26529,10 @@
           },
           "public_flags": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "flags": {
-            "type": "integer",
-            "minimum": -9007199254740991,
-            "maximum": 9007199254740991
+            "$ref": "#/components/schemas/Int53Type"
           },
           "bot": {
             "type": [
@@ -26791,8 +26557,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -26866,8 +26630,6 @@
           },
           "code": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -26887,8 +26649,6 @@
           },
           "uses": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "error": {
@@ -27236,8 +26996,6 @@
               "integer",
               "null"
             ],
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           },
           "privacy_level": {
@@ -27536,8 +27294,6 @@
           },
           "position": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
@@ -27687,8 +27443,6 @@
           },
           "presence_count": {
             "type": "integer",
-            "minimum": -2147483648,
-            "maximum": 2147483647,
             "format": "int32"
           }
         },
