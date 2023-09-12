@@ -13690,6 +13690,14 @@
               }
             ]
           },
+          "default_thread_rate_limit_per_user": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 21600
+          },
           "default_sort_order": {
             "oneOf": [
               {
