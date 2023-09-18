@@ -6267,151 +6267,6 @@
         ]
       }
     },
-    "/guilds/{guild_id}/channels": {
-      "parameters": [
-        {
-          "name": "guild_id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "required": true
-        }
-      ],
-      "get": {
-        "operationId": "list_guild_channels",
-        "responses": {
-          "200": {
-            "description": "200 response for list_guild_channels",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": [
-                    "array",
-                    "null"
-                  ],
-                  "items": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/GuildChannelResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/PrivateChannelResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/PrivateGroupChannelResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ThreadResponse"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      },
-      "post": {
-        "operationId": "create_guild_channel",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateGuildChannelRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "201 response for create_guild_channel",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GuildChannelResponse"
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      },
-      "patch": {
-        "operationId": "bulk_update_guild_channels",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "$ref": "#/components/schemas/SnowflakeType"
-                    },
-                    "position": {
-                      "type": [
-                        "integer",
-                        "null"
-                      ],
-                      "minimum": 0,
-                      "format": "int32"
-                    },
-                    "parent_id": {
-                      "oneOf": [
-                        {
-                          "type": "null"
-                        },
-                        {
-                          "$ref": "#/components/schemas/SnowflakeType"
-                        }
-                      ]
-                    },
-                    "lock_permissions": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "204": {
-            "description": "204 response for bulk_update_guild_channels"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/guilds/{guild_id}/stickers": {
       "parameters": [
         {
@@ -6550,6 +6405,151 @@
                 }
               }
             }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/guilds/{guild_id}/channels": {
+      "parameters": [
+        {
+          "name": "guild_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "list_guild_channels",
+        "responses": {
+          "200": {
+            "description": "200 response for list_guild_channels",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/GuildChannelResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PrivateChannelResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/PrivateGroupChannelResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ThreadResponse"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "create_guild_channel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGuildChannelRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response for create_guild_channel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuildChannelResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "bulk_update_guild_channels",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/components/schemas/SnowflakeType"
+                    },
+                    "position": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "minimum": 0,
+                      "format": "int32"
+                    },
+                    "parent_id": {
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
+                    },
+                    "lock_permissions": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "204 response for bulk_update_guild_channels"
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -8345,147 +8345,6 @@
         ]
       }
     },
-    "/channels/{channel_id}": {
-      "parameters": [
-        {
-          "name": "channel_id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "required": true
-        }
-      ],
-      "get": {
-        "operationId": "get_channel",
-        "responses": {
-          "200": {
-            "description": "200 response for get_channel",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/GuildChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/PrivateChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/PrivateGroupChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ThreadResponse"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      },
-      "delete": {
-        "operationId": "delete_channel",
-        "responses": {
-          "200": {
-            "description": "200 response for delete_channel",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/GuildChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/PrivateChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/PrivateGroupChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ThreadResponse"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      },
-      "patch": {
-        "operationId": "update_channel",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "anyOf": [
-                  {
-                    "$ref": "#/components/schemas/PrivateChannelRequestPartial"
-                  },
-                  {
-                    "$ref": "#/components/schemas/UpdateGuildChannelRequestPartial"
-                  },
-                  {
-                    "$ref": "#/components/schemas/UpdateThreadRequestPartial"
-                  }
-                ],
-                "x-discord-union": "oneOf"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "200 response for update_channel",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/GuildChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/PrivateChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/PrivateGroupChannelResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ThreadResponse"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/stickers/{sticker_id}": {
       "parameters": [
         {
@@ -8639,6 +8498,147 @@
                     },
                     {
                       "$ref": "#/components/schemas/GuildIncomingWebhookResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/channels/{channel_id}": {
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_channel",
+        "responses": {
+          "200": {
+            "description": "200 response for get_channel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GuildChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PrivateChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PrivateGroupChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ThreadResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_channel",
+        "responses": {
+          "200": {
+            "description": "200 response for delete_channel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GuildChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PrivateChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PrivateGroupChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ThreadResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "update_channel",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/PrivateChannelRequestPartial"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateGuildChannelRequestPartial"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateThreadRequestPartial"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for update_channel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/GuildChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PrivateChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PrivateGroupChannelResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ThreadResponse"
                     }
                   ]
                 }
