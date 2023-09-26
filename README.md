@@ -2,7 +2,7 @@
 
 This repository contains the public preview of the [OpenAPI 3.1 specification](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md) for [Discord's API](https://discord.com/developers/docs/reference). Currently, the spec is only available for the most recent Discord API version ([v10](https://discord.com/developers/docs/reference#api-versioning-api-versions)).
 
-> ⚠️ The public preview of the OpenAPI spec is subject to breaking changes without advance notice, and should not be used within production environments.
+> ⚠️ The public preview of the OpenAPI spec is subject to breaking changes without advance notice and should not be used within production environments.
 
 ## Usage
 
