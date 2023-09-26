@@ -15255,6 +15255,16 @@
               }
             ]
           },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRuleResponse"
+              }
+            ]
+          },
           "user_count": {
             "type": [
               "integer",
@@ -24059,6 +24069,195 @@
           "metadata"
         ]
       },
+      "RecurrenceRuleFrequencies": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "DAILY",
+            "const": 3
+          },
+          {
+            "title": "WEEKLY",
+            "const": 2
+          },
+          {
+            "title": "MONTHLY",
+            "const": 1
+          },
+          {
+            "title": "YEARLY",
+            "const": 0
+          }
+        ],
+        "format": "int32"
+      },
+      "RecurrenceRuleMonths": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "JANUARY",
+            "const": 1
+          },
+          {
+            "title": "FEBURARY",
+            "const": 2
+          },
+          {
+            "title": "MARCH",
+            "const": 3
+          },
+          {
+            "title": "APRIL",
+            "const": 4
+          },
+          {
+            "title": "MAY",
+            "const": 5
+          },
+          {
+            "title": "JUNE",
+            "const": 6
+          },
+          {
+            "title": "JULY",
+            "const": 7
+          },
+          {
+            "title": "AUGUEST",
+            "const": 8
+          },
+          {
+            "title": "SEPTEMBER",
+            "const": 9
+          },
+          {
+            "title": "OCTOBER",
+            "const": 10
+          },
+          {
+            "title": "NOVEMBER",
+            "const": 11
+          },
+          {
+            "title": "DECEMBER",
+            "const": 12
+          }
+        ],
+        "format": "int32"
+      },
+      "RecurrenceRuleResponse": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "frequency": {
+            "$ref": "#/components/schemas/RecurrenceRuleFrequencies"
+          },
+          "interval": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
+          "by_weekday": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RecurrenceRuleWeekdays"
+            },
+            "uniqueItems": true
+          },
+          "by_month": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RecurrenceRuleMonths"
+            },
+            "uniqueItems": true
+          },
+          "by_month_day": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "uniqueItems": true
+          },
+          "by_year_day": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "uniqueItems": true
+          },
+          "count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          }
+        },
+        "required": [
+          "start",
+          "frequency"
+        ]
+      },
+      "RecurrenceRuleWeekdays": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "MONDAY",
+            "const": 0
+          },
+          {
+            "title": "TUESDAY",
+            "const": 1
+          },
+          {
+            "title": "WEDNESDAY",
+            "const": 2
+          },
+          {
+            "title": "THURSDAY",
+            "const": 3
+          },
+          {
+            "title": "FRIDAY",
+            "const": 4
+          },
+          {
+            "title": "SATURDAY",
+            "const": 5
+          },
+          {
+            "title": "SUNDAY",
+            "const": 6
+          }
+        ],
+        "format": "int32"
+      },
       "ReplyMessageReferenceRequest": {
         "type": "object",
         "properties": {
@@ -24548,6 +24747,16 @@
               },
               {
                 "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRuleResponse"
               }
             ]
           },
@@ -25166,6 +25375,16 @@
               },
               {
                 "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRuleResponse"
               }
             ]
           },
@@ -26995,6 +27214,16 @@
               },
               {
                 "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRuleResponse"
               }
             ]
           },
