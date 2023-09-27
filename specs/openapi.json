@@ -12720,6 +12720,16 @@
               "null"
             ],
             "format": "int32"
+          },
+          "resolved": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ResolvedObjectsResponse"
+              }
+            ]
           }
         },
         "required": [
@@ -13152,6 +13162,16 @@
               "null"
             ]
           },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ChannelSelectDefaultValue"
+            },
+            "maxItems": 25
+          },
           "channel_types": {
             "type": [
               "array",
@@ -13166,6 +13186,21 @@
         "required": [
           "type",
           "custom_id"
+        ]
+      },
+      "ChannelSelectDefaultValue": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "type",
+          "id"
         ]
       },
       "ChannelTypes": {
@@ -20914,6 +20949,14 @@
               "boolean",
               "null"
             ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {},
+            "maxItems": 25
           }
         },
         "required": [
@@ -22535,6 +22578,16 @@
             ],
             "format": "int32"
           },
+          "resolved": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ResolvedObjectsResponse"
+              }
+            ]
+          },
           "reactions": {
             "type": [
               "array",
@@ -24085,6 +24138,54 @@
           "message_id"
         ]
       },
+      "ResolvedObjectsResponse": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          },
+          "members": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/GuildMemberResponse"
+            }
+          },
+          "channels": {
+            "type": "object",
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GuildChannelResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/PrivateChannelResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/PrivateGroupChannelResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/ThreadResponse"
+                }
+              ]
+            }
+          },
+          "roles": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/GuildRoleResponse"
+            }
+          }
+        },
+        "required": [
+          "users",
+          "members",
+          "channels",
+          "roles"
+        ]
+      },
       "ResourceChannelResponse": {
         "type": "object",
         "properties": {
@@ -24452,11 +24553,36 @@
               "boolean",
               "null"
             ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RoleSelectDefaultValue"
+            },
+            "maxItems": 25
           }
         },
         "required": [
           "type",
           "custom_id"
+        ]
+      },
+      "RoleSelectDefaultValue": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "type",
+          "id"
         ]
       },
       "ScheduledEventResponse": {
@@ -24748,6 +24874,10 @@
             "maxItems": 1521
           }
         }
+      },
+      "SnowflakeSelectDefaultValueTypes": {
+        "type": "string",
+        "oneOf": []
       },
       "SnowflakeType": {
         "type": "string",
@@ -26610,11 +26740,36 @@
               "boolean",
               "null"
             ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/UserSelectDefaultValue"
+            },
+            "maxItems": 25
           }
         },
         "required": [
           "type",
           "custom_id"
+        ]
+      },
+      "UserSelectDefaultValue": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "type",
+          "id"
         ]
       },
       "VanityURLErrorResponse": {
