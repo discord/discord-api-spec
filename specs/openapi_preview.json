@@ -15109,6 +15109,16 @@
               }
             ]
           },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRule"
+              }
+            ]
+          },
           "entity_metadata": {
             "$ref": "#/components/schemas/EntityMetadataExternal"
           }
@@ -15192,6 +15202,16 @@
               },
               {
                 "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRule"
               }
             ]
           },
@@ -24122,6 +24142,91 @@
           "metadata"
         ]
       },
+      "RecurrenceRule": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "frequency": {
+            "$ref": "#/components/schemas/RecurrenceRuleFrequencies"
+          },
+          "interval": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "by_weekday": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RecurrenceRuleWeekdays"
+            },
+            "maxItems": 7,
+            "uniqueItems": true
+          },
+          "by_month": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RecurrenceRuleMonths"
+            },
+            "maxItems": 12,
+            "uniqueItems": true
+          },
+          "by_month_day": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 31,
+              "format": "int32"
+            },
+            "maxItems": 31,
+            "uniqueItems": true
+          },
+          "by_year_day": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 365,
+              "format": "int32"
+            },
+            "maxItems": 365,
+            "uniqueItems": true
+          },
+          "count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          }
+        },
+        "required": [
+          "start",
+          "frequency",
+          "interval"
+        ]
+      },
       "RecurrenceRuleFrequencies": {
         "type": "integer",
         "oneOf": [
@@ -25314,6 +25419,16 @@
               }
             ]
           },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRule"
+              }
+            ]
+          },
           "entity_metadata": {
             "oneOf": [
               {
@@ -25403,6 +25518,16 @@
               },
               {
                 "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRule"
               }
             ]
           },
@@ -27178,6 +27303,16 @@
               }
             ]
           },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRule"
+              }
+            ]
+          },
           "entity_metadata": {
             "oneOf": [
               {
@@ -27267,6 +27402,16 @@
               },
               {
                 "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "recurrence_rule": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RecurrenceRule"
               }
             ]
           },
