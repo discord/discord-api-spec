@@ -15300,6 +15300,9 @@
               }
             ]
           },
+          "auto_start": {
+            "type": "boolean"
+          },
           "entity_metadata": {
             "$ref": "#/components/schemas/EntityMetadataExternalResponse"
           }
@@ -15312,6 +15315,7 @@
           "status",
           "entity_type",
           "privacy_level",
+          "auto_start",
           "entity_metadata"
         ]
       },
@@ -24685,6 +24689,9 @@
                 "$ref": "#/components/schemas/ScheduledEventUserResponse"
               }
             ]
+          },
+          "auto_start": {
+            "type": "boolean"
           }
         },
         "required": [
@@ -24694,7 +24701,8 @@
           "scheduled_start_time",
           "status",
           "entity_type",
-          "privacy_level"
+          "privacy_level",
+          "auto_start"
         ]
       },
       "ScheduledEventUserResponse": {
@@ -25308,6 +25316,9 @@
               }
             ]
           },
+          "auto_start": {
+            "type": "boolean"
+          },
           "entity_metadata": {
             "oneOf": [
               {
@@ -25326,7 +25337,8 @@
           "scheduled_start_time",
           "status",
           "entity_type",
-          "privacy_level"
+          "privacy_level",
+          "auto_start"
         ]
       },
       "StandardStickerResponse": {
@@ -27161,6 +27173,9 @@
               }
             ]
           },
+          "auto_start": {
+            "type": "boolean"
+          },
           "entity_metadata": {
             "oneOf": [
               {
@@ -27179,7 +27194,8 @@
           "scheduled_start_time",
           "status",
           "entity_type",
-          "privacy_level"
+          "privacy_level",
+          "auto_start"
         ]
       },
       "WebhookSlackEmbed": {
