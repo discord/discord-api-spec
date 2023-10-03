@@ -15501,6 +15501,13 @@
             ],
             "format": "date-time"
           },
+          "friends_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
           "channel": {
             "oneOf": [
               {
@@ -15516,13 +15523,6 @@
               "boolean",
               "null"
             ]
-          },
-          "friends_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
-            "format": "int32"
           },
           "uses": {
             "type": [
