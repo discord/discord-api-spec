@@ -24208,11 +24208,11 @@
             ],
             "items": {
               "type": "integer",
-              "minimum": 1,
+              "minimum": -1,
               "maximum": 31,
               "format": "int32"
             },
-            "maxItems": 31,
+            "maxItems": 33,
             "uniqueItems": true
           },
           "by_year_day": {
@@ -24222,11 +24222,11 @@
             ],
             "items": {
               "type": "integer",
-              "minimum": 1,
+              "minimum": -1,
               "maximum": 365,
               "format": "int32"
             },
-            "maxItems": 365,
+            "maxItems": 367,
             "uniqueItems": true
           },
           "count": {
