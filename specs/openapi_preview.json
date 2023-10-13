@@ -1276,103 +1276,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 32
-                  },
-                  "name_localizations": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 32
-                    },
-                    "maxProperties": 33
-                  },
-                  "description": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  },
-                  "description_localizations": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100
-                    },
-                    "maxProperties": 33
-                  },
-                  "options": {
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandChannelOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandNumberOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandRoleOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandStringOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandUserOption"
-                        }
-                      ]
-                    },
-                    "maxItems": 25
-                  },
-                  "default_member_permissions": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 562949953421311
-                  },
-                  "dm_permission": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  }
-                }
+                "$ref": "#/components/schemas/ApplicationCommandPatchRequestPartial"
               }
             }
           },
@@ -1473,123 +1377,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "oneOf": [
-                        {
-                          "type": "null"
-                        },
-                        {
-                          "$ref": "#/components/schemas/SnowflakeType"
-                        }
-                      ]
-                    },
-                    "name": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 32
-                    },
-                    "name_localizations": {
-                      "type": [
-                        "object",
-                        "null"
-                      ],
-                      "additionalProperties": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 32
-                      },
-                      "maxProperties": 33
-                    },
-                    "description": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "maxLength": 100
-                    },
-                    "description_localizations": {
-                      "type": [
-                        "object",
-                        "null"
-                      ],
-                      "additionalProperties": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 100
-                      },
-                      "maxProperties": 33
-                    },
-                    "options": {
-                      "type": [
-                        "array",
-                        "null"
-                      ],
-                      "items": {
-                        "oneOf": [
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandChannelOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandNumberOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandRoleOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandStringOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandUserOption"
-                          }
-                        ]
-                      },
-                      "maxItems": 25
-                    },
-                    "default_member_permissions": {
-                      "type": [
-                        "integer",
-                        "null"
-                      ],
-                      "minimum": 0,
-                      "maximum": 562949953421311
-                    },
-                    "dm_permission": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
-                    },
-                    "type": {
-                      "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "type"
-                  ]
-                }
+                  "$ref": "#/components/schemas/ApplicationCommandUpdateRequest"
+                },
+                "maxItems": 110
               }
             }
           },
@@ -1633,110 +1428,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 32
-                  },
-                  "name_localizations": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 32
-                    },
-                    "maxProperties": 33
-                  },
-                  "description": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  },
-                  "description_localizations": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100
-                    },
-                    "maxProperties": 33
-                  },
-                  "options": {
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandChannelOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandNumberOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandRoleOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandStringOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandUserOption"
-                        }
-                      ]
-                    },
-                    "maxItems": 25
-                  },
-                  "default_member_permissions": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 562949953421311
-                  },
-                  "dm_permission": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "type": {
-                    "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
-                  }
-                },
-                "required": [
-                  "name",
-                  "type"
-                ]
+                "$ref": "#/components/schemas/ApplicationCommandCreateRequest"
               }
             }
           },
@@ -3046,103 +2738,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 32
-                  },
-                  "name_localizations": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 32
-                    },
-                    "maxProperties": 33
-                  },
-                  "description": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  },
-                  "description_localizations": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100
-                    },
-                    "maxProperties": 33
-                  },
-                  "options": {
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandChannelOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandNumberOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandRoleOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandStringOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandUserOption"
-                        }
-                      ]
-                    },
-                    "maxItems": 25
-                  },
-                  "default_member_permissions": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 562949953421311
-                  },
-                  "dm_permission": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  }
-                }
+                "$ref": "#/components/schemas/ApplicationCommandPatchRequestPartial"
               }
             }
           },
@@ -3235,123 +2831,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "array",
+                "type": [
+                  "array",
+                  "null"
+                ],
                 "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "oneOf": [
-                        {
-                          "type": "null"
-                        },
-                        {
-                          "$ref": "#/components/schemas/SnowflakeType"
-                        }
-                      ]
-                    },
-                    "name": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 32
-                    },
-                    "name_localizations": {
-                      "type": [
-                        "object",
-                        "null"
-                      ],
-                      "additionalProperties": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 32
-                      },
-                      "maxProperties": 33
-                    },
-                    "description": {
-                      "type": [
-                        "string",
-                        "null"
-                      ],
-                      "maxLength": 100
-                    },
-                    "description_localizations": {
-                      "type": [
-                        "object",
-                        "null"
-                      ],
-                      "additionalProperties": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 100
-                      },
-                      "maxProperties": 33
-                    },
-                    "options": {
-                      "type": [
-                        "array",
-                        "null"
-                      ],
-                      "items": {
-                        "oneOf": [
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandChannelOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandNumberOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandRoleOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandStringOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
-                          },
-                          {
-                            "$ref": "#/components/schemas/ApplicationCommandUserOption"
-                          }
-                        ]
-                      },
-                      "maxItems": 25
-                    },
-                    "default_member_permissions": {
-                      "type": [
-                        "integer",
-                        "null"
-                      ],
-                      "minimum": 0,
-                      "maximum": 562949953421311
-                    },
-                    "dm_permission": {
-                      "type": [
-                        "boolean",
-                        "null"
-                      ]
-                    },
-                    "type": {
-                      "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "type"
-                  ]
-                }
+                  "$ref": "#/components/schemas/ApplicationCommandUpdateRequest"
+                },
+                "maxItems": 110
               }
             }
           },
@@ -3395,110 +2882,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 32
-                  },
-                  "name_localizations": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 32
-                    },
-                    "maxProperties": 33
-                  },
-                  "description": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  },
-                  "description_localizations": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100
-                    },
-                    "maxProperties": 33
-                  },
-                  "options": {
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "oneOf": [
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandChannelOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandNumberOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandRoleOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandStringOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
-                        },
-                        {
-                          "$ref": "#/components/schemas/ApplicationCommandUserOption"
-                        }
-                      ]
-                    },
-                    "maxItems": 25
-                  },
-                  "default_member_permissions": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 562949953421311
-                  },
-                  "dm_permission": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "type": {
-                    "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
-                  }
-                },
-                "required": [
-                  "name",
-                  "type"
-                ]
+                "$ref": "#/components/schemas/ApplicationCommandCreateRequest"
               }
             }
           },
@@ -9437,6 +8821,118 @@
           "description"
         ]
       },
+      "ApplicationCommandCreateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "name_localizations": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxProperties": 33
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "description_localizations": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "maxProperties": 33
+          },
+          "options": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandChannelOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandNumberOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandRoleOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandStringOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandUserOption"
+                }
+              ]
+            },
+            "maxItems": 25
+          },
+          "default_member_permissions": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 562949953421311
+          },
+          "dm_permission": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
       "ApplicationCommandIntegerOption": {
         "type": "object",
         "properties": {
@@ -10185,6 +9681,105 @@
           }
         ],
         "format": "int32"
+      },
+      "ApplicationCommandPatchRequestPartial": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "name_localizations": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxProperties": 33
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "description_localizations": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "maxProperties": 33
+          },
+          "options": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandChannelOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandNumberOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandRoleOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandStringOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandUserOption"
+                }
+              ]
+            },
+            "maxItems": 25
+          },
+          "default_member_permissions": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 562949953421311
+          },
+          "dm_permission": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
       },
       "ApplicationCommandPermission": {
         "type": "object",
@@ -11015,6 +10610,128 @@
           "type",
           "name",
           "description"
+        ]
+      },
+      "ApplicationCommandUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "name_localizations": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 32
+            },
+            "maxProperties": 33
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "description_localizations": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "maxProperties": 33
+          },
+          "options": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandAttachmentOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandBooleanOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandChannelOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandIntegerOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandMentionableOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandNumberOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandRoleOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandStringOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandSubcommandGroupOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandSubcommandOption"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationCommandUserOption"
+                }
+              ]
+            },
+            "maxItems": 25
+          },
+          "default_member_permissions": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 562949953421311
+          },
+          "dm_permission": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
+              }
+            ]
+          },
+          "id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name"
         ]
       },
       "ApplicationCommandUserOption": {
