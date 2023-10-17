@@ -17852,6 +17852,20 @@
         ],
         "format": "int32"
       },
+      "GuildScheduledEventUserResponses": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "UNINTERESTED",
+            "const": 0
+          },
+          {
+            "title": "INTERESTED",
+            "const": 1
+          }
+        ],
+        "format": "int32"
+      },
       "GuildStickerResponse": {
         "type": "object",
         "properties": {
@@ -24765,6 +24779,16 @@
           "guild_scheduled_event_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
+          "guild_scheduled_event_exception_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
           "user_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
@@ -24787,11 +24811,15 @@
                 "$ref": "#/components/schemas/GuildMemberResponse"
               }
             ]
+          },
+          "response": {
+            "$ref": "#/components/schemas/GuildScheduledEventUserResponses"
           }
         },
         "required": [
           "guild_scheduled_event_id",
-          "user_id"
+          "user_id",
+          "response"
         ]
       },
       "SelectOption": {
