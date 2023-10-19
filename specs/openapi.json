@@ -26296,6 +26296,16 @@
             "type": "integer",
             "format": "int32"
           },
+          "premium_type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PremiumTypes"
+              }
+            ]
+          },
           "flags": {
             "$ref": "#/components/schemas/Int53Type"
           },
@@ -26329,16 +26339,6 @@
           },
           "locale": {
             "$ref": "#/components/schemas/AvailableLocalesEnum"
-          },
-          "premium_type": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PremiumTypes"
-              }
-            ]
           },
           "email": {
             "type": [
@@ -26384,6 +26384,16 @@
           "public_flags": {
             "type": "integer",
             "format": "int32"
+          },
+          "premium_type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PremiumTypes"
+              }
+            ]
           },
           "flags": {
             "$ref": "#/components/schemas/Int53Type"
