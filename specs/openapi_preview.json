@@ -8383,11 +8383,6 @@
           }
         ]
       },
-      "ApplicationCommandApplicationCommandType": {
-        "type": "integer",
-        "oneOf": [],
-        "format": "int32"
-      },
       "ApplicationCommandAttachmentOption": {
         "type": "object",
         "properties": {
@@ -8398,7 +8393,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -8460,7 +8455,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -8559,7 +8554,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -8621,7 +8616,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -8685,7 +8680,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -8757,7 +8752,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -8924,7 +8919,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
+                "$ref": "#/components/schemas/ApplicationCommandType"
               }
             ]
           }
@@ -8943,7 +8938,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -9041,7 +9036,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -9140,7 +9135,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -9202,7 +9197,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -9266,7 +9261,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -9358,7 +9353,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -9621,7 +9616,7 @@
           "value"
         ]
       },
-      "ApplicationCommandOptionTypeScopeApplicationCommandOptionType": {
+      "ApplicationCommandOptionType": {
         "type": "integer",
         "oneOf": [
           {
@@ -9840,7 +9835,7 @@
             ]
           },
           "type": {
-            "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
+            "$ref": "#/components/schemas/ApplicationCommandType"
           },
           "name": {
             "type": "string"
@@ -9963,7 +9958,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10025,7 +10020,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10089,7 +10084,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10183,7 +10178,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10276,7 +10271,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10348,7 +10343,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10421,7 +10416,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10521,7 +10516,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10611,6 +10606,27 @@
           "name",
           "description"
         ]
+      },
+      "ApplicationCommandType": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "CHAT",
+            "description": "Slash commands; a text-based command that shows up when a user types /",
+            "const": 1
+          },
+          {
+            "title": "USER",
+            "description": "A UI-based command that shows up when you right click or tap on a user",
+            "const": 2
+          },
+          {
+            "title": "MESSAGE",
+            "description": "A UI-based command that shows up when you right click or tap on a message",
+            "const": 3
+          }
+        ],
+        "format": "int32"
       },
       "ApplicationCommandUpdateRequest": {
         "type": "object",
@@ -10715,7 +10731,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ApplicationCommandApplicationCommandType"
+                "$ref": "#/components/schemas/ApplicationCommandType"
               }
             ]
           },
@@ -10744,7 +10760,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
@@ -10806,7 +10822,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ApplicationCommandOptionTypeScopeApplicationCommandOptionType"
+                "$ref": "#/components/schemas/ApplicationCommandOptionType"
               }
             ],
             "format": "int32"
