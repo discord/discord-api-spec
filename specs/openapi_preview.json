@@ -26296,7 +26296,14 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/UpdateThreadTagRequest"
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/components/schemas/UpdateThreadTagRequest"
+                }
+              ]
             },
             "maxItems": 20
           }
