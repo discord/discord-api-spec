@@ -12447,6 +12447,16 @@
               }
             ]
           },
+          "purchase_notification": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PurchaseNotificationResponse"
+              }
+            ]
+          },
           "position": {
             "type": [
               "integer",
@@ -17389,6 +17399,21 @@
           "stickers"
         ]
       },
+      "GuildProductPurchaseResponse": {
+        "type": "object",
+        "properties": {
+          "listing_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "product_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "listing_id",
+          "product_name"
+        ]
+      },
       "GuildPruneResponse": {
         "type": "object",
         "properties": {
@@ -22308,6 +22333,16 @@
               }
             ]
           },
+          "purchase_notification": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PurchaseNotificationResponse"
+              }
+            ]
+          },
           "position": {
             "type": [
               "integer",
@@ -23775,6 +23810,32 @@
           "mute",
           "deaf"
         ]
+      },
+      "PurchaseNotificationResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/PurchaseType"
+          },
+          "guild_product_purchase": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildProductPurchaseResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "PurchaseType": {
+        "type": "integer",
+        "oneOf": [],
+        "format": "int32"
       },
       "QuarantineUserAction": {
         "type": "object",
