@@ -21756,6 +21756,22 @@
                 "$ref": "#/components/schemas/UInt32Type"
               }
             ]
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "placeholder_version": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UInt32Type"
+              }
+            ]
           }
         }
       },
@@ -21917,6 +21933,22 @@
             ]
           },
           "height": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UInt32Type"
+              }
+            ]
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "placeholder_version": {
             "oneOf": [
               {
                 "type": "null"
@@ -24231,6 +24263,21 @@
               "integer",
               "null"
             ]
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "placeholder_version": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 2147483647
           }
         }
       },
@@ -24276,6 +24323,21 @@
               "integer",
               "null"
             ]
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "placeholder_version": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 2147483647
           }
         }
       },
@@ -24301,6 +24363,21 @@
               "integer",
               "null"
             ]
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 64
+          },
+          "placeholder_version": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 2147483647
           }
         }
       },
