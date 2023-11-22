@@ -11791,8 +11791,18 @@
               "null"
             ]
           },
-          "new_value": {},
-          "old_value": {}
+          "new_value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "old_value": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         }
       },
       "AutomodActionType": {
@@ -15640,7 +15650,9 @@
             ],
             "maxLength": 152133
           },
-          "pull_request": {}
+          "pull_request": {
+            "type": "integer"
+          }
         },
         "required": [
           "id",
