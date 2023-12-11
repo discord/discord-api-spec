@@ -12678,6 +12678,40 @@
         ],
         "format": "int32"
       },
+      "ByNWeekday": {
+        "type": "object",
+        "properties": {
+          "n": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 5,
+            "format": "int32"
+          },
+          "day": {
+            "$ref": "#/components/schemas/RecurrenceRuleWeekdays"
+          }
+        },
+        "required": [
+          "n",
+          "day"
+        ]
+      },
+      "ByNWeekdayResponse": {
+        "type": "object",
+        "properties": {
+          "n": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "day": {
+            "$ref": "#/components/schemas/RecurrenceRuleWeekdays"
+          }
+        },
+        "required": [
+          "n",
+          "day"
+        ]
+      },
       "ChannelFollowerResponse": {
         "type": "object",
         "properties": {
@@ -24062,6 +24096,16 @@
             "maxItems": 7,
             "uniqueItems": true
           },
+          "by_n_weekday": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ByNWeekday"
+            },
+            "maxItems": 7
+          },
           "by_month": {
             "type": [
               "array",
@@ -24224,6 +24268,15 @@
               "$ref": "#/components/schemas/RecurrenceRuleWeekdays"
             },
             "uniqueItems": true
+          },
+          "by_n_weekday": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ByNWeekdayResponse"
+            }
           },
           "by_month": {
             "type": [
