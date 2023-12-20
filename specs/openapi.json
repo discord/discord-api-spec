@@ -24179,7 +24179,7 @@
             "items": {
               "$ref": "#/components/schemas/RichEmbedField"
             },
-            "maxItems": 1521
+            "maxItems": 25
           },
           "provider": {
             "oneOf": [
