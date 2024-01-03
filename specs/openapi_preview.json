@@ -26792,14 +26792,14 @@
         "type": "object",
         "properties": {
           "duration_seconds": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 2419200
           }
-        },
-        "required": [
-          "duration_seconds"
-        ]
+        }
       },
       "UserCommunicationDisabledActionMetadataResponse": {
         "type": "object",
