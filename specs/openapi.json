@@ -10887,7 +10887,7 @@
             "properties": {
               "default": {
                 "type": "string",
-                "maxLength": 2048
+                "maxLength": 400
               },
               "localizations": {
                 "type": [
@@ -10896,7 +10896,7 @@
                 ],
                 "additionalProperties": {
                   "type": "string",
-                  "maxLength": 2048
+                  "maxLength": 400
                 }
               }
             },
