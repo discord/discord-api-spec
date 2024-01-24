@@ -10986,7 +10986,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ApplicationOAuth2Params"
+                "$ref": "#/components/schemas/ApplicationOAuth2InstallParams"
               }
             ]
           },
@@ -11074,7 +11074,7 @@
           "type"
         ]
       },
-      "ApplicationOAuth2Params": {
+      "ApplicationOAuth2InstallParams": {
         "type": "object",
         "properties": {
           "scopes": {
@@ -11107,7 +11107,7 @@
           }
         }
       },
-      "ApplicationOAuth2ParamsResponse": {
+      "ApplicationOAuth2InstallParamsResponse": {
         "type": "object",
         "properties": {
           "scopes": {
@@ -11256,7 +11256,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ApplicationOAuth2ParamsResponse"
+                "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
               }
             ]
           },
@@ -19605,7 +19605,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ApplicationOAuth2ParamsResponse"
+                "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
               }
             ]
           },
@@ -23645,7 +23645,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ApplicationOAuth2ParamsResponse"
+                "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
               }
             ]
           },
