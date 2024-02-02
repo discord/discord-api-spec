@@ -5237,6 +5237,13 @@
             }
           },
           {
+            "name": "target_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
             "name": "action_type",
             "in": "query",
             "schema": {
@@ -13509,7 +13516,7 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 2592000
+            "maximum": 604800
           },
           "temporary": {
             "type": [
