@@ -21672,6 +21672,12 @@
               }
             ]
           },
+          "enforce_nonce": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
           "tts": {
             "type": [
               "boolean",
