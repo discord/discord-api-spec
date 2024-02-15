@@ -17015,6 +17015,16 @@
               "null"
             ]
           },
+          "avatar_decoration_data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserAvatarDecorationResponse"
+              }
+            ]
+          },
           "communication_disabled_until": {
             "type": [
               "string",
@@ -23819,6 +23829,16 @@
               "null"
             ]
           },
+          "avatar_decoration_data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserAvatarDecorationResponse"
+              }
+            ]
+          },
           "communication_disabled_until": {
             "type": [
               "string",
@@ -26333,6 +26353,10 @@
         "required": [
           "name"
         ]
+      },
+      "UserAvatarDecorationResponse": {
+        "type": "object",
+        "properties": {}
       },
       "UserCommunicationDisabledAction": {
         "type": "object",
