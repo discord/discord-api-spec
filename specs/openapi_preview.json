@@ -13160,6 +13160,10 @@
             "const": "battlenet"
           },
           {
+            "title": "BUNGIE",
+            "const": "bungie"
+          },
+          {
             "title": "EBAY",
             "const": "ebay"
           },
