@@ -5658,6 +5658,72 @@
         ]
       }
     },
+    "/guilds/{guild_id}/bulk-ban": {
+      "parameters": [
+        {
+          "name": "guild_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "operationId": "bulk_ban_users_from_guild",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_ids": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/SnowflakeType"
+                    },
+                    "maxItems": 200,
+                    "uniqueItems": true
+                  },
+                  "delete_message_seconds": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 0,
+                    "maximum": 604800
+                  }
+                },
+                "required": [
+                  "user_ids"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for bulk_ban_users_from_guild",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkBanUsersResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/guilds/{guild_id}/stickers": {
       "parameters": [
         {
@@ -12601,6 +12667,29 @@
         "required": [
           "username"
         ]
+      },
+      "BulkBanUsersResponse": {
+        "type": "object",
+        "properties": {
+          "banned_users": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          "failed_users": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          }
+        }
       },
       "Button": {
         "type": "object",
