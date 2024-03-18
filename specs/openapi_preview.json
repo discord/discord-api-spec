@@ -12672,24 +12672,22 @@
         "type": "object",
         "properties": {
           "banned_users": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           "failed_users": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             }
           }
-        }
+        },
+        "required": [
+          "banned_users",
+          "failed_users"
+        ]
       },
       "Button": {
         "type": "object",
