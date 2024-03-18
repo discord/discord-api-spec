@@ -8986,6 +8986,28 @@
               "null"
             ]
           },
+          "contexts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/InteractionContextType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "integration_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ApplicationIntegrationType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
           "type": {
             "oneOf": [
               {
@@ -9196,6 +9218,51 @@
           "type",
           "name",
           "description"
+        ]
+      },
+      "ApplicationCommandInteractionMetadataResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "type": {
+            "type": "integer",
+            "enum": [
+              2
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "user_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "authorizing_integration_owners": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          "original_response_message_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "user_id",
+          "authorizing_integration_owners"
         ]
       },
       "ApplicationCommandMentionableOption": {
@@ -9846,6 +9913,28 @@
               "boolean",
               "null"
             ]
+          },
+          "contexts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/InteractionContextType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "integration_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ApplicationIntegrationType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
           }
         }
       },
@@ -9961,6 +10050,26 @@
               "boolean",
               "null"
             ]
+          },
+          "contexts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/InteractionContextType"
+            },
+            "uniqueItems": true
+          },
+          "integration_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ApplicationIntegrationType"
+            },
+            "uniqueItems": true
           },
           "options": {
             "type": [
@@ -10798,6 +10907,28 @@
               "null"
             ]
           },
+          "contexts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/InteractionContextType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "integration_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ApplicationIntegrationType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
           "type": {
             "oneOf": [
               {
@@ -11070,6 +11201,24 @@
             ],
             "maxLength": 2048,
             "format": "uri"
+          },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationIntegrationTypeConfiguration"
+                }
+              ]
+            },
+            "minProperties": 1,
+            "maxProperties": 2
           }
         }
       },
@@ -11146,6 +11295,41 @@
           "name",
           "type"
         ]
+      },
+      "ApplicationIntegrationType": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "GUILD_INSTALL",
+            "description": "For Guild install.",
+            "const": 0
+          },
+          {
+            "title": "USER_INSTALL",
+            "description": "For User install.",
+            "const": 1
+          }
+        ],
+        "format": "int32"
+      },
+      "ApplicationIntegrationTypeConfiguration": {
+        "type": "object",
+        "properties": {
+          "oauth2_install_params": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationOAuth2InstallParams"
+              }
+            ]
+          }
+        }
+      },
+      "ApplicationIntegrationTypeConfigurationResponse": {
+        "type": "object",
+        "properties": {}
       },
       "ApplicationOAuth2InstallParams": {
         "type": "object",
@@ -12549,6 +12733,22 @@
               },
               {
                 "$ref": "#/components/schemas/ResolvedObjectsResponse"
+              }
+            ]
+          },
+          "interaction_metadata": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/MessageComponentInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/ModalSubmitInteractionMetadataResponse"
+              },
+              {
+                "type": "null"
               }
             ]
           }
@@ -19565,6 +19765,27 @@
         ],
         "format": "int32"
       },
+      "InteractionContextType": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "GUILD",
+            "description": "This command can be used within a Guild.",
+            "const": 0
+          },
+          {
+            "title": "BOT_DM",
+            "description": "This command can be used within a DM with this application's bot.",
+            "const": 1
+          },
+          {
+            "title": "PRIVATE_CHANNEL",
+            "description": "This command can be used within DMs and Group DMs with users.",
+            "const": 2
+          }
+        ],
+        "format": "int32"
+      },
       "InteractionTypes": {
         "type": "integer",
         "oneOf": [
@@ -21399,6 +21620,55 @@
           "style"
         ]
       },
+      "MessageComponentInteractionMetadataResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "type": {
+            "type": "integer",
+            "enum": [
+              3
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "user_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "authorizing_integration_owners": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          "original_response_message_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "interacted_message_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "user_id",
+          "authorizing_integration_owners",
+          "interacted_message_id"
+        ]
+      },
       "MessageComponentMentionableSelectResponse": {
         "type": "object",
         "properties": {
@@ -22632,6 +22902,22 @@
               }
             ]
           },
+          "interaction_metadata": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/MessageComponentInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/ModalSubmitInteractionMetadataResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "reactions": {
             "type": [
               "array",
@@ -22975,6 +23261,62 @@
         "required": [
           "type",
           "data"
+        ]
+      },
+      "ModalSubmitInteractionMetadataResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "type": {
+            "type": "integer",
+            "enum": [
+              5
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "user_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "authorizing_integration_owners": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          "original_response_message_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "triggering_interaction_metadata": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/MessageComponentInteractionMetadataResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "user_id",
+          "authorizing_integration_owners",
+          "triggering_interaction_metadata"
         ]
       },
       "MyGuildResponse": {
@@ -23834,6 +24176,22 @@
                 "$ref": "#/components/schemas/TeamResponse"
               }
             ]
+          },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
+                }
+              ]
+            }
           }
         },
         "required": [
