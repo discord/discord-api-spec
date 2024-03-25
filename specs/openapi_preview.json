@@ -16729,11 +16729,6 @@
       "GuildCreateRequest": {
         "type": "object",
         "properties": {
-          "name": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 100
-          },
           "description": {
             "type": [
               "string",
@@ -16741,6 +16736,11 @@
             ],
             "minLength": 0,
             "maxLength": 120
+          },
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100
           },
           "region": {
             "type": [
