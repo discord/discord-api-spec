@@ -11517,6 +11517,15 @@
               }
             ]
           },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
+            }
+          },
           "verify_key": {
             "type": "string"
           },
@@ -19942,6 +19951,15 @@
               }
             ]
           },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
+            }
+          },
           "verify_key": {
             "type": "string"
           },
@@ -24109,6 +24127,15 @@
               }
             ]
           },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
+            }
+          },
           "verify_key": {
             "type": "string"
           },
@@ -24176,22 +24203,6 @@
                 "$ref": "#/components/schemas/TeamResponse"
               }
             ]
-          },
-          "integration_types_config": {
-            "type": [
-              "object",
-              "null"
-            ],
-            "additionalProperties": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
-                }
-              ]
-            }
           }
         },
         "required": [
@@ -27395,16 +27406,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "premium_type": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PremiumTypes"
-              }
-            ]
-          },
           "flags": {
             "$ref": "#/components/schemas/Int53Type"
           },
@@ -27444,6 +27445,16 @@
           },
           "locale": {
             "$ref": "#/components/schemas/AvailableLocalesEnum"
+          },
+          "premium_type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PremiumTypes"
+              }
+            ]
           },
           "email": {
             "type": [
@@ -27489,16 +27500,6 @@
           "public_flags": {
             "type": "integer",
             "format": "int32"
-          },
-          "premium_type": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PremiumTypes"
-              }
-            ]
           },
           "flags": {
             "$ref": "#/components/schemas/Int53Type"
