@@ -21738,14 +21738,7 @@
               "null"
             ],
             "items": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "$ref": "#/components/schemas/SnowflakeType"
-                }
-              ]
+              "$ref": "#/components/schemas/SnowflakeType"
             },
             "maxItems": 1521
           },
