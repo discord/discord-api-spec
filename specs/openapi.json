@@ -274,6 +274,32 @@
         ]
       }
     },
+    "/oauth2/keys": {
+      "get": {
+        "operationId": "get_public_keys",
+        "responses": {
+          "200": {
+            "description": "200 response for get_public_keys",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OAuth2GetKeys"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {},
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/oauth2/@me": {
       "get": {
         "operationId": "get_my_oauth2_authorization",
@@ -317,6 +343,7 @@
               "guilds.members.read",
               "identify",
               "messages.read",
+              "openid",
               "relationships.read",
               "role_connections.write",
               "rpc",
@@ -23013,6 +23040,51 @@
           "scopes"
         ]
       },
+      "OAuth2GetKeys": {
+        "type": "object",
+        "properties": {
+          "keys": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuth2Key"
+            }
+          }
+        },
+        "required": [
+          "keys"
+        ]
+      },
+      "OAuth2Key": {
+        "type": "object",
+        "properties": {
+          "kty": {
+            "type": "string"
+          },
+          "use": {
+            "type": "string"
+          },
+          "kid": {
+            "type": "string"
+          },
+          "n": {
+            "type": "string"
+          },
+          "e": {
+            "type": "string"
+          },
+          "alg": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kty",
+          "use",
+          "kid",
+          "n",
+          "e",
+          "alg"
+        ]
+      },
       "OAuth2Scopes": {
         "type": "string",
         "oneOf": [
@@ -23175,6 +23247,11 @@
             "title": "ROLE_CONNECTIONS_WRITE",
             "description": "allows your app to update a user's connection and metadata for the app",
             "const": "role_connections.write"
+          },
+          {
+            "title": "OPENID",
+            "description": "for OpenID Connect, this allows your app to receive user id and basic profile information",
+            "const": "openid"
           }
         ]
       },
@@ -27763,6 +27840,7 @@
               "guilds.members.read": "allows /users/@me/guilds/{guild.id}/member to return a user's member information in a guild",
               "identify": "allows /users/@me without email",
               "messages.read": "for local rpc server api access, this allows you to read messages from all client channels (otherwise restricted to channels/guilds your app creates)",
+              "openid": "for OpenID Connect, this allows your app to receive user id and basic profile information",
               "relationships.read": "allows your app to know a user's friends and implicit relationships - requires Discord approval",
               "rpc": "for local rpc server access, this allows you to control a user's local Discord client - requires Discord approval",
               "rpc.activities.write": "for local rpc server access, this allows you to update a user's activity - requires Discord approval",
@@ -27800,6 +27878,7 @@
               "guilds.members.read": "allows /users/@me/guilds/{guild.id}/member to return a user's member information in a guild",
               "identify": "allows /users/@me without email",
               "messages.read": "for local rpc server api access, this allows you to read messages from all client channels (otherwise restricted to channels/guilds your app creates)",
+              "openid": "for OpenID Connect, this allows your app to receive user id and basic profile information",
               "relationships.read": "allows your app to know a user's friends and implicit relationships - requires Discord approval",
               "rpc": "for local rpc server access, this allows you to control a user's local Discord client - requires Discord approval",
               "rpc.activities.write": "for local rpc server access, this allows you to update a user's activity - requires Discord approval",
@@ -27837,6 +27916,7 @@
               "guilds.members.read": "allows /users/@me/guilds/{guild.id}/member to return a user's member information in a guild",
               "identify": "allows /users/@me without email",
               "messages.read": "for local rpc server api access, this allows you to read messages from all client channels (otherwise restricted to channels/guilds your app creates)",
+              "openid": "for OpenID Connect, this allows your app to receive user id and basic profile information",
               "relationships.read": "allows your app to know a user's friends and implicit relationships - requires Discord approval",
               "role_connections.write": "allows your app to update a user's connection and metadata for the app",
               "rpc": "for local rpc server access, this allows you to control a user's local Discord client - requires Discord approval",
