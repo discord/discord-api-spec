@@ -24108,7 +24108,12 @@
       },
       "PurchaseType": {
         "type": "integer",
-        "oneOf": [],
+        "oneOf": [
+          {
+            "title": "GUILD_PRODUCT",
+            "const": 0
+          }
+        ],
         "format": "int32"
       },
       "QuarantineUserAction": {
