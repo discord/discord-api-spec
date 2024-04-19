@@ -13061,7 +13061,15 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+            "type": "string",
+            "enum": [
+              "channel"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+              }
+            ]
           },
           "id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -20857,7 +20865,16 @@
               "array",
               "null"
             ],
-            "items": {},
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/RoleSelectDefaultValue"
+                },
+                {
+                  "$ref": "#/components/schemas/UserSelectDefaultValue"
+                }
+              ]
+            },
             "maxItems": 25
           }
         },
@@ -24674,7 +24691,15 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+            "type": "string",
+            "enum": [
+              "role"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+              }
+            ]
           },
           "id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -24977,7 +25002,20 @@
       },
       "SnowflakeSelectDefaultValueTypes": {
         "type": "string",
-        "oneOf": []
+        "oneOf": [
+          {
+            "title": "USER",
+            "const": "user"
+          },
+          {
+            "title": "ROLE",
+            "const": "role"
+          },
+          {
+            "title": "CHANNEL",
+            "const": "channel"
+          }
+        ]
       },
       "SnowflakeType": {
         "type": "string",
@@ -26870,7 +26908,15 @@
         "type": "object",
         "properties": {
           "type": {
-            "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+            "type": "string",
+            "enum": [
+              "user"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+              }
+            ]
           },
           "id": {
             "$ref": "#/components/schemas/SnowflakeType"
