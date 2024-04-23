@@ -9265,8 +9265,15 @@
             ],
             "format": "int32"
           },
-          "user_id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
           },
           "authorizing_integration_owners": {
             "type": "object",
@@ -9288,7 +9295,6 @@
         "required": [
           "id",
           "type",
-          "user_id",
           "authorizing_integration_owners"
         ]
       },
@@ -21700,8 +21706,15 @@
             ],
             "format": "int32"
           },
-          "user_id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
           },
           "authorizing_integration_owners": {
             "type": "object",
@@ -21726,7 +21739,6 @@
         "required": [
           "id",
           "type",
-          "user_id",
           "authorizing_integration_owners",
           "interacted_message_id"
         ]
@@ -23336,8 +23348,15 @@
             ],
             "format": "int32"
           },
-          "user_id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
           },
           "authorizing_integration_owners": {
             "type": "object",
@@ -23369,7 +23388,6 @@
         "required": [
           "id",
           "type",
-          "user_id",
           "authorizing_integration_owners",
           "triggering_interaction_metadata"
         ]
