@@ -12318,20 +12318,11 @@
       "BasicMessageResponse": {
         "type": "object",
         "properties": {
-          "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
           "type": {
             "$ref": "#/components/schemas/MessageType"
           },
           "content": {
             "type": "string"
-          },
-          "channel_id": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "author": {
-            "$ref": "#/components/schemas/UserResponse"
           },
           "attachments": {
             "type": "array",
@@ -12344,28 +12335,6 @@
             "items": {
               "$ref": "#/components/schemas/MessageEmbedResponse"
             }
-          },
-          "mentions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserResponse"
-            }
-          },
-          "mention_roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SnowflakeType"
-            },
-            "uniqueItems": true
-          },
-          "pinned": {
-            "type": "boolean"
-          },
-          "mention_everyone": {
-            "type": "boolean"
-          },
-          "tts": {
-            "type": "boolean"
           },
           "timestamp": {
             "type": "string",
@@ -12412,6 +12381,47 @@
                 }
               ]
             }
+          },
+          "resolved": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ResolvedObjectsResponse"
+              }
+            ]
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "author": {
+            "$ref": "#/components/schemas/UserResponse"
+          },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          },
+          "mention_roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "uniqueItems": true
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "mention_everyone": {
+            "type": "boolean"
+          },
+          "tts": {
+            "type": "boolean"
           },
           "activity": {
             "oneOf": [
@@ -12568,34 +12578,24 @@
               "null"
             ],
             "format": "int32"
-          },
-          "resolved": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ResolvedObjectsResponse"
-              }
-            ]
           }
         },
         "required": [
-          "id",
           "type",
           "content",
-          "channel_id",
-          "author",
           "attachments",
           "embeds",
+          "timestamp",
+          "flags",
+          "components",
+          "id",
+          "channel_id",
+          "author",
           "mentions",
           "mention_roles",
           "pinned",
           "mention_everyone",
-          "tts",
-          "timestamp",
-          "flags",
-          "components"
+          "tts"
         ]
       },
       "BlockMessageAction": {
@@ -21710,7 +21710,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ReplyMessageReferenceRequest"
+                "$ref": "#/components/schemas/MessageReferenceRequest"
               }
             ]
           },
@@ -22279,6 +22279,53 @@
           "me"
         ]
       },
+      "MessageReferenceRequest": {
+        "type": "object",
+        "properties": {
+          "guild_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "channel_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "message_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "fail_if_not_exists": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageReferenceType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "message_id"
+        ]
+      },
       "MessageReferenceResponse": {
         "type": "object",
         "properties": {
@@ -22310,23 +22357,25 @@
           "channel_id"
         ]
       },
+      "MessageReferenceType": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "DEFAULT",
+            "description": "Reference to a message",
+            "const": 0
+          }
+        ],
+        "format": "int32"
+      },
       "MessageResponse": {
         "type": "object",
         "properties": {
-          "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
           "type": {
             "$ref": "#/components/schemas/MessageType"
           },
           "content": {
             "type": "string"
-          },
-          "channel_id": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "author": {
-            "$ref": "#/components/schemas/UserResponse"
           },
           "attachments": {
             "type": "array",
@@ -22339,28 +22388,6 @@
             "items": {
               "$ref": "#/components/schemas/MessageEmbedResponse"
             }
-          },
-          "mentions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserResponse"
-            }
-          },
-          "mention_roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SnowflakeType"
-            },
-            "uniqueItems": true
-          },
-          "pinned": {
-            "type": "boolean"
-          },
-          "mention_everyone": {
-            "type": "boolean"
-          },
-          "tts": {
-            "type": "boolean"
           },
           "timestamp": {
             "type": "string",
@@ -22407,6 +22434,47 @@
                 }
               ]
             }
+          },
+          "resolved": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ResolvedObjectsResponse"
+              }
+            ]
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "author": {
+            "$ref": "#/components/schemas/UserResponse"
+          },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          },
+          "mention_roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "uniqueItems": true
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "mention_everyone": {
+            "type": "boolean"
+          },
+          "tts": {
+            "type": "boolean"
           },
           "activity": {
             "oneOf": [
@@ -22564,16 +22632,6 @@
             ],
             "format": "int32"
           },
-          "resolved": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ResolvedObjectsResponse"
-              }
-            ]
-          },
           "reactions": {
             "type": [
               "array",
@@ -22595,21 +22653,21 @@
           }
         },
         "required": [
-          "id",
           "type",
           "content",
-          "channel_id",
-          "author",
           "attachments",
           "embeds",
+          "timestamp",
+          "flags",
+          "components",
+          "id",
+          "channel_id",
+          "author",
           "mentions",
           "mention_roles",
           "pinned",
           "mention_everyone",
-          "tts",
-          "timestamp",
-          "flags",
-          "components"
+          "tts"
         ]
       },
       "MessageRoleSubscriptionDataResponse": {
@@ -24176,43 +24234,6 @@
         "required": [
           "type",
           "metadata"
-        ]
-      },
-      "ReplyMessageReferenceRequest": {
-        "type": "object",
-        "properties": {
-          "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
-          },
-          "channel_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
-          },
-          "message_id": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "fail_if_not_exists": {
-            "type": [
-              "boolean",
-              "null"
-            ]
-          }
-        },
-        "required": [
-          "message_id"
         ]
       },
       "ResolvedObjectsResponse": {
