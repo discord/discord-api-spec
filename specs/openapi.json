@@ -12321,6 +12321,9 @@
           "type": {
             "$ref": "#/components/schemas/MessageType"
           },
+          "channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
           "content": {
             "type": "string"
           },
@@ -12393,9 +12396,6 @@
             ]
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "channel_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
           "author": {
@@ -12582,6 +12582,7 @@
         },
         "required": [
           "type",
+          "channel_id",
           "content",
           "attachments",
           "embeds",
@@ -12589,7 +12590,6 @@
           "flags",
           "components",
           "id",
-          "channel_id",
           "author",
           "mentions",
           "mention_roles",
@@ -22374,6 +22374,9 @@
           "type": {
             "$ref": "#/components/schemas/MessageType"
           },
+          "channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
           "content": {
             "type": "string"
           },
@@ -22446,9 +22449,6 @@
             ]
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "channel_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
           "author": {
@@ -22654,6 +22654,7 @@
         },
         "required": [
           "type",
+          "channel_id",
           "content",
           "attachments",
           "embeds",
@@ -22661,7 +22662,6 @@
           "flags",
           "components",
           "id",
-          "channel_id",
           "author",
           "mentions",
           "mention_roles",
