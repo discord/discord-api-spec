@@ -1221,6 +1221,47 @@
         ]
       }
     },
+    "/applications/{application_id}/entitlements/{entitlement_id}/consume": {
+      "parameters": [
+        {
+          "name": "application_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "entitlement_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "operationId": "consume_entitlement",
+        "responses": {
+          "204": {
+            "description": "204 response for consume_entitlement"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": [
+              "applications.entitlements"
+            ]
+          }
+        ]
+      }
+    },
     "/applications/{application_id}/guilds/{guild_id}/commands/{command_id}": {
       "parameters": [
         {
@@ -2679,6 +2720,238 @@
         "responses": {
           "204": {
             "description": "204 response for leave_guild"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/applications/{application_id}/entitlements/{entitlement_id}": {
+      "parameters": [
+        {
+          "name": "application_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "entitlement_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_entitlement",
+        "responses": {
+          "200": {
+            "description": "200 response for get_entitlement",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntitlementResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": [
+              "applications.entitlements"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_entitlement",
+        "responses": {
+          "204": {
+            "description": "204 response for delete_entitlement"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": [
+              "applications.entitlements"
+            ]
+          }
+        ]
+      }
+    },
+    "/applications/{application_id}/entitlements": {
+      "parameters": [
+        {
+          "name": "application_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_entitlements",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "sku_ids",
+            "in": "query",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
+                  },
+                  "maxItems": 100,
+                  "uniqueItems": true
+                }
+              ]
+            },
+            "required": true
+          },
+          {
+            "name": "guild_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "exclude_ended",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "only_active",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response for get_entitlements",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/EntitlementResponse"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": [
+              "applications.entitlements"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "operationId": "create_entitlement",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateEntitlementRequestData"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for create_entitlement",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntitlementResponse"
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -13394,6 +13667,25 @@
         ],
         "format": "int32"
       },
+      "CreateEntitlementRequestData": {
+        "type": "object",
+        "properties": {
+          "sku_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "owner_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "owner_type": {
+            "$ref": "#/components/schemas/EntitlementOwnerTypes"
+          }
+        },
+        "required": [
+          "sku_id",
+          "owner_id",
+          "owner_type"
+        ]
+      },
       "CreateForumThreadRequest": {
         "type": "object",
         "properties": {
@@ -14775,6 +15067,141 @@
           "animated",
           "available"
         ]
+      },
+      "EntitlementOwnerTypes": {
+        "type": "integer",
+        "oneOf": [],
+        "format": "int32"
+      },
+      "EntitlementResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "sku_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "application_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "user_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "guild_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "deleted": {
+            "type": "boolean"
+          },
+          "starts_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "ends_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "type": {
+            "$ref": "#/components/schemas/EntitlementTypes"
+          },
+          "fulfilled_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "fulfillment_status": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/EntitlementTenantFulfillmentStatusResponse"
+              }
+            ]
+          },
+          "consumed": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "sku_id",
+          "application_id",
+          "user_id",
+          "deleted",
+          "type"
+        ]
+      },
+      "EntitlementTenantFulfillmentStatusResponse": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "UNKNOWN",
+            "const": 0
+          },
+          {
+            "title": "FULFILLMENT_NOT_NEEDED",
+            "const": 1
+          },
+          {
+            "title": "FULFILLMENT_NEEDED",
+            "const": 2
+          },
+          {
+            "title": "FULFILLED",
+            "const": 3
+          },
+          {
+            "title": "FULFILLMENT_FAILED",
+            "const": 4
+          },
+          {
+            "title": "UNFULFILLMENT_NEEDED",
+            "const": 5
+          },
+          {
+            "title": "UNFULFILLED",
+            "const": 6
+          },
+          {
+            "title": "UNFULFILLMENT_FAILED",
+            "const": 7
+          }
+        ],
+        "format": "int32"
+      },
+      "EntitlementTypes": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "APPLICATION_SUBSCRIPTION",
+            "const": 8
+          },
+          {
+            "title": "QUEST_REWARD",
+            "const": 10
+          }
+        ],
+        "format": "int32"
       },
       "EntityMetadataExternal": {
         "type": "object",
