@@ -13594,6 +13594,10 @@
           {
             "title": "YOUTUBE",
             "const": "youtube"
+          },
+          {
+            "title": "DOMAIN",
+            "const": "domain"
           }
         ]
       },
