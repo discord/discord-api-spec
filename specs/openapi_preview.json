@@ -12682,29 +12682,7 @@
               "null"
             ],
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/Button"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelect"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRow"
             },
             "maxItems": 5
           },
@@ -19617,29 +19595,7 @@
               "null"
             ],
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/Button"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelect"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRow"
             },
             "maxItems": 5
           },
@@ -19703,29 +19659,7 @@
               "null"
             ],
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/Button"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelect"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRow"
             },
             "maxItems": 5
           },
@@ -19823,29 +19757,7 @@
               "null"
             ],
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/Button"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelect"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRow"
             },
             "maxItems": 5
           },
@@ -19903,29 +19815,7 @@
               "null"
             ],
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/Button"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelect"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRow"
             },
             "maxItems": 5
           },
@@ -22510,29 +22400,7 @@
               "null"
             ],
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/Button"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelect"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRow"
             },
             "maxItems": 5
           },
@@ -22646,29 +22514,7 @@
               "null"
             ],
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/Button"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelect"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelect"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRow"
             },
             "maxItems": 5
           },
@@ -23183,6 +23029,16 @@
       "MessageReferenceResponse": {
         "type": "object",
         "properties": {
+          "type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageReferenceType"
+              }
+            ]
+          },
           "channel_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
