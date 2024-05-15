@@ -12696,6 +12696,16 @@
           "tts": {
             "type": "boolean"
           },
+          "call": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageCallResponse"
+              }
+            ]
+          },
           "activity": {
             "oneOf": [
               {
@@ -21521,6 +21531,28 @@
           "proxy_url"
         ]
       },
+      "MessageCallResponse": {
+        "type": "object",
+        "properties": {
+          "ended_timestamp": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "participants"
+        ]
+      },
       "MessageComponentActionRowResponse": {
         "type": "object",
         "properties": {
@@ -22906,6 +22938,16 @@
           },
           "tts": {
             "type": "boolean"
+          },
+          "call": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageCallResponse"
+              }
+            ]
           },
           "activity": {
             "oneOf": [
