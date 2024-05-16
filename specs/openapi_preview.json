@@ -13165,6 +13165,13 @@
               "null"
             ],
             "contentEncoding": "base64"
+          },
+          "banner": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "contentEncoding": "base64"
           }
         },
         "required": [
