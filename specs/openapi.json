@@ -9290,7 +9290,7 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 1125899906842623
+            "maximum": 2251799813685247
           },
           "dm_permission": {
             "type": [
@@ -10151,7 +10151,7 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 1125899906842623
+            "maximum": 2251799813685247
           },
           "dm_permission": {
             "type": [
@@ -11102,7 +11102,7 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 1125899906842623
+            "maximum": 2251799813685247
           },
           "dm_permission": {
             "type": [
@@ -11488,7 +11488,7 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 1125899906842623
+            "maximum": 2251799813685247
           }
         }
       },
