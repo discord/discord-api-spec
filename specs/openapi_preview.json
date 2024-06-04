@@ -23725,6 +23725,26 @@
             "title": "GUILD_APPLICATION_PREMIUM_SUBSCRIPTION",
             "description": "",
             "const": 32
+          },
+          {
+            "title": "GUILD_INCIDENT_ALERT_MODE_ENABLED",
+            "description": "",
+            "const": 36
+          },
+          {
+            "title": "GUILD_INCIDENT_ALERT_MODE_DISABLED",
+            "description": "",
+            "const": 37
+          },
+          {
+            "title": "GUILD_INCIDENT_REPORT_RAID",
+            "description": "",
+            "const": 38
+          },
+          {
+            "title": "GUILD_INCIDENT_REPORT_FALSE_ALARM",
+            "description": "",
+            "const": 39
           }
         ],
         "format": "int32"
