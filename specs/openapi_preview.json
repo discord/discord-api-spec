@@ -119,6 +119,12 @@
         "security": [
           {
             "BotToken": []
+          },
+          {
+            "OAuth2": [
+              "dm_channels.read",
+              "voice"
+            ]
           }
         ]
       }
@@ -21905,6 +21911,16 @@
             ],
             "maxLength": 2048,
             "format": "uri"
+          },
+          "sku_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
