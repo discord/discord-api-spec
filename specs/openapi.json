@@ -21486,7 +21486,8 @@
             "format": "int32"
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+            "type": "integer",
+            "format": "int32"
           },
           "components": {
             "type": [
@@ -21541,7 +21542,8 @@
             "format": "int32"
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+            "type": "integer",
+            "format": "int32"
           },
           "custom_id": {
             "type": [
@@ -21615,7 +21617,8 @@
             "format": "int32"
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+            "type": "integer",
+            "format": "int32"
           },
           "custom_id": {
             "type": "string"
@@ -21706,7 +21709,8 @@
             "format": "int32"
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+            "type": "integer",
+            "format": "int32"
           },
           "custom_id": {
             "type": "string"
@@ -21776,7 +21780,8 @@
             "format": "int32"
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+            "type": "integer",
+            "format": "int32"
           },
           "custom_id": {
             "type": "string"
@@ -21830,7 +21835,8 @@
             "format": "int32"
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+            "type": "integer",
+            "format": "int32"
           },
           "custom_id": {
             "type": "string"
@@ -21884,7 +21890,8 @@
             "format": "int32"
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+            "type": "integer",
+            "format": "int32"
           },
           "custom_id": {
             "type": "string"
@@ -22000,7 +22007,8 @@
             "format": "int32"
           },
           "id": {
-            "$ref": "#/components/schemas/SnowflakeType"
+            "type": "integer",
+            "format": "int32"
           },
           "custom_id": {
             "type": "string"
@@ -23352,14 +23360,7 @@
           "components": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRow"
-                },
-                {
-                  "$ref": "#/components/schemas/InputText"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRow"
             },
             "minItems": 1,
             "maxItems": 5
