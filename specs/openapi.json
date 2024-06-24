@@ -12584,6 +12584,19 @@
           "content": {
             "type": "string"
           },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          },
+          "mention_roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "uniqueItems": true
+          },
           "attachments": {
             "type": "array",
             "items": {
@@ -12657,19 +12670,6 @@
           },
           "author": {
             "$ref": "#/components/schemas/UserResponse"
-          },
-          "mentions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserResponse"
-            }
-          },
-          "mention_roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SnowflakeType"
-            },
-            "uniqueItems": true
           },
           "pinned": {
             "type": "boolean"
@@ -12851,6 +12851,8 @@
           "type",
           "channel_id",
           "content",
+          "mentions",
+          "mention_roles",
           "attachments",
           "embeds",
           "timestamp",
@@ -12858,8 +12860,6 @@
           "components",
           "id",
           "author",
-          "mentions",
-          "mention_roles",
           "pinned",
           "mention_everyone",
           "tts"
@@ -22776,6 +22776,19 @@
           "content": {
             "type": "string"
           },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          },
+          "mention_roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "uniqueItems": true
+          },
           "attachments": {
             "type": "array",
             "items": {
@@ -22849,19 +22862,6 @@
           },
           "author": {
             "$ref": "#/components/schemas/UserResponse"
-          },
-          "mentions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserResponse"
-            }
-          },
-          "mention_roles": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SnowflakeType"
-            },
-            "uniqueItems": true
           },
           "pinned": {
             "type": "boolean"
@@ -23062,6 +23062,8 @@
           "type",
           "channel_id",
           "content",
+          "mentions",
+          "mention_roles",
           "attachments",
           "embeds",
           "timestamp",
@@ -23069,8 +23071,6 @@
           "components",
           "id",
           "author",
-          "mentions",
-          "mention_roles",
           "pinned",
           "mention_everyone",
           "tts"
