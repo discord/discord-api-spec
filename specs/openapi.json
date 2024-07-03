@@ -12662,6 +12662,31 @@
               }
             ]
           },
+          "stickers": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GuildStickerResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/StandardStickerResponse"
+                }
+              ]
+            }
+          },
+          "sticker_items": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageStickerItemResponse"
+            }
+          },
           "id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
@@ -12792,31 +12817,6 @@
                   "$ref": "#/components/schemas/MessageMentionChannelResponse"
                 }
               ]
-            }
-          },
-          "stickers": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/GuildStickerResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/StandardStickerResponse"
-                }
-              ]
-            }
-          },
-          "sticker_items": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/MessageStickerItemResponse"
             }
           },
           "role_subscription_data": {
@@ -22854,6 +22854,31 @@
               }
             ]
           },
+          "stickers": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GuildStickerResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/StandardStickerResponse"
+                }
+              ]
+            }
+          },
+          "sticker_items": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageStickerItemResponse"
+            }
+          },
           "id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
@@ -22984,31 +23009,6 @@
                   "$ref": "#/components/schemas/MessageMentionChannelResponse"
                 }
               ]
-            }
-          },
-          "stickers": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/GuildStickerResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/StandardStickerResponse"
-                }
-              ]
-            }
-          },
-          "sticker_items": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/MessageStickerItemResponse"
             }
           },
           "role_subscription_data": {
