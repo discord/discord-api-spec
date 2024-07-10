@@ -23411,6 +23411,12 @@
               "null"
             ]
           },
+          "banner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "owner": {
             "type": "boolean"
           },
