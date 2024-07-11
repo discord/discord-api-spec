@@ -119,12 +119,6 @@
         "security": [
           {
             "BotToken": []
-          },
-          {
-            "OAuth2": [
-              "dm_channels.read",
-              "voice"
-            ]
           }
         ]
       }
