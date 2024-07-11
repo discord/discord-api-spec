@@ -17595,6 +17595,12 @@
               }
             ]
           },
+          "banner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "communication_disabled_until": {
             "type": [
               "string",
@@ -24498,6 +24504,12 @@
               }
             ]
           },
+          "banner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "communication_disabled_until": {
             "type": [
               "string",
@@ -24544,12 +24556,6 @@
           },
           "deaf": {
             "type": "boolean"
-          },
-          "banner": {
-            "type": [
-              "string",
-              "null"
-            ]
           }
         },
         "required": [
