@@ -1095,6 +1095,24 @@
             ]
           }
         ]
+      },
+      "delete": {
+        "operationId": "delete_application_user_role_connection",
+        "responses": {
+          "204": {
+            "description": "204 response for delete_application_user_role_connection"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "role_connections.write"
+            ]
+          }
+        ]
       }
     },
     "/users/@me/guilds/{guild_id}/member": {
