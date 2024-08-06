@@ -30395,6 +30395,9 @@
           "self_deaf": {
             "type": "boolean"
           },
+          "self_mute": {
+            "type": "boolean"
+          },
           "self_video": {
             "type": "boolean"
           },
@@ -30410,6 +30413,7 @@
           "mute",
           "suppress",
           "self_deaf",
+          "self_mute",
           "self_video",
           "session_id",
           "user_id"
