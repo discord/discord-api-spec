@@ -1780,6 +1780,13 @@
               "minimum": 1,
               "maximum": 100
             }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ReactionTypes"
+            }
           }
         ],
         "responses": {
@@ -1940,6 +1947,121 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ThreadResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/channels/{channel_id}/polls/{message_id}/answers/{answer_id}": {
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "answer_id",
+          "in": "path",
+          "schema": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "format": "int32"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_answer_voters",
+        "parameters": [
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response for get_answer_voters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PollAnswerDetailsResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/channels/{channel_id}/polls/{message_id}/expire": {
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "operationId": "poll_expire",
+        "responses": {
+          "200": {
+            "description": "200 response for poll_expire",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
                 }
               }
             }
@@ -2489,6 +2611,29 @@
           "required": true
         }
       ],
+      "get": {
+        "operationId": "get_self_voice_state",
+        "responses": {
+          "200": {
+            "description": "200 response for get_self_voice_state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceStateResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
       "patch": {
         "operationId": "update_self_voice_state",
         "requestBody": {
@@ -3010,6 +3155,97 @@
         ]
       }
     },
+    "/applications/{application_id}/attachment": {
+      "parameters": [
+        {
+          "name": "application_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "operationId": "upload_application_attachment",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "contentEncoding": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for upload_application_attachment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActivitiesAttachmentResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": [
+              "activities.read",
+              "activities.write",
+              "applications.builds.read",
+              "applications.builds.upload",
+              "applications.commands",
+              "applications.commands.permissions.update",
+              "applications.commands.update",
+              "applications.entitlements",
+              "applications.store.update",
+              "bot",
+              "connections",
+              "dm_channels.read",
+              "email",
+              "gdm.join",
+              "guilds",
+              "guilds.join",
+              "guilds.members.read",
+              "identify",
+              "messages.read",
+              "openid",
+              "relationships.read",
+              "role_connections.write",
+              "rpc",
+              "rpc.activities.write",
+              "rpc.notifications.read",
+              "rpc.screenshare.read",
+              "rpc.screenshare.write",
+              "rpc.video.read",
+              "rpc.video.write",
+              "rpc.voice.read",
+              "rpc.voice.write",
+              "voice",
+              "webhook.incoming"
+            ]
+          }
+        ]
+      }
+    },
     "/applications/{application_id}/commands/{command_id}": {
       "parameters": [
         {
@@ -3267,6 +3503,188 @@
             "OAuth2": [
               "applications.commands.update"
             ]
+          }
+        ]
+      }
+    },
+    "/applications/{application_id}/emojis/{emoji_id}": {
+      "parameters": [
+        {
+          "name": "application_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "emoji_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_application_emoji",
+        "responses": {
+          "200": {
+            "description": "200 response for get_application_emoji",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmojiResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_application_emoji",
+        "responses": {
+          "204": {
+            "description": "204 response for delete_application_emoji"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "update_application_emoji",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 32
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for update_application_emoji",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmojiResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/applications/{application_id}/emojis": {
+      "parameters": [
+        {
+          "name": "application_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "list_application_emojis",
+        "responses": {
+          "200": {
+            "description": "200 response for list_application_emojis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListApplicationEmojisResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "create_application_emoji",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 32
+                  },
+                  "image": {
+                    "type": "string",
+                    "contentEncoding": "base64"
+                  }
+                },
+                "required": [
+                  "name",
+                  "image"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response for create_application_emoji",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmojiResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
           }
         ]
       }
@@ -5450,6 +5868,29 @@
           "required": true
         }
       ],
+      "get": {
+        "operationId": "get_voice_state",
+        "responses": {
+          "200": {
+            "description": "200 response for get_voice_state",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoiceStateResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
       "patch": {
         "operationId": "update_voice_state",
         "requestBody": {
@@ -8916,6 +9357,17 @@
           "components"
         ]
       },
+      "ActivitiesAttachmentResponse": {
+        "type": "object",
+        "properties": {
+          "attachment": {
+            "$ref": "#/components/schemas/AttachmentResponse"
+          }
+        },
+        "required": [
+          "attachment"
+        ]
+      },
       "AfkTimeouts": {
         "type": "integer",
         "oneOf": [
@@ -9492,6 +9944,28 @@
               "null"
             ]
           },
+          "contexts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/InteractionContextType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "integration_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ApplicationIntegrationType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
           "type": {
             "oneOf": [
               {
@@ -9702,6 +10176,57 @@
           "type",
           "name",
           "description"
+        ]
+      },
+      "ApplicationCommandInteractionMetadataResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "type": {
+            "type": "integer",
+            "enum": [
+              2
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "authorizing_integration_owners": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          "original_response_message_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "authorizing_integration_owners"
         ]
       },
       "ApplicationCommandMentionableOption": {
@@ -10352,6 +10877,28 @@
               "boolean",
               "null"
             ]
+          },
+          "contexts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/InteractionContextType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "integration_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ApplicationIntegrationType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
           }
         }
       },
@@ -10467,6 +11014,26 @@
               "boolean",
               "null"
             ]
+          },
+          "contexts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/InteractionContextType"
+            },
+            "uniqueItems": true
+          },
+          "integration_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ApplicationIntegrationType"
+            },
+            "uniqueItems": true
           },
           "options": {
             "type": [
@@ -11304,6 +11871,28 @@
               "null"
             ]
           },
+          "contexts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/InteractionContextType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "integration_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ApplicationIntegrationType"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
           "type": {
             "oneOf": [
               {
@@ -11455,6 +12044,22 @@
           "description"
         ]
       },
+      "ApplicationExplicitContentFilterTypes": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "INHERIT",
+            "description": "inherit guild content filter setting",
+            "const": 0
+          },
+          {
+            "title": "ALWAYS",
+            "description": "interactions will always be scanned",
+            "const": 1
+          }
+        ],
+        "format": "int32"
+      },
       "ApplicationFormPartial": {
         "type": "object",
         "properties": {
@@ -11521,6 +12126,16 @@
             "maxLength": 2048,
             "format": "uri"
           },
+          "explicit_content_filter": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationExplicitContentFilterTypes"
+              }
+            ]
+          },
           "max_participants": {
             "type": [
               "integer",
@@ -11576,6 +12191,24 @@
             ],
             "maxLength": 2048,
             "format": "uri"
+          },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/components/schemas/ApplicationIntegrationTypeConfiguration"
+                }
+              ]
+            },
+            "minProperties": 1,
+            "maxProperties": 2
           }
         }
       },
@@ -11652,6 +12285,41 @@
           "name",
           "type"
         ]
+      },
+      "ApplicationIntegrationType": {
+        "type": "integer",
+        "oneOf": [],
+        "format": "int32"
+      },
+      "ApplicationIntegrationTypeConfiguration": {
+        "type": "object",
+        "properties": {
+          "oauth2_install_params": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationOAuth2InstallParams"
+              }
+            ]
+          }
+        }
+      },
+      "ApplicationIntegrationTypeConfigurationResponse": {
+        "type": "object",
+        "properties": {
+          "oauth2_install_params": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
+              }
+            ]
+          }
+        }
       },
       "ApplicationOAuth2InstallParams": {
         "type": "object",
@@ -11839,6 +12507,15 @@
               }
             ]
           },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
+            }
+          },
           "verify_key": {
             "type": "string"
           },
@@ -12007,6 +12684,113 @@
             }
           }
         }
+      },
+      "AttachmentResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "proxy_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "width": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
+          "height": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
+          "duration_secs": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "waveform": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "content_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ephemeral": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "application": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationResponse"
+              }
+            ]
+          },
+          "clip_created_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "clip_participants": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "filename",
+          "size",
+          "url",
+          "proxy_url"
+        ]
       },
       "AuditLogActionTypes": {
         "type": "integer",
@@ -12708,6 +13492,16 @@
               "$ref": "#/components/schemas/MessageAttachmentRequest"
             },
             "maxItems": 10
+          },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollCreateRequest"
+              }
+            ]
           }
         }
       },
@@ -13045,6 +13839,41 @@
               "null"
             ],
             "format": "int32"
+          },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollResponse"
+              }
+            ]
+          },
+          "interaction_metadata": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/MessageComponentInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/ModalSubmitInteractionMetadataResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message_snapshots": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageSnapshotResponse"
+            }
           }
         },
         "required": [
@@ -13546,6 +14375,29 @@
         ]
       },
       "ChannelSelectDefaultValue": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "channel"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+              }
+            ]
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "ChannelSelectDefaultValueResponse": {
         "type": "object",
         "properties": {
           "type": {
@@ -19542,6 +20394,16 @@
             },
             "maxItems": 10
           },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollCreateRequest"
+              }
+            ]
+          },
           "tts": {
             "type": [
               "boolean",
@@ -19605,6 +20467,16 @@
               "$ref": "#/components/schemas/MessageAttachmentRequest"
             },
             "maxItems": 10
+          },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollCreateRequest"
+              }
+            ]
           },
           "tts": {
             "type": [
@@ -19761,6 +20633,16 @@
               "$ref": "#/components/schemas/MessageAttachmentRequest"
             },
             "maxItems": 10
+          },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollCreateRequest"
+              }
+            ]
           },
           "flags": {
             "type": [
@@ -20075,6 +20957,11 @@
         ],
         "format": "int32"
       },
+      "InteractionContextType": {
+        "type": "integer",
+        "oneOf": [],
+        "format": "int32"
+      },
       "InteractionTypes": {
         "type": "integer",
         "oneOf": [
@@ -20230,6 +21117,15 @@
                 "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
               }
             ]
+          },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
+            }
           },
           "verify_key": {
             "type": "string"
@@ -20803,6 +21699,20 @@
           }
         }
       },
+      "ListApplicationEmojisResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmojiResponse"
+            }
+          }
+        },
+        "required": [
+          "items"
+        ]
+      },
       "ListGuildSoundboardSoundsResponse": {
         "type": "object",
         "properties": {
@@ -21207,6 +22117,12 @@
           "mention_total_limit": {
             "type": "integer",
             "format": "int32"
+          },
+          "mention_raid_protection_enabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
           }
         },
         "required": [
@@ -21550,6 +22466,29 @@
             ],
             "maxLength": 1024
           },
+          "duration_secs": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 2147483647,
+            "format": "double"
+          },
+          "waveform": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 400
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 1024
+          },
           "is_remix": {
             "type": [
               "boolean",
@@ -21878,6 +22817,15 @@
               "$ref": "#/components/schemas/ChannelTypes"
             },
             "uniqueItems": true
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ChannelSelectDefaultValueResponse"
+            }
           }
         },
         "required": [
@@ -21984,6 +22932,61 @@
           "style"
         ]
       },
+      "MessageComponentInteractionMetadataResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "type": {
+            "type": "integer",
+            "enum": [
+              3
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "authorizing_integration_owners": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          "original_response_message_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "interacted_message_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "authorizing_integration_owners",
+          "interacted_message_id"
+        ]
+      },
       "MessageComponentMentionableSelectResponse": {
         "type": "object",
         "properties": {
@@ -22031,6 +23034,22 @@
               "boolean",
               "null"
             ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/RoleSelectDefaultValueResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/UserSelectDefaultValueResponse"
+                }
+              ]
+            }
           }
         },
         "required": [
@@ -22086,6 +23105,15 @@
               "boolean",
               "null"
             ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RoleSelectDefaultValueResponse"
+            }
           }
         },
         "required": [
@@ -22258,6 +23286,15 @@
               "boolean",
               "null"
             ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/UserSelectDefaultValueResponse"
+            }
           }
         },
         "required": [
@@ -22332,6 +23369,16 @@
             },
             "maxItems": 10
           },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollCreateRequest"
+              }
+            ]
+          },
           "message_reference": {
             "oneOf": [
               {
@@ -22358,6 +23405,12 @@
               {
                 "type": "null"
               }
+            ]
+          },
+          "enforce_nonce": {
+            "type": [
+              "boolean",
+              "null"
             ]
           },
           "tts": {
@@ -23258,6 +24311,41 @@
             ],
             "format": "int32"
           },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollResponse"
+              }
+            ]
+          },
+          "interaction_metadata": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/MessageComponentInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/ModalSubmitInteractionMetadataResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message_snapshots": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageSnapshotResponse"
+            }
+          },
           "reactions": {
             "type": [
               "array",
@@ -23319,6 +24407,21 @@
           "total_months_subscribed",
           "is_renewal"
         ]
+      },
+      "MessageSnapshotResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MinimalContentMessageResponse"
+              }
+            ]
+          }
+        }
       },
       "MessageStickerItemResponse": {
         "type": "object",
@@ -23566,6 +24669,134 @@
         ],
         "format": "int32"
       },
+      "MinimalContentMessageResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "content": {
+            "type": "string"
+          },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          },
+          "mention_roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "uniqueItems": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageAttachmentResponse"
+            }
+          },
+          "embeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageEmbedResponse"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "edited_timestamp": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "flags": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/MessageComponentActionRowResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MessageComponentButtonResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MessageComponentChannelSelectResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MessageComponentInputTextResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MessageComponentMentionableSelectResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MessageComponentRoleSelectResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MessageComponentStringSelectResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MessageComponentUserSelectResponse"
+                }
+              ]
+            }
+          },
+          "resolved": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ResolvedObjectsResponse"
+              }
+            ]
+          },
+          "stickers": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GuildStickerResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/StandardStickerResponse"
+                }
+              ]
+            }
+          },
+          "sticker_items": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageStickerItemResponse"
+            }
+          }
+        },
+        "required": [
+          "type",
+          "content",
+          "mentions",
+          "mention_roles",
+          "attachments",
+          "embeds",
+          "timestamp",
+          "flags",
+          "components"
+        ]
+      },
       "ModalInteractionCallbackData": {
         "type": "object",
         "properties": {
@@ -23614,6 +24845,68 @@
         "required": [
           "type",
           "data"
+        ]
+      },
+      "ModalSubmitInteractionMetadataResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "type": {
+            "type": "integer",
+            "enum": [
+              5
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "authorizing_integration_owners": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          "original_response_message_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "triggering_interaction_metadata": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/MessageComponentInteractionMetadataResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "authorizing_integration_owners",
+          "triggering_interaction_metadata"
         ]
       },
       "MyGuildResponse": {
@@ -24265,6 +25558,298 @@
           "type"
         ]
       },
+      "PollAnswerCreateRequest": {
+        "type": "object",
+        "properties": {
+          "poll_media": {
+            "$ref": "#/components/schemas/PollMediaCreateRequest"
+          }
+        },
+        "required": [
+          "poll_media"
+        ]
+      },
+      "PollAnswerDetailsResponse": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          }
+        }
+      },
+      "PollAnswerResponse": {
+        "type": "object",
+        "properties": {
+          "answer_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "poll_media": {
+            "$ref": "#/components/schemas/PollMediaResponse"
+          }
+        },
+        "required": [
+          "answer_id",
+          "poll_media"
+        ]
+      },
+      "PollCreateRequest": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "$ref": "#/components/schemas/PollMedia"
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PollAnswerCreateRequest"
+            },
+            "minItems": 1,
+            "maxItems": 10
+          },
+          "allow_multiselect": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "layout_type": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollLayoutTypes"
+              }
+            ]
+          },
+          "duration": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 768,
+            "format": "int32"
+          }
+        },
+        "required": [
+          "question",
+          "answers"
+        ]
+      },
+      "PollEmoji": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 32
+          },
+          "animated": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      },
+      "PollEmojiCreateRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 32
+          },
+          "animated": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
+      },
+      "PollLayoutTypes": {
+        "type": "integer",
+        "oneOf": [],
+        "format": "int32"
+      },
+      "PollMedia": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "emoji": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollEmoji"
+              }
+            ]
+          }
+        }
+      },
+      "PollMediaCreateRequest": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "emoji": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollEmojiCreateRequest"
+              }
+            ]
+          }
+        }
+      },
+      "PollMediaResponse": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "emoji": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageReactionEmojiResponse"
+              }
+            ]
+          }
+        }
+      },
+      "PollResponse": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "$ref": "#/components/schemas/PollMediaResponse"
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PollAnswerResponse"
+            }
+          },
+          "expiry": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "allow_multiselect": {
+            "type": "boolean"
+          },
+          "layout_type": {
+            "$ref": "#/components/schemas/PollLayoutTypes"
+          },
+          "results": {
+            "$ref": "#/components/schemas/PollResultsResponse"
+          }
+        },
+        "required": [
+          "question",
+          "answers",
+          "expiry",
+          "allow_multiselect",
+          "layout_type",
+          "results"
+        ]
+      },
+      "PollResultsEntryResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "me_voted": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "count"
+        ]
+      },
+      "PollResultsResponse": {
+        "type": "object",
+        "properties": {
+          "answer_counts": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PollResultsEntryResponse"
+            }
+          },
+          "is_finalized": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "is_finalized"
+        ]
+      },
       "PongInteractionCallbackRequest": {
         "type": "object",
         "properties": {
@@ -24462,6 +26047,15 @@
               }
             ]
           },
+          "integration_types_config": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
+            }
+          },
           "verify_key": {
             "type": "string"
           },
@@ -24520,6 +26114,9 @@
             ],
             "format": "int32"
           },
+          "explicit_content_filter": {
+            "$ref": "#/components/schemas/ApplicationExplicitContentFilterTypes"
+          },
           "team": {
             "oneOf": [
               {
@@ -24538,7 +26135,8 @@
           "verify_key",
           "flags",
           "redirect_uris",
-          "owner"
+          "owner",
+          "explicit_content_filter"
         ]
       },
       "PrivateChannelRequestPartial": {
@@ -24880,6 +26478,22 @@
           "type",
           "metadata"
         ]
+      },
+      "ReactionTypes": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "NORMAL",
+            "description": "Normal reaction type",
+            "const": 0
+          },
+          {
+            "title": "BURST",
+            "description": "Burst reaction type",
+            "const": 1
+          }
+        ],
+        "format": "int32"
       },
       "ResolvedObjectsResponse": {
         "type": "object",
@@ -25359,6 +26973,29 @@
         ]
       },
       "RoleSelectDefaultValue": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "role"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+              }
+            ]
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "RoleSelectDefaultValueResponse": {
         "type": "object",
         "properties": {
           "type": {
@@ -27372,7 +29009,24 @@
       },
       "UserAvatarDecorationResponse": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "asset": {
+            "type": "string"
+          },
+          "sku_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "asset"
+        ]
       },
       "UserCommunicationDisabledAction": {
         "type": "object",
@@ -27549,6 +29203,16 @@
               "null"
             ]
           },
+          "avatar_decoration_data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserAvatarDecorationResponse"
+              }
+            ]
+          },
           "mfa_enabled": {
             "type": "boolean"
           },
@@ -27643,6 +29307,16 @@
               "string",
               "null"
             ]
+          },
+          "avatar_decoration_data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserAvatarDecorationResponse"
+              }
+            ]
           }
         },
         "required": [
@@ -27718,6 +29392,29 @@
         ]
       },
       "UserSelectDefaultValue": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "user"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnowflakeSelectDefaultValueTypes"
+              }
+            ]
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "type",
+          "id"
+        ]
+      },
+      "UserSelectDefaultValueResponse": {
         "type": "object",
         "properties": {
           "type": {
@@ -28148,6 +29845,84 @@
           "status",
           "entity_type",
           "privacy_level"
+        ]
+      },
+      "VoiceStateResponse": {
+        "type": "object",
+        "properties": {
+          "channel_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "deaf": {
+            "type": "boolean"
+          },
+          "guild_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "member": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildMemberResponse"
+              }
+            ]
+          },
+          "mute": {
+            "type": "boolean"
+          },
+          "request_to_speak_timestamp": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "suppress": {
+            "type": "boolean"
+          },
+          "self_stream": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "self_deaf": {
+            "type": "boolean"
+          },
+          "self_video": {
+            "type": "boolean"
+          },
+          "session_id": {
+            "type": "string"
+          },
+          "user_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "deaf",
+          "mute",
+          "suppress",
+          "self_deaf",
+          "self_video",
+          "session_id",
+          "user_id"
         ]
       },
       "WebhookSlackEmbed": {
