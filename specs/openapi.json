@@ -8483,6 +8483,41 @@
         ]
       }
     },
+    "/sticker-packs/{pack_id}": {
+      "parameters": [
+        {
+          "name": "pack_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_sticker_pack",
+        "responses": {
+          "200": {
+            "description": "200 response for get_sticker_pack",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StickerPackResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/applications/{application_id}": {
       "parameters": [
         {
@@ -26218,6 +26253,10 @@
             ],
             "format": "int32"
           },
+          "approximate_user_install_count": {
+            "type": "integer",
+            "format": "int32"
+          },
           "explicit_content_filter": {
             "$ref": "#/components/schemas/ApplicationExplicitContentFilterTypes"
           },
@@ -26240,6 +26279,7 @@
           "flags",
           "redirect_uris",
           "owner",
+          "approximate_user_install_count",
           "explicit_content_filter"
         ]
       },
