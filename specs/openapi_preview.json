@@ -6928,11 +6928,6 @@
         "security": [
           {
             "BotToken": []
-          },
-          {
-            "OAuth2": [
-              "guilds"
-            ]
           }
         ]
       },
