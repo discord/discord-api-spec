@@ -2923,6 +2923,50 @@
         ]
       }
     },
+    "/applications/{application_id}/activity-instance/{instance_id}": {
+      "parameters": [
+        {
+          "name": "application_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "instance_id",
+          "in": "path",
+          "schema": {
+            "type": "string",
+            "maxLength": 152133
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "applications_get_activity_instance",
+        "responses": {
+          "200": {
+            "description": "200 response for applications_get_activity_instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmbeddedActivityInstance"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/applications/{application_id}/entitlements/{entitlement_id}": {
       "parameters": [
         {
@@ -9481,6 +9525,21 @@
         },
         "required": [
           "attachment"
+        ]
+      },
+      "ActivityLocationKinds": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "GUILD_CHANNEL",
+            "description": "guild channel",
+            "const": "gc"
+          },
+          {
+            "title": "PRIVATE_CHANNEL",
+            "description": "private channel",
+            "const": "pc"
+          }
         ]
       },
       "AfkTimeouts": {
@@ -16253,6 +16312,45 @@
           "scopes"
         ]
       },
+      "EmbeddedActivityInstance": {
+        "type": "object",
+        "properties": {
+          "application_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "instance_id": {
+            "type": "string"
+          },
+          "launch_id": {
+            "type": "string"
+          },
+          "location": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GuildChannelLocation"
+              },
+              {
+                "$ref": "#/components/schemas/PrivateChannelLocation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          }
+        },
+        "required": [
+          "application_id",
+          "instance_id",
+          "launch_id",
+          "users"
+        ]
+      },
       "Emoji": {
         "type": "object",
         "properties": {
@@ -18007,6 +18105,37 @@
         },
         "required": [
           "user"
+        ]
+      },
+      "GuildChannelLocation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "gc"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActivityLocationKinds"
+              }
+            ]
+          },
+          "channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "guild_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "channel_id",
+          "guild_id"
         ]
       },
       "GuildChannelResponse": {
@@ -26454,6 +26583,33 @@
           "owner",
           "approximate_user_install_count",
           "explicit_content_filter"
+        ]
+      },
+      "PrivateChannelLocation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "pc"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActivityLocationKinds"
+              }
+            ]
+          },
+          "channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "channel_id"
         ]
       },
       "PrivateChannelRequestPartial": {
