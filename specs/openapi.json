@@ -2923,7 +2923,7 @@
         ]
       }
     },
-    "/applications/{application_id}/activity-instance/{instance_id}": {
+    "/applications/{application_id}/activity-instances/{instance_id}": {
       "parameters": [
         {
           "name": "application_id",

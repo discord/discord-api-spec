@@ -2923,7 +2923,7 @@
         ]
       }
     },
-    "/applications/{application_id}/activity-instance/{instance_id}": {
+    "/applications/{application_id}/activity-instances/{instance_id}": {
       "parameters": [
         {
           "name": "application_id",
@@ -3776,6 +3776,9 @@
                     "$ref": "#/components/schemas/CreateMessageInteractionCallbackRequest"
                   },
                   {
+                    "$ref": "#/components/schemas/LaunchActivityInteractionCallbackRequest"
+                  },
+                  {
                     "$ref": "#/components/schemas/ModalInteractionCallbackRequest"
                   },
                   {
@@ -3798,6 +3801,9 @@
                     "$ref": "#/components/schemas/CreateMessageInteractionCallbackRequest"
                   },
                   {
+                    "$ref": "#/components/schemas/LaunchActivityInteractionCallbackRequest"
+                  },
+                  {
                     "$ref": "#/components/schemas/ModalInteractionCallbackRequest"
                   },
                   {
@@ -3818,6 +3824,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/CreateMessageInteractionCallbackRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/LaunchActivityInteractionCallbackRequest"
                   },
                   {
                     "$ref": "#/components/schemas/ModalInteractionCallbackRequest"
@@ -10140,6 +10149,16 @@
             "minItems": 1,
             "uniqueItems": true
           },
+          "handler": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationCommandHandler"
+              }
+            ]
+          },
           "type": {
             "oneOf": [
               {
@@ -10154,6 +10173,11 @@
         "required": [
           "name"
         ]
+      },
+      "ApplicationCommandHandler": {
+        "type": "integer",
+        "oneOf": [],
+        "format": "int32"
       },
       "ApplicationCommandIntegerOption": {
         "type": "object",
@@ -11073,6 +11097,16 @@
             },
             "minItems": 1,
             "uniqueItems": true
+          },
+          "handler": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationCommandHandler"
+              }
+            ]
           }
         }
       },
@@ -11944,6 +11978,11 @@
             "title": "MESSAGE",
             "description": "A UI-based command that shows up when you right click or tap on a message",
             "const": 3
+          },
+          {
+            "title": "PRIMARY_ENTRY_POINT",
+            "description": "A command that represents the primary way to use an application (e.g. launching an Activity)",
+            "const": 4
           }
         ],
         "format": "int32"
@@ -12066,6 +12105,16 @@
             },
             "minItems": 1,
             "uniqueItems": true
+          },
+          "handler": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationCommandHandler"
+              }
+            ]
           },
           "type": {
             "oneOf": [
@@ -21299,6 +21348,9 @@
                 "$ref": "#/components/schemas/CreateMessageInteractionCallbackResponse"
               },
               {
+                "$ref": "#/components/schemas/LaunchActivityInteractionCallbackResponse"
+              },
+              {
                 "$ref": "#/components/schemas/UpdateMessageInteractionCallbackResponse"
               },
               {
@@ -21341,6 +21393,10 @@
           {
             "title": "MODAL",
             "const": 9
+          },
+          {
+            "title": "LAUNCH_ACTIVITY",
+            "const": 12
           }
         ],
         "format": "int32"
@@ -22139,6 +22195,46 @@
             ]
           }
         }
+      },
+      "LaunchActivityInteractionCallbackRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              12
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionCallbackTypes"
+              }
+            ],
+            "format": "int32"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "LaunchActivityInteractionCallbackResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              12
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionCallbackTypes"
+              }
+            ],
+            "format": "int32"
+          }
+        },
+        "required": [
+          "type"
+        ]
       },
       "ListApplicationEmojisResponse": {
         "type": "object",
