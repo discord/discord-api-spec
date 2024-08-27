@@ -6981,6 +6981,9 @@
         "security": [
           {
             "BotToken": []
+          },
+          {
+            "OAuth2": []
           }
         ]
       },
