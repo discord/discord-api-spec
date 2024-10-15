@@ -14383,7 +14383,7 @@
         "properties": {
           "n": {
             "type": "integer",
-            "minimum": 0,
+            "minimum": 1,
             "maximum": 5,
             "format": "int32"
           },
