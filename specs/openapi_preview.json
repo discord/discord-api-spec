@@ -18395,6 +18395,23 @@
                 "$ref": "#/components/schemas/ForumLayout"
               }
             ]
+          },
+          "hd_streaming_until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "hd_streaming_buyer_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
