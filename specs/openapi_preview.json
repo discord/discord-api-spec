@@ -25216,6 +25216,11 @@
             "title": "GUILD_INCIDENT_REPORT_FALSE_ALARM",
             "description": "",
             "const": 39
+          },
+          {
+            "title": "HD_STREAMING_UPGRADED",
+            "description": "",
+            "const": 55
           }
         ],
         "format": "int32"
