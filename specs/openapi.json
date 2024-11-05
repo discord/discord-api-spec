@@ -24098,6 +24098,16 @@
                 "$ref": "#/components/schemas/UInt32Type"
               }
             ]
+          },
+          "flags": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UInt32Type"
+              }
+            ]
           }
         }
       },
@@ -24275,6 +24285,16 @@
             ]
           },
           "placeholder_version": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UInt32Type"
+              }
+            ]
+          },
+          "flags": {
             "oneOf": [
               {
                 "type": "null"
@@ -27327,6 +27347,12 @@
             ],
             "minimum": 0,
             "maximum": 2147483647
+          },
+          "is_animated": {
+            "type": [
+              "boolean",
+              "null"
+            ]
           }
         }
       },
@@ -27387,6 +27413,12 @@
             ],
             "minimum": 0,
             "maximum": 2147483647
+          },
+          "is_animated": {
+            "type": [
+              "boolean",
+              "null"
+            ]
           }
         }
       },
@@ -27427,6 +27459,12 @@
             ],
             "minimum": 0,
             "maximum": 2147483647
+          },
+          "is_animated": {
+            "type": [
+              "boolean",
+              "null"
+            ]
           }
         }
       },
