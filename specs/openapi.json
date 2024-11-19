@@ -3122,6 +3122,13 @@
             }
           },
           {
+            "name": "exclude_deleted",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "only_active",
             "in": "query",
             "schema": {
