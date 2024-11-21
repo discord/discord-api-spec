@@ -30285,6 +30285,16 @@
               }
             ]
           },
+          "clan": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserPrimaryGuildResponse"
+              }
+            ]
+          },
           "mfa_enabled": {
             "type": "boolean"
           },
@@ -30323,6 +30333,10 @@
           "mfa_enabled",
           "locale"
         ]
+      },
+      "UserPrimaryGuildResponse": {
+        "type": "object",
+        "properties": {}
       },
       "UserResponse": {
         "type": "object",
@@ -30387,6 +30401,16 @@
               },
               {
                 "$ref": "#/components/schemas/UserAvatarDecorationResponse"
+              }
+            ]
+          },
+          "clan": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserPrimaryGuildResponse"
               }
             ]
           }
