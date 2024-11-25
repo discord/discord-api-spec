@@ -14886,6 +14886,10 @@
             "const": "battlenet"
           },
           {
+            "title": "BLUESKY",
+            "const": "bluesky"
+          },
+          {
             "title": "BUNGIE",
             "const": "bungie"
           },
@@ -14908,6 +14912,10 @@
           {
             "title": "INSTAGRAM",
             "const": "instagram"
+          },
+          {
+            "title": "MASTODON",
+            "const": "mastodon"
           },
           {
             "title": "LEAGUE_OF_LEGENDS",
