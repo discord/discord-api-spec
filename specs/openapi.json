@@ -12623,7 +12623,18 @@
       },
       "ApplicationIntegrationType": {
         "type": "integer",
-        "oneOf": [],
+        "oneOf": [
+          {
+            "title": "GUILD_INSTALL",
+            "description": "For Guild install.",
+            "const": 0
+          },
+          {
+            "title": "USER_INSTALL",
+            "description": "For User install.",
+            "const": 1
+          }
+        ],
         "format": "int32"
       },
       "ApplicationIntegrationTypeConfiguration": {
@@ -21544,7 +21555,23 @@
       },
       "InteractionContextType": {
         "type": "integer",
-        "oneOf": [],
+        "oneOf": [
+          {
+            "title": "GUILD",
+            "description": "This command can be used within a Guild.",
+            "const": 0
+          },
+          {
+            "title": "BOT_DM",
+            "description": "This command can be used within a DM with this application's bot.",
+            "const": 1
+          },
+          {
+            "title": "PRIVATE_CHANNEL",
+            "description": "This command can be used within DMs and Group DMs with users.",
+            "const": 2
+          }
+        ],
         "format": "int32"
       },
       "InteractionResponse": {
