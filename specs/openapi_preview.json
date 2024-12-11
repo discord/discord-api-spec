@@ -13821,7 +13821,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 5
+            "maxItems": 10
           },
           "flags": {
             "type": [
@@ -21102,7 +21102,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 5
+            "maxItems": 10
           },
           "attachments": {
             "type": [
@@ -21176,7 +21176,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 5
+            "maxItems": 10
           },
           "attachments": {
             "type": [
@@ -21284,7 +21284,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 5
+            "maxItems": 10
           },
           "attachments": {
             "type": [
@@ -21342,7 +21342,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 5
+            "maxItems": 10
           },
           "attachments": {
             "type": [
@@ -23643,7 +23643,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 5
+            "maxItems": 10
           },
           "flags": {
             "type": [
@@ -23767,7 +23767,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 5
+            "maxItems": 10
           },
           "attachments": {
             "type": [
@@ -25155,7 +25155,7 @@
               "$ref": "#/components/schemas/ActionRowComponentForModalRequest"
             },
             "minItems": 1,
-            "maxItems": 5
+            "maxItems": 10
           }
         },
         "required": [
