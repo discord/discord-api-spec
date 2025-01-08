@@ -324,6 +324,7 @@
           },
           {
             "OAuth2": [
+              "activities.invites.write",
               "activities.read",
               "activities.write",
               "applications.builds.read",
@@ -3259,6 +3260,7 @@
           },
           {
             "OAuth2": [
+              "activities.invites.write",
               "activities.read",
               "activities.write",
               "applications.builds.read",
@@ -25474,6 +25476,11 @@
             "const": "activities.write"
           },
           {
+            "title": "ACTIVITIES_INVITES_WRITE",
+            "description": "allows your app to send activity invites - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
+            "const": "activities.invites.write"
+          },
+          {
             "title": "RELATIONSHIPS_READ",
             "description": "allows your app to know a user's friends and implicit relationships - requires Discord approval",
             "const": "relationships.read"
@@ -31142,6 +31149,7 @@
             "authorizationUrl": "discord.com/oauth2/authorize",
             "refreshUrl": "https://discord.com/api/oauth2/token",
             "scopes": {
+              "activities.invites.write": "allows your app to send activity invites - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
               "activities.read": "allows your app to fetch data from a user's \"Now Playing/Recently Played\" list - requires Discord approval",
               "activities.write": "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
               "applications.builds.read": "allows your app to read build data for a user's applications",
@@ -31179,6 +31187,7 @@
             "tokenUrl": "https://discord.com/api/oauth2/token",
             "refreshUrl": "https://discord.com/api/oauth2/token",
             "scopes": {
+              "activities.invites.write": "allows your app to send activity invites - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
               "activities.read": "allows your app to fetch data from a user's \"Now Playing/Recently Played\" list - requires Discord approval",
               "activities.write": "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
               "applications.builds.read": "allows your app to read build data for a user's applications",
@@ -31218,6 +31227,7 @@
             "tokenUrl": "https://discord.com/api/oauth2/token",
             "refreshUrl": "https://discord.com/api/oauth2/token",
             "scopes": {
+              "activities.invites.write": "allows your app to send activity invites - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
               "activities.read": "allows your app to fetch data from a user's \"Now Playing/Recently Played\" list - requires Discord approval",
               "activities.write": "allows your app to update a user's activity - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
               "applications.builds.read": "allows your app to read build data for a user's applications",
