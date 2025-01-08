@@ -23483,7 +23483,7 @@
             "const": 3
           },
           {
-            "title": "INPUT_TEXT",
+            "title": "TEXT_INPUT",
             "description": "Text input object",
             "const": 4
           },
