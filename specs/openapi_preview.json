@@ -13850,6 +13850,16 @@
                 "$ref": "#/components/schemas/PollCreateRequest"
               }
             ]
+          },
+          "confetti_potion": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ConfettiPotionCreateRequest"
+              }
+            ]
           }
         }
       },
@@ -15115,6 +15125,10 @@
         "required": [
           "name"
         ]
+      },
+      "ConfettiPotionCreateRequest": {
+        "type": "object",
+        "properties": {}
       },
       "ConnectedAccountGuildResponse": {
         "type": "object",
@@ -23670,6 +23684,16 @@
               },
               {
                 "$ref": "#/components/schemas/PollCreateRequest"
+              }
+            ]
+          },
+          "confetti_potion": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ConfettiPotionCreateRequest"
               }
             ]
           },
