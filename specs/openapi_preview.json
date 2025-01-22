@@ -19323,6 +19323,12 @@
               "null"
             ],
             "format": "int32"
+          },
+          "is_nickname_changeable": {
+            "type": [
+              "boolean",
+              "null"
+            ]
           }
         },
         "required": [
