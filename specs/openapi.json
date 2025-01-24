@@ -2166,6 +2166,13 @@
             "schema": {
               "$ref": "#/components/schemas/SnowflakeType"
             }
+          },
+          {
+            "name": "with_components",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "requestBody": {
@@ -5127,6 +5134,13 @@
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "with_components",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -8781,6 +8795,13 @@
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "with_components",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
