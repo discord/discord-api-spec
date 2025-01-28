@@ -274,6 +274,36 @@
         ]
       }
     },
+    "/oauth2/userinfo": {
+      "get": {
+        "operationId": "get_openid_connect_userinfo",
+        "responses": {
+          "200": {
+            "description": "200 response for get_openid_connect_userinfo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OAuth2GetOpenIDConnectUserInfoResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": [
+              "openid"
+            ]
+          }
+        ]
+      }
+    },
     "/oauth2/keys": {
       "get": {
         "operationId": "get_public_keys",
@@ -25350,6 +25380,53 @@
         },
         "required": [
           "keys"
+        ]
+      },
+      "OAuth2GetOpenIDConnectUserInfoResponse": {
+        "type": "object",
+        "properties": {
+          "sub": {
+            "type": "string"
+          },
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "email_verified": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "preferred_username": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "nickname": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "picture": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "locale": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "sub"
         ]
       },
       "OAuth2Key": {
