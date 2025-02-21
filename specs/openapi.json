@@ -1993,6 +1993,139 @@
         ]
       }
     },
+    "/channels/{channel_id}/threads/search": {
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "thread_search",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          {
+            "name": "slop",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SnowflakeType"
+                  },
+                  "maxItems": 20,
+                  "uniqueItems": true
+                }
+              ]
+            }
+          },
+          {
+            "name": "tag_setting",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ThreadSearchTagSetting"
+            }
+          },
+          {
+            "name": "archived",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ThreadSortingMode"
+            }
+          },
+          {
+            "name": "sort_order",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SortingOrder"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 25
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9975
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response for thread_search",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreadSearchResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/channels/{channel_id}/polls/{message_id}/answers/{answer_id}": {
       "parameters": [
         {
@@ -27732,6 +27865,19 @@
         "pattern": "^(0|[1-9][0-9]*)$",
         "format": "snowflake"
       },
+      "SortingOrder": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "ASC",
+            "const": "asc"
+          },
+          {
+            "title": "DESC",
+            "const": "desc"
+          }
+        ]
+      },
       "SoundboardCreateRequest": {
         "type": "object",
         "properties": {
@@ -29186,6 +29332,44 @@
           "total_message_sent"
         ]
       },
+      "ThreadSearchResponse": {
+        "type": "object",
+        "properties": {
+          "threads": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ThreadResponse"
+            }
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ThreadMemberResponse"
+            }
+          },
+          "has_more": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "total_results": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          }
+        },
+        "required": [
+          "threads",
+          "members"
+        ]
+      },
+      "ThreadSearchTagSetting": {
+        "type": "string",
+        "oneOf": []
+      },
       "ThreadSortOrder": {
         "type": "integer",
         "oneOf": [
@@ -29201,6 +29385,27 @@
           }
         ],
         "format": "int32"
+      },
+      "ThreadSortingMode": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "RELEVANCE",
+            "const": "relevance"
+          },
+          {
+            "title": "CREATION_TIME",
+            "const": "creation_time"
+          },
+          {
+            "title": "LAST_MESSAGE_TIME",
+            "const": "last_message_time"
+          },
+          {
+            "title": "ARCHIVE_TIME",
+            "const": "archive_time"
+          }
+        ]
       },
       "ThreadsResponse": {
         "type": "object",
