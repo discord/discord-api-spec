@@ -29785,6 +29785,15 @@
               "null"
             ]
           },
+          "first_messages": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageResponse"
+            }
+          },
           "total_results": {
             "type": [
               "integer",
@@ -29859,6 +29868,15 @@
               "boolean",
               "null"
             ]
+          },
+          "first_messages": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageResponse"
+            }
           }
         },
         "required": [
