@@ -13614,6 +13614,10 @@
           {
             "title": "VOICE_CHANNEL_STATUS_DELETE",
             "const": 193
+          },
+          {
+            "title": "GUILD_PROFILE_UPDATE",
+            "const": 211
           }
         ],
         "format": "int32"
