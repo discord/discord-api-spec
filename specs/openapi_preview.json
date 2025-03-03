@@ -18903,7 +18903,7 @@
               "null"
             ],
             "minLength": 0,
-            "maxLength": 120
+            "maxLength": 300
           },
           "name": {
             "type": "string",
@@ -19715,7 +19715,7 @@
               "null"
             ],
             "minLength": 0,
-            "maxLength": 120
+            "maxLength": 300
           },
           "region": {
             "type": [
