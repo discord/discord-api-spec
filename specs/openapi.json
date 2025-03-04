@@ -14164,32 +14164,7 @@
           "components": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRowComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/ButtonComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/TextInputComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelectComponentResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRowComponentResponse"
             }
           },
           "resolved": {
@@ -24536,32 +24511,7 @@
           "components": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRowComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/ButtonComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/TextInputComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelectComponentResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRowComponentResponse"
             }
           },
           "resolved": {
@@ -25173,32 +25123,7 @@
           "components": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ActionRowComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/ButtonComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/MentionableSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/RoleSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/StringSelectComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/TextInputComponentResponse"
-                },
-                {
-                  "$ref": "#/components/schemas/UserSelectComponentResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/ActionRowComponentResponse"
             }
           },
           "resolved": {
