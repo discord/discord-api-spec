@@ -25428,6 +25428,10 @@
           "features"
         ]
       },
+      "NameplatePalette": {
+        "type": "string",
+        "oneOf": []
+      },
       "NewMemberActionResponse": {
         "type": "object",
         "properties": {
@@ -30342,6 +30346,21 @@
           "asset"
         ]
       },
+      "UserCollectiblesResponse": {
+        "type": "object",
+        "properties": {
+          "nameplate": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserNameplateResponse"
+              }
+            ]
+          }
+        }
+      },
       "UserCommunicationDisabledAction": {
         "type": "object",
         "properties": {
@@ -30445,6 +30464,43 @@
           "enabled"
         ]
       },
+      "UserNameplateResponse": {
+        "type": "object",
+        "properties": {
+          "sku_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "asset": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "palette": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/NameplatePalette"
+              }
+            ]
+          }
+        }
+      },
       "UserNotificationSettings": {
         "type": "integer",
         "oneOf": [
@@ -30524,6 +30580,16 @@
               },
               {
                 "$ref": "#/components/schemas/UserAvatarDecorationResponse"
+              }
+            ]
+          },
+          "collectibles": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserCollectiblesResponse"
               }
             ]
           },
@@ -30643,6 +30709,16 @@
               },
               {
                 "$ref": "#/components/schemas/UserAvatarDecorationResponse"
+              }
+            ]
+          },
+          "collectibles": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserCollectiblesResponse"
               }
             ]
           },
