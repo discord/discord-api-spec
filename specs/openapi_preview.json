@@ -31965,7 +31965,7 @@
         "type": "oauth2",
         "flows": {
           "implicit": {
-            "authorizationUrl": "discord.com/oauth2/authorize",
+            "authorizationUrl": "https://discord.com/api/oauth2/authorize",
             "refreshUrl": "https://discord.com/api/oauth2/token",
             "scopes": {
               "activities.invites.write": "allows your app to send activity invites - requires Discord approval (NOT REQUIRED FOR GAMESDK ACTIVITY MANAGER)",
@@ -32042,7 +32042,7 @@
             }
           },
           "authorizationCode": {
-            "authorizationUrl": "discord.com/oauth2/authorize",
+            "authorizationUrl": "https://discord.com/api/oauth2/authorize",
             "tokenUrl": "https://discord.com/api/oauth2/token",
             "refreshUrl": "https://discord.com/api/oauth2/token",
             "scopes": {
