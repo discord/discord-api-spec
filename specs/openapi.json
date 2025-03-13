@@ -9814,21 +9814,6 @@
           "attachment"
         ]
       },
-      "ActivityLocationKinds": {
-        "type": "string",
-        "oneOf": [
-          {
-            "title": "GUILD_CHANNEL",
-            "description": "guild channel",
-            "const": "gc"
-          },
-          {
-            "title": "PRIVATE_CHANNEL",
-            "description": "private channel",
-            "const": "pc"
-          }
-        ]
-      },
       "AfkTimeouts": {
         "type": "integer",
         "oneOf": [
@@ -16857,6 +16842,21 @@
           "users"
         ]
       },
+      "EmbeddedActivityLocationKind": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "GUILD_CHANNEL",
+            "description": "guild channel",
+            "const": "gc"
+          },
+          {
+            "title": "PRIVATE_CHANNEL",
+            "description": "private channel",
+            "const": "pc"
+          }
+        ]
+      },
       "EmojiResponse": {
         "type": "object",
         "properties": {
@@ -18568,7 +18568,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ActivityLocationKinds"
+                "$ref": "#/components/schemas/EmbeddedActivityLocationKind"
               }
             ]
           },
@@ -26590,7 +26590,7 @@
             ],
             "allOf": [
               {
-                "$ref": "#/components/schemas/ActivityLocationKinds"
+                "$ref": "#/components/schemas/EmbeddedActivityLocationKind"
               }
             ]
           },
