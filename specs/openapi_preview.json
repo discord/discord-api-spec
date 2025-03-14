@@ -9374,7 +9374,10 @@
               "schema": {
                 "anyOf": [
                   {
-                    "$ref": "#/components/schemas/PrivateChannelRequestPartial"
+                    "$ref": "#/components/schemas/UpdateDMRequestPartial"
+                  },
+                  {
+                    "$ref": "#/components/schemas/UpdateGroupDMRequestPartial"
                   },
                   {
                     "$ref": "#/components/schemas/UpdateGuildChannelRequestPartial"
@@ -26689,26 +26692,6 @@
           "channel_id"
         ]
       },
-      "PrivateChannelRequestPartial": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "minLength": 0,
-            "maxLength": 100
-          },
-          "icon": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "contentEncoding": "base64"
-          }
-        }
-      },
       "PrivateChannelResponse": {
         "type": "object",
         "properties": {
@@ -29827,6 +29810,19 @@
         "maximum": 4294967295,
         "format": "int64"
       },
+      "UpdateDMRequestPartial": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 0,
+            "maxLength": 100
+          }
+        }
+      },
       "UpdateDefaultReactionEmojiRequest": {
         "type": "object",
         "properties": {
@@ -29846,6 +29842,26 @@
               "null"
             ],
             "maxLength": 100
+          }
+        }
+      },
+      "UpdateGroupDMRequestPartial": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 0,
+            "maxLength": 100
+          },
+          "icon": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "contentEncoding": "base64"
           }
         }
       },
