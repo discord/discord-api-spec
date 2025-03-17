@@ -20,6 +20,59 @@
     }
   ],
   "paths": {
+    "/partner-sdk/provisional-accounts/unmerge": {
+      "post": {
+        "operationId": "partner_sdk_unmerge_provisional_account",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client_id": {
+                    "$ref": "#/components/schemas/SnowflakeType"
+                  },
+                  "client_secret": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 1024
+                  },
+                  "external_auth_token": {
+                    "type": "string",
+                    "maxLength": 10240
+                  },
+                  "external_auth_type": {
+                    "$ref": "#/components/schemas/ApplicationIdentityProviderAuthType"
+                  }
+                },
+                "required": [
+                  "client_id",
+                  "external_auth_token",
+                  "external_auth_type"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "204 response for partner_sdk_unmerge_provisional_account"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {},
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/oauth2/applications/@me": {
       "get": {
         "operationId": "get_my_oauth2_application",
@@ -243,6 +296,66 @@
           }
         },
         "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/partner-sdk/token": {
+      "post": {
+        "operationId": "partner_sdk_token",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "client_id": {
+                    "$ref": "#/components/schemas/SnowflakeType"
+                  },
+                  "client_secret": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 1024
+                  },
+                  "external_auth_token": {
+                    "type": "string",
+                    "maxLength": 10240
+                  },
+                  "external_auth_type": {
+                    "$ref": "#/components/schemas/ApplicationIdentityProviderAuthType"
+                  }
+                },
+                "required": [
+                  "client_id",
+                  "external_auth_token",
+                  "external_auth_type"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for partner_sdk_token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvisionalTokenResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {},
           {
             "BotToken": []
           }
@@ -636,6 +749,149 @@
         },
         "security": [
           {},
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/lobbies": {
+      "put": {
+        "operationId": "create_or_join_lobby",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "idle_timeout_seconds": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 5,
+                    "maximum": 604800,
+                    "format": "int32"
+                  },
+                  "lobby_metadata": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": {
+                      "type": "string",
+                      "maxLength": 1024
+                    },
+                    "maxProperties": 25
+                  },
+                  "member_metadata": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": {
+                      "type": "string",
+                      "maxLength": 1024
+                    },
+                    "maxProperties": 25
+                  },
+                  "secret": {
+                    "type": "string",
+                    "maxLength": 250
+                  }
+                },
+                "required": [
+                  "secret"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for create_or_join_lobby",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "create_lobby",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "idle_timeout_seconds": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 5,
+                    "maximum": 604800,
+                    "format": "int32"
+                  },
+                  "members": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "$ref": "#/components/schemas/LobbyMemberRequest"
+                    },
+                    "maxItems": 25
+                  },
+                  "metadata": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": {
+                      "type": "string",
+                      "maxLength": 1024
+                    },
+                    "maxProperties": 25
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response for create_lobby",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
           {
             "BotToken": []
           }
@@ -2426,6 +2682,37 @@
           {},
           {
             "BotToken": []
+          }
+        ]
+      }
+    },
+    "/lobbies/{lobby_id}/members/@me": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "delete": {
+        "operationId": "leave_lobby",
+        "responses": {
+          "204": {
+            "description": "204 response for leave_lobby"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": []
           }
         ]
       }
@@ -5541,6 +5828,219 @@
         },
         "security": [
           {},
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/lobbies/{lobby_id}/channel-linking": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "patch": {
+        "operationId": "edit_lobby_channel_link",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "channel_id": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for edit_lobby_channel_link",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/lobbies/{lobby_id}/messages": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "operationId": "create_lobby_message",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SDKMessageRequest"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/SDKMessageRequest"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/SDKMessageRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "201 response for create_lobby_message",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyMessageResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/lobbies/{lobby_id}/members/{user_id}": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "put": {
+        "operationId": "add_lobby_member",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "metadata": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": {
+                      "type": "string",
+                      "maxLength": 1024
+                    },
+                    "maxProperties": 25
+                  },
+                  "flags": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "integer",
+                        "enum": [
+                          1
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for add_lobby_member",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyMemberResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_lobby_member",
+        "responses": {
+          "204": {
+            "description": "204 response for delete_lobby_member"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
           {
             "BotToken": []
           }
@@ -9525,6 +10025,106 @@
         ]
       }
     },
+    "/lobbies/{lobby_id}": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_lobby",
+        "responses": {
+          "200": {
+            "description": "200 response for get_lobby",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "edit_lobby",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "idle_timeout_seconds": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "minimum": 5,
+                    "maximum": 604800,
+                    "format": "int32"
+                  },
+                  "metadata": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "additionalProperties": {
+                      "type": "string",
+                      "maxLength": 1024
+                    },
+                    "maxProperties": 25
+                  },
+                  "members": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "$ref": "#/components/schemas/LobbyMemberRequest"
+                    },
+                    "maxItems": 25
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for edit_lobby",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/guilds/{guild_id}": {
       "parameters": [
         {
@@ -12720,6 +13320,27 @@
             "maxProperties": 2
           }
         }
+      },
+      "ApplicationIdentityProviderAuthType": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "OIDC",
+            "const": "OIDC"
+          },
+          {
+            "title": "EPIC_ONLINE_SERVICES_ACCESS_TOKEN",
+            "const": "EPIC_ONLINE_SERVICES_ACCESS_TOKEN"
+          },
+          {
+            "title": "EPIC_ONLINE_SERVICES_ID_TOKEN",
+            "const": "EPIC_ONLINE_SERVICES_ID_TOKEN"
+          },
+          {
+            "title": "STEAM_SESSION_TICKET",
+            "const": "STEAM_SESSION_TICKET"
+          }
+        ]
       },
       "ApplicationIncomingWebhookResponse": {
         "type": "object",
@@ -22709,6 +23330,164 @@
           "items"
         ]
       },
+      "LobbyMemberRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "metadata": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "maxProperties": 25
+          },
+          "flags": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  1
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "id"
+        ]
+      },
+      "LobbyMemberResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "metadata": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "flags": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "id",
+          "flags"
+        ]
+      },
+      "LobbyMessageResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "content": {
+            "type": "string"
+          },
+          "lobby_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "author": {
+            "$ref": "#/components/schemas/UserResponse"
+          },
+          "metadata": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "flags": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "application_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "type",
+          "content",
+          "lobby_id",
+          "channel_id",
+          "author",
+          "flags"
+        ]
+      },
+      "LobbyResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "application_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "metadata": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "members": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/LobbyMemberResponse"
+            }
+          },
+          "linked_channel": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildChannelResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "application_id"
+        ]
+      },
       "MLSpamRuleResponse": {
         "type": "object",
         "properties": {
@@ -26919,6 +27698,56 @@
           "deaf"
         ]
       },
+      "ProvisionalTokenResponse": {
+        "type": "object",
+        "properties": {
+          "token_type": {
+            "type": "string"
+          },
+          "access_token": {
+            "type": "string"
+          },
+          "expires_in": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "id_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "scopes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            }
+          },
+          "expires_at_s": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          }
+        },
+        "required": [
+          "token_type",
+          "access_token",
+          "expires_in",
+          "scope",
+          "id_token"
+        ]
+      },
       "PurchaseNotificationResponse": {
         "type": "object",
         "properties": {
@@ -27925,6 +28754,134 @@
           "type",
           "id"
         ]
+      },
+      "SDKMessageRequest": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4000
+          },
+          "embeds": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RichEmbed"
+            },
+            "maxItems": 10
+          },
+          "allowed_mentions": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageAllowedMentionsRequest"
+              }
+            ]
+          },
+          "sticker_ids": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "maxItems": 3
+          },
+          "components": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
+            },
+            "maxItems": 10
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "attachments": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageAttachmentRequest"
+            },
+            "maxItems": 10
+          },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollCreateRequest"
+              }
+            ]
+          },
+          "confetti_potion": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ConfettiPotionCreateRequest"
+              }
+            ]
+          },
+          "message_reference": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageReferenceRequest"
+              }
+            ]
+          },
+          "nonce": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": -9223372036854775808,
+                "maximum": 9223372036854775807,
+                "format": "int64"
+              },
+              {
+                "type": "string",
+                "maxLength": 25,
+                "format": "nonce"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "enforce_nonce": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "tts": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        }
       },
       "ScheduledEventResponse": {
         "type": "object",
