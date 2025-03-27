@@ -13339,6 +13339,10 @@
           {
             "title": "STEAM_SESSION_TICKET",
             "const": "STEAM_SESSION_TICKET"
+          },
+          {
+            "title": "UNITY_SERVICES_ID_TOKEN",
+            "const": "UNITY_SERVICES_ID_TOKEN"
           }
         ]
       },
