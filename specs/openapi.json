@@ -24802,12 +24802,6 @@
               }
             ]
           },
-          "description": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
           "flags": {
             "oneOf": [
               {
@@ -25001,12 +24995,6 @@
               {
                 "$ref": "#/components/schemas/UInt32Type"
               }
-            ]
-          },
-          "description": {
-            "type": [
-              "string",
-              "null"
             ]
           },
           "flags": {
@@ -28104,13 +28092,6 @@
               "boolean",
               "null"
             ]
-          },
-          "description": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "maxLength": 4096
           }
         }
       },
@@ -28177,13 +28158,6 @@
               "boolean",
               "null"
             ]
-          },
-          "description": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "maxLength": 4096
           }
         }
       },
@@ -28230,13 +28204,6 @@
               "boolean",
               "null"
             ]
-          },
-          "description": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "maxLength": 4096
           }
         }
       },
