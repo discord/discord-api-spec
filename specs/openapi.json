@@ -16322,6 +16322,16 @@
               }
             ]
           },
+          "default_tag_setting": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadSearchTagSetting"
+              }
+            ]
+          },
           "available_tags": {
             "type": [
               "array",
@@ -16573,6 +16583,16 @@
               },
               {
                 "$ref": "#/components/schemas/ForumLayout"
+              }
+            ]
+          },
+          "default_tag_setting": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadSearchTagSetting"
               }
             ]
           },
@@ -19399,6 +19419,16 @@
               }
             ]
           },
+          "default_tag_setting": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadSearchTagSetting"
+              }
+            ]
+          },
           "hd_streaming_until": {
             "type": [
               "string",
@@ -21188,6 +21218,16 @@
               },
               {
                 "$ref": "#/components/schemas/ForumLayout"
+              }
+            ]
+          },
+          "default_tag_setting": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadSearchTagSetting"
               }
             ]
           },
@@ -30587,6 +30627,16 @@
               },
               {
                 "$ref": "#/components/schemas/ForumLayout"
+              }
+            ]
+          },
+          "default_tag_setting": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadSearchTagSetting"
               }
             ]
           },
