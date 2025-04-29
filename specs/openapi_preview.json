@@ -14624,7 +14624,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 10
+            "maxItems": 30
           },
           "flags": {
             "type": [
@@ -21955,7 +21955,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 10
+            "maxItems": 30
           },
           "attachments": {
             "type": [
@@ -22029,7 +22029,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 10
+            "maxItems": 30
           },
           "attachments": {
             "type": [
@@ -22137,7 +22137,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 10
+            "maxItems": 30
           },
           "attachments": {
             "type": [
@@ -22195,7 +22195,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 10
+            "maxItems": 30
           },
           "attachments": {
             "type": [
@@ -24654,7 +24654,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 10
+            "maxItems": 30
           },
           "flags": {
             "type": [
@@ -24788,7 +24788,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 10
+            "maxItems": 30
           },
           "attachments": {
             "type": [
@@ -26143,7 +26143,7 @@
               "$ref": "#/components/schemas/ActionRowComponentForModalRequest"
             },
             "minItems": 1,
-            "maxItems": 10
+            "maxItems": 30
           }
         },
         "required": [
@@ -28885,7 +28885,7 @@
             "items": {
               "$ref": "#/components/schemas/ActionRowComponentForMessageRequest"
             },
-            "maxItems": 10
+            "maxItems": 30
           },
           "flags": {
             "type": [
