@@ -7566,57 +7566,6 @@
         ]
       }
     },
-    "/guilds/{guild_id}/webhooks": {
-      "parameters": [
-        {
-          "name": "guild_id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "required": true
-        }
-      ],
-      "get": {
-        "operationId": "get_guild_webhooks",
-        "responses": {
-          "200": {
-            "description": "200 response for get_guild_webhooks",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": [
-                    "array",
-                    "null"
-                  ],
-                  "items": {
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/ApplicationIncomingWebhookResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/ChannelFollowerWebhookResponse"
-                      },
-                      {
-                        "$ref": "#/components/schemas/GuildIncomingWebhookResponse"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/guilds/{guild_id}/channels": {
       "parameters": [
         {
@@ -7753,6 +7702,57 @@
         "responses": {
           "204": {
             "description": "204 response for bulk_update_guild_channels"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/guilds/{guild_id}/webhooks": {
+      "parameters": [
+        {
+          "name": "guild_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_guild_webhooks",
+        "responses": {
+          "200": {
+            "description": "200 response for get_guild_webhooks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "oneOf": [
+                      {
+                        "$ref": "#/components/schemas/ApplicationIncomingWebhookResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/ChannelFollowerWebhookResponse"
+                      },
+                      {
+                        "$ref": "#/components/schemas/GuildIncomingWebhookResponse"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
           },
           "4XX": {
             "$ref": "#/components/responses/ClientErrorResponse"
@@ -9655,134 +9655,6 @@
         ]
       }
     },
-    "/webhooks/{webhook_id}": {
-      "parameters": [
-        {
-          "name": "webhook_id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "required": true
-        }
-      ],
-      "get": {
-        "operationId": "get_webhook",
-        "responses": {
-          "200": {
-            "description": "200 response for get_webhook",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/ApplicationIncomingWebhookResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ChannelFollowerWebhookResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/GuildIncomingWebhookResponse"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      },
-      "delete": {
-        "operationId": "delete_webhook",
-        "responses": {
-          "204": {
-            "description": "204 response for delete_webhook"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      },
-      "patch": {
-        "operationId": "update_webhook",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 80
-                  },
-                  "avatar": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "contentEncoding": "base64"
-                  },
-                  "channel_id": {
-                    "oneOf": [
-                      {
-                        "type": "null"
-                      },
-                      {
-                        "$ref": "#/components/schemas/SnowflakeType"
-                      }
-                    ]
-                  }
-                }
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "200 response for update_webhook",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/ApplicationIncomingWebhookResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/ChannelFollowerWebhookResponse"
-                    },
-                    {
-                      "$ref": "#/components/schemas/GuildIncomingWebhookResponse"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
     "/channels/{channel_id}": {
       "parameters": [
         {
@@ -9910,6 +9782,134 @@
                     },
                     {
                       "$ref": "#/components/schemas/ThreadResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/webhooks/{webhook_id}": {
+      "parameters": [
+        {
+          "name": "webhook_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_webhook",
+        "responses": {
+          "200": {
+            "description": "200 response for get_webhook",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ApplicationIncomingWebhookResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ChannelFollowerWebhookResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GuildIncomingWebhookResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_webhook",
+        "responses": {
+          "204": {
+            "description": "204 response for delete_webhook"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "update_webhook",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "avatar": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "contentEncoding": "base64"
+                  },
+                  "channel_id": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for update_webhook",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ApplicationIncomingWebhookResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ChannelFollowerWebhookResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GuildIncomingWebhookResponse"
                     }
                   ]
                 }
