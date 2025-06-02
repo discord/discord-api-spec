@@ -25401,6 +25401,12 @@
               }
             ]
           },
+          "content_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "placeholder": {
             "type": [
               "string",
@@ -25600,6 +25606,12 @@
               {
                 "$ref": "#/components/schemas/UInt32Type"
               }
+            ]
+          },
+          "content_type": {
+            "type": [
+              "string",
+              "null"
             ]
           },
           "placeholder": {
