@@ -31773,6 +31773,16 @@
               "string",
               "null"
             ]
+          },
+          "attachment_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
