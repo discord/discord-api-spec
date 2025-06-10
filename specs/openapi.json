@@ -9057,35 +9057,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "platform_name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 50
-                  },
-                  "platform_username": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  },
-                  "metadata": {
-                    "type": [
-                      "object",
-                      "null"
-                    ],
-                    "additionalProperties": {
-                      "type": "string",
-                      "minLength": 1,
-                      "maxLength": 100
-                    },
-                    "maxProperties": 5
-                  }
-                }
+                "$ref": "#/components/schemas/UpdateApplicationUserRoleConnectionRequest"
               }
             }
           },
@@ -31376,6 +31348,37 @@
           "url",
           "proxy_url"
         ]
+      },
+      "UpdateApplicationUserRoleConnectionRequest": {
+        "type": "object",
+        "properties": {
+          "platform_name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 50
+          },
+          "platform_username": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "metadata": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "maxProperties": 5
+          }
+        }
       },
       "UpdateDMRequestPartial": {
         "type": "object",
