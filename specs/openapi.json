@@ -27955,6 +27955,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "approximate_user_authorization_count": {
+            "type": "integer",
+            "format": "int32"
+          },
           "explicit_content_filter": {
             "$ref": "#/components/schemas/ApplicationExplicitContentFilterTypes"
           },
@@ -27978,6 +27982,7 @@
           "redirect_uris",
           "owner",
           "approximate_user_install_count",
+          "approximate_user_authorization_count",
           "explicit_content_filter"
         ]
       },
