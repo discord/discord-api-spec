@@ -8199,6 +8199,65 @@
         ]
       }
     },
+    "/lobbies/{lobby_id}/members/bulk": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "operationId": "bulk_update_lobby_members",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "$ref": "#/components/schemas/BulkLobbyMemberRequest"
+                },
+                "minItems": 1,
+                "maxItems": 25
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for bulk_update_lobby_members",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "$ref": "#/components/schemas/LobbyMemberResponse"
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/lobbies/{lobby_id}/members/{user_id}": {
       "parameters": [
         {
@@ -15210,6 +15269,47 @@
         "required": [
           "banned_users",
           "failed_users"
+        ]
+      },
+      "BulkLobbyMemberRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "metadata": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "maxProperties": 25
+          },
+          "flags": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  1
+                ]
+              }
+            ]
+          },
+          "remove_member": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id"
         ]
       },
       "ButtonComponentForMessageRequest": {
