@@ -2047,6 +2047,112 @@
         ]
       }
     },
+    "/channels/{channel_id}/messages/pins": {
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "list_pins",
+        "parameters": [
+          {
+            "name": "before",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response for list_pins",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PinnedMessagesResponse"
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/channels/{channel_id}/messages/pins/{message_id}": {
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "put": {
+        "operationId": "create_pin",
+        "responses": {
+          "204": {
+            "description": "204 response for create_pin"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete_pin",
+        "responses": {
+          "204": {
+            "description": "204 response for delete_pin"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/channels/{channel_id}/messages/{message_id}": {
       "parameters": [
         {
@@ -27580,6 +27686,42 @@
           "type"
         ]
       },
+      "PinnedMessageResponse": {
+        "type": "object",
+        "properties": {
+          "pinned_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "message": {
+            "$ref": "#/components/schemas/MessageResponse"
+          }
+        },
+        "required": [
+          "pinned_at",
+          "message"
+        ]
+      },
+      "PinnedMessagesResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/PinnedMessageResponse"
+            }
+          },
+          "has_more": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "has_more"
+        ]
+      },
       "PollAnswerCreateRequest": {
         "type": "object",
         "properties": {
@@ -32736,7 +32878,7 @@
               }
             ]
           },
-          "clan": {
+          "primary_guild": {
             "oneOf": [
               {
                 "type": "null"
@@ -32787,7 +32929,36 @@
       },
       "UserPrimaryGuildResponse": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "identity_guild_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "identity_enabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "tag": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "badge": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
       },
       "UserResponse": {
         "type": "object",
@@ -32865,7 +33036,7 @@
               }
             ]
           },
-          "clan": {
+          "primary_guild": {
             "oneOf": [
               {
                 "type": "null"
