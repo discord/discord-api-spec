@@ -21328,6 +21328,32 @@
           "stickers"
         ]
       },
+      "GuildRoleColorsResponse": {
+        "type": "object",
+        "properties": {
+          "primary_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
+          "secondary_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
+          "tertiary_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          }
+        }
+      },
       "GuildRoleResponse": {
         "type": "object",
         "properties": {
@@ -21353,6 +21379,16 @@
           "color": {
             "type": "integer",
             "format": "int32"
+          },
+          "colors": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildRoleColorsResponse"
+              }
+            ]
           },
           "hoist": {
             "type": "boolean"
@@ -21384,6 +21420,10 @@
                 "$ref": "#/components/schemas/GuildRoleTagsResponse"
               }
             ]
+          },
+          "flags": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "required": [
@@ -21394,7 +21434,8 @@
           "color",
           "hoist",
           "managed",
-          "mentionable"
+          "mentionable",
+          "flags"
         ]
       },
       "GuildRoleTagsResponse": {
