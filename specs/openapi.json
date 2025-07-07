@@ -17122,7 +17122,7 @@
           "name": {
             "type": "string",
             "minLength": 0,
-            "maxLength": 20
+            "maxLength": 50
           },
           "emoji_id": {
             "oneOf": [
@@ -32178,7 +32178,7 @@
           "name": {
             "type": "string",
             "minLength": 0,
-            "maxLength": 20
+            "maxLength": 50
           },
           "emoji_id": {
             "oneOf": [
