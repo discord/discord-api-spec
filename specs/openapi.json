@@ -5348,59 +5348,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "nick": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 32
-                  },
-                  "roles": {
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "oneOf": [
-                        {
-                          "type": "null"
-                        },
-                        {
-                          "$ref": "#/components/schemas/SnowflakeType"
-                        }
-                      ]
-                    },
-                    "maxItems": 1521,
-                    "uniqueItems": true
-                  },
-                  "mute": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "deaf": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "access_token": {
-                    "type": "string",
-                    "maxLength": 152133
-                  },
-                  "flags": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "access_token"
-                ]
+                "$ref": "#/components/schemas/BotAddGuildMemberRequest"
               }
             }
           },
@@ -15354,6 +15302,54 @@
         },
         "required": [
           "username"
+        ]
+      },
+      "BotAddGuildMemberRequest": {
+        "type": "object",
+        "properties": {
+          "nick": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 32
+          },
+          "roles": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "maxItems": 250,
+            "uniqueItems": true
+          },
+          "mute": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "deaf": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "access_token": {
+            "type": "string",
+            "maxLength": 10240
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "access_token"
         ]
       },
       "BulkBanUsersResponse": {
