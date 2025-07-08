@@ -5424,7 +5424,7 @@
                         }
                       ]
                     },
-                    "maxItems": 1521,
+                    "maxItems": 350,
                     "uniqueItems": true
                   },
                   "mute": {
