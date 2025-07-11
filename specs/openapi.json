@@ -22446,105 +22446,6 @@
           "scopes"
         ]
       },
-      "DisplayNameEffect": {
-        "type": "integer",
-        "oneOf": [
-          {
-            "title": "SOLID",
-            "const": 1
-          },
-          {
-            "title": "GRADIENT",
-            "const": 2
-          },
-          {
-            "title": "NEON",
-            "const": 3
-          },
-          {
-            "title": "TOON",
-            "const": 4
-          },
-          {
-            "title": "POP",
-            "const": 5
-          }
-        ],
-        "format": "int32"
-      },
-      "DisplayNameFont": {
-        "type": "integer",
-        "oneOf": [
-          {
-            "title": "DEFAULT",
-            "const": 11
-          },
-          {
-            "title": "BANGERS",
-            "const": 1
-          },
-          {
-            "title": "BIO_RHYME",
-            "const": 2
-          },
-          {
-            "title": "CHERRY_BOMB",
-            "const": 3
-          },
-          {
-            "title": "CHICLE",
-            "const": 4
-          },
-          {
-            "title": "COMPAGNON",
-            "const": 5
-          },
-          {
-            "title": "MUSEO_MODERNO",
-            "const": 6
-          },
-          {
-            "title": "NEO_CASTEL",
-            "const": 7
-          },
-          {
-            "title": "PIXELIFY",
-            "const": 8
-          },
-          {
-            "title": "RIBES",
-            "const": 9
-          },
-          {
-            "title": "SINISTRE",
-            "const": 10
-          }
-        ],
-        "format": "int32"
-      },
-      "DisplayNameStylesResponse": {
-        "type": "object",
-        "properties": {
-          "font_id": {
-            "$ref": "#/components/schemas/DisplayNameFont"
-          },
-          "effect_id": {
-            "$ref": "#/components/schemas/DisplayNameEffect"
-          },
-          "colors": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        },
-        "required": [
-          "font_id",
-          "effect_id",
-          "colors"
-        ]
-      },
       "EmbeddedActivityInstance": {
         "type": "object",
         "properties": {
@@ -37191,16 +37092,6 @@
               }
             ]
           },
-          "display_name_styles": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/DisplayNameStylesResponse"
-              }
-            ]
-          },
           "primary_guild": {
             "oneOf": [
               {
@@ -37356,16 +37247,6 @@
               },
               {
                 "$ref": "#/components/schemas/UserCollectiblesResponse"
-              }
-            ]
-          },
-          "display_name_styles": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/DisplayNameStylesResponse"
               }
             ]
           },
