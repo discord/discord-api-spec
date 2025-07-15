@@ -1,0 +1,52 @@
+name: API Spec Linting
+
+on:
+  push:
+    paths:
+      - 'specs/**'
+      - '.spectral.yml'
+  pull_request:
+    paths:
+      - 'specs/**'
+      - '.spectral.yml'
+  workflow_dispatch:
+
+jobs:
+  spectral-lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Install Spectral CLI
+        run: npm install -g @stoplight/spectral-cli
+        
+      - name: Lint OpenAPI specs
+        run: |
+          echo "Linting OpenAPI specifications with Spectral..."
+          echo "Using configuration: .spectral.yml"
+          
+          echo "::group::Linting openapi.json"
+          spectral lint specs/openapi.json --format stylish --verbose
+          echo "::endgroup::"
+          
+          echo "::group::Linting openapi_preview.json"
+          spectral lint specs/openapi_preview.json --format stylish --verbose
+          echo "::endgroup::"
+          
+          echo "✅ All specs linted successfully!"
+        
+      - name: Upload lint results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spectral-lint-results
+          path: |
+            specs/
+          retention-days: 7 

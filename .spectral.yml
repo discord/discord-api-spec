@@ -1,0 +1,31 @@
+extends: ["spectral:oas"]
+
+rules:
+  # OpenAPI-specific rules
+  openapi-tags: true
+  operation-description: true
+  operation-operationId: true
+  operation-operationId-unique: true
+  operation-operationId-valid-in-url: true
+  operation-parameters: true
+  operation-success-response: true
+  operation-tag-defined: true
+  path-keys-no-trailing-slash: true
+  path-not-include-query: true
+  
+  # Schema rules
+  typed-enum: true
+  no-$ref-siblings: true
+  
+  # Info rules
+  # info-contact: true
+  # info-description: true
+  # info-license: true
+        
+  # require-example-for-schemas:
+  #   description: "All schemas should have examples"
+  #   given: "$.components.schemas[*]"
+  #   then:
+  #     field: example
+  #     function: truthy
+  #   severity: warn
