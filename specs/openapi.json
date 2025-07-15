@@ -11926,6 +11926,64 @@
         ]
       }
     },
+    "/lobbies/{lobby_id}/members/@me/invites": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "operationId": "create_linked_lobby_guild_invite_for_self",
+        "responses": {
+          "200": {
+            "description": "200 response for create_linked_lobby_guild_invite_for_self",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyGuildInviteResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          },
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
     "/lobbies/{lobby_id}/members/bulk": {
       "parameters": [
         {
@@ -12123,6 +12181,69 @@
               },
               "X-RateLimit-Bucket": {
                 "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/lobbies/{lobby_id}/members/{user_id}/invites": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "user_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "operationId": "create_linked_lobby_guild_invite_for_user",
+        "responses": {
+          "200": {
+            "description": "200 response for create_linked_lobby_guild_invite_for_user",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LobbyGuildInviteResponse"
+                }
               }
             }
           },
@@ -28515,6 +28636,17 @@
         },
         "required": [
           "items"
+        ]
+      },
+      "LobbyGuildInviteResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
         ]
       },
       "LobbyMemberRequest": {
