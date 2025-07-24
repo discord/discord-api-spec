@@ -11515,6 +11515,19 @@
                   "secret": {
                     "type": "string",
                     "maxLength": 250
+                  },
+                  "flags": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "integer",
+                        "enum": [
+                          1
+                        ]
+                      }
+                    ]
                   }
                 },
                 "required": [
@@ -11606,6 +11619,19 @@
                       "maxLength": 1024
                     },
                     "maxProperties": 25
+                  },
+                  "flags": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "integer",
+                        "enum": [
+                          1
+                        ]
+                      }
+                    ]
                   }
                 }
               }
@@ -11746,6 +11772,19 @@
                       "$ref": "#/components/schemas/LobbyMemberRequest"
                     },
                     "maxItems": 25
+                  },
+                  "flags": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "integer",
+                        "enum": [
+                          1
+                        ]
+                      }
+                    ]
                   }
                 }
               }
@@ -28885,11 +28924,15 @@
                 "$ref": "#/components/schemas/GuildChannelResponse"
               }
             ]
+          },
+          "flags": {
+            "$ref": "#/components/schemas/UInt32Type"
           }
         },
         "required": [
           "id",
-          "application_id"
+          "application_id",
+          "flags"
         ]
       },
       "MLSpamRuleResponse": {
