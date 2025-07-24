@@ -36652,7 +36652,18 @@
       },
       "ThreadSearchTagSetting": {
         "type": "string",
-        "oneOf": []
+        "oneOf": [
+          {
+            "title": "MATCH_ALL",
+            "description": "The thread tags must contain all tags in the search query",
+            "const": "match_all"
+          },
+          {
+            "title": "MATCH_SOME",
+            "description": "The thread tags must contain at least one of tags in the search query",
+            "const": "match_some"
+          }
+        ]
       },
       "ThreadSortOrder": {
         "type": "integer",
