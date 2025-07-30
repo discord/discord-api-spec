@@ -25039,6 +25039,16 @@
             },
             "uniqueItems": true
           },
+          "collectibles": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserCollectiblesResponse"
+              }
+            ]
+          },
           "user": {
             "$ref": "#/components/schemas/UserResponse"
           },
@@ -32940,6 +32950,16 @@
               "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
+          },
+          "collectibles": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserCollectiblesResponse"
+              }
+            ]
           },
           "user": {
             "$ref": "#/components/schemas/UserResponse"
