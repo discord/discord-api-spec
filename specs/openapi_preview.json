@@ -20193,7 +20193,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ComponentEmojiForMessageRequest"
+                "$ref": "#/components/schemas/ComponentEmojiForRequest"
               }
             ]
           }
@@ -20831,7 +20831,7 @@
           "permissions"
         ]
       },
-      "ComponentEmojiForMessageRequest": {
+      "ComponentEmojiForRequest": {
         "type": "object",
         "properties": {
           "id": {
@@ -35481,7 +35481,7 @@
           "options": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/StringSelectOptionForMessageRequest"
+              "$ref": "#/components/schemas/StringSelectOptionForRequest"
             },
             "minItems": 1,
             "maxItems": 25
@@ -35555,7 +35555,7 @@
           "options"
         ]
       },
-      "StringSelectOptionForMessageRequest": {
+      "StringSelectOptionForRequest": {
         "type": "object",
         "properties": {
           "label": {
@@ -35587,7 +35587,7 @@
                 "type": "null"
               },
               {
-                "$ref": "#/components/schemas/ComponentEmojiForMessageRequest"
+                "$ref": "#/components/schemas/ComponentEmojiForRequest"
               }
             ]
           }
@@ -35779,7 +35779,10 @@
             "$ref": "#/components/schemas/TextInputStyleTypes"
           },
           "label": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "maxLength": 45
           },
           "value": {
@@ -35822,8 +35825,7 @@
         "required": [
           "type",
           "custom_id",
-          "style",
-          "label"
+          "style"
         ]
       },
       "TextInputComponentResponse": {
