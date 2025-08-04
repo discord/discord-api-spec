@@ -8548,56 +8548,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  },
-                  "permissions": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ]
-                  },
-                  "color": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 16777215
-                  },
-                  "hoist": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "mentionable": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "icon": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "contentEncoding": "base64"
-                  },
-                  "unicode_emoji": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  }
-                }
+                "$ref": "#/components/schemas/CreateRoleRequest"
               }
             }
           },
@@ -8652,26 +8603,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "oneOf": [
-                        {
-                          "type": "null"
-                        },
-                        {
-                          "$ref": "#/components/schemas/SnowflakeType"
-                        }
-                      ]
-                    },
-                    "position": {
-                      "type": [
-                        "integer",
-                        "null"
-                      ],
-                      "format": "int32"
-                    }
-                  }
+                  "$ref": "#/components/schemas/UpdateRolePositionsRequest"
                 }
               }
             }
@@ -8827,56 +8759,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  },
-                  "permissions": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ]
-                  },
-                  "color": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 16777215
-                  },
-                  "hoist": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "mentionable": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "icon": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "contentEncoding": "base64"
-                  },
-                  "unicode_emoji": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "maxLength": 100
-                  }
-                }
+                "$ref": "#/components/schemas/UpdateRoleRequestPartial"
               }
             }
           },
@@ -21698,6 +21581,58 @@
               "maxLength": 152133
             },
             "maxProperties": 1521
+          }
+        }
+      },
+      "CreateRoleRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "permissions": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 16777215
+          },
+          "hoist": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "mentionable": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "icon": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "contentEncoding": "base64"
+          },
+          "unicode_emoji": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
           }
         }
       },
@@ -36893,6 +36828,80 @@
           "options",
           "id"
         ]
+      },
+      "UpdateRolePositionsRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "position": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "UpdateRoleRequestPartial": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "permissions": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 16777215
+          },
+          "hoist": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "mentionable": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "icon": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "contentEncoding": "base64"
+          },
+          "unicode_emoji": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          }
+        }
       },
       "UpdateThreadRequestPartial": {
         "type": "object",
