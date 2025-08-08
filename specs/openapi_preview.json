@@ -7944,15 +7944,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "level": {
-                    "$ref": "#/components/schemas/GuildMFALevel"
-                  }
-                },
-                "required": [
-                  "level"
-                ]
+                "$ref": "#/components/schemas/GuildMFARequest"
               }
             }
           },
@@ -24911,6 +24903,17 @@
           "level"
         ]
       },
+      "GuildMFARequest": {
+        "type": "object",
+        "properties": {
+          "level": {
+            "$ref": "#/components/schemas/GuildMFALevel"
+          }
+        },
+        "required": [
+          "level"
+        ]
+      },
       "GuildMemberResponse": {
         "type": "object",
         "properties": {
@@ -25960,7 +25963,8 @@
             "enum": [
               0,
               2,
-              4
+              4,
+              15
             ],
             "allOf": [
               {
