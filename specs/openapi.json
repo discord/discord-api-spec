@@ -6377,25 +6377,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "delete_message_seconds": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 604800
-                  },
-                  "delete_message_days": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 7
-                  }
-                }
+                "$ref": "#/components/schemas/BanUserFromGuildRequest"
               }
             }
           },
@@ -6437,6 +6419,16 @@
       },
       "delete": {
         "operationId": "unban_user_from_guild",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnbanUserFromGuildRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "204": {
             "description": "204 response for unban_user_from_guild",
@@ -6489,28 +6481,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "user_ids": {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/SnowflakeType"
-                    },
-                    "maxItems": 200,
-                    "uniqueItems": true
-                  },
-                  "delete_message_seconds": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 0,
-                    "maximum": 604800
-                  }
-                },
-                "required": [
-                  "user_ids"
-                ]
+                "$ref": "#/components/schemas/BulkBanUsersRequest"
               }
             }
           },
@@ -8327,48 +8298,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "days": {
-                    "type": [
-                      "integer",
-                      "null"
-                    ],
-                    "minimum": 1,
-                    "maximum": 30
-                  },
-                  "compute_prune_count": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "include_roles": {
-                    "oneOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "array",
-                        "items": {
-                          "oneOf": [
-                            {
-                              "type": "null"
-                            },
-                            {
-                              "$ref": "#/components/schemas/SnowflakeType"
-                            }
-                          ]
-                        },
-                        "maxItems": 100,
-                        "uniqueItems": true
-                      },
-                      {
-                        "type": "null"
-                      }
-                    ]
-                  }
-                }
+                "$ref": "#/components/schemas/PruneGuildRequest"
               }
             }
           },
@@ -19296,6 +19226,27 @@
           }
         ]
       },
+      "BanUserFromGuildRequest": {
+        "type": "object",
+        "properties": {
+          "delete_message_seconds": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 604800
+          },
+          "delete_message_days": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 7
+          }
+        }
+      },
       "BaseCreateMessageCreateRequest": {
         "type": "object",
         "properties": {
@@ -19942,6 +19893,30 @@
         },
         "required": [
           "access_token"
+        ]
+      },
+      "BulkBanUsersRequest": {
+        "type": "object",
+        "properties": {
+          "user_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "maxItems": 200,
+            "uniqueItems": true
+          },
+          "delete_message_seconds": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 604800
+          }
+        },
+        "required": [
+          "user_ids"
         ]
       },
       "BulkBanUsersResponse": {
@@ -32885,6 +32860,43 @@
           "id_token"
         ]
       },
+      "PruneGuildRequest": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 30
+          },
+          "compute_prune_count": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "include_roles": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SnowflakeType"
+                },
+                "maxItems": 100,
+                "uniqueItems": true
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
       "PurchaseNotificationResponse": {
         "type": "object",
         "properties": {
@@ -35896,6 +35908,10 @@
         "minimum": 0,
         "maximum": 4294967295,
         "format": "int64"
+      },
+      "UnbanUserFromGuildRequest": {
+        "type": "object",
+        "properties": {}
       },
       "UnfurledMediaRequest": {
         "type": "object",
