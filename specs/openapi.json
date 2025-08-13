@@ -5794,7 +5794,7 @@
             "name": "action_type",
             "in": "query",
             "schema": {
-              "type": "integer"
+              "$ref": "#/components/schemas/AuditLogActionTypes"
             }
           },
           {
