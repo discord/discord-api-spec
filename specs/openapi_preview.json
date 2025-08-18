@@ -7898,6 +7898,367 @@
         ]
       }
     },
+    "/guilds/{guild_id}/messages/search": {
+      "parameters": [
+        {
+          "name": "guild_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "guild_search",
+        "parameters": [
+          {
+            "name": "sort_by",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SortingMode"
+            }
+          },
+          {
+            "name": "sort_order",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SortingOrder"
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 1024
+            }
+          },
+          {
+            "name": "slop",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "contents",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 1024
+              },
+              "maxItems": 100
+            }
+          },
+          {
+            "name": "author_id",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/components/schemas/SnowflakeType"
+                  }
+                ]
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "author_type",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AuthorType"
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "mentions",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/components/schemas/SnowflakeType"
+                  }
+                ]
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "mention_everyone",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "min_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "max_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 25
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9975
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ScoreCursor"
+                },
+                {
+                  "$ref": "#/components/schemas/TimestampCursor"
+                }
+              ]
+            }
+          },
+          {
+            "name": "has",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/HasOption"
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "link_hostname",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 152133
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "embed_provider",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 256
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "embed_type",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/components/schemas/SearchableEmbedType"
+                  }
+                ]
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "attachment_extension",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "maxLength": 152133
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "attachment_filename",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 1024
+            }
+          },
+          {
+            "name": "pinned",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "command_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "command_name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 32
+            }
+          },
+          {
+            "name": "include_nsfw",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "channel_id",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SnowflakeType"
+              },
+              "maxItems": 500,
+              "uniqueItems": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response for guild_search",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuildSearchResponse"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "202 response for guild_search",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchIndexNotReadyResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/guilds/{guild_id}/mfa": {
       "parameters": [
         {
@@ -18957,6 +19318,35 @@
           "old_value": {}
         }
       },
+      "AuthorType": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "USER",
+            "const": "user"
+          },
+          {
+            "title": "BOT",
+            "const": "bot"
+          },
+          {
+            "title": "WEBHOOK",
+            "const": "webhook"
+          },
+          {
+            "title": "NO_USER",
+            "const": "-user"
+          },
+          {
+            "title": "NO_BOT",
+            "const": "-bot"
+          },
+          {
+            "title": "NO_WEBHOOK",
+            "const": "-webhook"
+          }
+        ]
+      },
       "AutomodActionType": {
         "type": "integer",
         "oneOf": [
@@ -25888,6 +26278,61 @@
         ],
         "format": "int32"
       },
+      "GuildSearchResponse": {
+        "type": "object",
+        "properties": {
+          "analytics_id": {
+            "type": "string"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SearchMessageResponse"
+              }
+            }
+          },
+          "doing_deep_historical_index": {
+            "type": "boolean"
+          },
+          "total_results": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "threads": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ThreadResponse"
+            }
+          },
+          "members": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ThreadMemberResponse"
+            }
+          },
+          "documents_indexed": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          }
+        },
+        "required": [
+          "analytics_id",
+          "messages",
+          "doing_deep_historical_index",
+          "total_results"
+        ]
+      },
       "GuildStickerResponse": {
         "type": "object",
         "properties": {
@@ -26745,6 +27190,83 @@
           "nsfw_level",
           "emojis",
           "stickers"
+        ]
+      },
+      "HasOption": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "LINK",
+            "const": "link"
+          },
+          {
+            "title": "EMBED",
+            "const": "embed"
+          },
+          {
+            "title": "FILE",
+            "const": "file"
+          },
+          {
+            "title": "IMAGE",
+            "const": "image"
+          },
+          {
+            "title": "VIDEO",
+            "const": "video"
+          },
+          {
+            "title": "SOUND",
+            "const": "sound"
+          },
+          {
+            "title": "STICKER",
+            "const": "sticker"
+          },
+          {
+            "title": "POLL",
+            "const": "poll"
+          },
+          {
+            "title": "SNAPSHOT",
+            "const": "snapshot"
+          },
+          {
+            "title": "NO_LINK",
+            "const": "-link"
+          },
+          {
+            "title": "NO_EMBED",
+            "const": "-embed"
+          },
+          {
+            "title": "NO_FILE",
+            "const": "-file"
+          },
+          {
+            "title": "NO_IMAGE",
+            "const": "-image"
+          },
+          {
+            "title": "NO_VIDEO",
+            "const": "-video"
+          },
+          {
+            "title": "NO_SOUND",
+            "const": "-sound"
+          },
+          {
+            "title": "NO_STICKER",
+            "const": "-sticker"
+          },
+          {
+            "title": "NO_POLL",
+            "const": "-poll"
+          },
+          {
+            "title": "NO_SNAPSHOT",
+            "const": "-snapshot"
+          }
         ]
       },
       "IconEmojiResponse": {
@@ -34437,6 +34959,475 @@
           "response"
         ]
       },
+      "ScoreCursor": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "score"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SearchCursorType"
+              }
+            ]
+          },
+          "score": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ScoreCursorInnerScoreCursor"
+              }
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "ScoreCursorInnerScoreCursor": {
+        "type": "object",
+        "properties": {
+          "score": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "double"
+          },
+          "timestamp": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "timestamp"
+        ]
+      },
+      "SearchCursorType": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "SCORE",
+            "const": "score"
+          },
+          {
+            "title": "TIMESTAMP",
+            "const": "timestamp"
+          }
+        ]
+      },
+      "SearchIndexNotReadyResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "documents_indexed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "retry_after": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "message",
+          "code",
+          "documents_indexed",
+          "retry_after"
+        ]
+      },
+      "SearchMessageResponse": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/MessageType"
+          },
+          "content": {
+            "type": "string"
+          },
+          "mentions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserResponse"
+            }
+          },
+          "mention_roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "uniqueItems": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageAttachmentResponse"
+            }
+          },
+          "embeds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MessageEmbedResponse"
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "edited_timestamp": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "flags": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/ActionRowComponentResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/ContainerComponentResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/FileComponentResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/MediaGalleryComponentResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/SectionComponentResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/SeparatorComponentResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/TextDisplayComponentResponse"
+                }
+              ]
+            }
+          },
+          "resolved": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ResolvedObjectsResponse"
+              }
+            ]
+          },
+          "stickers": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/GuildStickerResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/StandardStickerResponse"
+                }
+              ]
+            }
+          },
+          "sticker_items": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageStickerItemResponse"
+            }
+          },
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "author": {
+            "$ref": "#/components/schemas/UserResponse"
+          },
+          "pinned": {
+            "type": "boolean"
+          },
+          "mention_everyone": {
+            "type": "boolean"
+          },
+          "tts": {
+            "type": "boolean"
+          },
+          "call": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageCallResponse"
+              }
+            ]
+          },
+          "activity": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageActivityResponse"
+              }
+            ]
+          },
+          "application": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/BasicApplicationResponse"
+              }
+            ]
+          },
+          "application_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "interaction": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageInteractionResponse"
+              }
+            ]
+          },
+          "nonce": {
+            "oneOf": [
+              {
+                "type": "integer",
+                "minimum": -9223372036854775808,
+                "maximum": 9223372036854775807,
+                "format": "int64"
+              },
+              {
+                "type": "string",
+                "maxLength": 25,
+                "format": "nonce"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "webhook_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "message_reference": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageReferenceResponse"
+              }
+            ]
+          },
+          "thread": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ThreadResponse"
+              }
+            ]
+          },
+          "mention_channels": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/components/schemas/MessageMentionChannelResponse"
+                }
+              ]
+            }
+          },
+          "role_subscription_data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageRoleSubscriptionDataResponse"
+              }
+            ]
+          },
+          "purchase_notification": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PurchaseNotificationResponse"
+              }
+            ]
+          },
+          "position": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
+          "poll": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/PollResponse"
+              }
+            ]
+          },
+          "shared_client_theme": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CustomClientThemeResponse"
+              }
+            ]
+          },
+          "interaction_metadata": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationCommandInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/MessageComponentInteractionMetadataResponse"
+              },
+              {
+                "$ref": "#/components/schemas/ModalSubmitInteractionMetadataResponse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message_snapshots": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageSnapshotResponse"
+            }
+          },
+          "reactions": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/MessageReactionResponse"
+            }
+          },
+          "referenced_message": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/BasicMessageResponse"
+              }
+            ]
+          },
+          "hit": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "content",
+          "mentions",
+          "mention_roles",
+          "attachments",
+          "embeds",
+          "timestamp",
+          "flags",
+          "components",
+          "id",
+          "channel_id",
+          "author",
+          "pinned",
+          "mention_everyone",
+          "tts",
+          "hit"
+        ]
+      },
+      "SearchableEmbedType": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "IMAGE",
+            "const": "image"
+          },
+          {
+            "title": "VIDEO",
+            "const": "video"
+          },
+          {
+            "title": "GIFV",
+            "const": "gif"
+          },
+          {
+            "title": "SOUND",
+            "const": "sound"
+          },
+          {
+            "title": "ARTICLE",
+            "const": "article"
+          }
+        ]
+      },
       "SectionComponentForMessageRequest": {
         "type": "object",
         "properties": {
@@ -34674,6 +35665,19 @@
         "type": "string",
         "pattern": "^(0|[1-9][0-9]*)$",
         "format": "snowflake"
+      },
+      "SortingMode": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "RELEVANCE",
+            "const": "relevance"
+          },
+          {
+            "title": "TIMESTAMP",
+            "const": "timestamp"
+          }
+        ]
       },
       "SortingOrder": {
         "type": "string",
@@ -36435,6 +37439,29 @@
           "id",
           "media",
           "spoiler"
+        ]
+      },
+      "TimestampCursor": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "timestamp"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SearchCursorType"
+              }
+            ]
+          },
+          "timestamp": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          }
+        },
+        "required": [
+          "type",
+          "timestamp"
         ]
       },
       "TypingIndicatorResponse": {
