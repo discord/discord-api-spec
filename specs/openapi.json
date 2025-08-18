@@ -19345,6 +19345,16 @@
               }
             ]
           },
+          "shared_client_theme": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CustomClientThemeShareRequest"
+              }
+            ]
+          },
           "confetti_potion": {
             "oneOf": [
               {
@@ -19696,6 +19706,16 @@
               },
               {
                 "$ref": "#/components/schemas/PollResponse"
+              }
+            ]
+          },
+          "shared_client_theme": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CustomClientThemeResponse"
               }
             ]
           },
@@ -21807,6 +21827,62 @@
           "message_count",
           "member_count",
           "total_message_sent"
+        ]
+      },
+      "CustomClientThemeResponse": {
+        "type": "object",
+        "properties": {
+          "colors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "gradient_angle": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "base_mix": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "colors",
+          "gradient_angle",
+          "base_mix"
+        ]
+      },
+      "CustomClientThemeShareRequest": {
+        "type": "object",
+        "properties": {
+          "colors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 6,
+              "maxLength": 6
+            },
+            "minItems": 1,
+            "maxItems": 5
+          },
+          "gradient_angle": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 360,
+            "format": "int32"
+          },
+          "base_mix": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100,
+            "format": "int32"
+          }
+        },
+        "required": [
+          "colors",
+          "gradient_angle",
+          "base_mix"
         ]
       },
       "DefaultKeywordListTriggerMetadata": {
@@ -29604,6 +29680,16 @@
               }
             ]
           },
+          "shared_client_theme": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CustomClientThemeShareRequest"
+              }
+            ]
+          },
           "confetti_potion": {
             "oneOf": [
               {
@@ -30616,6 +30702,16 @@
               },
               {
                 "$ref": "#/components/schemas/PollResponse"
+              }
+            ]
+          },
+          "shared_client_theme": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CustomClientThemeResponse"
               }
             ]
           },
@@ -33727,6 +33823,16 @@
               },
               {
                 "$ref": "#/components/schemas/PollCreateRequest"
+              }
+            ]
+          },
+          "shared_client_theme": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/CustomClientThemeShareRequest"
               }
             ]
           },
