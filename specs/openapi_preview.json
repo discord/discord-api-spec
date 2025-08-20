@@ -22275,12 +22275,16 @@
           "base_mix": {
             "type": "integer",
             "format": "int32"
+          },
+          "base_theme": {
+            "$ref": "#/components/schemas/MessageShareCustomUserThemeBaseTheme"
           }
         },
         "required": [
           "colors",
           "gradient_angle",
-          "base_mix"
+          "base_mix",
+          "base_theme"
         ]
       },
       "CustomClientThemeShareRequest": {
@@ -22307,6 +22311,16 @@
             "minimum": 0,
             "maximum": 100,
             "format": "int32"
+          },
+          "base_theme": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/MessageShareCustomUserThemeBaseTheme"
+              }
+            ]
           }
         },
         "required": [
@@ -31408,6 +31422,37 @@
           "total_months_subscribed",
           "is_renewal"
         ]
+      },
+      "MessageShareCustomUserThemeBaseTheme": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "UNSET",
+            "description": "No base theme",
+            "const": 0
+          },
+          {
+            "title": "DARK",
+            "description": "Dark base theme",
+            "const": 1
+          },
+          {
+            "title": "LIGHT",
+            "description": "Light base theme",
+            "const": 2
+          },
+          {
+            "title": "DARKER",
+            "description": "Darker base theme",
+            "const": 3
+          },
+          {
+            "title": "MIDNIGHT",
+            "description": "Midnight base theme",
+            "const": 4
+          }
+        ],
+        "format": "int32"
       },
       "MessageSnapshotResponse": {
         "type": "object",
