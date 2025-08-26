@@ -20469,6 +20469,94 @@
           "custom_id"
         ]
       },
+      "ChannelSelectComponentForModalRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              8
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "custom_id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 150
+          },
+          "min_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 25
+          },
+          "max_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 25
+          },
+          "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ChannelSelectDefaultValue"
+            },
+            "maxItems": 25
+          },
+          "channel_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/ChannelTypes"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "type",
+          "custom_id"
+        ]
+      },
       "ChannelSelectComponentResponse": {
         "type": "object",
         "properties": {
@@ -21381,7 +21469,7 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 604800
+            "maximum": 5184000
           },
           "temporary": {
             "type": [
@@ -28177,6 +28265,71 @@
           }
         }
       },
+      "LabelComponentForModalRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              18
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 45
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "component": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ChannelSelectComponentForModalRequest"
+              },
+              {
+                "$ref": "#/components/schemas/MentionableSelectComponentForModalRequest"
+              },
+              {
+                "$ref": "#/components/schemas/RoleSelectComponentForModalRequest"
+              },
+              {
+                "$ref": "#/components/schemas/StringSelectComponentForModalRequest"
+              },
+              {
+                "$ref": "#/components/schemas/TextInputComponentForModalRequest"
+              },
+              {
+                "$ref": "#/components/schemas/UserSelectComponentForModalRequest"
+              }
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "label",
+          "component"
+        ]
+      },
       "LaunchActivityInteractionCallbackRequest": {
         "type": "object",
         "properties": {
@@ -29197,6 +29350,91 @@
           "custom_id"
         ]
       },
+      "MentionableSelectComponentForModalRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              7
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "custom_id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 150
+          },
+          "min_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 25
+          },
+          "max_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 25
+          },
+          "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/RoleSelectDefaultValue"
+                },
+                {
+                  "$ref": "#/components/schemas/UserSelectDefaultValue"
+                }
+              ]
+            },
+            "maxItems": 25
+          }
+        },
+        "required": [
+          "type",
+          "custom_id"
+        ]
+      },
       "MentionableSelectComponentResponse": {
         "type": "object",
         "properties": {
@@ -29668,6 +29906,11 @@
             "title": "CONTAINER",
             "description": "Container component",
             "const": 17
+          },
+          {
+            "title": "LABEL",
+            "description": "Label component",
+            "const": 18
           }
         ],
         "format": "int32"
@@ -31360,6 +31603,9 @@
               "oneOf": [
                 {
                   "$ref": "#/components/schemas/ActionRowComponentForModalRequest"
+                },
+                {
+                  "$ref": "#/components/schemas/LabelComponentForModalRequest"
                 },
                 {
                   "$ref": "#/components/schemas/TextDisplayComponentForModalRequest"
@@ -33760,6 +34006,84 @@
           "custom_id"
         ]
       },
+      "RoleSelectComponentForModalRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              6
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "custom_id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 150
+          },
+          "min_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 25
+          },
+          "max_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 25
+          },
+          "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/RoleSelectDefaultValue"
+            },
+            "maxItems": 25
+          }
+        },
+        "required": [
+          "type",
+          "custom_id"
+        ]
+      },
       "RoleSelectComponentResponse": {
         "type": "object",
         "properties": {
@@ -35214,6 +35538,83 @@
         "format": "int32"
       },
       "StringSelectComponentForMessageRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              3
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "custom_id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 150
+          },
+          "min_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 25
+          },
+          "max_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 25
+          },
+          "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringSelectOptionForRequest"
+            },
+            "minItems": 1,
+            "maxItems": 25
+          }
+        },
+        "required": [
+          "type",
+          "custom_id",
+          "options"
+        ]
+      },
+      "StringSelectComponentForModalRequest": {
         "type": "object",
         "properties": {
           "type": {
@@ -37415,6 +37816,84 @@
         ]
       },
       "UserSelectComponentForMessageRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              5
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "custom_id": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 150
+          },
+          "min_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 25
+          },
+          "max_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 25
+          },
+          "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "default_values": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/UserSelectDefaultValue"
+            },
+            "maxItems": 25
+          }
+        },
+        "required": [
+          "type",
+          "custom_id"
+        ]
+      },
+      "UserSelectComponentForModalRequest": {
         "type": "object",
         "properties": {
           "type": {
