@@ -14938,6 +14938,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "components": {
             "type": "array",
             "items": {
@@ -14984,6 +14992,14 @@
                 "$ref": "#/components/schemas/MessageComponentTypes"
               }
             ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
             "format": "int32"
           },
           "components": {
@@ -20016,6 +20032,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "custom_id": {
             "type": [
               "string",
@@ -20372,6 +20396,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "custom_id": {
             "type": "string",
             "maxLength": 100
@@ -20400,6 +20432,12 @@
             "maximum": 25
           },
           "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
             "type": [
               "boolean",
               "null"
@@ -20943,6 +20981,14 @@
                 "$ref": "#/components/schemas/MessageComponentTypes"
               }
             ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
             "format": "int32"
           },
           "accent_color": {
@@ -22974,6 +23020,14 @@
                 "$ref": "#/components/schemas/MessageComponentTypes"
               }
             ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
             "format": "int32"
           },
           "spoiler": {
@@ -28654,6 +28708,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "items": {
             "type": "array",
             "items": {
@@ -29065,6 +29127,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "custom_id": {
             "type": "string",
             "maxLength": 100
@@ -29093,6 +29163,12 @@
             "maximum": 25
           },
           "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
             "type": [
               "boolean",
               "null"
@@ -33621,6 +33697,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "custom_id": {
             "type": "string",
             "maxLength": 100
@@ -33649,6 +33733,12 @@
             "maximum": 25
           },
           "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
             "type": [
               "boolean",
               "null"
@@ -34102,6 +34192,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "components": {
             "type": "array",
             "items": {
@@ -34183,6 +34281,14 @@
                 "$ref": "#/components/schemas/MessageComponentTypes"
               }
             ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
             "format": "int32"
           },
           "spacing": {
@@ -35122,6 +35228,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "custom_id": {
             "type": "string",
             "maxLength": 100
@@ -35150,6 +35264,12 @@
             "maximum": 25
           },
           "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
             "type": [
               "boolean",
               "null"
@@ -35393,6 +35513,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "content": {
             "type": "string",
             "minLength": 1,
@@ -35417,6 +35545,14 @@
                 "$ref": "#/components/schemas/MessageComponentTypes"
               }
             ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
             "format": "int32"
           },
           "content": {
@@ -35472,6 +35608,14 @@
                 "$ref": "#/components/schemas/MessageComponentTypes"
               }
             ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
             "format": "int32"
           },
           "custom_id": {
@@ -36019,6 +36163,14 @@
                 "$ref": "#/components/schemas/MessageComponentTypes"
               }
             ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
             "format": "int32"
           },
           "description": {
@@ -37277,6 +37429,14 @@
             ],
             "format": "int32"
           },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
           "custom_id": {
             "type": "string",
             "maxLength": 100
@@ -37305,6 +37465,12 @@
             "maximum": 25
           },
           "disabled": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "required": {
             "type": [
               "boolean",
               "null"
