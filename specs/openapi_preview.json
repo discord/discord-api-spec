@@ -7949,10 +7949,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ],
+                "type": "string",
                 "maxLength": 1024
               },
               "maxItems": 100
@@ -7964,14 +7961,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "$ref": "#/components/schemas/SnowflakeType"
-                  }
-                ]
+                "$ref": "#/components/schemas/SnowflakeType"
               },
               "maxItems": 1521,
               "uniqueItems": true
@@ -7995,14 +7985,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "$ref": "#/components/schemas/SnowflakeType"
-                  }
-                ]
+                "$ref": "#/components/schemas/SnowflakeType"
               },
               "maxItems": 1521,
               "uniqueItems": true
@@ -8079,10 +8062,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ],
+                "type": "string",
                 "maxLength": 152133
               },
               "maxItems": 1521,
@@ -8095,10 +8075,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ],
+                "type": "string",
                 "maxLength": 256
               },
               "maxItems": 1521,
@@ -8130,10 +8107,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "type": [
-                  "string",
-                  "null"
-                ],
+                "type": "string",
                 "maxLength": 152133
               },
               "maxItems": 1521,
@@ -8144,8 +8118,13 @@
             "name": "attachment_filename",
             "in": "query",
             "schema": {
-              "type": "string",
-              "maxLength": 1024
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 1024
+              },
+              "maxItems": 1521,
+              "uniqueItems": true
             }
           },
           {
