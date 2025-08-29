@@ -19813,6 +19813,87 @@
           "description"
         ]
       },
+      "BasicGuildMemberResponse": {
+        "type": "object",
+        "properties": {
+          "avatar": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "avatar_decoration_data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserAvatarDecorationResponse"
+              }
+            ]
+          },
+          "banner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "communication_disabled_until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "flags": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "joined_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nick": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pending": {
+            "type": "boolean"
+          },
+          "premium_since": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            },
+            "uniqueItems": true
+          },
+          "collectibles": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserCollectiblesResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "flags",
+          "joined_at",
+          "pending",
+          "roles"
+        ]
+      },
       "BasicMessageResponse": {
         "type": "object",
         "properties": {
@@ -34359,19 +34440,28 @@
         "type": "object",
         "properties": {
           "users": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "additionalProperties": {
               "$ref": "#/components/schemas/UserResponse"
             }
           },
           "members": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "additionalProperties": {
-              "$ref": "#/components/schemas/GuildMemberResponse"
+              "$ref": "#/components/schemas/BasicGuildMemberResponse"
             }
           },
           "channels": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "additionalProperties": {
               "oneOf": [
                 {
@@ -34390,18 +34480,15 @@
             }
           },
           "roles": {
-            "type": "object",
+            "type": [
+              "object",
+              "null"
+            ],
             "additionalProperties": {
               "$ref": "#/components/schemas/GuildRoleResponse"
             }
           }
-        },
-        "required": [
-          "users",
-          "members",
-          "channels",
-          "roles"
-        ]
+        }
       },
       "ResourceChannelResponse": {
         "type": "object",
