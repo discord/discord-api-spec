@@ -868,13 +868,15 @@
                     "maxLength": 32
                   },
                   "image": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "contentEncoding": "base64"
                   }
                 },
                 "required": [
-                  "name",
-                  "image"
+                  "name"
                 ]
               }
             }
@@ -1127,8 +1129,7 @@
                   "uniqueItems": true
                 }
               ]
-            },
-            "required": true
+            }
           },
           {
             "name": "guild_id",
@@ -2538,7 +2539,7 @@
                     "null"
                   ],
                   "items": {
-                    "anyOf": [
+                    "oneOf": [
                       {
                         "$ref": "#/components/schemas/FriendInviteResponse"
                       },
@@ -2547,9 +2548,11 @@
                       },
                       {
                         "$ref": "#/components/schemas/GuildInviteResponse"
+                      },
+                      {
+                        "type": "null"
                       }
-                    ],
-                    "x-discord-union": "oneOf"
+                    ]
                   }
                 }
               }
@@ -2611,7 +2614,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "anyOf": [
+                  "oneOf": [
                     {
                       "$ref": "#/components/schemas/FriendInviteResponse"
                     },
@@ -2621,8 +2624,7 @@
                     {
                       "$ref": "#/components/schemas/GuildInviteResponse"
                     }
-                  ],
-                  "x-discord-union": "oneOf"
+                  ]
                 }
               }
             }
@@ -6669,7 +6671,14 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "$ref": "#/components/schemas/SnowflakeType"
+                      "oneOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "$ref": "#/components/schemas/SnowflakeType"
+                        }
+                      ]
                     },
                     "position": {
                       "type": [
@@ -6811,7 +6820,10 @@
                     "maxLength": 32
                   },
                   "image": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "contentEncoding": "base64"
                   },
                   "roles": {
@@ -6834,8 +6846,7 @@
                   }
                 },
                 "required": [
-                  "name",
-                  "image"
+                  "name"
                 ]
               }
             }
@@ -7229,7 +7240,7 @@
                     "null"
                   ],
                   "items": {
-                    "anyOf": [
+                    "oneOf": [
                       {
                         "$ref": "#/components/schemas/FriendInviteResponse"
                       },
@@ -7238,9 +7249,11 @@
                       },
                       {
                         "$ref": "#/components/schemas/GuildInviteResponse"
+                      },
+                      {
+                        "type": "null"
                       }
-                    ],
-                    "x-discord-union": "oneOf"
+                    ]
                   }
                 }
               }
@@ -7432,8 +7445,7 @@
               "type": "integer",
               "minimum": 1,
               "maximum": 1000
-            },
-            "required": true
+            }
           },
           {
             "name": "query",
@@ -11407,7 +11419,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "anyOf": [
+                  "oneOf": [
                     {
                       "$ref": "#/components/schemas/FriendInviteResponse"
                     },
@@ -11417,8 +11429,7 @@
                     {
                       "$ref": "#/components/schemas/GuildInviteResponse"
                     }
-                  ],
-                  "x-discord-union": "oneOf"
+                  ]
                 }
               }
             }
@@ -11462,7 +11473,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "anyOf": [
+                  "oneOf": [
                     {
                       "$ref": "#/components/schemas/FriendInviteResponse"
                     },
@@ -11472,8 +11483,7 @@
                     {
                       "$ref": "#/components/schemas/GuildInviteResponse"
                     }
-                  ],
-                  "x-discord-union": "oneOf"
+                  ]
                 }
               }
             }
@@ -15376,10 +15386,7 @@
             "format": "int32"
           },
           "components": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -15409,7 +15416,8 @@
         },
         "required": [
           "type",
-          "id"
+          "id",
+          "components"
         ]
       },
       "ActivitiesAttachmentResponse": {
@@ -15550,10 +15558,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -15568,10 +15573,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -15583,10 +15585,7 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -15711,10 +15710,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -15729,10 +15725,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -15744,10 +15737,7 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -15847,10 +15837,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -15865,10 +15852,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -15880,16 +15864,10 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "channel_types": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelTypes"
             },
@@ -16168,10 +16146,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -16186,10 +16161,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -16201,45 +16173,22 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "autocomplete": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "choices": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApplicationCommandOptionIntegerChoiceResponse"
             }
           },
           "min_value": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/Int53Type"
-              }
-            ]
+            "$ref": "#/components/schemas/Int53Type"
           },
           "max_value": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/Int53Type"
-              }
-            ]
+            "$ref": "#/components/schemas/Int53Type"
           }
         },
         "required": [
@@ -16267,14 +16216,7 @@
             "format": "int32"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "authorizing_integration_owners": {
             "type": "object",
@@ -16283,34 +16225,13 @@
             }
           },
           "original_response_message_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "target_user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "target_message_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -16400,10 +16321,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -16418,10 +16336,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -16433,10 +16348,7 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -16556,10 +16468,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -16574,10 +16483,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -16589,38 +16495,23 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "autocomplete": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "choices": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApplicationCommandOptionNumberChoiceResponse"
             }
           },
           "min_value": {
-            "type": [
-              "number",
-              "null"
-            ],
+            "type": "number",
             "format": "double"
           },
           "max_value": {
-            "type": [
-              "number",
-              "null"
-            ],
+            "type": "number",
             "format": "double"
           }
         },
@@ -16666,10 +16557,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -16726,10 +16614,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -16787,10 +16672,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -17067,10 +16949,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -17085,10 +16964,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -17100,20 +16976,10 @@
             }
           },
           "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "dm_permission": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "contexts": {
             "type": [
@@ -17126,20 +16992,14 @@
             "uniqueItems": true
           },
           "integration_types": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApplicationIntegrationType"
             },
             "uniqueItems": true
           },
           "options": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -17179,10 +17039,7 @@
             }
           },
           "nsfw": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -17275,10 +17132,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -17293,10 +17147,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -17308,10 +17159,7 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -17433,10 +17281,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -17451,10 +17296,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -17466,38 +17308,23 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "autocomplete": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "choices": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApplicationCommandOptionStringChoiceResponse"
             }
           },
           "min_length": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_length": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           }
         },
@@ -17598,10 +17425,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -17616,10 +17440,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -17631,16 +17452,10 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "options": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApplicationCommandSubcommandOptionResponse"
             }
@@ -17771,10 +17586,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -17789,10 +17601,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -17804,16 +17613,10 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "options": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -18114,10 +17917,7 @@
             "type": "string"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "name_localizations": {
             "type": [
@@ -18132,10 +17932,7 @@
             "type": "string"
           },
           "description_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description_localizations": {
             "type": [
@@ -18147,10 +17944,7 @@
             }
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -18410,14 +18204,7 @@
             "format": "int32"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           }
         },
         "required": [
@@ -18461,16 +18248,10 @@
         "type": "object",
         "properties": {
           "oauth2_install_params": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
           }
-        }
+        },
+        "required": []
       },
       "ApplicationOAuth2InstallParams": {
         "type": "object",
@@ -18562,52 +18343,22 @@
             ]
           },
           "cover_image": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "primary_sku_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "bot": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "slug": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "rpc_origins": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "type": [
                 "string",
@@ -18616,53 +18367,28 @@
             }
           },
           "bot_public": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "bot_require_code_grant": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "terms_of_service_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "privacy_policy_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "custom_install_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "install_params": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
           },
           "integration_types_config": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
             }
@@ -18682,10 +18408,7 @@
             "format": "int32"
           },
           "tags": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "type": "string"
             },
@@ -18826,15 +18549,13 @@
             ]
           },
           "metadata": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": "object",
             "additionalProperties": {
               "type": "string"
             }
           }
-        }
+        },
+        "required": []
       },
       "AttachmentResponse": {
         "type": "object",
@@ -18858,49 +18579,28 @@
             "format": "uri"
           },
           "width": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "height": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "duration_secs": {
-            "type": [
-              "number",
-              "null"
-            ],
+            "type": "number",
             "format": "double"
           },
           "waveform": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "content_type": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "ephemeral": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "title": {
             "type": [
@@ -18909,27 +18609,14 @@
             ]
           },
           "application": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ApplicationResponse"
           },
           "clip_created_at": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "clip_participants": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserResponse"
             }
@@ -19271,28 +18958,19 @@
             ]
           },
           "changes": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/AuditLogObjectChangeResponse"
             }
           },
           "options": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": "object",
             "additionalProperties": {
               "type": "string"
             }
           },
           "reason": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -19311,7 +18989,8 @@
           },
           "new_value": {},
           "old_value": {}
-        }
+        },
+        "required": []
       },
       "AuthorType": {
         "type": "string",
@@ -19781,30 +19460,13 @@
             ]
           },
           "cover_image": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "primary_sku_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "bot": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           }
         },
         "required": [
@@ -19972,20 +19634,10 @@
             }
           },
           "resolved": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ResolvedObjectsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ResolvedObjectsResponse"
           },
           "stickers": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -19998,10 +19650,7 @@
             }
           },
           "sticker_items": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageStickerItemResponse"
             }
@@ -20025,54 +19674,19 @@
             "type": "boolean"
           },
           "call": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageCallResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageCallResponse"
           },
           "activity": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageActivityResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageActivityResponse"
           },
           "application": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/BasicApplicationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/BasicApplicationResponse"
           },
           "application_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "interaction": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageInteractionResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageInteractionResponse"
           },
           "nonce": {
             "oneOf": [
@@ -20093,40 +19707,16 @@
             ]
           },
           "webhook_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "message_reference": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageReferenceResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageReferenceResponse"
           },
           "thread": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ThreadResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ThreadResponse"
           },
           "mention_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -20139,41 +19729,17 @@
             }
           },
           "role_subscription_data": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageRoleSubscriptionDataResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageRoleSubscriptionDataResponse"
           },
           "purchase_notification": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PurchaseNotificationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/PurchaseNotificationResponse"
           },
           "position": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "poll": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PollResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/PollResponse"
           },
           "shared_client_theme": {
             "oneOf": [
@@ -20195,17 +19761,11 @@
               },
               {
                 "$ref": "#/components/schemas/ModalSubmitInteractionMetadataResponse"
-              },
-              {
-                "type": "null"
               }
             ]
           },
           "message_snapshots": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageSnapshotResponse"
             }
@@ -20275,12 +19835,10 @@
         "type": "object",
         "properties": {
           "custom_message": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
-        }
+        },
+        "required": []
       },
       "BlockMessageActionResponse": {
         "type": "object",
@@ -20567,35 +20125,19 @@
             "format": "int32"
           },
           "custom_id": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "style": {
             "$ref": "#/components/schemas/ButtonStyleTypes"
           },
           "label": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "disabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "emoji": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ComponentEmojiResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ComponentEmojiResponse"
           },
           "url": {
             "type": [
@@ -20606,14 +20148,7 @@
             "format": "uri"
           },
           "sku_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -20759,34 +20294,13 @@
             "format": "int32"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "source_guild": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/WebhookSourceGuildResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/WebhookSourceGuildResponse"
           },
           "source_channel": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/WebhookSourceChannelResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/WebhookSourceChannelResponse"
           }
         },
         "required": [
@@ -21064,10 +20578,7 @@
             "type": "string"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "min_values": {
             "type": [
@@ -21084,26 +20595,17 @@
             "format": "int32"
           },
           "disabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "channel_types": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelTypes"
             },
             "uniqueItems": true
           },
           "default_values": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelSelectDefaultValueResponse"
             }
@@ -21303,23 +20805,13 @@
         "type": "object",
         "properties": {
           "id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "name": {
             "type": "string"
           },
           "animated": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -21494,10 +20986,7 @@
             "type": "boolean"
           },
           "integrations": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ConnectedAccountIntegrationResponse"
             }
@@ -21515,10 +21004,7 @@
             "$ref": "#/components/schemas/ConnectedAccountVisibility"
           },
           "revoked": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -22354,24 +21840,15 @@
             ]
           },
           "rate_limit_per_user": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "bitrate": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "user_limit": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "rtc_region": {
@@ -22381,14 +21858,7 @@
             ]
           },
           "video_quality_mode": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/VideoQualityModes"
-              }
-            ]
+            "$ref": "#/components/schemas/VideoQualityModes"
           },
           "permissions": {
             "type": [
@@ -22400,14 +21870,7 @@
             "$ref": "#/components/schemas/SnowflakeType"
           },
           "thread_metadata": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ThreadMetadataResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ThreadMetadataResponse"
           },
           "message_count": {
             "type": "integer",
@@ -22422,23 +21885,13 @@
             "format": "int32"
           },
           "applied_tags": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           "member": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ThreadMemberResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ThreadMemberResponse"
           }
         },
         "required": [
@@ -22448,6 +21901,7 @@
           "guild_id",
           "name",
           "owner_id",
+          "thread_metadata",
           "message_count",
           "member_count",
           "total_message_sent"
@@ -22786,26 +22240,17 @@
             "format": "int32"
           },
           "enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "exempt_roles": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
           "exempt_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
@@ -22823,6 +22268,9 @@
           "event_type",
           "actions",
           "trigger_type",
+          "enabled",
+          "exempt_roles",
+          "exempt_channels",
           "trigger_metadata"
         ]
       },
@@ -22845,7 +22293,8 @@
               "null"
             ]
           }
-        }
+        },
+        "required": []
       },
       "DiscordIntegrationResponse": {
         "type": "object",
@@ -22868,20 +22317,10 @@
             ]
           },
           "account": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/AccountResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/AccountResponse"
           },
           "enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -22907,18 +22346,13 @@
             "uniqueItems": true
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           }
         },
         "required": [
           "type",
+          "account",
+          "enabled",
           "id",
           "application",
           "scopes"
@@ -22943,9 +22377,6 @@
               },
               {
                 "$ref": "#/components/schemas/PrivateChannelLocation"
-              },
-              {
-                "type": "null"
               }
             ]
           },
@@ -22960,6 +22391,7 @@
           "application_id",
           "instance_id",
           "launch_id",
+          "location",
           "users"
         ]
       },
@@ -22988,14 +22420,7 @@
             "type": "string"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "roles": {
             "type": "array",
@@ -23222,20 +22647,10 @@
             ]
           },
           "account": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/AccountResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/AccountResponse"
           },
           "enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "id": {
             "type": "string"
@@ -23244,43 +22659,20 @@
             "$ref": "#/components/schemas/UserResponse"
           },
           "revoked": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "expire_behavior": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/IntegrationExpireBehaviorTypes"
-              }
-            ]
+            "$ref": "#/components/schemas/IntegrationExpireBehaviorTypes"
           },
           "expire_grace_period": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/IntegrationExpireGracePeriodTypes"
-              }
-            ]
+            "$ref": "#/components/schemas/IntegrationExpireGracePeriodTypes"
           },
           "subscriber_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "synced_at": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "role_id": {
@@ -23294,20 +22686,16 @@
             ]
           },
           "syncing": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "enable_emoticons": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
           "type",
+          "account",
+          "enabled",
           "id",
           "user"
         ]
@@ -23519,14 +22907,7 @@
             ]
           },
           "creator": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "image": {
             "type": [
@@ -23581,10 +22962,7 @@
             ]
           },
           "user_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "privacy_level": {
@@ -23829,49 +23207,29 @@
         "type": "object",
         "properties": {
           "type": {
-            "oneOf": [
+            "type": "integer",
+            "enum": [
+              2
+            ],
+            "allOf": [
               {
-                "type": "null"
-              },
-              {
-                "type": "integer",
-                "enum": [
-                  2
-                ],
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/InviteTypes"
-                  }
-                ],
-                "format": "int32"
+                "$ref": "#/components/schemas/InviteTypes"
               }
-            ]
+            ],
+            "format": "int32"
           },
           "code": {
             "type": "string"
           },
           "inviter": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "max_age": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "created_at": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "expires_at": {
@@ -23882,10 +23240,7 @@
             "format": "date-time"
           },
           "friends_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "channel": {
@@ -23899,34 +23254,23 @@
             ]
           },
           "is_contact": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "uses": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_uses": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "flags": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           }
         },
         "required": [
+          "type",
           "code"
         ]
       },
@@ -24587,49 +23931,29 @@
         "type": "object",
         "properties": {
           "type": {
-            "oneOf": [
+            "type": "integer",
+            "enum": [
+              1
+            ],
+            "allOf": [
               {
-                "type": "null"
-              },
-              {
-                "type": "integer",
-                "enum": [
-                  1
-                ],
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/InviteTypes"
-                  }
-                ],
-                "format": "int32"
+                "$ref": "#/components/schemas/InviteTypes"
               }
-            ]
+            ],
+            "format": "int32"
           },
           "code": {
             "type": "string"
           },
           "inviter": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "max_age": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "created_at": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "expires_at": {
@@ -24640,14 +23964,7 @@
             "format": "date-time"
           },
           "channel": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteChannelResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/InviteChannelResponse"
           },
           "approximate_member_count": {
             "type": [
@@ -24658,7 +23975,9 @@
           }
         },
         "required": [
-          "code"
+          "type",
+          "code",
+          "channel"
         ]
       },
       "GuildAuditLogResponse": {
@@ -24884,24 +24203,15 @@
             ]
           },
           "rate_limit_per_user": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "bitrate": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "user_limit": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "rtc_region": {
@@ -24911,14 +24221,7 @@
             ]
           },
           "video_quality_mode": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/VideoQualityModes"
-              }
-            ]
+            "$ref": "#/components/schemas/VideoQualityModes"
           },
           "permissions": {
             "type": [
@@ -24933,20 +24236,10 @@
             ]
           },
           "default_auto_archive_duration": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ThreadAutoArchiveDuration"
-              }
-            ]
+            "$ref": "#/components/schemas/ThreadAutoArchiveDuration"
           },
           "default_thread_rate_limit_per_user": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "position": {
@@ -24954,25 +24247,16 @@
             "format": "int32"
           },
           "permission_overwrites": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ChannelPermissionOverwriteResponse"
             }
           },
           "nsfw": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "available_tags": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ForumTagResponse"
             }
@@ -25018,21 +24302,11 @@
             ]
           },
           "hd_streaming_until": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "hd_streaming_buyer_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -25215,20 +24489,10 @@
             "type": "boolean"
           },
           "welcome_message": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/WelcomeMessageResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/WelcomeMessageResponse"
           },
           "new_member_actions": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -25241,10 +24505,7 @@
             }
           },
           "resource_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -25259,7 +24520,9 @@
         },
         "required": [
           "guild_id",
-          "enabled"
+          "enabled",
+          "new_member_actions",
+          "resource_channels"
         ]
       },
       "GuildIncomingWebhookResponse": {
@@ -25320,26 +24583,13 @@
             "format": "int32"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "token": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           }
         },
@@ -25353,49 +24603,29 @@
         "type": "object",
         "properties": {
           "type": {
-            "oneOf": [
+            "type": "integer",
+            "enum": [
+              0
+            ],
+            "allOf": [
               {
-                "type": "null"
-              },
-              {
-                "type": "integer",
-                "enum": [
-                  0
-                ],
-                "allOf": [
-                  {
-                    "$ref": "#/components/schemas/InviteTypes"
-                  }
-                ],
-                "format": "int32"
+                "$ref": "#/components/schemas/InviteTypes"
               }
-            ]
+            ],
+            "format": "int32"
           },
           "code": {
             "type": "string"
           },
           "inviter": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "max_age": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "created_at": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "expires_at": {
@@ -25406,107 +24636,43 @@
             "format": "date-time"
           },
           "is_contact": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "flags": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "guild": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteGuildResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/InviteGuildResponse"
           },
           "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "channel": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteChannelResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/InviteChannelResponse"
           },
           "target_type": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteTargetTypes"
-              }
-            ]
+            "$ref": "#/components/schemas/InviteTargetTypes"
           },
           "target_user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "target_application": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/InviteApplicationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/InviteApplicationResponse"
           },
           "guild_scheduled_event": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ScheduledEventResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ScheduledEventResponse"
           },
           "uses": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_uses": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "temporary": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "approximate_member_count": {
             "type": [
@@ -25523,14 +24689,15 @@
             "format": "int32"
           },
           "is_nickname_changeable": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
-          "code"
+          "type",
+          "code",
+          "guild",
+          "guild_id",
+          "channel"
         ]
       },
       "GuildMFALevel": {
@@ -26159,24 +25326,15 @@
             "format": "int32"
           },
           "max_members": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_stage_video_channel_users": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_video_channel_users": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "vanity_url_code": {
@@ -26261,6 +25419,9 @@
           "default_message_notifications",
           "mfa_level",
           "explicit_content_filter",
+          "max_members",
+          "max_stage_video_channel_users",
+          "max_video_channel_users",
           "premium_tier",
           "premium_subscription_count",
           "preferred_locale",
@@ -26275,10 +25436,7 @@
         "type": "object",
         "properties": {
           "primary_color": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "secondary_color": {
@@ -26295,7 +25453,10 @@
             ],
             "format": "int32"
           }
-        }
+        },
+        "required": [
+          "primary_color"
+        ]
       },
       "GuildRoleResponse": {
         "type": "object",
@@ -26324,14 +25485,7 @@
             "format": "int32"
           },
           "colors": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/GuildRoleColorsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/GuildRoleColorsResponse"
           },
           "hoist": {
             "type": "boolean"
@@ -26355,14 +25509,7 @@
             ]
           },
           "tags": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/GuildRoleTagsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/GuildRoleTagsResponse"
           },
           "flags": {
             "type": "integer",
@@ -26375,6 +25522,7 @@
           "permissions",
           "position",
           "color",
+          "colors",
           "hoist",
           "managed",
           "mentionable",
@@ -26388,34 +25536,13 @@
             "type": "null"
           },
           "bot_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "integration_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "subscription_listing_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "available_for_purchase": {
             "type": "null"
@@ -26423,7 +25550,8 @@
           "guild_connections": {
             "type": "null"
           }
-        }
+        },
+        "required": []
       },
       "GuildScheduledEventEntityTypes": {
         "type": "integer",
@@ -26596,14 +25724,7 @@
             "$ref": "#/components/schemas/SnowflakeType"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           }
         },
         "required": [
@@ -26636,20 +25757,10 @@
             ]
           },
           "account": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/AccountResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/AccountResponse"
           },
           "enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -26657,6 +25768,8 @@
         },
         "required": [
           "type",
+          "account",
+          "enabled",
           "id"
         ]
       },
@@ -27282,24 +26395,15 @@
             "format": "int32"
           },
           "max_members": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_stage_video_channel_users": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_video_channel_users": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "vanity_url_code": {
@@ -27398,6 +26502,9 @@
           "default_message_notifications",
           "mfa_level",
           "explicit_content_filter",
+          "max_members",
+          "max_stage_video_channel_users",
+          "max_video_channel_users",
           "premium_tier",
           "premium_subscription_count",
           "preferred_locale",
@@ -27920,30 +27027,13 @@
             ]
           },
           "cover_image": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "primary_sku_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "bot": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           }
         },
         "required": [
@@ -28102,9 +27192,6 @@
               },
               {
                 "$ref": "#/components/schemas/UpdateMessageInteractionCallbackResponse"
-              },
-              {
-                "type": "null"
               }
             ]
           }
@@ -28182,46 +27269,19 @@
             "$ref": "#/components/schemas/InteractionTypes"
           },
           "response_message_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "response_message_loading": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "response_message_ephemeral": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "channel_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -28289,52 +27349,22 @@
             ]
           },
           "cover_image": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "primary_sku_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "bot": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "slug": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "rpc_origins": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "type": [
                 "string",
@@ -28343,53 +27373,28 @@
             }
           },
           "bot_public": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "bot_require_code_grant": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "terms_of_service_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "privacy_policy_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "custom_install_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "install_params": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
           },
           "integration_types_config": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
             }
@@ -28409,10 +27414,7 @@
             "format": "int32"
           },
           "tags": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "type": "string"
             },
@@ -28454,16 +27456,10 @@
             ]
           },
           "icon": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "recipients": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/InviteChannelRecipientResponse"
             }
@@ -28547,17 +27543,15 @@
             ]
           },
           "premium_subscription_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           }
         },
         "required": [
           "id",
           "name",
-          "features"
+          "features",
+          "premium_subscription_count"
         ]
       },
       "InviteTargetTypes": {
@@ -28646,26 +27640,17 @@
             "format": "int32"
           },
           "enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "exempt_roles": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
           "exempt_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
@@ -28683,6 +27668,9 @@
           "event_type",
           "actions",
           "trigger_type",
+          "enabled",
+          "exempt_roles",
+          "exempt_channels",
           "trigger_metadata"
         ]
       },
@@ -29158,10 +28146,7 @@
             "$ref": "#/components/schemas/UserResponse"
           },
           "metadata": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": "object",
             "additionalProperties": {
               "type": "string"
             }
@@ -29171,14 +28156,7 @@
             "format": "int32"
           },
           "application_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -29210,23 +28188,13 @@
             }
           },
           "members": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/LobbyMemberResponse"
             }
           },
           "linked_channel": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/GuildChannelResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/GuildChannelResponse"
           },
           "flags": {
             "$ref": "#/components/schemas/UInt32Type"
@@ -29235,6 +28203,7 @@
         "required": [
           "id",
           "application_id",
+          "members",
           "flags"
         ]
       },
@@ -29288,26 +28257,17 @@
             "format": "int32"
           },
           "enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "exempt_roles": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
           "exempt_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
@@ -29325,6 +28285,9 @@
           "event_type",
           "actions",
           "trigger_type",
+          "enabled",
+          "exempt_roles",
+          "exempt_channels",
           "trigger_metadata"
         ]
       },
@@ -29678,26 +28641,17 @@
             "format": "int32"
           },
           "enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "exempt_roles": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
           "exempt_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
@@ -29715,6 +28669,9 @@
           "event_type",
           "actions",
           "trigger_type",
+          "enabled",
+          "exempt_roles",
+          "exempt_channels",
           "trigger_metadata"
         ]
       },
@@ -29722,7 +28679,10 @@
         "type": "object",
         "properties": {
           "mention_total_limit": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "minimum": 0,
             "maximum": 50
           },
@@ -29732,10 +28692,7 @@
               "null"
             ]
           }
-        },
-        "required": [
-          "mention_total_limit"
-        ]
+        }
       },
       "MentionSpamTriggerMetadataResponse": {
         "type": "object",
@@ -29745,14 +28702,12 @@
             "format": "int32"
           },
           "mention_raid_protection_enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
-          "mention_total_limit"
+          "mention_total_limit",
+          "mention_raid_protection_enabled"
         ]
       },
       "MentionSpamUpsertRequest": {
@@ -30125,10 +29080,7 @@
             "type": "string"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "min_values": {
             "type": [
@@ -30145,16 +29097,10 @@
             "format": "int32"
           },
           "disabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "default_values": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -30318,49 +29264,28 @@
             "format": "uri"
           },
           "width": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "height": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "duration_secs": {
-            "type": [
-              "number",
-              "null"
-            ],
+            "type": "number",
             "format": "double"
           },
           "waveform": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "content_type": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "ephemeral": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "title": {
             "type": [
@@ -30369,27 +29294,14 @@
             ]
           },
           "application": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ApplicationResponse"
           },
           "clip_created_at": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "clip_participants": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserResponse"
             }
@@ -30444,14 +29356,7 @@
             "format": "int32"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "authorizing_integration_owners": {
             "type": "object",
@@ -30460,14 +29365,7 @@
             }
           },
           "original_response_message_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "interacted_message_id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -30839,22 +29737,13 @@
             "type": "string"
           },
           "url": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "icon_url": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "proxy_icon_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           }
         },
@@ -30888,16 +29777,10 @@
             "type": "string"
           },
           "icon_url": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "proxy_icon_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           }
         },
@@ -30909,77 +29792,35 @@
         "type": "object",
         "properties": {
           "url": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "proxy_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "width": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UInt32Type"
-              }
-            ]
+            "$ref": "#/components/schemas/UInt32Type"
           },
           "height": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UInt32Type"
-              }
-            ]
+            "$ref": "#/components/schemas/UInt32Type"
           },
           "content_type": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "placeholder_version": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UInt32Type"
-              }
-            ]
+            "$ref": "#/components/schemas/UInt32Type"
           },
           "description": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "flags": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UInt32Type"
-              }
-            ]
+            "$ref": "#/components/schemas/UInt32Type"
           }
-        }
+        },
+        "required": []
       },
       "MessageEmbedProviderResponse": {
         "type": "object",
@@ -30988,10 +29829,7 @@
             "type": "string"
           },
           "url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           }
         },
@@ -31006,106 +29844,46 @@
             "type": "string"
           },
           "url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "title": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "color": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "timestamp": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "fields": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageEmbedFieldResponse"
             }
           },
           "author": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageEmbedAuthorResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageEmbedAuthorResponse"
           },
           "provider": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageEmbedProviderResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageEmbedProviderResponse"
           },
           "image": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageEmbedImageResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageEmbedImageResponse"
           },
           "thumbnail": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageEmbedImageResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageEmbedImageResponse"
           },
           "video": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageEmbedVideoResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageEmbedVideoResponse"
           },
           "footer": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageEmbedFooterResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageEmbedFooterResponse"
           }
         },
         "required": [
@@ -31116,77 +29894,35 @@
         "type": "object",
         "properties": {
           "url": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "proxy_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "width": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UInt32Type"
-              }
-            ]
+            "$ref": "#/components/schemas/UInt32Type"
           },
           "height": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UInt32Type"
-              }
-            ]
+            "$ref": "#/components/schemas/UInt32Type"
           },
           "content_type": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "placeholder_version": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UInt32Type"
-              }
-            ]
+            "$ref": "#/components/schemas/UInt32Type"
           },
           "description": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "flags": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UInt32Type"
-              }
-            ]
+            "$ref": "#/components/schemas/UInt32Type"
           }
-        }
+        },
+        "required": []
       },
       "MessageInteractionResponse": {
         "type": "object",
@@ -31201,20 +29937,10 @@
             "type": "string"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "name_localized": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -31283,12 +30009,10 @@
             ]
           },
           "animated": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
-        }
+        },
+        "required": []
       },
       "MessageReactionResponse": {
         "type": "object",
@@ -31376,40 +30100,20 @@
         "type": "object",
         "properties": {
           "type": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageReferenceType"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageReferenceType"
           },
           "channel_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
           "message_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
+          "type",
           "channel_id"
         ]
       },
@@ -31502,20 +30206,10 @@
             }
           },
           "resolved": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ResolvedObjectsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ResolvedObjectsResponse"
           },
           "stickers": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -31528,10 +30222,7 @@
             }
           },
           "sticker_items": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageStickerItemResponse"
             }
@@ -31555,54 +30246,19 @@
             "type": "boolean"
           },
           "call": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageCallResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageCallResponse"
           },
           "activity": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageActivityResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageActivityResponse"
           },
           "application": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/BasicApplicationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/BasicApplicationResponse"
           },
           "application_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "interaction": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageInteractionResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageInteractionResponse"
           },
           "nonce": {
             "oneOf": [
@@ -31623,40 +30279,16 @@
             ]
           },
           "webhook_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "message_reference": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageReferenceResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageReferenceResponse"
           },
           "thread": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ThreadResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ThreadResponse"
           },
           "mention_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -31669,41 +30301,17 @@
             }
           },
           "role_subscription_data": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageRoleSubscriptionDataResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageRoleSubscriptionDataResponse"
           },
           "purchase_notification": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PurchaseNotificationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/PurchaseNotificationResponse"
           },
           "position": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "poll": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PollResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/PollResponse"
           },
           "shared_client_theme": {
             "oneOf": [
@@ -31725,26 +30333,17 @@
               },
               {
                 "$ref": "#/components/schemas/ModalSubmitInteractionMetadataResponse"
-              },
-              {
-                "type": "null"
               }
             ]
           },
           "message_snapshots": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageSnapshotResponse"
             }
           },
           "reactions": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageReactionResponse"
             }
@@ -31837,16 +30436,12 @@
         "type": "object",
         "properties": {
           "message": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MinimalContentMessageResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MinimalContentMessageResponse"
           }
-        }
+        },
+        "required": [
+          "message"
+        ]
       },
       "MessageStickerItemResponse": {
         "type": "object",
@@ -32182,20 +30777,10 @@
             }
           },
           "resolved": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ResolvedObjectsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ResolvedObjectsResponse"
           },
           "stickers": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -32208,10 +30793,7 @@
             }
           },
           "sticker_items": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageStickerItemResponse"
             }
@@ -32308,14 +30890,7 @@
             "format": "int32"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "authorizing_integration_owners": {
             "type": "object",
@@ -32324,14 +30899,7 @@
             }
           },
           "original_response_message_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "triggering_interaction_metadata": {
             "oneOf": [
@@ -32428,20 +30996,10 @@
             "type": "string"
           },
           "emoji": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SettingsEmojiResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/SettingsEmojiResponse"
           },
           "icon": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -32483,14 +31041,7 @@
             "uniqueItems": true
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           }
         },
         "required": [
@@ -32526,16 +31077,10 @@
             ]
           },
           "email_verified": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "preferred_username": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "nickname": {
             "type": [
@@ -32544,16 +31089,10 @@
             ]
           },
           "picture": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "locale": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -32958,14 +31497,7 @@
             ]
           },
           "account": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/AccountResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/AccountResponse"
           },
           "application_id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -32974,6 +31506,7 @@
         "required": [
           "id",
           "type",
+          "account",
           "application_id"
         ]
       },
@@ -33002,19 +31535,13 @@
             ]
           },
           "account": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/AccountResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/AccountResponse"
           }
         },
         "required": [
           "id",
-          "type"
+          "type",
+          "account"
         ]
       },
       "PartialGuildSubscriptionIntegrationResponse": {
@@ -33041,19 +31568,13 @@
             ]
           },
           "account": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/AccountResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/AccountResponse"
           }
         },
         "required": [
           "id",
-          "type"
+          "type",
+          "account"
         ]
       },
       "PinnedMessageResponse": {
@@ -33076,10 +31597,7 @@
         "type": "object",
         "properties": {
           "items": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/PinnedMessageResponse"
             }
@@ -33089,6 +31607,7 @@
           }
         },
         "required": [
+          "items",
           "has_more"
         ]
       },
@@ -33107,15 +31626,15 @@
         "type": "object",
         "properties": {
           "users": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserResponse"
             }
           }
-        }
+        },
+        "required": [
+          "users"
+        ]
       },
       "PollAnswerResponse": {
         "type": "object",
@@ -33289,22 +31808,13 @@
         "type": "object",
         "properties": {
           "text": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "emoji": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageReactionEmojiResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageReactionEmojiResponse"
           }
-        }
+        },
+        "required": []
       },
       "PollResponse": {
         "type": "object",
@@ -33353,25 +31863,20 @@
             "format": "int32"
           },
           "me_voted": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
           "id",
-          "count"
+          "count",
+          "me_voted"
         ]
       },
       "PollResultsResponse": {
         "type": "object",
         "properties": {
           "answer_counts": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/PollResultsEntryResponse"
             }
@@ -33381,6 +31886,7 @@
           }
         },
         "required": [
+          "answer_counts",
           "is_finalized"
         ]
       },
@@ -33485,52 +31991,22 @@
             ]
           },
           "cover_image": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "primary_sku_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "bot": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "slug": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "rpc_origins": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "type": [
                 "string",
@@ -33539,53 +32015,28 @@
             }
           },
           "bot_public": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "bot_require_code_grant": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "terms_of_service_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "privacy_policy_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "custom_install_url": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "uri"
           },
           "install_params": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
           },
           "integration_types_config": {
-            "type": [
-              "object",
-              "null"
-            ],
+            "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/ApplicationIntegrationTypeConfigurationResponse"
             }
@@ -33605,10 +32056,7 @@
             "format": "int32"
           },
           "tags": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "type": "string"
             },
@@ -33821,37 +32269,21 @@
             ]
           },
           "owner_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "managed": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "application_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
           "id",
           "type",
           "flags",
-          "recipients"
+          "recipients",
+          "owner_id"
         ]
       },
       "PrivateGuildMemberResponse": {
@@ -34041,14 +32473,7 @@
             "$ref": "#/components/schemas/PurchaseType"
           },
           "guild_product_purchase": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/GuildProductPurchaseResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/GuildProductPurchaseResponse"
           }
         },
         "required": [
@@ -34161,7 +32586,10 @@
             "$ref": "#/components/schemas/RecurrenceRuleFrequencies"
           },
           "interval": {
-            "type": "integer",
+            "type": [
+              "integer",
+              "null"
+            ],
             "format": "int32"
           },
           "by_weekday": {
@@ -34234,8 +32662,7 @@
         },
         "required": [
           "start",
-          "frequency",
-          "interval"
+          "frequency"
         ]
       },
       "RecurrenceRuleFrequencies": {
@@ -34488,7 +32915,8 @@
               "$ref": "#/components/schemas/GuildRoleResponse"
             }
           }
-        }
+        },
+        "required": []
       },
       "ResourceChannelResponse": {
         "type": "object",
@@ -34500,20 +32928,10 @@
             "type": "string"
           },
           "emoji": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SettingsEmojiResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/SettingsEmojiResponse"
           },
           "icon": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "description": {
             "type": "string"
@@ -35073,10 +33491,7 @@
             "type": "string"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "min_values": {
             "type": [
@@ -35093,16 +33508,10 @@
             "format": "int32"
           },
           "disabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "default_values": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/RoleSelectDefaultValueResponse"
             }
@@ -35359,14 +33768,7 @@
             ]
           },
           "creator": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "image": {
             "type": [
@@ -35412,10 +33814,7 @@
             ]
           },
           "user_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "privacy_level": {
@@ -35462,24 +33861,10 @@
             "$ref": "#/components/schemas/SnowflakeType"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "member": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/GuildMemberResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/GuildMemberResponse"
           },
           "response": {
             "$ref": "#/components/schemas/GuildScheduledEventUserResponses"
@@ -35655,20 +34040,10 @@
             }
           },
           "resolved": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ResolvedObjectsResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ResolvedObjectsResponse"
           },
           "stickers": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -35681,10 +34056,7 @@
             }
           },
           "sticker_items": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageStickerItemResponse"
             }
@@ -35708,54 +34080,19 @@
             "type": "boolean"
           },
           "call": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageCallResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageCallResponse"
           },
           "activity": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageActivityResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageActivityResponse"
           },
           "application": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/BasicApplicationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/BasicApplicationResponse"
           },
           "application_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "interaction": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageInteractionResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageInteractionResponse"
           },
           "nonce": {
             "oneOf": [
@@ -35776,40 +34113,16 @@
             ]
           },
           "webhook_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "message_reference": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageReferenceResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageReferenceResponse"
           },
           "thread": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ThreadResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ThreadResponse"
           },
           "mention_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "oneOf": [
                 {
@@ -35822,41 +34135,17 @@
             }
           },
           "role_subscription_data": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/MessageRoleSubscriptionDataResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/MessageRoleSubscriptionDataResponse"
           },
           "purchase_notification": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PurchaseNotificationResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/PurchaseNotificationResponse"
           },
           "position": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "poll": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PollResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/PollResponse"
           },
           "shared_client_theme": {
             "oneOf": [
@@ -35878,26 +34167,17 @@
               },
               {
                 "$ref": "#/components/schemas/ModalSubmitInteractionMetadataResponse"
-              },
-              {
-                "type": "null"
               }
             ]
           },
           "message_snapshots": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageSnapshotResponse"
             }
           },
           "reactions": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageReactionResponse"
             }
@@ -36148,12 +34428,12 @@
             ]
           },
           "animated": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
-        }
+        },
+        "required": [
+          "animated"
+        ]
       },
       "SlackWebhook": {
         "type": "object",
@@ -36276,13 +34556,15 @@
             "maxLength": 32
           },
           "sound": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "contentEncoding": "base64"
           }
         },
         "required": [
-          "name",
-          "sound"
+          "name"
         ]
       },
       "SoundboardPatchRequestPartial": {
@@ -36352,33 +34634,20 @@
             ]
           },
           "guild_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "available": {
             "type": "boolean"
           },
           "user": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           }
         },
         "required": [
           "name",
           "sound_id",
           "volume",
+          "guild_id",
           "available"
         ]
       },
@@ -36453,26 +34722,17 @@
             "format": "int32"
           },
           "enabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "exempt_roles": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
             "uniqueItems": true
           },
           "exempt_channels": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             },
@@ -36490,6 +34750,9 @@
           "event_type",
           "actions",
           "trigger_type",
+          "enabled",
+          "exempt_roles",
+          "exempt_channels",
           "trigger_metadata"
         ]
       },
@@ -36516,10 +34779,7 @@
             "$ref": "#/components/schemas/SnowflakeType"
           },
           "discoverable_disabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "guild_scheduled_event_id": {
             "oneOf": [
@@ -36537,7 +34797,8 @@
           "channel_id",
           "topic",
           "privacy_level",
-          "id"
+          "id",
+          "discoverable_disabled"
         ]
       },
       "StageInstancesPrivacyLevels": {
@@ -36776,14 +35037,7 @@
             ]
           },
           "creator": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "image": {
             "type": [
@@ -36838,10 +35092,7 @@
             ]
           },
           "user_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "privacy_level": {
@@ -36996,24 +35247,10 @@
             }
           },
           "cover_sticker_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "banner_asset_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -37216,10 +35453,7 @@
             "type": "string"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "min_values": {
             "type": [
@@ -37236,10 +35470,7 @@
             "format": "int32"
           },
           "disabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "options": {
             "type": "array",
@@ -37307,26 +35538,13 @@
             "type": "string"
           },
           "description": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "emoji": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ComponentEmojiResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ComponentEmojiResponse"
           },
           "default": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -37610,22 +35828,13 @@
             ]
           },
           "value": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "required": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "min_length": {
             "type": [
@@ -37709,14 +35918,7 @@
             "format": "int32"
           },
           "member": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/GuildMemberResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/GuildMemberResponse"
           }
         },
         "required": [
@@ -37746,17 +35948,11 @@
             "type": "boolean"
           },
           "create_timestamp": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "format": "date-time"
           },
           "invitable": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -37823,24 +36019,15 @@
             ]
           },
           "rate_limit_per_user": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "bitrate": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "user_limit": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "rtc_region": {
@@ -37850,14 +36037,7 @@
             ]
           },
           "video_quality_mode": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/VideoQualityModes"
-              }
-            ]
+            "$ref": "#/components/schemas/VideoQualityModes"
           },
           "permissions": {
             "type": [
@@ -37869,14 +36049,7 @@
             "$ref": "#/components/schemas/SnowflakeType"
           },
           "thread_metadata": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ThreadMetadataResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ThreadMetadataResponse"
           },
           "message_count": {
             "type": "integer",
@@ -37891,23 +36064,13 @@
             "format": "int32"
           },
           "applied_tags": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SnowflakeType"
             }
           },
           "member": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ThreadMemberResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/ThreadMemberResponse"
           }
         },
         "required": [
@@ -37917,6 +36080,7 @@
           "guild_id",
           "name",
           "owner_id",
+          "thread_metadata",
           "message_count",
           "member_count",
           "total_message_sent"
@@ -37938,31 +36102,24 @@
             }
           },
           "has_more": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "first_messages": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageResponse"
             }
           },
           "total_results": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           }
         },
         "required": [
           "threads",
-          "members"
+          "members",
+          "has_more",
+          "total_results"
         ]
       },
       "ThreadSearchTagSetting": {
@@ -38033,16 +36190,10 @@
             }
           },
           "has_more": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "first_messages": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/MessageResponse"
             }
@@ -38050,7 +36201,8 @@
         },
         "required": [
           "threads",
-          "members"
+          "members",
+          "has_more"
         ]
       },
       "ThumbnailComponentForMessageRequest": {
@@ -38234,14 +36386,7 @@
             ]
           },
           "attachment_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
@@ -39049,28 +37194,20 @@
             ]
           },
           "asset": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "label": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "palette": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/NameplatePalette"
-              }
-            ]
+            "$ref": "#/components/schemas/NameplatePalette"
           }
-        }
+        },
+        "required": [
+          "asset",
+          "label",
+          "palette"
+        ]
       },
       "UserNotificationSettings": {
         "type": "integer",
@@ -39114,16 +37251,10 @@
             "$ref": "#/components/schemas/Int53Type"
           },
           "bot": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "system": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "banner": {
             "type": [
@@ -39181,14 +37312,7 @@
             "$ref": "#/components/schemas/AvailableLocalesEnum"
           },
           "premium_type": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/PremiumTypes"
-              }
-            ]
+            "$ref": "#/components/schemas/PremiumTypes"
           },
           "email": {
             "type": [
@@ -39197,10 +37321,7 @@
             ]
           },
           "verified": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           }
         },
         "required": [
@@ -39272,16 +37393,10 @@
             "$ref": "#/components/schemas/Int53Type"
           },
           "bot": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "system": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "banner": {
             "type": [
@@ -39520,10 +37635,7 @@
             "type": "string"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "min_values": {
             "type": [
@@ -39540,16 +37652,10 @@
             "format": "int32"
           },
           "disabled": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "default_values": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserSelectDefaultValueResponse"
             }
@@ -39945,14 +38051,7 @@
             ]
           },
           "creator": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/UserResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/UserResponse"
           },
           "image": {
             "type": [
@@ -40007,10 +38106,7 @@
             ]
           },
           "user_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "privacy_level": {
@@ -40074,14 +38170,7 @@
             ]
           },
           "member": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/GuildMemberResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/GuildMemberResponse"
           },
           "mute": {
             "type": "boolean"
@@ -40453,54 +38542,25 @@
             "format": "uri"
           },
           "activity": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/WidgetActivity"
-              }
-            ]
+            "$ref": "#/components/schemas/WidgetActivity"
           },
           "deaf": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "mute": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "self_deaf": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "self_mute": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "suppress": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "channel_id": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/SnowflakeType"
-              }
-            ]
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
