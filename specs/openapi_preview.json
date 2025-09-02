@@ -34647,7 +34647,6 @@
           "name",
           "sound_id",
           "volume",
-          "guild_id",
           "available"
         ]
       },
