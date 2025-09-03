@@ -868,15 +868,13 @@
                     "maxLength": 32
                   },
                   "image": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
+                    "type": "string",
                     "contentEncoding": "base64"
                   }
                 },
                 "required": [
-                  "name"
+                  "name",
+                  "image"
                 ]
               }
             }
@@ -6820,10 +6818,7 @@
                     "maxLength": 32
                   },
                   "image": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
+                    "type": "string",
                     "contentEncoding": "base64"
                   },
                   "roles": {
@@ -6846,7 +6841,8 @@
                   }
                 },
                 "required": [
-                  "name"
+                  "name",
+                  "image"
                 ]
               }
             }
@@ -33274,15 +33270,13 @@
             "maxLength": 32
           },
           "sound": {
-            "type": [
-              "string",
-              "null"
-            ],
+            "type": "string",
             "contentEncoding": "base64"
           }
         },
         "required": [
-          "name"
+          "name",
+          "sound"
         ]
       },
       "SoundboardPatchRequestPartial": {
