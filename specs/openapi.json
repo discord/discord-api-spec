@@ -25442,6 +25442,13 @@
       "GuildTemplateChannelTags": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
           "name": {
             "type": "string"
           },
