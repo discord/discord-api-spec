@@ -19260,9 +19260,6 @@
               ]
             }
           },
-          "resolved": {
-            "$ref": "#/components/schemas/ResolvedObjectsResponse"
-          },
           "stickers": {
             "type": "array",
             "items": {
@@ -19364,6 +19361,9 @@
           "position": {
             "type": "integer",
             "format": "int32"
+          },
+          "resolved": {
+            "$ref": "#/components/schemas/ResolvedObjectsResponse"
           },
           "poll": {
             "$ref": "#/components/schemas/PollResponse"
@@ -29615,9 +29615,6 @@
               ]
             }
           },
-          "resolved": {
-            "$ref": "#/components/schemas/ResolvedObjectsResponse"
-          },
           "stickers": {
             "type": "array",
             "items": {
@@ -29719,6 +29716,9 @@
           "position": {
             "type": "integer",
             "format": "int32"
+          },
+          "resolved": {
+            "$ref": "#/components/schemas/ResolvedObjectsResponse"
           },
           "poll": {
             "$ref": "#/components/schemas/PollResponse"
@@ -30185,9 +30185,6 @@
                 }
               ]
             }
-          },
-          "resolved": {
-            "$ref": "#/components/schemas/ResolvedObjectsResponse"
           },
           "stickers": {
             "type": "array",
