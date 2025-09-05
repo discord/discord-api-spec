@@ -10568,32 +10568,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "request_to_speak_timestamp": {
-                    "type": [
-                      "string",
-                      "null"
-                    ],
-                    "format": "date-time"
-                  },
-                  "suppress": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "channel_id": {
-                    "oneOf": [
-                      {
-                        "type": "null"
-                      },
-                      {
-                        "$ref": "#/components/schemas/SnowflakeType"
-                      }
-                    ]
-                  }
-                }
+                "$ref": "#/components/schemas/UpdateSelfVoiceStateRequestPartial"
               }
             }
           },
@@ -10702,25 +10677,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "suppress": {
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "channel_id": {
-                    "oneOf": [
-                      {
-                        "type": "null"
-                      },
-                      {
-                        "$ref": "#/components/schemas/SnowflakeType"
-                      }
-                    ]
-                  }
-                }
+                "$ref": "#/components/schemas/UpdateVoiceStateRequestPartial"
               }
             }
           },
@@ -36895,6 +36852,34 @@
           }
         }
       },
+      "UpdateSelfVoiceStateRequestPartial": {
+        "type": "object",
+        "properties": {
+          "request_to_speak_timestamp": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "suppress": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "channel_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          }
+        }
+      },
       "UpdateThreadRequestPartial": {
         "type": "object",
         "properties": {
@@ -37037,6 +37022,27 @@
         "required": [
           "name"
         ]
+      },
+      "UpdateVoiceStateRequestPartial": {
+        "type": "object",
+        "properties": {
+          "suppress": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "channel_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          }
+        }
       },
       "UserAvatarDecorationResponse": {
         "type": "object",
