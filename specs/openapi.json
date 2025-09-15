@@ -25500,6 +25500,32 @@
           "serialized_source_guild"
         ]
       },
+      "GuildTemplateRoleColorsResponse": {
+        "type": "object",
+        "properties": {
+          "primary_color": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "secondary_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
+          "tertiary_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          }
+        },
+        "required": [
+          "primary_color"
+        ]
+      },
       "GuildTemplateRoleResponse": {
         "type": "object",
         "properties": {
@@ -25516,6 +25542,16 @@
           "color": {
             "type": "integer",
             "format": "int32"
+          },
+          "colors": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildTemplateRoleColorsResponse"
+              }
+            ]
           },
           "hoist": {
             "type": "boolean"
