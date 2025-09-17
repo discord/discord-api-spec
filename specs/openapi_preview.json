@@ -11615,6 +11615,14 @@
                         ]
                       }
                     ]
+                  },
+                  "override_event_webhooks_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 512,
+                    "format": "uri"
                   }
                 }
               }
@@ -11768,6 +11776,14 @@
                         ]
                       }
                     ]
+                  },
+                  "override_event_webhooks_url": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 512,
+                    "format": "uri"
                   }
                 }
               }
@@ -28198,6 +28214,12 @@
           },
           "flags": {
             "$ref": "#/components/schemas/UInt32Type"
+          },
+          "override_event_webhooks_url": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         },
         "required": [
