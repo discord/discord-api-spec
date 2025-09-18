@@ -32386,6 +32386,9 @@
           },
           "deaf": {
             "type": "boolean"
+          },
+          "permissions": {
+            "type": "string"
           }
         },
         "required": [
