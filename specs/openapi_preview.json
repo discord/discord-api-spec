@@ -2585,6 +2585,45 @@
                 ],
                 "x-discord-union": "oneOf"
               }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateGroupDMInviteRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreateGuildInviteRequest"
+                  }
+                ],
+                "x-discord-union": "oneOf"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "allOf": [
+                  {
+                    "anyOf": [
+                      {
+                        "$ref": "#/components/schemas/CreateGroupDMInviteRequest"
+                      },
+                      {
+                        "$ref": "#/components/schemas/CreateGuildInviteRequest"
+                      }
+                    ],
+                    "x-discord-union": "oneOf"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "target_users_file": {
+                        "type": "string",
+                        "contentEncoding": "binary"
+                      }
+                    }
+                  }
+                ]
+              }
             }
           },
           "required": true
