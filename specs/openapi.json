@@ -17815,6 +17815,10 @@
           {
             "title": "DISCORD_BOT_ISSUED_ACCESS_TOKEN",
             "const": "DISCORD_BOT_ISSUED_ACCESS_TOKEN"
+          },
+          {
+            "title": "APPLE_ID_TOKEN",
+            "const": "APPLE_ID_TOKEN"
           }
         ]
       },
