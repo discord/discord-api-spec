@@ -5711,42 +5711,6 @@
           }
         ]
       },
-      "delete": {
-        "operationId": "delete_guild",
-        "responses": {
-          "204": {
-            "description": "204 response for delete_guild",
-            "headers": {
-              "X-RateLimit-Limit": {
-                "$ref": "#/components/headers/X-RateLimit-Limit"
-              },
-              "X-RateLimit-Remaining": {
-                "$ref": "#/components/headers/X-RateLimit-Remaining"
-              },
-              "X-RateLimit-Reset": {
-                "$ref": "#/components/headers/X-RateLimit-Reset"
-              },
-              "X-RateLimit-Reset-After": {
-                "$ref": "#/components/headers/X-RateLimit-Reset-After"
-              },
-              "X-RateLimit-Bucket": {
-                "$ref": "#/components/headers/X-RateLimit-Bucket"
-              }
-            }
-          },
-          "429": {
-            "$ref": "#/components/responses/ClientRatelimitedResponse"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      },
       "patch": {
         "operationId": "update_guild",
         "requestBody": {
@@ -8267,71 +8231,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SearchIndexNotReadyResponse"
-                }
-              }
-            }
-          },
-          "429": {
-            "$ref": "#/components/responses/ClientRatelimitedResponse"
-          },
-          "4XX": {
-            "$ref": "#/components/responses/ClientErrorResponse"
-          }
-        },
-        "security": [
-          {
-            "BotToken": []
-          }
-        ]
-      }
-    },
-    "/guilds/{guild_id}/mfa": {
-      "parameters": [
-        {
-          "name": "guild_id",
-          "in": "path",
-          "schema": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "required": true
-        }
-      ],
-      "post": {
-        "operationId": "set_guild_mfa_level",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GuildMFARequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "200 response for set_guild_mfa_level",
-            "headers": {
-              "X-RateLimit-Limit": {
-                "$ref": "#/components/headers/X-RateLimit-Limit"
-              },
-              "X-RateLimit-Remaining": {
-                "$ref": "#/components/headers/X-RateLimit-Remaining"
-              },
-              "X-RateLimit-Reset": {
-                "$ref": "#/components/headers/X-RateLimit-Reset"
-              },
-              "X-RateLimit-Reset-After": {
-                "$ref": "#/components/headers/X-RateLimit-Reset-After"
-              },
-              "X-RateLimit-Bucket": {
-                "$ref": "#/components/headers/X-RateLimit-Bucket"
-              }
-            },
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GuildMFALevelResponse"
                 }
               }
             }
@@ -24736,28 +24635,6 @@
         ],
         "format": "int32"
       },
-      "GuildMFALevelResponse": {
-        "type": "object",
-        "properties": {
-          "level": {
-            "$ref": "#/components/schemas/GuildMFALevel"
-          }
-        },
-        "required": [
-          "level"
-        ]
-      },
-      "GuildMFARequest": {
-        "type": "object",
-        "properties": {
-          "level": {
-            "$ref": "#/components/schemas/GuildMFALevel"
-          }
-        },
-        "required": [
-          "level"
-        ]
-      },
       "GuildMemberResponse": {
         "type": "object",
         "properties": {
@@ -25017,9 +24894,6 @@
                 "$ref": "#/components/schemas/SnowflakeType"
               }
             ]
-          },
-          "owner_id": {
-            "$ref": "#/components/schemas/SnowflakeType"
           },
           "splash": {
             "type": [
