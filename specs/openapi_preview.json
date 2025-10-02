@@ -18058,6 +18058,10 @@
           {
             "title": "APPLE_ID_TOKEN",
             "const": "APPLE_ID_TOKEN"
+          },
+          {
+            "title": "PLAYSTATION_NETWORK_ID_TOKEN",
+            "const": "PLAYSTATION_NETWORK_ID_TOKEN"
           }
         ]
       },
