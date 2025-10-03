@@ -23193,10 +23193,6 @@
           "code"
         ]
       },
-      "GameResponse": {
-        "type": "object",
-        "properties": {}
-      },
       "GatewayBotResponse": {
         "type": "object",
         "properties": {
@@ -32060,15 +32056,6 @@
                 "$ref": "#/components/schemas/TeamResponse"
               }
             ]
-          },
-          "linked_games": {
-            "type": [
-              "array",
-              "null"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/GameResponse"
-            }
           }
         },
         "required": [
