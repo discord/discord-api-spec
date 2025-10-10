@@ -22502,6 +22502,16 @@
               "boolean",
               "null"
             ]
+          },
+          "gifter_user_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
           }
         },
         "required": [
