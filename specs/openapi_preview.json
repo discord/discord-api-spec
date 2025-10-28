@@ -35893,6 +35893,7 @@
               "string",
               "null"
             ],
+            "minLength": 1,
             "maxLength": 45
           },
           "value": {
