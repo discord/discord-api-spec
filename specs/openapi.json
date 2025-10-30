@@ -21977,6 +21977,11 @@
             "title": "PRIVATE_CHANNEL",
             "description": "private channel",
             "const": "pc"
+          },
+          {
+            "title": "PARTY",
+            "description": "party",
+            "const": "party"
           }
         ]
       },
