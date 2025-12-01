@@ -13506,6 +13506,141 @@
         ]
       }
     },
+    "/users/@me/applications/{application_id}/entitlements": {
+      "parameters": [
+        {
+          "name": "application_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "operationId": "get_current_user_application_entitlements",
+        "parameters": [
+          {
+            "name": "sku_ids",
+            "in": "query",
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
+                  },
+                  "maxItems": 100,
+                  "uniqueItems": true
+                }
+              ]
+            }
+          },
+          {
+            "name": "exclude_consumed",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response for get_current_user_application_entitlements",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/EntitlementResponse"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "activities.invites.write",
+              "activities.read",
+              "activities.write",
+              "applications.builds.read",
+              "applications.builds.upload",
+              "applications.commands",
+              "applications.commands.permissions.update",
+              "applications.commands.update",
+              "applications.entitlements",
+              "applications.store.update",
+              "bot",
+              "connections",
+              "dm_channels.read",
+              "email",
+              "gdm.join",
+              "guilds",
+              "guilds.join",
+              "guilds.members.read",
+              "identify",
+              "messages.read",
+              "openid",
+              "relationships.read",
+              "role_connections.write",
+              "rpc",
+              "rpc.activities.write",
+              "rpc.notifications.read",
+              "rpc.screenshare.read",
+              "rpc.screenshare.write",
+              "rpc.video.read",
+              "rpc.video.write",
+              "rpc.voice.read",
+              "rpc.voice.write",
+              "voice",
+              "webhook.incoming"
+            ]
+          }
+        ]
+      }
+    },
     "/users/@me/applications/{application_id}/role-connection": {
       "parameters": [
         {
@@ -22568,6 +22703,16 @@
             ]
           },
           "gifter_user_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SnowflakeType"
+              }
+            ]
+          },
+          "parent_id": {
             "oneOf": [
               {
                 "type": "null"
