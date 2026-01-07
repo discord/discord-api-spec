@@ -7374,6 +7374,24 @@
                       "null"
                     ],
                     "maxLength": 32
+                  },
+                  "avatar": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "contentEncoding": "base64"
+                  },
+                  "bio": {
+                    "type": "string",
+                    "maxLength": 190
+                  },
+                  "banner": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "contentEncoding": "base64"
                   }
                 }
               }
