@@ -21838,6 +21838,16 @@
             "minimum": 0,
             "maximum": 16777215
           },
+          "colors": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RoleColors"
+              }
+            ]
+          },
           "hoist": {
             "type": [
               "boolean",
@@ -33602,6 +33612,35 @@
           }
         }
       },
+      "RoleColors": {
+        "type": "object",
+        "properties": {
+          "primary_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 16777215
+          },
+          "secondary_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 16777215
+          },
+          "tertiary_color": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 16777215
+          }
+        }
+      },
       "RoleSelectComponentForMessageRequest": {
         "type": "object",
         "properties": {
@@ -37162,6 +37201,16 @@
             ],
             "minimum": 0,
             "maximum": 16777215
+          },
+          "colors": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RoleColors"
+              }
+            ]
           },
           "hoist": {
             "type": [
