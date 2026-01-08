@@ -7383,7 +7383,10 @@
                     "contentEncoding": "base64"
                   },
                   "bio": {
-                    "type": "string",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
                     "maxLength": 190
                   },
                   "banner": {
