@@ -20018,7 +20018,7 @@
               "string",
               "null"
             ],
-            "maxLength": 150
+            "maxLength": 300
           }
         }
       },
