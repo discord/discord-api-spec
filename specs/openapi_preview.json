@@ -11473,6 +11473,178 @@
         ]
       }
     },
+    "/invites/{code}/target-users": {
+      "parameters": [
+        {
+          "name": "code",
+          "in": "path",
+          "schema": {
+            "type": "string",
+            "maxLength": 152133
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "description": "Get the target users for an invite.",
+        "operationId": "get_invite_target_users",
+        "responses": {
+          "200": {
+            "description": "200 response for get_invite_target_users",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "description": "CSV file containing target users for the invite.",
+                  "contentEncoding": "binary"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      },
+      "put": {
+        "description": "Update the target users for an existing invite.",
+        "operationId": "update_invite_target_users",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "target_users_file": {
+                    "type": "string",
+                    "contentEncoding": "binary"
+                  }
+                },
+                "required": [
+                  "target_users_file"
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "204 response for update_invite_target_users",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/invites/{code}/target-users/job-status": {
+      "parameters": [
+        {
+          "name": "code",
+          "in": "path",
+          "schema": {
+            "type": "string",
+            "maxLength": 152133
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "description": "Get the target users job status for an invite.",
+        "operationId": "get_invite_target_users_job_status",
+        "responses": {
+          "200": {
+            "description": "200 response for get_invite_target_users_job_status",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetUsersJobStatusResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/lobbies": {
       "put": {
         "operationId": "create_or_join_lobby",
@@ -24975,6 +25147,15 @@
           },
           "is_nickname_changeable": {
             "type": "boolean"
+          },
+          "roles": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/GuildRoleResponse"
+            }
           }
         },
         "required": [
@@ -35902,6 +36083,77 @@
           "label",
           "value"
         ]
+      },
+      "TargetUsersJobStatusResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/TargetUsersJobStatusTypes",
+            "description": "The status of the job processing the target users."
+          },
+          "total_users": {
+            "$ref": "#/components/schemas/UInt32Type",
+            "description": "The total number of users in the provided list."
+          },
+          "processed_users": {
+            "$ref": "#/components/schemas/UInt32Type",
+            "description": "The number of users processed so far."
+          },
+          "created_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The timestamp when the job was created.",
+            "format": "date-time"
+          },
+          "completed_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The timestamp when the job was successfully completed.",
+            "format": "date-time"
+          },
+          "error_message": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "The error message if the job failed."
+          }
+        },
+        "required": [
+          "status",
+          "total_users",
+          "processed_users"
+        ]
+      },
+      "TargetUsersJobStatusTypes": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "UNSPECIFIED",
+            "description": "The default value.",
+            "const": 0
+          },
+          {
+            "title": "PROCESSING",
+            "description": "The job is still being processed.",
+            "const": 1
+          },
+          {
+            "title": "COMPLETED",
+            "description": "The job has been completed successfully.",
+            "const": 2
+          },
+          {
+            "title": "FAILED",
+            "description": "The job has failed, see error_message field for more details.",
+            "const": 3
+          }
+        ],
+        "format": "int32"
       },
       "TeamMemberResponse": {
         "type": "object",
