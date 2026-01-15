@@ -19781,16 +19781,6 @@
                 "$ref": "#/components/schemas/CustomClientThemeShareRequest"
               }
             ]
-          },
-          "confetti_potion": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ConfettiPotionCreateRequest"
-              }
-            ]
           }
         }
       },
@@ -21183,10 +21173,6 @@
         "required": [
           "name"
         ]
-      },
-      "ConfettiPotionCreateRequest": {
-        "type": "object",
-        "properties": {}
       },
       "ConnectedAccountGuildResponse": {
         "type": "object",
@@ -30088,16 +30074,6 @@
               }
             ]
           },
-          "confetti_potion": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ConfettiPotionCreateRequest"
-              }
-            ]
-          },
           "message_reference": {
             "oneOf": [
               {
@@ -34207,16 +34183,6 @@
               },
               {
                 "$ref": "#/components/schemas/CustomClientThemeShareRequest"
-              }
-            ]
-          },
-          "confetti_potion": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ConfettiPotionCreateRequest"
               }
             ]
           },
