@@ -11215,6 +11215,9 @@
                     "$ref": "#/components/schemas/PongInteractionCallbackRequest"
                   },
                   {
+                    "$ref": "#/components/schemas/SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest"
+                  },
+                  {
                     "$ref": "#/components/schemas/UpdateMessageInteractionCallbackRequest"
                   }
                 ],
@@ -11240,6 +11243,9 @@
                     "$ref": "#/components/schemas/PongInteractionCallbackRequest"
                   },
                   {
+                    "$ref": "#/components/schemas/SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest"
+                  },
+                  {
                     "$ref": "#/components/schemas/UpdateMessageInteractionCallbackRequest"
                   }
                 ],
@@ -11263,6 +11269,9 @@
                   },
                   {
                     "$ref": "#/components/schemas/PongInteractionCallbackRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest"
                   },
                   {
                     "$ref": "#/components/schemas/UpdateMessageInteractionCallbackRequest"
@@ -27704,6 +27713,10 @@
           {
             "title": "LAUNCH_ACTIVITY",
             "const": 12
+          },
+          {
+            "title": "SOCIAL_LAYER_SKU_PURCHASE_ELIGIBILITY",
+            "const": 13
           }
         ],
         "format": "int32"
@@ -27786,6 +27799,11 @@
             "title": "MODAL_SUBMIT",
             "description": "Sent when a user submits a modal previously sent by your application",
             "const": 5
+          },
+          {
+            "title": "SOCIAL_LAYER_SKU_PURCHASE_ELIGIBILITY",
+            "description": "Sent when Discord is checking if a user can purchase a Social Layer SKU",
+            "const": 6
           }
         ],
         "format": "int32"
@@ -34992,6 +35010,41 @@
         "type": "string",
         "pattern": "^(0|[1-9][0-9]*)$",
         "format": "snowflake"
+      },
+      "SocialLayerSKUPurchaseEligibilityCallbackData": {
+        "type": "object",
+        "properties": {
+          "eligible": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "eligible"
+        ]
+      },
+      "SocialLayerSKUPurchaseEligibilityInteractionCallbackRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              13
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/InteractionCallbackTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SocialLayerSKUPurchaseEligibilityCallbackData"
+          }
+        },
+        "required": [
+          "type",
+          "data"
+        ]
       },
       "SortingMode": {
         "type": "string",
