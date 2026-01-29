@@ -25822,6 +25822,13 @@
           "premium_progress_bar_enabled": {
             "type": "boolean"
           },
+          "premium_progress_bar_enabled_user_updated_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
           "nsfw": {
             "type": "boolean"
           },
@@ -26933,6 +26940,13 @@
           },
           "premium_progress_bar_enabled": {
             "type": "boolean"
+          },
+          "premium_progress_bar_enabled_user_updated_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
           },
           "nsfw": {
             "type": "boolean"
