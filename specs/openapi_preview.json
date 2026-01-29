@@ -25151,6 +25151,9 @@
             "items": {
               "$ref": "#/components/schemas/GuildRoleResponse"
             }
+          },
+          "target_users_job_status": {
+            "$ref": "#/components/schemas/TargetUsersJobStatusResponse"
           }
         },
         "required": [
