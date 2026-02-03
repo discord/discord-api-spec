@@ -25149,7 +25149,7 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/GuildRoleResponse"
+              "$ref": "#/components/schemas/InviteGuildRoleResponse"
             }
           }
         },
@@ -28054,6 +28054,50 @@
           "name",
           "features",
           "premium_subscription_count"
+        ]
+      },
+      "InviteGuildRoleResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "name": {
+            "type": "string"
+          },
+          "position": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "color": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "colors": {
+            "$ref": "#/components/schemas/GuildRoleColorsResponse"
+          },
+          "icon": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "unicode_emoji": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "permissions": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "position",
+          "color",
+          "colors"
         ]
       },
       "InviteTargetTypes": {
