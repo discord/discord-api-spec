@@ -15630,7 +15630,8 @@
           }
         },
         "required": [
-          "id"
+          "id",
+          "name"
         ]
       },
       "ActionRowComponentForMessageRequest": {
@@ -17406,6 +17407,7 @@
           "id",
           "application_id",
           "version",
+          "default_member_permissions",
           "type",
           "name",
           "description"
@@ -18580,6 +18582,9 @@
           }
         },
         "required": [
+          "application_id",
+          "avatar",
+          "channel_id",
           "id",
           "name",
           "type"
@@ -18622,8 +18627,7 @@
           "oauth2_install_params": {
             "$ref": "#/components/schemas/ApplicationOAuth2InstallParamsResponse"
           }
-        },
-        "required": []
+        }
       },
       "ApplicationOAuth2InstallParams": {
         "type": "object",
@@ -18790,7 +18794,9 @@
         "required": [
           "id",
           "name",
+          "icon",
           "description",
+          "type",
           "verify_key",
           "flags"
         ]
@@ -18926,8 +18932,7 @@
               "type": "string"
             }
           }
-        },
-        "required": []
+        }
       },
       "AttachmentResponse": {
         "type": "object",
@@ -19347,7 +19352,9 @@
         },
         "required": [
           "id",
-          "action_type"
+          "action_type",
+          "user_id",
+          "target_id"
         ]
       },
       "AuditLogObjectChangeResponse": {
@@ -19362,7 +19369,9 @@
           "new_value": {},
           "old_value": {}
         },
-        "required": []
+        "required": [
+          "key"
+        ]
       },
       "AuthorType": {
         "type": "string",
@@ -19834,7 +19843,9 @@
         "required": [
           "id",
           "name",
-          "description"
+          "icon",
+          "description",
+          "type"
         ]
       },
       "BasicGuildMemberResponse": {
@@ -19912,9 +19923,14 @@
           }
         },
         "required": [
+          "avatar",
+          "banner",
+          "communication_disabled_until",
           "flags",
           "joined_at",
+          "nick",
           "pending",
+          "premium_since",
           "roles"
         ]
       },
@@ -20141,6 +20157,7 @@
           "attachments",
           "embeds",
           "timestamp",
+          "edited_timestamp",
           "flags",
           "components",
           "id",
@@ -20199,8 +20216,7 @@
           "custom_message": {
             "type": "string"
           }
-        },
-        "required": []
+        }
       },
       "BlockMessageActionResponse": {
         "type": "object",
@@ -20667,6 +20683,9 @@
           }
         },
         "required": [
+          "application_id",
+          "avatar",
+          "channel_id",
           "id",
           "name",
           "type"
@@ -20979,7 +20998,9 @@
         "required": [
           "type",
           "id",
-          "custom_id"
+          "custom_id",
+          "min_values",
+          "max_values"
         ]
       },
       "ChannelSelectDefaultValue": {
@@ -21201,7 +21222,8 @@
         },
         "required": [
           "id",
-          "name"
+          "name",
+          "icon"
         ]
       },
       "ConnectedAccountIntegrationResponse": {
@@ -21370,6 +21392,7 @@
         },
         "required": [
           "id",
+          "name",
           "type",
           "friend_sync",
           "show_activity",
@@ -21520,6 +21543,7 @@
         "required": [
           "type",
           "id",
+          "accent_color",
           "components",
           "spoiler"
         ]
@@ -22664,8 +22688,7 @@
               "null"
             ]
           }
-        },
-        "required": []
+        }
       },
       "DiscordIntegrationResponse": {
         "type": "object",
@@ -22722,6 +22745,7 @@
         },
         "required": [
           "type",
+          "name",
           "account",
           "enabled",
           "id",
@@ -23090,6 +23114,7 @@
         },
         "required": [
           "type",
+          "name",
           "account",
           "enabled",
           "id",
@@ -23382,9 +23407,15 @@
           "id",
           "guild_id",
           "name",
+          "description",
+          "channel_id",
+          "creator_id",
+          "image",
           "scheduled_start_time",
+          "scheduled_end_time",
           "status",
           "entity_type",
+          "entity_id",
           "privacy_level",
           "entity_metadata"
         ]
@@ -23470,6 +23501,8 @@
           "type",
           "id",
           "file",
+          "name",
+          "size",
           "spoiler"
         ]
       },
@@ -23652,7 +23685,9 @@
         "required": [
           "id",
           "name",
-          "moderated"
+          "moderated",
+          "emoji_id",
+          "emoji_name"
         ]
       },
       "FriendInviteResponse": {
@@ -23723,7 +23758,9 @@
         },
         "required": [
           "type",
-          "code"
+          "code",
+          "expires_at",
+          "channel"
         ]
       },
       "GatewayBotResponse": {
@@ -24429,6 +24466,7 @@
         "required": [
           "type",
           "code",
+          "expires_at",
           "channel"
         ]
       },
@@ -24558,7 +24596,8 @@
           }
         },
         "required": [
-          "user"
+          "user",
+          "reason"
         ]
       },
       "GuildChannelLocation": {
@@ -25046,6 +25085,9 @@
           }
         },
         "required": [
+          "application_id",
+          "avatar",
+          "channel_id",
           "id",
           "name",
           "type"
@@ -25156,6 +25198,7 @@
         "required": [
           "type",
           "code",
+          "expires_at",
           "guild",
           "guild_id",
           "channel"
@@ -25261,9 +25304,14 @@
           }
         },
         "required": [
+          "avatar",
+          "banner",
+          "communication_disabled_until",
           "flags",
           "joined_at",
+          "nick",
           "pending",
+          "premium_since",
           "roles",
           "user",
           "mute",
@@ -25594,6 +25642,11 @@
         "required": [
           "id",
           "name",
+          "icon",
+          "description",
+          "home_header",
+          "splash",
+          "discovery_splash",
           "features",
           "approximate_member_count",
           "approximate_presence_count",
@@ -25626,7 +25679,10 @@
             ],
             "format": "int32"
           }
-        }
+        },
+        "required": [
+          "pruned"
+        ]
       },
       "GuildResponse": {
         "type": "object",
@@ -25851,23 +25907,38 @@
         "required": [
           "id",
           "name",
+          "icon",
+          "description",
+          "home_header",
+          "splash",
+          "discovery_splash",
           "features",
+          "banner",
           "owner_id",
+          "application_id",
           "region",
+          "afk_channel_id",
           "afk_timeout",
+          "system_channel_id",
           "system_channel_flags",
           "widget_enabled",
+          "widget_channel_id",
           "verification_level",
           "roles",
           "default_message_notifications",
           "mfa_level",
           "explicit_content_filter",
+          "max_presences",
           "max_members",
           "max_stage_video_channel_users",
           "max_video_channel_users",
+          "vanity_url_code",
           "premium_tier",
           "premium_subscription_count",
           "preferred_locale",
+          "rules_channel_id",
+          "safety_alerts_channel_id",
+          "public_updates_channel_id",
           "premium_progress_bar_enabled",
           "nsfw",
           "nsfw_level",
@@ -25898,7 +25969,9 @@
           }
         },
         "required": [
-          "primary_color"
+          "primary_color",
+          "secondary_color",
+          "tertiary_color"
         ]
       },
       "GuildRoleResponse": {
@@ -25962,6 +26035,7 @@
         "required": [
           "id",
           "name",
+          "description",
           "permissions",
           "position",
           "color",
@@ -25969,6 +26043,8 @@
           "hoist",
           "managed",
           "mentionable",
+          "icon",
+          "unicode_emoji",
           "flags"
         ]
       },
@@ -25993,8 +26069,7 @@
           "guild_connections": {
             "type": "null"
           }
-        },
-        "required": []
+        }
       },
       "GuildScheduledEventEntityTypes": {
         "type": "integer",
@@ -26175,6 +26250,8 @@
           "name",
           "tags",
           "type",
+          "format_type",
+          "description",
           "available",
           "guild_id"
         ]
@@ -26211,6 +26288,7 @@
         },
         "required": [
           "type",
+          "name",
           "account",
           "enabled",
           "id"
@@ -26386,13 +26464,27 @@
           }
         },
         "required": [
+          "id",
           "type",
+          "name",
+          "position",
+          "topic",
           "bitrate",
           "user_limit",
           "nsfw",
           "rate_limit_per_user",
+          "parent_id",
+          "default_auto_archive_duration",
           "permission_overwrites",
-          "template"
+          "available_tags",
+          "template",
+          "default_reaction_emoji",
+          "default_thread_rate_limit_per_user",
+          "default_sort_order",
+          "default_forum_layout",
+          "default_tag_setting",
+          "icon_emoji",
+          "theme_color"
         ]
       },
       "GuildTemplateChannelTags": {
@@ -26432,7 +26524,11 @@
           }
         },
         "required": [
-          "name"
+          "id",
+          "name",
+          "emoji_id",
+          "emoji_name",
+          "moderated"
         ]
       },
       "GuildTemplateResponse": {
@@ -26491,12 +26587,15 @@
         "required": [
           "code",
           "name",
+          "description",
           "usage_count",
           "creator_id",
+          "creator",
           "created_at",
           "updated_at",
           "source_guild_id",
-          "serialized_source_guild"
+          "serialized_source_guild",
+          "is_dirty"
         ]
       },
       "GuildTemplateRoleColorsResponse": {
@@ -26522,7 +26621,9 @@
           }
         },
         "required": [
-          "primary_color"
+          "primary_color",
+          "secondary_color",
+          "tertiary_color"
         ]
       },
       "GuildTemplateRoleResponse": {
@@ -26576,8 +26677,11 @@
           "name",
           "permissions",
           "color",
+          "colors",
           "hoist",
-          "mentionable"
+          "mentionable",
+          "icon",
+          "unicode_emoji"
         ]
       },
       "GuildTemplateSnapshotResponse": {
@@ -26652,11 +26756,15 @@
         },
         "required": [
           "name",
+          "description",
+          "region",
           "verification_level",
           "default_message_notifications",
           "explicit_content_filter",
           "preferred_locale",
+          "afk_channel_id",
           "afk_timeout",
+          "system_channel_id",
           "system_channel_flags",
           "roles",
           "channels"
@@ -26724,7 +26832,9 @@
         },
         "required": [
           "channel_id",
-          "description"
+          "description",
+          "emoji_id",
+          "emoji_name"
         ]
       },
       "GuildWelcomeScreenResponse": {
@@ -26744,6 +26854,7 @@
           }
         },
         "required": [
+          "description",
           "welcome_channels"
         ]
       },
@@ -26984,23 +27095,38 @@
         "required": [
           "id",
           "name",
+          "icon",
+          "description",
+          "home_header",
+          "splash",
+          "discovery_splash",
           "features",
+          "banner",
           "owner_id",
+          "application_id",
           "region",
+          "afk_channel_id",
           "afk_timeout",
+          "system_channel_id",
           "system_channel_flags",
           "widget_enabled",
+          "widget_channel_id",
           "verification_level",
           "roles",
           "default_message_notifications",
           "mfa_level",
           "explicit_content_filter",
+          "max_presences",
           "max_members",
           "max_stage_video_channel_users",
           "max_video_channel_users",
+          "vanity_url_code",
           "premium_tier",
           "premium_subscription_count",
           "preferred_locale",
+          "rules_channel_id",
+          "safety_alerts_channel_id",
+          "public_updates_channel_id",
           "premium_progress_bar_enabled",
           "nsfw",
           "nsfw_level",
@@ -27532,7 +27658,9 @@
         "required": [
           "id",
           "name",
-          "description"
+          "icon",
+          "description",
+          "type"
         ]
       },
       "IntegrationExpireBehaviorTypes": {
@@ -27926,7 +28054,9 @@
         "required": [
           "id",
           "name",
+          "icon",
           "description",
+          "type",
           "verify_key",
           "flags"
         ]
@@ -27969,7 +28099,8 @@
         },
         "required": [
           "id",
-          "type"
+          "type",
+          "name"
         ]
       },
       "InviteGuildResponse": {
@@ -28052,7 +28183,15 @@
         "required": [
           "id",
           "name",
+          "splash",
+          "banner",
+          "description",
+          "icon",
           "features",
+          "verification_level",
+          "vanity_url_code",
+          "nsfw_level",
+          "nsfw",
           "premium_subscription_count"
         ]
       },
@@ -28097,7 +28236,9 @@
           "name",
           "position",
           "color",
-          "colors"
+          "colors",
+          "icon",
+          "unicode_emoji"
         ]
       },
       "InviteTargetTypes": {
@@ -28670,6 +28811,7 @@
         },
         "required": [
           "id",
+          "metadata",
           "flags"
         ]
       },
@@ -28758,6 +28900,7 @@
         "required": [
           "id",
           "application_id",
+          "metadata",
           "members",
           "flags"
         ]
@@ -29143,6 +29286,7 @@
         },
         "required": [
           "media",
+          "description",
           "spoiler"
         ]
       },
@@ -29673,7 +29817,9 @@
         "required": [
           "type",
           "id",
-          "custom_id"
+          "custom_id",
+          "min_values",
+          "max_values"
         ]
       },
       "MessageActivityResponse": {
@@ -30371,8 +30517,7 @@
           "flags": {
             "$ref": "#/components/schemas/UInt32Type"
           }
-        },
-        "required": []
+        }
       },
       "MessageEmbedProviderResponse": {
         "type": "object",
@@ -30473,8 +30618,7 @@
           "flags": {
             "$ref": "#/components/schemas/UInt32Type"
           }
-        },
-        "required": []
+        }
       },
       "MessageInteractionResponse": {
         "type": "object",
@@ -30564,7 +30708,10 @@
             "type": "boolean"
           }
         },
-        "required": []
+        "required": [
+          "id",
+          "name"
+        ]
       },
       "MessageReactionResponse": {
         "type": "object",
@@ -30919,6 +31066,7 @@
           "attachments",
           "embeds",
           "timestamp",
+          "edited_timestamp",
           "flags",
           "components",
           "id",
@@ -31356,6 +31504,7 @@
           "attachments",
           "embeds",
           "timestamp",
+          "edited_timestamp",
           "flags",
           "components"
         ]
@@ -31522,6 +31671,8 @@
         "required": [
           "id",
           "name",
+          "icon",
+          "banner",
           "owner",
           "permissions",
           "features"
@@ -32057,6 +32208,7 @@
         "required": [
           "id",
           "type",
+          "name",
           "account",
           "application_id"
         ]
@@ -32092,6 +32244,7 @@
         "required": [
           "id",
           "type",
+          "name",
           "account"
         ]
       },
@@ -32125,6 +32278,7 @@
         "required": [
           "id",
           "type",
+          "name",
           "account"
         ]
       },
@@ -32364,8 +32518,7 @@
           "emoji": {
             "$ref": "#/components/schemas/MessageReactionEmojiResponse"
           }
-        },
-        "required": []
+        }
       },
       "PollResponse": {
         "type": "object",
@@ -32672,14 +32825,20 @@
         "required": [
           "id",
           "name",
+          "icon",
           "description",
+          "type",
           "verify_key",
           "flags",
           "redirect_uris",
+          "interactions_endpoint_url",
+          "role_connections_verification_url",
           "owner",
+          "approximate_guild_count",
           "approximate_user_install_count",
           "approximate_user_authorization_count",
-          "explicit_content_filter"
+          "explicit_content_filter",
+          "team"
         ]
       },
       "PrivateChannelLocation": {
@@ -32834,6 +32993,8 @@
           "type",
           "flags",
           "recipients",
+          "name",
+          "icon",
           "owner_id"
         ]
       },
@@ -32924,9 +33085,14 @@
           }
         },
         "required": [
+          "avatar",
+          "banner",
+          "communication_disabled_until",
           "flags",
           "joined_at",
+          "nick",
           "pending",
+          "premium_since",
           "roles",
           "user",
           "mute",
@@ -33469,8 +33635,7 @@
               "$ref": "#/components/schemas/GuildRoleResponse"
             }
           }
-        },
-        "required": []
+        }
       },
       "ResourceChannelResponse": {
         "type": "object",
@@ -34105,7 +34270,9 @@
         "required": [
           "type",
           "id",
-          "custom_id"
+          "custom_id",
+          "min_values",
+          "max_values"
         ]
       },
       "RoleSelectDefaultValue": {
@@ -34410,9 +34577,15 @@
           "id",
           "guild_id",
           "name",
+          "description",
+          "channel_id",
+          "creator_id",
+          "image",
           "scheduled_start_time",
+          "scheduled_end_time",
           "status",
           "entity_type",
+          "entity_id",
           "privacy_level"
         ]
       },
@@ -34779,6 +34952,7 @@
           "attachments",
           "embeds",
           "timestamp",
+          "edited_timestamp",
           "flags",
           "components",
           "id",
@@ -35007,6 +35181,8 @@
           }
         },
         "required": [
+          "id",
+          "name",
           "animated"
         ]
       },
@@ -35255,6 +35431,8 @@
           "name",
           "sound_id",
           "volume",
+          "emoji_id",
+          "emoji_name",
           "available"
         ]
       },
@@ -35405,7 +35583,8 @@
           "topic",
           "privacy_level",
           "id",
-          "discoverable_disabled"
+          "discoverable_disabled",
+          "guild_scheduled_event_id"
         ]
       },
       "StageInstancesPrivacyLevels": {
@@ -35730,10 +35909,17 @@
           "id",
           "guild_id",
           "name",
+          "description",
+          "channel_id",
+          "creator_id",
+          "image",
           "scheduled_start_time",
+          "scheduled_end_time",
           "status",
           "entity_type",
-          "privacy_level"
+          "entity_id",
+          "privacy_level",
+          "entity_metadata"
         ]
       },
       "StandardStickerResponse": {
@@ -35789,6 +35975,8 @@
           "name",
           "tags",
           "type",
+          "format_type",
+          "description",
           "pack_id",
           "sort_value"
         ]
@@ -35864,6 +36052,7 @@
           "id",
           "sku_id",
           "name",
+          "description",
           "stickers"
         ]
       },
@@ -36092,6 +36281,8 @@
           "type",
           "id",
           "custom_id",
+          "min_values",
+          "max_values",
           "options"
         ]
       },
@@ -36203,7 +36394,10 @@
         "required": [
           "status",
           "total_users",
-          "processed_users"
+          "processed_users",
+          "created_at",
+          "completed_at",
+          "error_message"
         ]
       },
       "TargetUsersJobStatusTypes": {
@@ -36294,6 +36488,7 @@
         },
         "required": [
           "id",
+          "icon",
           "name",
           "owner_user_id",
           "members"
@@ -36537,7 +36732,10 @@
           "type",
           "id",
           "custom_id",
-          "style"
+          "style",
+          "label",
+          "min_length",
+          "max_length"
         ]
       },
       "TextInputStyleTypes": {
@@ -36639,6 +36837,7 @@
         },
         "required": [
           "archived",
+          "archive_timestamp",
           "auto_archive_duration",
           "locked"
         ]
@@ -36969,6 +37168,7 @@
           "type",
           "id",
           "media",
+          "description",
           "spoiler"
         ]
       },
@@ -37800,7 +38000,8 @@
           }
         },
         "required": [
-          "asset"
+          "asset",
+          "sku_id"
         ]
       },
       "UserCollectiblesResponse": {
@@ -37816,7 +38017,10 @@
               }
             ]
           }
-        }
+        },
+        "required": [
+          "nameplate"
+        ]
       },
       "UserCommunicationDisabledAction": {
         "type": "object",
@@ -37945,6 +38149,7 @@
           }
         },
         "required": [
+          "sku_id",
           "asset",
           "label",
           "palette"
@@ -38068,9 +38273,11 @@
         "required": [
           "id",
           "username",
+          "avatar",
           "discriminator",
           "public_flags",
           "flags",
+          "global_name",
           "mfa_enabled",
           "locale"
         ]
@@ -38106,7 +38313,13 @@
               "null"
             ]
           }
-        }
+        },
+        "required": [
+          "identity_guild_id",
+          "identity_enabled",
+          "tag",
+          "badge"
+        ]
       },
       "UserResponse": {
         "type": "object",
@@ -38192,9 +38405,12 @@
         "required": [
           "id",
           "username",
+          "avatar",
           "discriminator",
           "public_flags",
-          "flags"
+          "flags",
+          "global_name",
+          "primary_guild"
         ]
       },
       "UserSelectComponentForMessageRequest": {
@@ -38407,7 +38623,9 @@
         "required": [
           "type",
           "id",
-          "custom_id"
+          "custom_id",
+          "min_values",
+          "max_values"
         ]
       },
       "UserSelectDefaultValue": {
@@ -38497,6 +38715,7 @@
           }
         },
         "required": [
+          "code",
           "uses"
         ]
       },
@@ -38880,10 +39099,17 @@
           "id",
           "guild_id",
           "name",
+          "description",
+          "channel_id",
+          "creator_id",
+          "image",
           "scheduled_start_time",
+          "scheduled_end_time",
           "status",
           "entity_type",
-          "privacy_level"
+          "entity_id",
+          "privacy_level",
+          "entity_metadata"
         ]
       },
       "VoiceStateResponse": {
@@ -38951,9 +39177,13 @@
           }
         },
         "required": [
+          "channel_id",
           "deaf",
+          "guild_id",
           "mute",
+          "request_to_speak_timestamp",
           "suppress",
+          "self_stream",
           "self_deaf",
           "self_mute",
           "self_video",
@@ -39131,6 +39361,7 @@
         },
         "required": [
           "id",
+          "icon",
           "name"
         ]
       },
@@ -39310,6 +39541,7 @@
           "id",
           "username",
           "discriminator",
+          "avatar",
           "status",
           "avatar_url"
         ]
@@ -39349,6 +39581,7 @@
         "required": [
           "id",
           "name",
+          "instant_invite",
           "channels",
           "members",
           "presence_count"
@@ -39372,7 +39605,8 @@
           }
         },
         "required": [
-          "enabled"
+          "enabled",
+          "channel_id"
         ]
       },
       "WidgetUserDiscriminator": {
