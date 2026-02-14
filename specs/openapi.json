@@ -20732,6 +20732,143 @@
         ],
         "format": "int32"
       },
+      "CheckboxComponentForModalRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              23
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "custom_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "default": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "custom_id"
+        ]
+      },
+      "CheckboxGroupComponentForModalRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              22
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "custom_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "min_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 10
+          },
+          "max_values": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "maximum": 10
+          },
+          "required": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CheckboxGroupOptionForRequest"
+            },
+            "minItems": 1,
+            "maxItems": 10
+          }
+        },
+        "required": [
+          "type",
+          "custom_id",
+          "options"
+        ]
+      },
+      "CheckboxGroupOptionForRequest": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "default": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "value"
+        ]
+      },
       "CommandPermissionResponse": {
         "type": "object",
         "properties": {
@@ -28083,10 +28220,19 @@
                 "$ref": "#/components/schemas/ChannelSelectComponentForModalRequest"
               },
               {
+                "$ref": "#/components/schemas/CheckboxComponentForModalRequest"
+              },
+              {
+                "$ref": "#/components/schemas/CheckboxGroupComponentForModalRequest"
+              },
+              {
                 "$ref": "#/components/schemas/FileUploadComponentForModalRequest"
               },
               {
                 "$ref": "#/components/schemas/MentionableSelectComponentForModalRequest"
+              },
+              {
+                "$ref": "#/components/schemas/RadioGroupComponentForModalRequest"
               },
               {
                 "$ref": "#/components/schemas/RoleSelectComponentForModalRequest"
@@ -29618,6 +29764,21 @@
             "title": "FILE_UPLOAD",
             "description": "File upload component",
             "const": 19
+          },
+          {
+            "title": "RADIO_GROUP",
+            "description": "Radio group component",
+            "const": 21
+          },
+          {
+            "title": "CHECKBOX_GROUP",
+            "description": "Checkbox group component",
+            "const": 22
+          },
+          {
+            "title": "CHECKBOX",
+            "description": "Checkbox component",
+            "const": 23
           }
         ],
         "format": "int32"
@@ -32704,6 +32865,87 @@
         "required": [
           "type",
           "metadata"
+        ]
+      },
+      "RadioGroupComponentForModalRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "integer",
+            "enum": [
+              21
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MessageComponentTypes"
+              }
+            ],
+            "format": "int32"
+          },
+          "id": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0,
+            "format": "int32"
+          },
+          "custom_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "required": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RadioGroupOptionForRequest"
+            },
+            "minItems": 2,
+            "maxItems": 10
+          }
+        },
+        "required": [
+          "type",
+          "custom_id",
+          "options"
+        ]
+      },
+      "RadioGroupOptionForRequest": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 100
+          },
+          "default": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "value"
         ]
       },
       "ReactionTypes": {
