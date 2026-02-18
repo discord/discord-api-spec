@@ -12319,6 +12319,101 @@
         ]
       }
     },
+    "/lobbies/{lobby_id}/messages/{message_id}/moderation-metadata": {
+      "parameters": [
+        {
+          "name": "lobby_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "put": {
+        "description": "Update the external moderation metadata for a lobby message.",
+        "operationId": "update_lobby_message_external_moderation_metadata",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "The moderation metadata attached to the message",
+                "additionalProperties": {
+                  "type": "string",
+                  "maxLength": 2000
+                },
+                "maxProperties": 5
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "description": "The moderation metadata attached to the message",
+                "additionalProperties": {
+                  "type": "string",
+                  "maxLength": 2000
+                },
+                "maxProperties": 5
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "description": "The moderation metadata attached to the message",
+                "additionalProperties": {
+                  "type": "string",
+                  "maxLength": 2000
+                },
+                "maxProperties": 5
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "204 response for update_lobby_message_external_moderation_metadata",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/oauth2/@me": {
       "get": {
         "operationId": "get_my_oauth2_authorization",
@@ -12539,6 +12634,109 @@
             "OAuth2": [
               "openid"
             ]
+          }
+        ]
+      }
+    },
+    "/partner-sdk/dms/{user_id_1}/{user_id_2}/messages/{message_id}/moderation-metadata": {
+      "parameters": [
+        {
+          "name": "user_id_1",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "user_id_2",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "message_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "put": {
+        "description": "Update the external moderation metadata for a user message (DM).",
+        "operationId": "update_user_message_external_moderation_metadata",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "The moderation metadata attached to the message",
+                "additionalProperties": {
+                  "type": "string",
+                  "maxLength": 2000
+                },
+                "maxProperties": 5
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "description": "The moderation metadata attached to the message",
+                "additionalProperties": {
+                  "type": "string",
+                  "maxLength": 2000
+                },
+                "maxProperties": 5
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "description": "The moderation metadata attached to the message",
+                "additionalProperties": {
+                  "type": "string",
+                  "maxLength": 2000
+                },
+                "maxProperties": 5
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "204 response for update_user_message_external_moderation_metadata",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
           }
         ]
       }
@@ -28417,6 +28615,12 @@
             "$ref": "#/components/schemas/UserResponse"
           },
           "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "moderation_metadata": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
