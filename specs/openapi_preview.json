@@ -489,7 +489,7 @@
                 "items": {
                   "$ref": "#/components/schemas/ApplicationCommandUpdateRequest"
                 },
-                "maxItems": 110
+                "maxItems": 130
               }
             }
           },
@@ -1556,7 +1556,7 @@
                 "items": {
                   "$ref": "#/components/schemas/ApplicationCommandUpdateRequest"
                 },
-                "maxItems": 110
+                "maxItems": 130
               }
             }
           },
