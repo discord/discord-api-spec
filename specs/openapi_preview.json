@@ -8015,7 +8015,7 @@
               "items": {
                 "$ref": "#/components/schemas/SnowflakeType"
               },
-              "maxItems": 1521,
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
@@ -8027,7 +8027,7 @@
               "items": {
                 "$ref": "#/components/schemas/AuthorType"
               },
-              "maxItems": 1521,
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
@@ -8039,7 +8039,43 @@
               "items": {
                 "$ref": "#/components/schemas/SnowflakeType"
               },
-              "maxItems": 1521,
+              "maxItems": 100,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "mentions_role_id",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SnowflakeType"
+              },
+              "maxItems": 100,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "replied_to_user_id",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SnowflakeType"
+              },
+              "maxItems": 100,
+              "uniqueItems": true
+            }
+          },
+          {
+            "name": "replied_to_message_id",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/SnowflakeType"
+              },
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
@@ -8104,7 +8140,7 @@
               "items": {
                 "$ref": "#/components/schemas/HasOption"
               },
-              "maxItems": 1521,
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
@@ -8115,9 +8151,9 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "maxLength": 152133
+                "maxLength": 256
               },
-              "maxItems": 1521,
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
@@ -8130,7 +8166,7 @@
                 "type": "string",
                 "maxLength": 256
               },
-              "maxItems": 1521,
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
@@ -8149,7 +8185,7 @@
                   }
                 ]
               },
-              "maxItems": 1521,
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
@@ -8160,9 +8196,9 @@
               "type": "array",
               "items": {
                 "type": "string",
-                "maxLength": 152133
+                "maxLength": 256
               },
-              "maxItems": 1521,
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
@@ -8175,7 +8211,7 @@
                 "type": "string",
                 "maxLength": 1024
               },
-              "maxItems": 1521,
+              "maxItems": 100,
               "uniqueItems": true
             }
           },
