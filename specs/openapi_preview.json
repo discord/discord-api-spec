@@ -25358,6 +25358,11 @@
             "title": "WELCOME_SCREEN_ENABLED",
             "description": "guild has enabled the welcome screen",
             "const": "WELCOME_SCREEN_ENABLED"
+          },
+          {
+            "title": "OFFICIAL_GAME_GUILD",
+            "description": "guild is an official guild for one or more games",
+            "const": "OFFICIAL_GAME_GUILD"
           }
         ]
       },
