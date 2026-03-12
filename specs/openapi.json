@@ -34061,6 +34061,27 @@
           }
         }
       },
+      "SKUIneligibilityReason": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "OTHER",
+            "description": "Other / catch-all",
+            "const": 0
+          },
+          {
+            "title": "OWNS_SKU_OR_BUNDLE_COMPONENT",
+            "description": "User already owns this SKU or one of its components",
+            "const": 1
+          },
+          {
+            "title": "PLATFORM_RESTRICTION",
+            "description": "User account is not on an eligible platform",
+            "const": 2
+          }
+        ],
+        "format": "int32"
+      },
       "ScheduledEventResponse": {
         "type": "object",
         "properties": {
@@ -34451,6 +34472,23 @@
         "properties": {
           "eligible": {
             "type": "boolean"
+          },
+          "ineligible_reason": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/SKUIneligibilityReason"
+              }
+            ]
+          },
+          "ineligible_reason_description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 255
           }
         },
         "required": [
