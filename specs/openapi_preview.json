@@ -8027,7 +8027,7 @@
               "items": {
                 "$ref": "#/components/schemas/AuthorType"
               },
-              "maxItems": 100,
+              "maxItems": 6,
               "uniqueItems": true
             }
           },
@@ -8119,20 +8119,6 @@
             }
           },
           {
-            "name": "cursor",
-            "in": "query",
-            "schema": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/ScoreCursor"
-                },
-                {
-                  "$ref": "#/components/schemas/TimestampCursor"
-                }
-              ]
-            }
-          },
-          {
             "name": "has",
             "in": "query",
             "schema": {
@@ -8140,7 +8126,7 @@
               "items": {
                 "$ref": "#/components/schemas/HasOption"
               },
-              "maxItems": 100,
+              "maxItems": 18,
               "uniqueItems": true
             }
           },
@@ -8176,16 +8162,9 @@
             "schema": {
               "type": "array",
               "items": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "$ref": "#/components/schemas/SearchableEmbedType"
-                  }
-                ]
+                "$ref": "#/components/schemas/SearchableEmbedType"
               },
-              "maxItems": 100,
+              "maxItems": 5,
               "uniqueItems": true
             }
           },
@@ -8220,21 +8199,6 @@
             "in": "query",
             "schema": {
               "type": "boolean"
-            }
-          },
-          {
-            "name": "command_id",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/SnowflakeType"
-            }
-          },
-          {
-            "name": "command_name",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "maxLength": 32
             }
           },
           {
@@ -26539,9 +26503,6 @@
       "GuildSearchResponse": {
         "type": "object",
         "properties": {
-          "analytics_id": {
-            "type": "string"
-          },
           "messages": {
             "type": "array",
             "items": {
@@ -26585,7 +26546,6 @@
           }
         },
         "required": [
-          "analytics_id",
           "messages",
           "doing_deep_historical_index",
           "total_results"
@@ -35152,66 +35112,6 @@
           "response"
         ]
       },
-      "ScoreCursor": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "score"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SearchCursorType"
-              }
-            ]
-          },
-          "score": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ScoreCursorInnerScoreCursor"
-              }
-            ]
-          }
-        },
-        "required": [
-          "type"
-        ]
-      },
-      "ScoreCursorInnerScoreCursor": {
-        "type": "object",
-        "properties": {
-          "score": {
-            "type": [
-              "number",
-              "null"
-            ],
-            "format": "double"
-          },
-          "timestamp": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          }
-        },
-        "required": [
-          "timestamp"
-        ]
-      },
-      "SearchCursorType": {
-        "type": "string",
-        "oneOf": [
-          {
-            "title": "SCORE",
-            "const": "score"
-          },
-          {
-            "title": "TIMESTAMP",
-            "const": "timestamp"
-          }
-        ]
-      },
       "SearchIndexNotReadyResponse": {
         "type": "object",
         "properties": {
@@ -37715,29 +37615,6 @@
           "media",
           "description",
           "spoiler"
-        ]
-      },
-      "TimestampCursor": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "enum": [
-              "timestamp"
-            ],
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SearchCursorType"
-              }
-            ]
-          },
-          "timestamp": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          }
-        },
-        "required": [
-          "type",
-          "timestamp"
         ]
       },
       "TypingIndicatorResponse": {
