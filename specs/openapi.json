@@ -13290,6 +13290,7 @@
                 "properties": {
                   "external_user_id": {
                     "type": "string",
+                    "minLength": 1,
                     "maxLength": 1024
                   },
                   "preferred_global_name": {
