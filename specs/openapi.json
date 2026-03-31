@@ -30871,6 +30871,12 @@
           },
           "footer": {
             "$ref": "#/components/schemas/MessageEmbedFooterResponse"
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContainerComponentResponse"
+            }
           }
         },
         "required": [
