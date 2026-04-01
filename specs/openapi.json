@@ -19186,6 +19186,19 @@
           "ephemeral": {
             "type": "boolean"
           },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "placeholder_version": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
+          },
           "title": {
             "type": [
               "string",
@@ -30264,6 +30277,19 @@
           },
           "ephemeral": {
             "type": "boolean"
+          },
+          "placeholder": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "placeholder_version": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
           },
           "title": {
             "type": [
