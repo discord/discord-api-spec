@@ -36915,13 +36915,28 @@
           },
           "membership_state": {
             "$ref": "#/components/schemas/TeamMembershipStates"
+          },
+          "role": {
+            "$ref": "#/components/schemas/TeamMemberRoles"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": [
           "user",
           "team_id",
-          "membership_state"
+          "membership_state",
+          "role",
+          "permissions"
         ]
+      },
+      "TeamMemberRoles": {
+        "type": "string",
+        "oneOf": []
       },
       "TeamMembershipStates": {
         "type": "integer",
