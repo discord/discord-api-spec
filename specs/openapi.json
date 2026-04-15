@@ -15988,6 +15988,336 @@
           "components"
         ]
       },
+      "ActionTypes": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "TYPING_START",
+            "description": "User started typing in a channel",
+            "const": "TYPING_START"
+          },
+          {
+            "title": "INVITE_CREATE",
+            "description": "Invite to a channel was created",
+            "const": "INVITE_CREATE"
+          },
+          {
+            "title": "INVITE_DELETE",
+            "description": "Invite to a channel was deleted",
+            "const": "INVITE_DELETE"
+          },
+          {
+            "title": "WEBHOOKS_UPDATE",
+            "description": "Guild channel webhook was created, updated, or deleted",
+            "const": "WEBHOOKS_UPDATE"
+          },
+          {
+            "title": "CHANNEL_CREATE",
+            "description": "New guild channel created",
+            "const": "CHANNEL_CREATE"
+          },
+          {
+            "title": "CHANNEL_UPDATE",
+            "description": "Channel was updated",
+            "const": "CHANNEL_UPDATE"
+          },
+          {
+            "title": "CHANNEL_DELETE",
+            "description": "Channel was deleted",
+            "const": "CHANNEL_DELETE"
+          },
+          {
+            "title": "CHANNEL_PINS_UPDATE",
+            "description": "Message was pinned or unpinned",
+            "const": "CHANNEL_PINS_UPDATE"
+          },
+          {
+            "title": "THREAD_CREATE",
+            "description": "Thread created, also sent when being added to a private thread",
+            "const": "THREAD_CREATE"
+          },
+          {
+            "title": "THREAD_UPDATE",
+            "description": "Thread was updated",
+            "const": "THREAD_UPDATE"
+          },
+          {
+            "title": "THREAD_DELETE",
+            "description": "Thread was deleted",
+            "const": "THREAD_DELETE"
+          },
+          {
+            "title": "THREAD_LIST_SYNC",
+            "description": "Sent when gaining access to a channel, contains all active threads in that channel",
+            "const": "THREAD_LIST_SYNC"
+          },
+          {
+            "title": "THREAD_MEMBER_UPDATE",
+            "description": "Thread member for the current user was updated",
+            "const": "THREAD_MEMBER_UPDATE"
+          },
+          {
+            "title": "THREAD_MEMBERS_UPDATE",
+            "description": "Some user(s) were added to or removed from a thread",
+            "const": "THREAD_MEMBERS_UPDATE"
+          },
+          {
+            "title": "GUILD_CREATE",
+            "description": "Lazy-load for unavailable guild, guild became available, or user joined a new guild",
+            "const": "GUILD_CREATE"
+          },
+          {
+            "title": "GUILD_UPDATE",
+            "description": "Guild was updated",
+            "const": "GUILD_UPDATE"
+          },
+          {
+            "title": "GUILD_DELETE",
+            "description": "Guild became unavailable, or user left/was removed from a guild",
+            "const": "GUILD_DELETE"
+          },
+          {
+            "title": "GUILD_EMOJIS_UPDATE",
+            "description": "Guild emojis were updated",
+            "const": "GUILD_EMOJIS_UPDATE"
+          },
+          {
+            "title": "GUILD_STICKERS_UPDATE",
+            "description": "Guild stickers were updated",
+            "const": "GUILD_STICKERS_UPDATE"
+          },
+          {
+            "title": "GUILD_INTEGRATIONS_UPDATE",
+            "description": "Guild integration was updated",
+            "const": "GUILD_INTEGRATIONS_UPDATE"
+          },
+          {
+            "title": "GUILD_MEMBER_ADD",
+            "description": "New user joined a guild",
+            "const": "GUILD_MEMBER_ADD"
+          },
+          {
+            "title": "GUILD_MEMBER_UPDATE",
+            "description": "Guild member was updated",
+            "const": "GUILD_MEMBER_UPDATE"
+          },
+          {
+            "title": "GUILD_MEMBER_REMOVE",
+            "description": "User was removed from a guild",
+            "const": "GUILD_MEMBER_REMOVE"
+          },
+          {
+            "title": "GUILD_BAN_ADD",
+            "description": "User was banned from a guild",
+            "const": "GUILD_BAN_ADD"
+          },
+          {
+            "title": "GUILD_BAN_REMOVE",
+            "description": "User was unbanned from a guild",
+            "const": "GUILD_BAN_REMOVE"
+          },
+          {
+            "title": "GUILD_ROLE_CREATE",
+            "description": "Guild role was created",
+            "const": "GUILD_ROLE_CREATE"
+          },
+          {
+            "title": "GUILD_ROLE_UPDATE",
+            "description": "Guild role was updated",
+            "const": "GUILD_ROLE_UPDATE"
+          },
+          {
+            "title": "GUILD_ROLE_DELETE",
+            "description": "Guild role was deleted",
+            "const": "GUILD_ROLE_DELETE"
+          },
+          {
+            "title": "GUILD_MEMBERS_CHUNK",
+            "description": "Response to Request Guild Members",
+            "const": "GUILD_MEMBERS_CHUNK"
+          },
+          {
+            "title": "MESSAGE_CREATE",
+            "description": "Message was created",
+            "const": "MESSAGE_CREATE"
+          },
+          {
+            "title": "MESSAGE_UPDATE",
+            "description": "Message was edited",
+            "const": "MESSAGE_UPDATE"
+          },
+          {
+            "title": "MESSAGE_DELETE",
+            "description": "Message was deleted",
+            "const": "MESSAGE_DELETE"
+          },
+          {
+            "title": "MESSAGE_DELETE_BULK",
+            "description": "Multiple messages were deleted at once",
+            "const": "MESSAGE_DELETE_BULK"
+          },
+          {
+            "title": "MESSAGE_REACTION_ADD",
+            "description": "User reacted to a message",
+            "const": "MESSAGE_REACTION_ADD"
+          },
+          {
+            "title": "MESSAGE_REACTION_REMOVE",
+            "description": "User removed a reaction from a message",
+            "const": "MESSAGE_REACTION_REMOVE"
+          },
+          {
+            "title": "MESSAGE_REACTION_REMOVE_ALL",
+            "description": "All reactions were explicitly removed from a message",
+            "const": "MESSAGE_REACTION_REMOVE_ALL"
+          },
+          {
+            "title": "MESSAGE_REACTION_REMOVE_EMOJI",
+            "description": "All reactions for a given emoji were explicitly removed from a message",
+            "const": "MESSAGE_REACTION_REMOVE_EMOJI"
+          },
+          {
+            "title": "USER_UPDATE",
+            "description": "Properties about the user changed",
+            "const": "USER_UPDATE"
+          },
+          {
+            "title": "READY",
+            "description": "Contains the initial state information",
+            "const": "READY"
+          },
+          {
+            "title": "RESUMED",
+            "description": "Response to Resume",
+            "const": "RESUMED"
+          },
+          {
+            "title": "PRESENCE_UPDATE",
+            "description": "User was updated",
+            "const": "PRESENCE_UPDATE"
+          },
+          {
+            "title": "VOICE_STATE_UPDATE",
+            "description": "Someone joined, left, or moved a voice channel",
+            "const": "VOICE_STATE_UPDATE"
+          },
+          {
+            "title": "VOICE_SERVER_UPDATE",
+            "description": "Guild's voice server was updated",
+            "const": "VOICE_SERVER_UPDATE"
+          },
+          {
+            "title": "INTERACTION_CREATE",
+            "description": "User used an interaction, such as an Application Command",
+            "const": "INTERACTION_CREATE"
+          },
+          {
+            "title": "INTEGRATION_CREATE",
+            "description": "Guild integration was created",
+            "const": "INTEGRATION_CREATE"
+          },
+          {
+            "title": "INTEGRATION_UPDATE",
+            "description": "Guild integration was updated",
+            "const": "INTEGRATION_UPDATE"
+          },
+          {
+            "title": "INTEGRATION_DELETE",
+            "description": "Guild integration was deleted",
+            "const": "INTEGRATION_DELETE"
+          },
+          {
+            "title": "APPLICATION_COMMAND_PERMISSIONS_UPDATE",
+            "description": "Application command permission was updated",
+            "const": "APPLICATION_COMMAND_PERMISSIONS_UPDATE"
+          },
+          {
+            "title": "STAGE_INSTANCE_CREATE",
+            "description": "Stage instance was created",
+            "const": "STAGE_INSTANCE_CREATE"
+          },
+          {
+            "title": "STAGE_INSTANCE_UPDATE",
+            "description": "Stage instance was updated",
+            "const": "STAGE_INSTANCE_UPDATE"
+          },
+          {
+            "title": "STAGE_INSTANCE_DELETE",
+            "description": "Stage instance was deleted or closed",
+            "const": "STAGE_INSTANCE_DELETE"
+          },
+          {
+            "title": "GUILD_AUDIT_LOG_ENTRY_CREATE",
+            "description": "A guild audit log entry was created",
+            "const": "GUILD_AUDIT_LOG_ENTRY_CREATE"
+          },
+          {
+            "title": "GUILD_SCHEDULED_EVENT_CREATE",
+            "description": "Guild scheduled event was created",
+            "const": "GUILD_SCHEDULED_EVENT_CREATE"
+          },
+          {
+            "title": "GUILD_SCHEDULED_EVENT_UPDATE",
+            "description": "Guild scheduled event was updated",
+            "const": "GUILD_SCHEDULED_EVENT_UPDATE"
+          },
+          {
+            "title": "GUILD_SCHEDULED_EVENT_DELETE",
+            "description": "Guild scheduled event was deleted",
+            "const": "GUILD_SCHEDULED_EVENT_DELETE"
+          },
+          {
+            "title": "GUILD_SCHEDULED_EVENT_USER_ADD",
+            "description": "User subscribed to a guild scheduled event",
+            "const": "GUILD_SCHEDULED_EVENT_USER_ADD"
+          },
+          {
+            "title": "GUILD_SCHEDULED_EVENT_USER_REMOVE",
+            "description": "User unsubscribed from a guild scheduled event",
+            "const": "GUILD_SCHEDULED_EVENT_USER_REMOVE"
+          },
+          {
+            "title": "AUTO_MODERATION_RULE_CREATE",
+            "description": "Auto Moderation rule was created",
+            "const": "AUTO_MODERATION_RULE_CREATE"
+          },
+          {
+            "title": "AUTO_MODERATION_RULE_UPDATE",
+            "description": "Auto Moderation rule was updated",
+            "const": "AUTO_MODERATION_RULE_UPDATE"
+          },
+          {
+            "title": "AUTO_MODERATION_RULE_DELETE",
+            "description": "Auto Moderation rule was deleted",
+            "const": "AUTO_MODERATION_RULE_DELETE"
+          },
+          {
+            "title": "AUTO_MODERATION_ACTION_EXECUTION",
+            "description": "Auto Moderation rule was triggered and an action was executed (.e.g. a message was blocked)",
+            "const": "AUTO_MODERATION_ACTION_EXECUTION"
+          },
+          {
+            "title": "GUILD_SOUNDBOARD_SOUNDS_UPDATE",
+            "const": "GUILD_SOUNDBOARD_SOUNDS_UPDATE"
+          },
+          {
+            "title": "GUILD_SOUNDBOARD_SOUND_CREATE",
+            "const": "GUILD_SOUNDBOARD_SOUND_CREATE"
+          },
+          {
+            "title": "GUILD_SOUNDBOARD_SOUND_UPDATE",
+            "const": "GUILD_SOUNDBOARD_SOUND_UPDATE"
+          },
+          {
+            "title": "GUILD_SOUNDBOARD_SOUND_DELETE",
+            "const": "GUILD_SOUNDBOARD_SOUND_DELETE"
+          },
+          {
+            "title": "RATE_LIMITED",
+            "const": "RATE_LIMITED"
+          }
+        ]
+      },
       "ActivitiesAttachmentResponse": {
         "type": "object",
         "properties": {
@@ -15998,6 +16328,32 @@
         "required": [
           "attachment"
         ]
+      },
+      "ActivityActionTypes": {
+        "type": "integer",
+        "oneOf": [
+          {
+            "title": "JOIN",
+            "const": 1
+          },
+          {
+            "title": "SPECTATE",
+            "const": 2
+          },
+          {
+            "title": "LISTEN",
+            "const": 3
+          },
+          {
+            "title": "JOIN_REQUEST",
+            "const": 5
+          },
+          {
+            "title": "STREAM_REQUEST",
+            "const": 6
+          }
+        ],
+        "format": "int32"
       },
       "AfkTimeouts": {
         "type": "integer",
@@ -18522,6 +18878,11 @@
           "description"
         ]
       },
+      "ApplicationEventWebhooksStatus": {
+        "type": "integer",
+        "oneOf": [],
+        "format": "int32"
+      },
       "ApplicationExplicitContentFilterTypes": {
         "type": "integer",
         "oneOf": [
@@ -19185,6 +19546,10 @@
           },
           "ephemeral": {
             "type": "boolean"
+          },
+          "flags": {
+            "type": "integer",
+            "format": "int32"
           },
           "placeholder": {
             "type": [
@@ -25307,6 +25672,25 @@
           "resource_channels"
         ]
       },
+      "GuildIncidentsDataResponse": {
+        "type": "object",
+        "properties": {
+          "invites_disabled_until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "dms_disabled_until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        }
+      },
       "GuildIncomingWebhookResponse": {
         "type": "object",
         "properties": {
@@ -25668,13 +26052,17 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/GuildOnboardingMode"
           }
         },
         "required": [
           "guild_id",
           "prompts",
           "default_channel_ids",
-          "enabled"
+          "enabled",
+          "mode"
         ]
       },
       "GuildPatchRequestPartial": {
@@ -26193,6 +26581,16 @@
             "items": {
               "$ref": "#/components/schemas/GuildStickerResponse"
             }
+          },
+          "incidents_data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildIncidentsDataResponse"
+              }
+            ]
           }
         },
         "required": [
@@ -27349,6 +27747,16 @@
             "items": {
               "$ref": "#/components/schemas/GuildStickerResponse"
             }
+          },
+          "incidents_data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildIncidentsDataResponse"
+              }
+            ]
           },
           "approximate_member_count": {
             "type": [
@@ -30112,7 +30520,20 @@
       },
       "MessageActivityResponse": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/ActivityActionTypes"
+          },
+          "party_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
       },
       "MessageAllowedMentionsRequest": {
         "type": "object",
@@ -30277,6 +30698,10 @@
           },
           "ephemeral": {
             "type": "boolean"
+          },
+          "flags": {
+            "type": "integer",
+            "format": "int32"
           },
           "placeholder": {
             "type": [
@@ -30897,6 +31322,13 @@
           },
           "footer": {
             "$ref": "#/components/schemas/MessageEmbedFooterResponse"
+          },
+          "flags": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int32"
           },
           "components": {
             "type": "array",
@@ -33129,6 +33561,39 @@
           "approximate_user_authorization_count": {
             "type": "integer",
             "format": "int32"
+          },
+          "event_webhooks_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uri"
+          },
+          "event_webhooks_status": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/ApplicationEventWebhooksStatus"
+              }
+            ]
+          },
+          "event_webhooks_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [],
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ActionTypes"
+                }
+              ]
+            },
+            "uniqueItems": true
           },
           "explicit_content_filter": {
             "$ref": "#/components/schemas/ApplicationExplicitContentFilterTypes"
@@ -38139,13 +38604,17 @@
           },
           "enabled": {
             "type": "boolean"
+          },
+          "mode": {
+            "$ref": "#/components/schemas/GuildOnboardingMode"
           }
         },
         "required": [
           "guild_id",
           "prompts",
           "default_channel_ids",
-          "enabled"
+          "enabled",
+          "mode"
         ]
       },
       "UserNameplateResponse": {
