@@ -5359,6 +5359,75 @@
         ]
       }
     },
+    "/channels/{channel_id}/voice-status": {
+      "parameters": [
+        {
+          "name": "channel_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "put": {
+        "description": "Set a voice channel's status.",
+        "operationId": "update_voice_channel_status",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "The new voice channel status",
+                    "maxLength": 500
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "204 response for update_voice_channel_status",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/channels/{channel_id}/webhooks": {
       "parameters": [
         {
@@ -16015,6 +16084,11 @@
             "title": "CHANNEL_CREATE",
             "description": "New guild channel created",
             "const": "CHANNEL_CREATE"
+          },
+          {
+            "title": "VOICE_CHANNEL_STATUS_UPDATE",
+            "description": "Voice channel status was updated",
+            "const": "VOICE_CHANNEL_STATUS_UPDATE"
           },
           {
             "title": "CHANNEL_UPDATE",
