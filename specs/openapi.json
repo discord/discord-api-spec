@@ -1206,14 +1206,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "oneOf": [
-                      {
-                        "type": "null"
-                      },
-                      {
-                        "$ref": "#/components/schemas/EntitlementResponse"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/EntitlementResponse"
                   }
                 }
               }
@@ -14057,14 +14050,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "oneOf": [
-                      {
-                        "type": "null"
-                      },
-                      {
-                        "$ref": "#/components/schemas/EntitlementResponse"
-                      }
-                    ]
+                    "$ref": "#/components/schemas/EntitlementResponse"
                   }
                 }
               }
@@ -18954,7 +18940,23 @@
       },
       "ApplicationEventWebhooksStatus": {
         "type": "integer",
-        "oneOf": [],
+        "oneOf": [
+          {
+            "title": "DISABLED",
+            "description": "Webhook events are disabled by developer",
+            "const": 1
+          },
+          {
+            "title": "ENABLED",
+            "description": "Webhook events are enabled by developer",
+            "const": 2
+          },
+          {
+            "title": "DISABLED_BY_DISCORD",
+            "description": "Webhook events are disabled by Discord, usually due to inactivity",
+            "const": 3
+          }
+        ],
         "format": "int32"
       },
       "ApplicationExplicitContentFilterTypes": {
@@ -19122,6 +19124,50 @@
             },
             "minProperties": 1,
             "maxProperties": 2
+          },
+          "event_webhooks_status": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "integer",
+                "enum": [
+                  1,
+                  2
+                ],
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ApplicationEventWebhooksStatus"
+                  }
+                ],
+                "format": "int32"
+              }
+            ]
+          },
+          "event_webhooks_url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048,
+            "format": "uri"
+          },
+          "event_webhooks_types": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [],
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ActionTypes"
+                }
+              ]
+            },
+            "uniqueItems": true
           }
         }
       },
@@ -19378,10 +19424,7 @@
           "rpc_origins": {
             "type": "array",
             "items": {
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
             }
           },
           "bot_public": {
@@ -19557,10 +19600,7 @@
         "type": "object",
         "properties": {
           "platform_name": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "platform_username": {
             "type": [
@@ -19626,16 +19666,10 @@
             "format": "int32"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "placeholder_version": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "title": {
@@ -20734,9 +20768,6 @@
                 "type": "string",
                 "maxLength": 25,
                 "format": "nonce"
-              },
-              {
-                "type": "null"
               }
             ]
           },
@@ -20752,14 +20783,7 @@
           "mention_channels": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "$ref": "#/components/schemas/MessageMentionChannelResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/MessageMentionChannelResponse"
             }
           },
           "role_subscription_data": {
@@ -20779,14 +20803,7 @@
             "$ref": "#/components/schemas/PollResponse"
           },
           "shared_client_theme": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/CustomClientThemeResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/CustomClientThemeResponse"
           },
           "interaction_metadata": {
             "oneOf": [
@@ -23012,10 +23029,7 @@
             "$ref": "#/components/schemas/VideoQualityModes"
           },
           "permissions": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "owner_id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -23444,7 +23458,11 @@
               "null"
             ]
           }
-        }
+        },
+        "required": [
+          "emoji_id",
+          "emoji_name"
+        ]
       },
       "DiscordIntegrationResponse": {
         "type": "object",
@@ -23675,10 +23693,7 @@
             ]
           },
           "consumed": {
-            "type": [
-              "boolean",
-              "null"
-            ]
+            "type": "boolean"
           },
           "gifter_user_id": {
             "oneOf": [
@@ -23707,6 +23722,8 @@
           "application_id",
           "user_id",
           "deleted",
+          "starts_at",
+          "ends_at",
           "type"
         ]
       },
@@ -25440,10 +25457,7 @@
             "$ref": "#/components/schemas/VideoQualityModes"
           },
           "permissions": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "topic": {
             "type": [
@@ -25498,14 +25512,7 @@
             ]
           },
           "default_forum_layout": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ForumLayout"
-              }
-            ]
+            "$ref": "#/components/schemas/ForumLayout"
           },
           "default_tag_setting": {
             "oneOf": [
@@ -25715,27 +25722,13 @@
           "new_member_actions": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "$ref": "#/components/schemas/NewMemberActionResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/NewMemberActionResponse"
             }
           },
           "resource_channels": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "$ref": "#/components/schemas/ResourceChannelResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/ResourceChannelResponse"
             }
           }
         },
@@ -25763,7 +25756,11 @@
             ],
             "format": "date-time"
           }
-        }
+        },
+        "required": [
+          "invites_disabled_until",
+          "dms_disabled_until"
+        ]
       },
       "GuildIncomingWebhookResponse": {
         "type": "object",
@@ -26706,7 +26703,8 @@
           "nsfw",
           "nsfw_level",
           "emojis",
-          "stickers"
+          "stickers",
+          "incidents_data"
         ]
       },
       "GuildRoleColorsResponse": {
@@ -27121,14 +27119,7 @@
           "permission_overwrites": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "$ref": "#/components/schemas/ChannelPermissionOverwriteResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/ChannelPermissionOverwriteResponse"
             }
           },
           "available_tags": {
@@ -27886,7 +27877,8 @@
           "nsfw",
           "nsfw_level",
           "emojis",
-          "stickers"
+          "stickers",
+          "incidents_data"
         ]
       },
       "HasOption": {
@@ -28751,10 +28743,7 @@
           "rpc_origins": {
             "type": "array",
             "items": {
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
             }
           },
           "bot_public": {
@@ -30599,10 +30588,7 @@
             "$ref": "#/components/schemas/ActivityActionTypes"
           },
           "party_id": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -30778,16 +30764,10 @@
             "format": "int32"
           },
           "placeholder": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "placeholder_version": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "title": {
@@ -31796,9 +31776,6 @@
                 "type": "string",
                 "maxLength": 25,
                 "format": "nonce"
-              },
-              {
-                "type": "null"
               }
             ]
           },
@@ -31814,14 +31791,7 @@
           "mention_channels": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "$ref": "#/components/schemas/MessageMentionChannelResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/MessageMentionChannelResponse"
             }
           },
           "role_subscription_data": {
@@ -31841,14 +31811,7 @@
             "$ref": "#/components/schemas/PollResponse"
           },
           "shared_client_theme": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/CustomClientThemeResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/CustomClientThemeResponse"
           },
           "interaction_metadata": {
             "oneOf": [
@@ -33540,10 +33503,7 @@
           "rpc_origins": {
             "type": "array",
             "items": {
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": "string"
             }
           },
           "bot_public": {
@@ -33597,10 +33557,7 @@
           "redirect_uris": {
             "type": "array",
             "items": {
-              "type": [
-                "string",
-                "null"
-              ],
+              "type": "string",
               "format": "uri"
             }
           },
@@ -33622,10 +33579,7 @@
             "$ref": "#/components/schemas/UserResponse"
           },
           "approximate_guild_count": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "approximate_user_install_count": {
@@ -33644,20 +33598,10 @@
             "format": "uri"
           },
           "event_webhooks_status": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/ApplicationEventWebhooksStatus"
-              }
-            ]
+            "$ref": "#/components/schemas/ApplicationEventWebhooksStatus"
           },
           "event_webhooks_types": {
-            "type": [
-              "array",
-              "null"
-            ],
+            "type": "array",
             "items": {
               "type": "string",
               "enum": [],
@@ -35435,9 +35379,6 @@
                 "type": "string",
                 "maxLength": 25,
                 "format": "nonce"
-              },
-              {
-                "type": "null"
               }
             ]
           },
@@ -35453,14 +35394,7 @@
           "mention_channels": {
             "type": "array",
             "items": {
-              "oneOf": [
-                {
-                  "type": "null"
-                },
-                {
-                  "$ref": "#/components/schemas/MessageMentionChannelResponse"
-                }
-              ]
+              "$ref": "#/components/schemas/MessageMentionChannelResponse"
             }
           },
           "role_subscription_data": {
@@ -35480,14 +35414,7 @@
             "$ref": "#/components/schemas/PollResponse"
           },
           "shared_client_theme": {
-            "oneOf": [
-              {
-                "type": "null"
-              },
-              {
-                "$ref": "#/components/schemas/CustomClientThemeResponse"
-              }
-            ]
+            "$ref": "#/components/schemas/CustomClientThemeResponse"
           },
           "interaction_metadata": {
             "oneOf": [
@@ -37523,10 +37450,7 @@
             "$ref": "#/components/schemas/VideoQualityModes"
           },
           "permissions": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           },
           "owner_id": {
             "$ref": "#/components/schemas/SnowflakeType"
