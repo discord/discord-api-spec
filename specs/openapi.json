@@ -21613,17 +21613,11 @@
             "type": "string"
           },
           "min_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "disabled": {
@@ -30580,17 +30574,11 @@
             "type": "string"
           },
           "min_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "disabled": {
@@ -34878,17 +34866,11 @@
             "type": "string"
           },
           "min_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "disabled": {
@@ -36795,17 +36777,11 @@
             "type": "string"
           },
           "min_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "disabled": {
@@ -39146,17 +39122,11 @@
             "type": "string"
           },
           "min_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "max_values": {
-            "type": [
-              "integer",
-              "null"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "disabled": {
