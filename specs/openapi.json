@@ -19690,12 +19690,6 @@
             "items": {
               "$ref": "#/components/schemas/UserResponse"
             }
-          },
-          "clip_events_timeline": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ClipEventTimelineEntryResponse"
-            }
           }
         },
         "required": [
@@ -21892,37 +21886,6 @@
         "required": [
           "label",
           "value"
-        ]
-      },
-      "ClipEventTimelineEntryResponse": {
-        "type": "object",
-        "properties": {
-          "timestamp_ms": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "speaking": {
-            "$ref": "#/components/schemas/ClipSpeakingEventResponse"
-          }
-        },
-        "required": [
-          "timestamp_ms"
-        ]
-      },
-      "ClipSpeakingEventResponse": {
-        "type": "object",
-        "properties": {
-          "user_id": {
-            "$ref": "#/components/schemas/SnowflakeType"
-          },
-          "speaking_flags": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "required": [
-          "user_id",
-          "speaking_flags"
         ]
       },
       "CommandPermissionResponse": {
@@ -30812,12 +30775,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserResponse"
-            }
-          },
-          "clip_events_timeline": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ClipEventTimelineEntryResponse"
             }
           }
         },
