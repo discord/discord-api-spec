@@ -16269,6 +16269,21 @@
             "const": "USER_UPDATE"
           },
           {
+            "title": "ENTITLEMENT_CREATE",
+            "description": "Entitlement was created",
+            "const": "ENTITLEMENT_CREATE"
+          },
+          {
+            "title": "ENTITLEMENT_UPDATE",
+            "description": "Entitlement was updated",
+            "const": "ENTITLEMENT_UPDATE"
+          },
+          {
+            "title": "ENTITLEMENT_DELETE",
+            "description": "Entitlement was deleted",
+            "const": "ENTITLEMENT_DELETE"
+          },
+          {
             "title": "READY",
             "description": "Contains the initial state information",
             "const": "READY"
@@ -16294,6 +16309,36 @@
             "const": "VOICE_SERVER_UPDATE"
           },
           {
+            "title": "LOBBY_MESSAGE_CREATE",
+            "description": "Sent when a message is created in a lobby",
+            "const": "LOBBY_MESSAGE_CREATE"
+          },
+          {
+            "title": "LOBBY_MESSAGE_UPDATE",
+            "description": "Sent when a message is updated in a lobby",
+            "const": "LOBBY_MESSAGE_UPDATE"
+          },
+          {
+            "title": "LOBBY_MESSAGE_DELETE",
+            "description": "Sent when a message is deleted from a lobby",
+            "const": "LOBBY_MESSAGE_DELETE"
+          },
+          {
+            "title": "GAME_DIRECT_MESSAGE_CREATE",
+            "description": "Sent when a direct message is created during an active Social SDK session",
+            "const": "GAME_DIRECT_MESSAGE_CREATE"
+          },
+          {
+            "title": "GAME_DIRECT_MESSAGE_DELETE",
+            "description": "Sent when a direct message is deleted during an active Social SDK session",
+            "const": "GAME_DIRECT_MESSAGE_DELETE"
+          },
+          {
+            "title": "GAME_DIRECT_MESSAGE_UPDATE",
+            "description": "Sent when a direct message is updated during an active Social SDK session",
+            "const": "GAME_DIRECT_MESSAGE_UPDATE"
+          },
+          {
             "title": "INTERACTION_CREATE",
             "description": "User used an interaction, such as an Application Command",
             "const": "INTERACTION_CREATE"
@@ -16317,6 +16362,16 @@
             "title": "APPLICATION_COMMAND_PERMISSIONS_UPDATE",
             "description": "Application command permission was updated",
             "const": "APPLICATION_COMMAND_PERMISSIONS_UPDATE"
+          },
+          {
+            "title": "APPLICATION_AUTHORIZED",
+            "description": "Sent when an app was authorized by a user to a server or their account",
+            "const": "APPLICATION_AUTHORIZED"
+          },
+          {
+            "title": "APPLICATION_DEAUTHORIZED",
+            "description": "Sent when an app was deauthorized by a user",
+            "const": "APPLICATION_DEAUTHORIZED"
           },
           {
             "title": "STAGE_INSTANCE_CREATE",
@@ -16398,6 +16453,11 @@
           {
             "title": "GUILD_SOUNDBOARD_SOUND_DELETE",
             "const": "GUILD_SOUNDBOARD_SOUND_DELETE"
+          },
+          {
+            "title": "QUEST_USER_ENROLLMENT",
+            "description": "User was added to a Quest (currently unavailable)",
+            "const": "QUEST_USER_ENROLLMENT"
           },
           {
             "title": "RATE_LIMITED",
@@ -19187,7 +19247,20 @@
             ],
             "items": {
               "type": "string",
-              "enum": [],
+              "enum": [
+                "APPLICATION_AUTHORIZED",
+                "APPLICATION_DEAUTHORIZED",
+                "ENTITLEMENT_CREATE",
+                "ENTITLEMENT_DELETE",
+                "ENTITLEMENT_UPDATE",
+                "GAME_DIRECT_MESSAGE_CREATE",
+                "GAME_DIRECT_MESSAGE_DELETE",
+                "GAME_DIRECT_MESSAGE_UPDATE",
+                "LOBBY_MESSAGE_CREATE",
+                "LOBBY_MESSAGE_DELETE",
+                "LOBBY_MESSAGE_UPDATE",
+                "QUEST_USER_ENROLLMENT"
+              ],
               "allOf": [
                 {
                   "$ref": "#/components/schemas/ActionTypes"
@@ -33619,7 +33692,20 @@
             "type": "array",
             "items": {
               "type": "string",
-              "enum": [],
+              "enum": [
+                "APPLICATION_AUTHORIZED",
+                "APPLICATION_DEAUTHORIZED",
+                "ENTITLEMENT_CREATE",
+                "ENTITLEMENT_DELETE",
+                "ENTITLEMENT_UPDATE",
+                "GAME_DIRECT_MESSAGE_CREATE",
+                "GAME_DIRECT_MESSAGE_DELETE",
+                "GAME_DIRECT_MESSAGE_UPDATE",
+                "LOBBY_MESSAGE_CREATE",
+                "LOBBY_MESSAGE_DELETE",
+                "LOBBY_MESSAGE_UPDATE",
+                "QUEST_USER_ENROLLMENT"
+              ],
               "allOf": [
                 {
                   "$ref": "#/components/schemas/ActionTypes"
