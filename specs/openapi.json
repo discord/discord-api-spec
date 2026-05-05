@@ -22901,6 +22901,7 @@
               "string",
               "null"
             ],
+            "minLength": 1,
             "maxLength": 100
           },
           "permissions": {
@@ -38327,6 +38328,7 @@
               "string",
               "null"
             ],
+            "minLength": 1,
             "maxLength": 100
           },
           "permissions": {
