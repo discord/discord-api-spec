@@ -8811,6 +8811,194 @@
         ]
       }
     },
+    "/guilds/{guild_id}/requests": {
+      "parameters": [
+        {
+          "name": "guild_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "description": "List join requests for guild, optionally filtered by application status",
+        "operationId": "get_guild_join_requests",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [],
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/GuildJoinRequestApplicationStatus"
+                }
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response for get_guild_join_requests",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuildJoinRequestsListResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
+    "/guilds/{guild_id}/requests/{request_id}": {
+      "parameters": [
+        {
+          "name": "guild_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        },
+        {
+          "name": "request_id",
+          "in": "path",
+          "schema": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "required": true
+        }
+      ],
+      "patch": {
+        "description": "Approve or reject guild join request",
+        "operationId": "action_guild_join_request",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "description": "Whether to approve or reject the join request",
+                    "enum": [],
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/GuildJoinRequestApplicationStatus"
+                      }
+                    ]
+                  },
+                  "rejection_reason": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "description": "Reason for rejection. Only used when action is REJECTED",
+                    "maxLength": 160
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "200 response for action_guild_join_request",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "$ref": "#/components/headers/X-RateLimit-Limit"
+              },
+              "X-RateLimit-Remaining": {
+                "$ref": "#/components/headers/X-RateLimit-Remaining"
+              },
+              "X-RateLimit-Reset": {
+                "$ref": "#/components/headers/X-RateLimit-Reset"
+              },
+              "X-RateLimit-Reset-After": {
+                "$ref": "#/components/headers/X-RateLimit-Reset-After"
+              },
+              "X-RateLimit-Bucket": {
+                "$ref": "#/components/headers/X-RateLimit-Bucket"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuildJoinRequestResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/ClientRatelimitedResponse"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/ClientErrorResponse"
+          }
+        },
+        "security": [
+          {
+            "BotToken": []
+          }
+        ]
+      }
+    },
     "/guilds/{guild_id}/roles": {
       "parameters": [
         {
@@ -19561,6 +19749,9 @@
             "type": "integer",
             "format": "int32"
           },
+          "flags_new": {
+            "type": "string"
+          },
           "max_participants": {
             "type": [
               "integer",
@@ -19583,7 +19774,8 @@
           "description",
           "type",
           "verify_key",
-          "flags"
+          "flags",
+          "flags_new"
         ]
       },
       "ApplicationRoleConnectionsMetadataItemRequest": {
@@ -26045,6 +26237,140 @@
           "channel"
         ]
       },
+      "GuildJoinRequestApplicationStatus": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "STARTED",
+            "description": "Applicant started but not yet submitted join request",
+            "const": "STARTED"
+          },
+          {
+            "title": "SUBMITTED",
+            "description": "Applicant submitted join request that is awaiting review",
+            "const": "SUBMITTED"
+          },
+          {
+            "title": "REJECTED",
+            "description": "Join request rejected",
+            "const": "REJECTED"
+          },
+          {
+            "title": "APPROVED",
+            "description": "Join request approved",
+            "const": "APPROVED"
+          }
+        ]
+      },
+      "GuildJoinRequestResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reviewed_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "application_status": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildJoinRequestApplicationStatus"
+              }
+            ]
+          },
+          "rejection_reason": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Reason request was rejected. Only set when application_status is REJECTED"
+          },
+          "guild_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "user_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          },
+          "form_responses": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "description": "Applicant's responses on join request form",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/MultipleChoiceFormFieldResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/ParagraphFormFieldResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/TermsFormFieldResponse"
+                },
+                {
+                  "$ref": "#/components/schemas/TextInputFormFieldResponse"
+                }
+              ]
+            }
+          },
+          "actioned_by_user": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/UserResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "reviewed_at",
+          "application_status",
+          "rejection_reason",
+          "guild_id",
+          "user_id"
+        ]
+      },
+      "GuildJoinRequestsListResponse": {
+        "type": "object",
+        "properties": {
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "guild_join_requests": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GuildJoinRequestResponse"
+            }
+          }
+        }
+      },
       "GuildMFALevel": {
         "type": "integer",
         "oneOf": [
@@ -26157,6 +26483,31 @@
           "user",
           "mute",
           "deaf"
+        ]
+      },
+      "GuildMemberVerificationFormFieldType": {
+        "type": "string",
+        "oneOf": [
+          {
+            "title": "TERMS",
+            "description": "Field requiring applicant to acknowledge list of terms",
+            "const": "TERMS"
+          },
+          {
+            "title": "TEXT_INPUT",
+            "description": "Short text input field",
+            "const": "TEXT_INPUT"
+          },
+          {
+            "title": "PARAGRAPH",
+            "description": "Long-form text input field",
+            "const": "PARAGRAPH"
+          },
+          {
+            "title": "MULTIPLE_CHOICE",
+            "description": "Field where applicant selects one of many options",
+            "const": "MULTIPLE_CHOICE"
+          }
         ]
       },
       "GuildNSFWContentLevel": {
@@ -28875,6 +29226,9 @@
             "type": "integer",
             "format": "int32"
           },
+          "flags_new": {
+            "type": "string"
+          },
           "max_participants": {
             "type": [
               "integer",
@@ -28897,7 +29251,8 @@
           "description",
           "type",
           "verify_key",
-          "flags"
+          "flags",
+          "flags_new"
         ]
       },
       "InviteChannelRecipientResponse": {
@@ -32499,6 +32854,51 @@
           "triggering_interaction_metadata"
         ]
       },
+      "MultipleChoiceFormFieldResponse": {
+        "type": "object",
+        "properties": {
+          "field_type": {
+            "type": "string",
+            "description": "Type of form field",
+            "enum": [
+              "MULTIPLE_CHOICE"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GuildMemberVerificationFormFieldType"
+              }
+            ]
+          },
+          "label": {
+            "type": "string",
+            "description": "Label shown above field"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional helper text shown below label"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether applicant must fill in field"
+          },
+          "choices": {
+            "type": "array",
+            "description": "Choices applicant can select from",
+            "items": {
+              "type": "string"
+            }
+          },
+          "response": {
+            "type": "integer",
+            "description": "Index of choice selected by applicant",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "field_type",
+          "choices"
+        ]
+      },
       "MyGuildResponse": {
         "type": "object",
         "properties": {
@@ -33054,6 +33454,46 @@
           }
         ],
         "format": "int32"
+      },
+      "ParagraphFormFieldResponse": {
+        "type": "object",
+        "properties": {
+          "field_type": {
+            "type": "string",
+            "description": "Type of form field",
+            "enum": [
+              "PARAGRAPH"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GuildMemberVerificationFormFieldType"
+              }
+            ]
+          },
+          "label": {
+            "type": "string",
+            "description": "Label shown above field"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional helper text shown below label"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether applicant must fill in field"
+          },
+          "placeholder": {
+            "type": "string",
+            "description": "Placeholder text shown in empty input"
+          },
+          "response": {
+            "type": "string",
+            "description": "Applicant's text response"
+          }
+        },
+        "required": [
+          "field_type"
+        ]
       },
       "PartialDiscordIntegrationResponse": {
         "type": "object",
@@ -33629,6 +34069,9 @@
             "type": "integer",
             "format": "int32"
           },
+          "flags_new": {
+            "type": "string"
+          },
           "max_participants": {
             "type": [
               "integer",
@@ -33737,6 +34180,7 @@
           "type",
           "verify_key",
           "flags",
+          "flags_new",
           "redirect_uris",
           "interactions_endpoint_url",
           "role_connections_verification_url",
@@ -37113,6 +37557,50 @@
           "members"
         ]
       },
+      "TermsFormFieldResponse": {
+        "type": "object",
+        "properties": {
+          "field_type": {
+            "type": "string",
+            "description": "Type of form field",
+            "enum": [
+              "TERMS"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GuildMemberVerificationFormFieldType"
+              }
+            ]
+          },
+          "label": {
+            "type": "string",
+            "description": "Label shown above field"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional helper text shown below label"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether applicant must fill in field"
+          },
+          "values": {
+            "type": "array",
+            "description": "Terms applicant must acknowledge",
+            "items": {
+              "type": "string"
+            }
+          },
+          "response": {
+            "type": "boolean",
+            "description": "Whether applicant accepted terms"
+          }
+        },
+        "required": [
+          "field_type",
+          "values"
+        ]
+      },
       "TextDisplayComponentForMessageRequest": {
         "type": "object",
         "properties": {
@@ -37355,6 +37843,46 @@
           "label",
           "min_length",
           "max_length"
+        ]
+      },
+      "TextInputFormFieldResponse": {
+        "type": "object",
+        "properties": {
+          "field_type": {
+            "type": "string",
+            "description": "Type of form field",
+            "enum": [
+              "TEXT_INPUT"
+            ],
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GuildMemberVerificationFormFieldType"
+              }
+            ]
+          },
+          "label": {
+            "type": "string",
+            "description": "Label shown above field"
+          },
+          "description": {
+            "type": "string",
+            "description": "Optional helper text shown below label"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether applicant must fill in field"
+          },
+          "placeholder": {
+            "type": "string",
+            "description": "Placeholder text shown in empty input"
+          },
+          "response": {
+            "type": "string",
+            "description": "Applicant's text response"
+          }
+        },
+        "required": [
+          "field_type"
         ]
       },
       "TextInputStyleTypes": {
