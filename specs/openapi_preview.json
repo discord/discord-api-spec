@@ -33058,7 +33058,52 @@
       },
       "NameplatePalette": {
         "type": "string",
-        "oneOf": []
+        "oneOf": [
+          {
+            "title": "CRIMSON",
+            "const": "crimson"
+          },
+          {
+            "title": "BERRY",
+            "const": "berry"
+          },
+          {
+            "title": "SKY",
+            "const": "sky"
+          },
+          {
+            "title": "TEAL",
+            "const": "teal"
+          },
+          {
+            "title": "FOREST",
+            "const": "forest"
+          },
+          {
+            "title": "BUBBLE_GUM",
+            "const": "bubble_gum"
+          },
+          {
+            "title": "VIOLET",
+            "const": "violet"
+          },
+          {
+            "title": "COBALT",
+            "const": "cobalt"
+          },
+          {
+            "title": "CLOVER",
+            "const": "clover"
+          },
+          {
+            "title": "LEMON",
+            "const": "lemon"
+          },
+          {
+            "title": "WHITE",
+            "const": "white"
+          }
+        ]
       },
       "NewMemberActionResponse": {
         "type": "object",
