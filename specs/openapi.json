@@ -13565,6 +13565,16 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "provisional_user_id": {
+                    "oneOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "$ref": "#/components/schemas/SnowflakeType"
+                      }
+                    ]
+                  },
                   "external_user_id": {
                     "type": "string",
                     "minLength": 1,
