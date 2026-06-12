@@ -30296,12 +30296,23 @@
       "InviteChannelRecipientResponse": {
         "type": "object",
         "properties": {
+          "id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
           "username": {
             "type": "string"
+          },
+          "avatar": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         },
         "required": [
-          "username"
+          "id",
+          "username",
+          "avatar"
         ]
       },
       "InviteChannelResponse": {
