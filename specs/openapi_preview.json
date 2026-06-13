@@ -21583,7 +21583,7 @@
           }
         }
       },
-      "BasicApplicationResponse": {
+      "BasicApplicationResponseWithBot": {
         "type": "object",
         "properties": {
           "id": {
@@ -21847,7 +21847,7 @@
             "$ref": "#/components/schemas/MessageActivityResponse"
           },
           "application": {
-            "$ref": "#/components/schemas/BasicApplicationResponse"
+            "$ref": "#/components/schemas/BasicApplicationResponseWithBot"
           },
           "application_id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -33272,7 +33272,7 @@
             "$ref": "#/components/schemas/MessageActivityResponse"
           },
           "application": {
-            "$ref": "#/components/schemas/BasicApplicationResponse"
+            "$ref": "#/components/schemas/BasicApplicationResponseWithBot"
           },
           "application_id": {
             "$ref": "#/components/schemas/SnowflakeType"
@@ -37476,7 +37476,7 @@
             "$ref": "#/components/schemas/MessageActivityResponse"
           },
           "application": {
-            "$ref": "#/components/schemas/BasicApplicationResponse"
+            "$ref": "#/components/schemas/BasicApplicationResponseWithBot"
           },
           "application_id": {
             "$ref": "#/components/schemas/SnowflakeType"
