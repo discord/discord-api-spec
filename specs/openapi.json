@@ -23786,6 +23786,24 @@
                 "format": "int32"
               }
             ]
+          },
+          "role_ids": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SnowflakeType"
+                },
+                "maxItems": 250,
+                "uniqueItems": true
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         }
       },
