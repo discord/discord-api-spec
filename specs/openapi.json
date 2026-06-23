@@ -32223,6 +32223,12 @@
             ],
             "maxLength": 1024
           },
+          "is_spoiler": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
           "is_remix": {
             "type": [
               "boolean",
