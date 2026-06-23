@@ -26882,6 +26882,11 @@
             "const": "RAID_ALERTS_DISABLED"
           },
           {
+            "title": "PRUNE_REQUIRES_ADMIN",
+            "description": "guild has restricted member prune to administrators and the guild owner",
+            "const": "PRUNE_REQUIRES_ADMIN"
+          },
+          {
             "title": "ROLE_ICONS",
             "description": "guild is able to set role icons",
             "const": "ROLE_ICONS"
