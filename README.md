@@ -30,7 +30,6 @@ OpenAPI spec contents are automatically generated, and therefore **we do not all
 - Some fields typed as strings in our docs may be typed as ints in the spec. Our API accepts strings for int fields if they are parseable as ints. We think it’ll be more precise to spec these int-parseable strings as ints.
 
 ## Known issues
-- (almost) All nullable fields are additionally marked as optional and all optional fields are additionally marked as nullable.
 - Operations and fields don’t have descriptions.
 - Operations don’t have tags.
 - Flag fields don’t detail specific flag values and their meaning.
