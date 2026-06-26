@@ -12111,6 +12111,20 @@
             "schema": {
               "$ref": "#/components/schemas/SnowflakeType"
             }
+          },
+          {
+            "name": "target_channel_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
+          },
+          {
+            "name": "target_message_id",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SnowflakeType"
+            }
           }
         ],
         "responses": {
@@ -27132,6 +27146,12 @@
           },
           "guild_scheduled_event": {
             "$ref": "#/components/schemas/ScheduledEventResponse"
+          },
+          "target_channel_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
+          "target_message_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "uses": {
             "type": "integer",
