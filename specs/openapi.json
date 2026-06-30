@@ -23501,7 +23501,8 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 21600
+            "maximum": 21600,
+            "format": "int32"
           },
           "applied_tags": {
             "type": [
@@ -24040,7 +24041,8 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 21600
+            "maximum": 21600,
+            "format": "int32"
           }
         },
         "required": [
@@ -24071,7 +24073,8 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 21600
+            "maximum": 21600,
+            "format": "int32"
           },
           "type": {
             "oneOf": [
@@ -40660,7 +40663,8 @@
               "null"
             ],
             "minimum": 0,
-            "maximum": 21600
+            "maximum": 21600,
+            "format": "int32"
           },
           "flags": {
             "type": [
