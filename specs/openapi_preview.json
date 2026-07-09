@@ -27175,6 +27175,16 @@
           "target_message_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
+          "liveliness": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/GuildLivelinessResponse"
+              }
+            ]
+          },
           "uses": {
             "type": "integer",
             "format": "int32"
@@ -27355,6 +27365,28 @@
             }
           }
         }
+      },
+      "GuildLivelinessResponse": {
+        "type": "object",
+        "properties": {
+          "msg_activity_bins": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "last_updated_ts": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "msg_activity_bins"
+        ]
       },
       "GuildMFALevel": {
         "type": "integer",
