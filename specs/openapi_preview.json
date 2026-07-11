@@ -13862,6 +13862,7 @@
                   },
                   "external_auth_token": {
                     "type": "string",
+                    "minLength": 1,
                     "maxLength": 10240
                   },
                   "external_auth_type": {
@@ -13925,6 +13926,7 @@
                 "properties": {
                   "external_user_id": {
                     "type": "string",
+                    "minLength": 1,
                     "maxLength": 1024
                   }
                 },
@@ -13992,6 +13994,7 @@
                   },
                   "external_auth_token": {
                     "type": "string",
+                    "minLength": 1,
                     "maxLength": 10240
                   },
                   "external_auth_type": {
