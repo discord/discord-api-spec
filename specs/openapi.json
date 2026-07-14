@@ -37618,6 +37618,10 @@
           },
           "hit": {
             "type": "boolean"
+          },
+          "restriction_count": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "required": [
