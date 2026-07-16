@@ -32248,6 +32248,7 @@
               "string",
               "null"
             ],
+            "minLength": 1,
             "maxLength": 1024
           },
           "description": {
