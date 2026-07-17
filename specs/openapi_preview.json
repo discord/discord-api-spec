@@ -35408,6 +35408,12 @@
                 "$ref": "#/components/schemas/TeamResponse"
               }
             ]
+          },
+          "eligible_oauth2_scopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OAuth2Scopes"
+            }
           }
         },
         "required": [
@@ -35427,7 +35433,8 @@
           "approximate_user_install_count",
           "approximate_user_authorization_count",
           "explicit_content_filter",
-          "team"
+          "team",
+          "eligible_oauth2_scopes"
         ]
       },
       "PrivateChannelLocation": {
