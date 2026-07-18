@@ -13118,6 +13118,14 @@
                         ]
                       }
                     ]
+                  },
+                  "additional_name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1,
+                    "maxLength": 80
                   }
                 }
               }
@@ -21907,6 +21915,9 @@
             "items": {
               "$ref": "#/components/schemas/MessageSnapshotResponse"
             }
+          },
+          "lobby_member": {
+            "$ref": "#/components/schemas/MessageLobbyMemberResponse"
           }
         },
         "required": [
@@ -22157,6 +22168,14 @@
               "boolean",
               "null"
             ]
+          },
+          "additional_name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1,
+            "maxLength": 80
           }
         },
         "required": [
@@ -31124,6 +31143,9 @@
           "flags": {
             "type": "integer",
             "format": "int32"
+          },
+          "additional_name": {
+            "type": "string"
           }
         },
         "required": [
@@ -31152,6 +31174,9 @@
           },
           "author": {
             "$ref": "#/components/schemas/UserResponse"
+          },
+          "lobby_member": {
+            "$ref": "#/components/schemas/MessageLobbyMemberResponse"
           },
           "metadata": {
             "type": "object",
@@ -33018,6 +33043,17 @@
           "name"
         ]
       },
+      "MessageLobbyMemberResponse": {
+        "type": "object",
+        "properties": {
+          "additional_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "additional_name"
+        ]
+      },
       "MessageMentionChannelResponse": {
         "type": "object",
         "properties": {
@@ -33396,6 +33432,9 @@
             "items": {
               "$ref": "#/components/schemas/MessageSnapshotResponse"
             }
+          },
+          "lobby_member": {
+            "$ref": "#/components/schemas/MessageLobbyMemberResponse"
           },
           "reactions": {
             "type": "array",
@@ -37607,6 +37646,9 @@
             "items": {
               "$ref": "#/components/schemas/MessageSnapshotResponse"
             }
+          },
+          "lobby_member": {
+            "$ref": "#/components/schemas/MessageLobbyMemberResponse"
           },
           "reactions": {
             "type": "array",
