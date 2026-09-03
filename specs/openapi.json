@@ -20507,6 +20507,9 @@
           "slug": {
             "type": "string"
           },
+          "vibegrations_project_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
           "guild_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
@@ -30359,6 +30362,9 @@
           "slug": {
             "type": "string"
           },
+          "vibegrations_project_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
           "guild_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
@@ -35349,6 +35355,9 @@
           },
           "slug": {
             "type": "string"
+          },
+          "vibegrations_project_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
           },
           "guild_id": {
             "$ref": "#/components/schemas/SnowflakeType"
