@@ -32325,12 +32325,6 @@
               "boolean",
               "null"
             ]
-          },
-          "is_remix": {
-            "type": [
-              "boolean",
-              "null"
-            ]
           }
         },
         "required": [

@@ -32339,13 +32339,13 @@
             ],
             "maxLength": 1024
           },
-          "is_spoiler": {
+          "is_thumbnail": {
             "type": [
               "boolean",
               "null"
             ]
           },
-          "is_remix": {
+          "is_spoiler": {
             "type": [
               "boolean",
               "null"
