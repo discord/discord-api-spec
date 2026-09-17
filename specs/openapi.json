@@ -15602,6 +15602,14 @@
             }
           },
           {
+            "name": "shard",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
             "name": "with_counts",
             "in": "query",
             "schema": {
@@ -30699,6 +30707,9 @@
           },
           "icon": {
             "type": "string"
+          },
+          "nsfw": {
+            "type": "boolean"
           },
           "recipients": {
             "type": "array",
