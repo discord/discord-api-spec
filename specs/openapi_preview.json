@@ -8429,6 +8429,9 @@
         "security": [
           {
             "BotToken": []
+          },
+          {
+            "OAuth2": []
           }
         ]
       }
