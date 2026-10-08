@@ -31863,7 +31863,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MediaGalleryItemRequest"
+              "$ref": "#/components/schemas/MediaGalleryItemForMessageRequest"
             },
             "minItems": 1,
             "maxItems": 10
@@ -31906,7 +31906,7 @@
           "items"
         ]
       },
-      "MediaGalleryItemRequest": {
+      "MediaGalleryItemForMessageRequest": {
         "type": "object",
         "properties": {
           "description": {
