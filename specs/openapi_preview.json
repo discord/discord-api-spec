@@ -22219,6 +22219,9 @@
           },
           "lobby_member": {
             "$ref": "#/components/schemas/MessageLobbyMemberResponse"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/UserResponse"
           }
         },
         "required": [
@@ -33767,6 +33770,9 @@
           "lobby_member": {
             "$ref": "#/components/schemas/MessageLobbyMemberResponse"
           },
+          "actor": {
+            "$ref": "#/components/schemas/UserResponse"
+          },
           "reactions": {
             "type": "array",
             "items": {
@@ -37983,6 +37989,9 @@
           },
           "lobby_member": {
             "$ref": "#/components/schemas/MessageLobbyMemberResponse"
+          },
+          "actor": {
+            "$ref": "#/components/schemas/UserResponse"
           },
           "reactions": {
             "type": "array",
