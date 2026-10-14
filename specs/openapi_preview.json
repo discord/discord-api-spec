@@ -20776,6 +20776,9 @@
           "slug": {
             "type": "string"
           },
+          "conjure_project_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
           "vibegrations_project_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
@@ -30628,6 +30631,9 @@
           "slug": {
             "type": "string"
           },
+          "conjure_project_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
           "vibegrations_project_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
@@ -35628,6 +35634,9 @@
           "slug": {
             "type": "string"
           },
+          "conjure_project_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
+          },
           "vibegrations_project_id": {
             "$ref": "#/components/schemas/SnowflakeType"
           },
@@ -38015,6 +38024,17 @@
           "restriction_count": {
             "type": "integer",
             "format": "int32"
+          },
+          "author_restriction_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "source_author_restriction_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "forward_source_author_id": {
+            "$ref": "#/components/schemas/SnowflakeType"
           }
         },
         "required": [
