@@ -23489,6 +23489,10 @@
             "const": "instagram"
           },
           {
+            "title": "LETTERBOXD",
+            "const": "letterboxd"
+          },
+          {
             "title": "MASTODON",
             "const": "mastodon"
           },
