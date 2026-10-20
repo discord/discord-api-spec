@@ -33132,6 +33132,24 @@
           }
         }
       },
+      "MessageEmbedAudioResponse": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "proxy_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "content_type": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
       "MessageEmbedAuthorResponse": {
         "type": "object",
         "properties": {
@@ -33282,6 +33300,9 @@
           },
           "video": {
             "$ref": "#/components/schemas/MessageEmbedVideoResponse"
+          },
+          "audio": {
+            "$ref": "#/components/schemas/MessageEmbedAudioResponse"
           },
           "footer": {
             "$ref": "#/components/schemas/MessageEmbedFooterResponse"
@@ -36839,6 +36860,36 @@
                 "$ref": "#/components/schemas/RichEmbedVideo"
               }
             ]
+          },
+          "audio": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/RichEmbedAudio"
+              }
+            ]
+          }
+        }
+      },
+      "RichEmbedAudio": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 2048,
+            "format": "uri"
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 4096
           }
         }
       },
