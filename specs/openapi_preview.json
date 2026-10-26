@@ -12701,6 +12701,14 @@
                         ]
                       }
                     ]
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1,
+                    "maxLength": 100
                   }
                 },
                 "required": [
@@ -12813,6 +12821,14 @@
                     ],
                     "maxLength": 512,
                     "format": "uri"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1,
+                    "maxLength": 100
                   }
                 }
               }
@@ -13011,6 +13027,14 @@
                     ],
                     "maxLength": 512,
                     "format": "uri"
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "minLength": 1,
+                    "maxLength": 100
                   }
                 }
               }
