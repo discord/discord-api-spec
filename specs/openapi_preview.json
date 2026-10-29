@@ -21391,6 +21391,11 @@
             "const": 15
           },
           {
+            "title": "CHANNEL_POSITION_UPDATE",
+            "description": "Channels were reordered",
+            "const": 16
+          },
+          {
             "title": "MEMBER_KICK",
             "const": 20
           },
@@ -21437,6 +21442,11 @@
           {
             "title": "ROLE_DELETE",
             "const": 32
+          },
+          {
+            "title": "ROLE_POSITION_UPDATE",
+            "description": "Roles were reordered",
+            "const": 33
           },
           {
             "title": "INVITE_CREATE",
